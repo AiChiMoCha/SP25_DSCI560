@@ -1,0 +1,1554 @@
+Gaussian processes
+
+Chuong B. Do (updated by Honglak Lee)
+
+July 17, 2019
+
+Many of the classical machine learning algorithms that we talked about during the ﬁrst
+half of this course ﬁt the following pattern: given a training set of i.i.d. examples sampled
+from some unknown distribution,
+
+1. solve a convex optimization problem in order to identify the single “best ﬁt” model for
+
+the data, and
+
+2. use this estimated model to make “best guess” predictions for future test input points.
+
+In these notes, we will talk about a diﬀerent ﬂavor of learning algorithms, known as
+Bayesian methods. Unlike classical learning algorithm, Bayesian algorithms do not at-
+tempt to identify “best-ﬁt” models of the data (or similarly, make “best guess” predictions
+for new test inputs). Instead, they compute a posterior distribution over models (or similarly,
+compute posterior predictive distributions for new test inputs). These distributions provide
+a useful way to quantify our uncertainty in model estimates, and to exploit our knowledge
+of this uncertainty in order to make more robust predictions on new test points.
+
+We focus on regression problems, where the goal is to learn a mapping from some input
+space X = Rd of d-dimensional vectors to an output space Y = R of real-valued targets.
+In particular, we will talk about a kernel-based fully Bayesian regression algorithm, known
+as Gaussian process regression. The material covered in these notes draws heavily on many
+diﬀerent topics that we discussed previously in class (namely, the probabilistic interpretation
+of linear regression1, Bayesian methods2, kernels3, and properties of multivariate Gaussians4).
+In Section 1, we provide a brief review
+of multivariate Gaussian distributions and their properties. In Section 2, we brieﬂy review
+Bayesian methods in the context of probabilistic linear regression. The central ideas under-
+lying Gaussian processes are presented in Section 3, and we derive the full Gaussian process
+regression model in Section 4.
+
+The organization of these notes is as follows.
+
+1See course lecture notes on “Supervised Learning, Discriminative Algorithms.”
+2See course lecture notes on “Regularization and Model Selection.”
+3See course lecture notes on “Support Vector Machines.”
+4See course lecture notes on “Factor Analysis.”
+
+1
+
+1 Multivariate Gaussians
+
+A vector-valued random variable x ∈ Rd is said to have a multivariate normal (or Gaus-
+sian) distribution with mean µ ∈ Rd and covariance matrix Σ ∈ Sd
+
+p(x; µ, Σ) =
+
+1
+
+(2π)d/2|Σ|1/2 exp
+
+(cid:18)
+
+−
+
+1
+2
+
+(x − µ)T Σ−1(x − µ)
+
+.
+
+(1)
+
+++ if
+(cid:19)
+
+We write this as x ∼ N (µ, Σ). Here, recall from the section notes on linear algebra that Sd
+refers to the space of symmetric positive deﬁnite n × d matrices.5
+
+++
+
+Generally speaking, Gaussian random variables are extremely useful in machine learning
+and statistics for two main reasons. First, they are extremely common when modeling “noise”
+in statistical algorithms. Quite often, noise can be considered to be the accumulation of a
+large number of small independent random perturbations aﬀecting the measurement process;
+by the Central Limit Theorem, summations of independent random variables will tend to
+“look Gaussian.” Second, Gaussian random variables are convenient for many analytical
+manipulations, because many of the integrals involving Gaussian distributions that arise in
+practice have simple closed form solutions. In the remainder of this section, we will review
+a number of useful properties of multivariate Gaussians.
+
+Consider a random vector x ∈ Rd with x ∼ N (µ, Σ). Suppose also that the variables in x
+have been partitioned into two sets xA = [x1 · · · xr]T ∈ Rr and xB = [xr+1 · · · xd]T ∈ Rd−r
+(and similarly for µ and Σ), such that
+(cid:20)xA
+xB
+
+(cid:20)ΣAA ΣAB
+ΣBA ΣBB
+
+(cid:20)µA
+µB
+
+Σ =
+
+µ =
+
+x =
+
+(cid:21)
+
+(cid:21)
+
+(cid:21)
+
+.
+
+Here, ΣAB = ΣT
+
+BA since Σ = E[(x − µ)(x − µ)T ] = ΣT . The following properties hold:
+
+1. Normalization. The density function normalizes, i.e.,
+
+(cid:90)
+
+x
+
+p(x; µ, Σ)dx = 1.
+
+This property, though seemingly trivial at ﬁrst glance, turns out to be immensely
+useful for evaluating all sorts of integrals, even ones which appear to have no relation
+to probability distributions at all (see Appendix A.1)!
+
+2. Marginalization. The marginal densities,
+
+p(xA) =
+
+p(xB) =
+
+(cid:90)
+
+xB
+
+(cid:90)
+
+xA
+
+p(xA, xB; µ, Σ)dxB
+
+p(xA, xB; µ, Σ)dxA
+
+5There are actually cases in which we would want to deal with multivariate Gaussian distributions where
+Σ is positive semideﬁnite but not positive deﬁnite (i.e., Σ is not full rank). In such cases, Σ−1 does not exist,
+so the deﬁnition of the Gaussian density given in (1) does not apply. For instance, see the course lecture
+notes on “Factor Analysis.”
+
+2
+
+are Gaussian:
+
+xA ∼ N (µA, ΣAA)
+xB ∼ N (µB, ΣBB).
+
+3. Conditioning. The conditional densities
+
+p(xA | xB) =
+
+p(xB | xA) =
+
+p(xA, xB; µ, Σ)
+p(xA, xB; µ, Σ)dxA
+p(xA, xB; µ, Σ)
+p(xA, xB; µ, Σ)dxB
+
+(cid:82)
+xA
+
+(cid:82)
+xB
+
+are also Gaussian:
+
+xA | xB ∼ N (cid:0)µA + ΣABΣ−1
+xB | xA ∼ N (cid:0)µB + ΣBAΣ−1
+
+BB(xB − µB), ΣAA − ΣABΣ−1
+AA(xA − µA), ΣBB − ΣBAΣ−1
+
+(cid:1)
+BBΣBA
+(cid:1).
+AAΣAB
+
+A proof of this property is given in Appendix A.2. (See also Appendix A.3 for an easier
+version of the derivation.)
+
+4. Summation. The sum of independent Gaussian random variables (with the same
+
+dimensionality), y ∼ N (µ, Σ) and z ∼ N (µ(cid:48), Σ(cid:48)), is also Gaussian:
+
+y + z ∼ N (µ + µ(cid:48), Σ + Σ(cid:48)).
+
+2 Bayesian linear regression
+
+Let S = {(x(i), y(i))}n
+The standard probabilistic interpretation of linear regression states that
+
+i=1 be a training set of i.i.d. examples from some unknown distribution.
+
+y(i) = θT x(i) + ε(i),
+
+i = 1, . . . , n
+
+where the ε(i) are i.i.d. “noise” variables with independent N (0, σ2) distributions. It follows
+that y(i) − θT x(i) ∼ N (0, σ2), or equivalently,
+
+P (y(i) | x(i), θ) =
+
+√
+
+1
+2πσ
+
+(cid:18)
+
+exp
+
+−
+
+(y(i) − θT x(i))2
+2σ2
+
+(cid:19)
+
+.
+
+For notational convenience, we deﬁne
+
+X =
+
+
+
+
+
+
+
+
+— (x(1))T —
+— (x(2))T —
+...
+— (x(n))T —
+
+
+
+
+
+
+
+
+∈ Rn×d
+
+(cid:126)y =
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+y(1)
+y(2)
+...
+y(n)
+
+∈ Rn
+
+(cid:126)ε =
+
+3
+
+
+
+
+
+
+
+
+∈ Rn.
+
+
+
+
+
+
+
+
+ε(1)
+ε(2)
+...
+ε(n)
+
+Figure 1: Bayesian linear regression for a one-dimensional linear regression problem, y(i) =
+θx(i) + (cid:15)(i), with (cid:15)(i) ∼ N (0, 1) i.i.d. noise. The green region denotes the 95% conﬁdence
+region for predictions of the model. Note that the (vertical) width of the green region is
+largest at the ends but narrowest in the middle. This region reﬂects the uncertain in the
+estimates for the parameter θ. In contrast, a classical linear regression model would display
+a conﬁdence region of constant width, reﬂecting only the N (0, σ2) noise in the outputs.
+
+In Bayesian linear regression, we assume that a prior distribution over parameters is
+also given; a typical choice, for instance, is θ ∼ N (0, τ 2I). Using Bayes’s rule, we obtain the
+parameter posterior,
+
+p(θ | S) =
+
+p(θ)p(S | θ)
+θ(cid:48) p(θ(cid:48))p(S | θ(cid:48))dθ(cid:48)
+
+(cid:82)
+
+=
+
+(cid:82)
+
+p(θ) (cid:81)n
+θ(cid:48) p(θ(cid:48)) (cid:81)n
+
+i=1 p(y(i) | x(i), θ)
+i=1 p(y(i) | x(i), θ(cid:48))dθ(cid:48)
+
+.
+
+(2)
+
+Assuming the same noise model on testing points as on our training points, the “output” of
+Bayesian linear regression on a new test point x∗ is not just a single guess “y∗”, but rather
+an entire probability distribution over possible outputs, known as the posterior predictive
+distribution:
+
+p(y∗ | x∗, S) =
+
+(cid:90)
+
+θ
+
+p(y∗ | x∗, θ)p(θ | S)dθ.
+
+(3)
+
+For many types of models, the integrals in (2) and (3) are diﬃcult to compute, and hence,
+we often resort to approximations, such as MAP estimation (see course lecture notes on
+“Regularization and Model Selection”).
+
+In the case of Bayesian linear regression, however, the integrals actually are tractable! In
+
+particular, for Bayesian linear regression, one can show (after much work!) that
+(cid:18) 1
+σ2 A−1X T (cid:126)y, A−1
+(cid:18) 1
+∗ A−1X T (cid:126)y, xT
+σ2 xT
+
+∗ A−1x∗ + σ2
+
+y∗ | x∗, S ∼ N
+
+θ | S ∼ N
+
+(cid:19)
+
+(cid:19)
+
+4
+
+−5−4−3−2−1012345−3−2−10123Bayesian linear regression, 95% confidence regionσ2 X T X + 1
+
+where A = 1
+τ 2 I. The derivation of these formulas is somewhat involved.6 Nonethe-
+less, from these equations, we get at least a ﬂavor of what Bayesian methods are all about: the
+posterior distribution over the test output y∗ for a test input x∗ is a Gaussian distribution—
+this distribution reﬂects the uncertainty in our predictions y∗ = θT x∗ + ε∗ arising from both
+the randomness in ε∗ and the uncertainty in our choice of parameters θ. In contrast, classical
+probabilistic linear regression models estimate parameters θ directly from the training data
+but provide no estimate of how reliable these learned parameters may be (see Figure 1).
+
+3 Gaussian processes
+
+As described in Section 1, multivariate Gaussian distributions are useful for modeling ﬁnite
+collections of real-valued variables because of their nice analytical properties. Gaussian
+processes are the extension of multivariate Gaussians to inﬁnite-sized collections of real-
+valued variables. In particular, this extension will allow us to think of Gaussian processes as
+distributions not just over random vectors but in fact distributions over random functions.7
+
+3.1 Probability distributions over functions with ﬁnite domains
+
+To understand how one might paramterize probability distributions over functions, consider
+the following simple example. Let X = {x1, . . . , xn} be any ﬁnite set of elements. Now,
+consider the set H of all possible functions mapping from X to R. For instance, one example
+of a function f0(·) ∈ H is given by
+
+f0(x1) = 5,
+
+f0(x2) = 2.3,
+
+f0(x3) = −7,
+
+. . . ,
+
+f0(xn−1) = −π,
+
+f0(xn) = 8.
+
+Since the domain of any f (·) ∈ H has only n elements, we can always represent f (·) com-
+pactly as an n-dimensional vector, (cid:126)f = (cid:2)f (x1) f (x2)
+In order to specify
+a probability distribution over functions f (·) ∈ H, we must associate some “probability
+density” with each function in H. One natural way to do this is to exploit the one-to-one
+correspondence between functions f (·) ∈ H and their vector representations, (cid:126)f . In partic-
+ular, if we specify that (cid:126)f ∼ N ((cid:126)µ, σ2I), then this in turn implies a probability distribution
+over functions f (·), whose probability density function is given by
+
+f (xn)(cid:3)T .
+
+· · ·
+
+p( (cid:126)f ) =
+
+n
+(cid:89)
+
+i=1
+
+√
+
+1
+2πσ
+
+(cid:18)
+
+exp
+
+−
+
+1
+2σ2 (f (xi) − µi)2
+
+(cid:19)
+.
+
+6For the complete derivation, see, for instance, [1]. Alternatively, read the Appendices, which gives a
+
+number of arguments based on the “completion-of-squares” trick, and derive this formula yourself!
+
+7Let H be a class of functions mapping from X → Y. A random function f (·) from H is a function which
+is randomly drawn from H, according to some probability distribution over H. One potential source of
+confusion is that you may be tempted to think of random functions as functions whose outputs are in some
+way stochastic; this is not the case. Instead, a random function f (·), once selected from H probabilistically,
+implies a deterministic mapping from inputs in X to outputs in Y.
+
+5
+
+In the example above, we showed that probability distributions over functions with ﬁnite
+domains can be represented using a ﬁnite-dimensional multivariate Gaussian distribution
+over function outputs f (x1), . . . , f (xn) at a ﬁnite number of input points x1, . . . , xn. How
+can we specify probability distributions over functions when the domain size may be inﬁnite?
+For this, we turn to a fancier type of probability distribution known as a Gaussian process.
+
+3.2 Probability distributions over functions with inﬁnite domains
+
+A stochastic process is a collection of random variables, {f (x) : x ∈ X }, indexed by elements
+from some set X , known as the index set.8 A Gaussian process is a stochastic process such
+that any ﬁnite subcollection of random variables has a multivariate Gaussian distribution.
+
+In particular, a collection of random variables {f (x) : x ∈ X } is said to be drawn from a
+Gaussian process with mean function m(·) and covariance function k(·, ·) if for any ﬁnite
+set of elements x1, . . . , xn ∈ X , the associated ﬁnite set of random variables f (x1), . . . , f (xn)
+have distribution,
+
+
+
+
+
+
+
+
+f (x1)
+...
+f (xn)
+
+
+ ∼ N
+
+
+
+
+
+
+
+
+
+
+
+m(x1)
+...
+m(xn)
+
+
+
+
+
+
+ ,
+
+
+
+
+k(x1, x1)
+...
+k(xn, x1)
+
+k(x1, xn)
+...
+
+· · ·
+. . .
+· · · k(xn, xn)
+
+
+
+
+
+
+
+.
+
+
+We denote this using the notation,
+
+f (·) ∼ GP(m(·), k(·, ·)).
+
+Observe that the mean function and covariance function are aptly named since the above
+properties imply that
+
+m(x) = E[f (x)]
+
+k(x, x(cid:48)) = E[(f (x) − m(x))(f (x(cid:48)) − m(x(cid:48)))].
+
+for any x, x(cid:48) ∈ X .
+
+Intuitively, one can think of a function f (·) drawn from a Gaussian process prior as an
+extremely high-dimensional vector drawn from an extremely high-dimensional multivariate
+Gaussian. Here, each dimension of the Gaussian corresponds to an element x from the index
+set X , and the corresponding component of the random vector represents the value of f (x).
+Using the marginalization property for multivariate Gaussians, we can obtain the marginal
+multivariate Gaussian density corresponding to any ﬁnite subcollection of variables.
+
+What sort of functions m(·) and k(·, ·) give rise to valid Gaussian processes? In general,
+any real-valued function m(·) is acceptable, but for k(·, ·), it must be the case that for any
+
+8Often, when X = R, one can interpret the indices x ∈ X as representing times, and hence the variables
+f (x) represent the temporal evolution of some random quantity over time. In the models that are used for
+Gaussian process regression, however, the index set is taken to be the input space of our regression problem.
+
+6
+
+Figure 2: Samples from a zero-mean Gaussian process prior with kSE(·, ·) covariance function,
+using (a) τ = 0.5, (b) τ = 2, and (c) τ = 10. Note that as the bandwidth parameter τ
+increases, then points which are farther away will have higher correlations than before, and
+hence the sampled functions tend to be smoother overall.
+
+set of elements x1, . . . , xn ∈ X , the resulting matrix
+
+(a)(b)(c)
+
+K =
+
+
+
+
+
+
+k(x1, x1)
+...
+k(xn, x1)
+
+k(x1, xn)
+...
+
+· · ·
+. . .
+· · · k(xn, xn)
+
+
+
+
+
+
+is a valid covariance matrix corresponding to some multivariate Gaussian distribution. A
+standard result in probability theory states that this is true provided that K is positive
+semideﬁnite. Sound familiar?
+
+The positive semideﬁniteness requirement for covariance matrices computed based on
+arbitrary input points is, in fact, identical to Mercer’s condition for kernels! A function k(·, ·)
+is a valid kernel provided the resulting kernel matrix K deﬁned as above is always positive
+semideﬁnite for any set of input points x1, . . . , xn ∈ X . Gaussian processes, therefore, are
+kernel-based probability distributions in the sense that any valid kernel function can be used
+as a covariance function!
+
+3.3 The squared exponential kernel
+
+In order to get an intuition for how Gaussian processes work, consider a simple zero-mean
+Gaussian process,
+
+f (·) ∼ GP(0, k(·, ·)).
+
+deﬁned for functions h : X → R where we take X = R. Here, we choose the kernel function
+k(·, ·) to be the squared exponential9 kernel function, deﬁned as
+
+kSE(x, x(cid:48)) = exp
+
+(cid:18)
+
+−
+
+1
+2τ 2 ||x − x(cid:48)||2
+
+(cid:19)
+
+9In the context of SVMs, we called this the Gaussian kernel; to avoid confusion with “Gaussian” processes,
+
+we refer to this kernel here as the squared exponential kernel, even though the two are formally identical.
+
+7
+
+012345678910−2.5−2−1.5−1−0.500.511.522.5Samples from GP with k(x,z) = exp(−||x−z||2 / (2*tau2)), tau = 0.500000012345678910−1.5−1−0.500.511.52Samples from GP with k(x,z) = exp(−||x−z||2 / (2*tau2)), tau = 2.000000012345678910−2−1.5−1−0.500.511.5Samples from GP with k(x,z) = exp(−||x−z||2 / (2*tau2)), tau = 10.000000for some τ > 0. What do random functions sampled from this Gaussian process look like?
+
+In our example, since we use a zero-mean Gaussian process, we would expect that for
+the function values from our Gaussian process will tend to be distributed around zero.
+Furthermore, for any pair of elements x, x(cid:48) ∈ X .
+
+• f (x) and f (x(cid:48)) will tend to have high covariance x and x(cid:48) are “nearby” in the input
+
+space (i.e., ||x − x(cid:48)|| = |x − x(cid:48)| ≈ 0, so exp(− 1
+
+2τ 2 ||x − x(cid:48)||2) ≈ 1).
+
+• f (x) and f (x(cid:48)) will tend to have low covariance when x and x(cid:48) are “far apart” (i.e.,
+
+||x − x(cid:48)|| (cid:29) 0, so exp(− 1
+
+2τ 2 ||x − x(cid:48)||2) ≈ 0).
+
+More simply stated, functions drawn from a zero-mean Gaussian process prior with the
+squared exponential kernel will tend to be “locally smooth” with high probability;
+i.e.,
+nearby function values are highly correlated, and the correlation drops oﬀ as a function of
+distance in the input space (see Figure 2).
+
+4 Gaussian process regression
+
+As discussed in the last section, Gaussian processes provide a method for modelling probabil-
+ity distributions over functions. Here, we discuss how probability distributions over functions
+can be used in the framework of Bayesian regression.
+
+4.1 The Gaussian process regression model
+
+Let S = {(x(i), y(i))}n
+In the Gaussian process regression model,
+
+i=1 be a training set of i.i.d. examples from some unknown distribution.
+
+y(i) = f (x(i)) + ε(i),
+
+i = 1, . . . , n
+
+where the ε(i) are i.i.d. “noise” variables with independent N (0, σ2) distributions. Like in
+Bayesian linear regression, we also assume a prior distribution over functions f (·); in
+particular, we assume a zero-mean Gaussian process prior,
+
+for some valid covariance function k(·, ·).
+
+f (·) ∼ GP(0, k(·, ·))
+
+Now, let T = {(x(i)
+
+∗ , y(i)
+
+∗ )}n∗
+
+i=1 be a set of i.i.d. testing points drawn from the same unknown
+
+8
+
+distribution as S.10 For notational convenience, we deﬁne
+
+X =
+
+X∗ =
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+— (x(1))T —
+— (x(2))T —
+...
+— (x(n))T —
+— (x(1)
+∗ )T —
+— (x(2)
+∗ )T —
+...
+— (x(n∗)
+
+)T —
+
+∗
+
+∈ Rn×d
+
+(cid:126)f =
+
+,
+
+(cid:126)ε =
+
+,
+
+(cid:126)y =
+
+∈ Rn,
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+f (x(1))
+f (x(2))
+...
+f (x(n))
+f (x(1)
+∗ )
+f (x(2)
+∗ )
+...
+f (x(n∗)
+∗
+
+)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ε(1)
+ε(2)
+...
+ε(n)
+ε(1)
+∗
+ε(2)
+∗
+...
+ε(n∗)
+∗
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+y(1)
+y(2)
+...
+y(n)
+y(1)
+∗
+y(2)
+∗
+...
+y(n∗)
+∗
+
+
+
+
+
+
+
+
+∈ Rn∗×d
+
+(cid:126)f∗ =
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+, (cid:126)ε∗ =
+
+
+
+
+
+
+
+
+, (cid:126)y∗ =
+
+
+
+
+
+
+
+
+∈ Rn∗.
+
+Given the training data S, the prior p(h), and the testing inputs X∗, how can we compute
+the posterior predictive distribution over the testing outputs (cid:126)y∗? For Bayesian linear regres-
+sion in Section 2, we used Bayes’s rule in order to compute the paramter posterior, which we
+then used to compute posterior predictive distribution p(y∗ | x∗, S) for a new test point x∗.
+For Gaussian process regression, however, it turns out that an even simpler solution exists!
+
+4.2 Prediction
+
+Recall that for any function f (·) drawn from our zero-mean Gaussian process prior with
+covariance function k(·, ·), the marginal distribution over any set of input points belonging
+to X must have a joint multivariate Gaussian distribution. In particular, this must hold for
+the training and test points, so we have
+
+where
+
+(cid:34) (cid:126)f
+(cid:126)f∗
+
+(cid:35)(cid:12)
+(cid:12)
+(cid:12)
+(cid:12)
+(cid:12)
+
+X, X∗ ∼ N
+
+(cid:18)
+
+(cid:126)0,
+
+(cid:20) K(X, X) K(X, X∗)
+K(X∗, X) K(X∗, X∗)
+
+(cid:21)(cid:19)
+,
+
+(cid:126)f ∈ Rn such that (cid:126)f = (cid:2)f (x(1))
+
+· · ·
+
+(cid:126)f∗ ∈ Rn∗ such that (cid:126)f∗ =
+
+(cid:104)
+
+f (x(1)
+∗ )
+
+· · ·
+
+f (x(n))(cid:3)T
+(cid:105)T
+
+f (x(n)
+∗ )
+
+K(X, X) ∈ Rn×n such that (K(X, X))ij = k(x(i), x(j))
+K(X, X∗) ∈ Rn×n∗ such that (K(X, X∗))ij = k(x(i), x(j)
+∗ )
+∗ , x(j))
+K(X∗, X) ∈ Rn∗×n such that (K(X∗, X))ij = k(x(i)
+K(X∗, X∗) ∈ Rn∗×n∗ such that (K(X∗, X∗))ij = k(x(i)
+∗ , x(j)
+∗ ).
+
+From our i.i.d. noise assumption, we have that
+
+(cid:21)
+
+(cid:20) (cid:126)ε
+(cid:126)ε∗
+
+∼ N
+
+(cid:18)
+
+(cid:126)0,
+
+(cid:20)σ2I
+(cid:126)0T
+
+(cid:21)(cid:19)
+.
+
+(cid:126)0
+σ2I
+
+10We assume also that T are S are mutually independent.
+
+9
+
+(a)(b)(c)
+
+Figure 3: Gaussian process regression using a zero-mean Gaussian process prior with kSE(·, ·)
+covariance function (where τ = 0.1), with noise level σ = 1, and (a) m = 10, (b) m = 20, and
+(c) m = 40 training examples. The blue line denotes the mean of the posterior predictive
+distribution, and the green shaded region denotes the 95% conﬁdence region based on the
+model’s variance estimates. As the number of training examples increases, the size of the
+conﬁdence region shrinks to reﬂect the diminishing uncertainty in the model estimates. Note
+also that in panel (a), the 95% conﬁdence region shrinks near training points but is much
+larger far away from training points, as one would expect.
+
+The sums of independent Gaussian random variables is also Gaussian, so
+
+(cid:20) (cid:126)y
+(cid:126)y∗
+
+(cid:21)(cid:12)
+(cid:12)
+(cid:12)
+(cid:12)
+
+X, X∗ =
+
+(cid:35)
+
+(cid:34) (cid:126)f
+(cid:126)f∗
+
++
+
+(cid:21)
+
+(cid:20) (cid:126)ε
+(cid:126)ε∗
+
+∼ N
+
+(cid:18)
+
+(cid:126)0,
+
+(cid:20)K(X, X) + σ2I
+K(X∗, X)
+
+K(X, X∗)
+K(X∗, X∗) + σ2I
+
+(cid:21)(cid:19)
+.
+
+Now, using the rules for conditioning Gaussians, it follows that
+
+(cid:126)y∗ | (cid:126)y, X, X∗ ∼ N (µ∗, Σ∗)
+
+where
+
+µ∗ = K(X∗, X) (cid:0)K(X, X) + σ2I(cid:1)−1 (cid:126)y
+Σ∗ = K(X∗, X∗) + σ2I − K(X∗, X) (cid:0)K(X, X) + σ2I(cid:1)−1 K(X, X∗).
+And that’s it! Remarkably, performing prediction in a Gaussian process regression model is
+very simple, despite the fact that Gaussian processes in themselves are fairly complicated!11
+
+5 Summary
+
+We close our discussion of our Gaussian processes by pointing out some reasons why Gaussian
+processes are an attractive model for use in regression problems and in some cases may be
+preferable to alternative models (such as linear and locally-weighted linear regression):
+
+11Interestingly, it turns out that Bayesian linear regression, when “kernelized” in the proper way, turns
+out to be exactly equivalent to Gaussian process regression! But the derivation of the posterior predictive
+distribution is far more complicated for Bayesian linear regression, and the eﬀort needed to kernelize the
+algorithm is even greater. The Gaussian process perspective is certainly much easier!
+
+10
+
+012345678910−2.5−2−1.5−1−0.500.511.5Gaussian process regression, 95% confidence region012345678910−2.5−2−1.5−1−0.500.511.5Gaussian process regression, 95% confidence region012345678910−2.5−2−1.5−1−0.500.511.5Gaussian process regression, 95% confidence region1. As Bayesian methods, Gaussian process models allow one to quantify uncertainty in
+predictions resulting not just from intrinsic noise in the problem but also the errors
+in the parameter estimation procedure. Furthermore, many methods for model selec-
+tion and hyperparameter selection in Bayesian methods are immediately applicable to
+Gaussian processes (though we did not address any of these advanced topics here).
+
+2. Like locally-weighted linear regression, Gaussian process regression is non-parametric
+
+and hence can model essentially arbitrary functions of the input points.
+
+3. Gaussian process regression models provide a natural way to introduce kernels into a
+regression modeling framework. By careful choice of kernels, Gaussian process regres-
+sion models can sometimes take advantage of structure in the data (though, we also
+did not examine this issue here).
+
+4. Gaussian process regression models, though perhaps somewhat tricky to understand
+conceptually, nonetheless lead to simple and straightforward linear algebra implemen-
+tations.
+
+References
+
+[1] Carl E. Rasmussen and Christopher K. I. Williams. Gaussian Processes for Machine
+
+Learning. MIT Press, 2006. Online: http://www.gaussianprocess.org/gpml/
+
+11
+
+Appendix A.1
+
+In this example, we show how the normalization property for multivariate Gaussians can be
+used to compute rather intimidating multidimensional integrals without performing any real
+calculus! Suppose you wanted to compute the following multidimensional integral,
+
+I(A, b, c) =
+
+(cid:90)
+
+x
+
+(cid:18)
+
+exp
+
+−
+
+1
+2
+
+xT Ax − xT b − c
+
+(cid:19)
+
+dx,
+
+for some A ∈ Sn
+++, b ∈ Rn, and c ∈ R. Although one could conceivably perform the
+multidimensional integration directly (good luck!), a much simpler line of reasoning is based
+on a mathematical trick known as “completion-of-squares.” In particular,
+
+I(A, b, c) = exp (−c) ·
+
+= exp (−c) ·
+
+(cid:18)
+
+exp
+
+−
+
+(cid:18)
+
+exp
+
+−
+
+(cid:90)
+
+x
+(cid:90)
+
+x
+
+= exp (cid:0)−c − bT A−1b(cid:1) ·
+
+1
+2
+1
+2
+(cid:90)
+
+xT Ax − xT AA−1b
+
+(cid:19)
+
+dx
+
+(x − A−1b)T A(x − A−1b) − bT A−1b
+
+(cid:19)
+
+dx
+
+(cid:18)
+
+exp
+
+−
+
+1
+2
+
+(x − A−1b)T A(x − A−1b)
+
+(cid:19)
+
+x
+
+dx.
+
+(cid:21)
+
+(cid:19)
+
+Deﬁning µ = A−1b and Σ = A−1, it follows that I(A, b, c) is equal to
+
+(2π)n/2|Σ|1/2
+exp (c + bT A−1b)
+
+·
+
+(cid:20)
+
+1
+(2π)n/2|Σ|1/2
+
+(cid:90)
+
+x
+
+(cid:18)
+
+exp
+
+−
+
+1
+2
+
+(x − µ)T Σ−1(x − µ)
+
+dx
+
+.
+
+However, the term in brackets is identical in form to the integral of a multivariate Gaussian!
+Since we know that a Gaussian density normalizes, it follows that the term in brackets is
+equal to 1. Therefore,
+
+I(A, b, c) =
+
+(2π)n/2|A−1|1/2
+exp (c + bT A−1b)
+
+.
+
+Appendix A.2
+
+We derive the form of the distribution of xA given xB; the other result follows immediately
+by symmetry. Note that
+
+p(xA | xB) =
+
+(cid:82)
+
+xA
+
+1
+
+p(xA, xB; µ, Σ)dxA
+
+(cid:20)
+
+·
+
+=
+
+1
+Z1
+
+(cid:40)
+
+exp
+
+−
+
+(cid:21)
+
+(cid:18)(cid:20)xA
+xB
+
+1
+2
+
+−
+
+(cid:20)µA
+µB
+
+1
+
+(2π)n/2|Σ|1/2 exp
+(cid:21)(cid:19)T (cid:20)VAA VAB
+VBA VBB
+
+(cid:18)
+
+−
+
+1
+2
+(cid:21) (cid:18)(cid:20)xA
+xB
+
+(cid:21)(cid:19)(cid:41)
+
+(cid:21)
+
+−
+
+(cid:20)µA
+µB
+
+(x − µ)T Σ−1(x − µ)
+
+(cid:19)(cid:21)
+
+where Z1 is a proportionality constant which does not depend on xA, and
+
+Σ−1 = V =
+
+(cid:21)
+
+(cid:20)VAA VAB
+VBA VBB
+
+.
+
+12
+
+To simplify this expression, observe that
+
+(cid:21)
+
+(cid:18)(cid:20)xA
+xB
+
+−
+
+(cid:20)µA
+µB
+
+(cid:21)(cid:19)T (cid:20)VAA VAB
+VBA VBB
+
+(cid:21) (cid:18)(cid:20)xA
+xB
+
+(cid:21)
+
+−
+
+(cid:20)µA
+µB
+
+(cid:21)(cid:19)
+
+= (xA − µA)T VAA(xA − µA) + (xA − µA)T VAB(xB − µB)
+
++ (xB − µB)T VBA(xA − µA) + (xB − µB)T VBB(xB − µB).
+
+Retaining only terms dependent on xA (and using the fact that VAB = V T
+
+BA), we have
+
+p(xA | xB) =
+
+1
+Z2
+
+(cid:18)
+
+exp
+
+−
+
+1
+2
+
+(cid:2)xT
+
+AVAAxA − 2xT
+
+AVAAµA + 2xT
+
+AVAB(xB − µB)(cid:3)
+
+(cid:19)
+
+where Z2 is a new proportionality constant which again does not depend on xA. Finally,
+using the “completion-of-squares” argument (see Appendix A.1), we have
+
+p(xA | xB) =
+
+1
+Z3
+
+(cid:18)
+
+exp
+
+−
+
+1
+2
+
+(xA − µ(cid:48))T VAA(xA − µ(cid:48))
+
+(cid:19)
+
+where Z3 is again a new proportionality constant not depending on xA, and where µ(cid:48) =
+µA − V −1
+AA VAB(xB − µB). This last statement shows that the distribution of xA, conditioned
+on xB, again has the form of a multivariate Gaussian.
+In fact, from the normalization
+property, it follows immediately that
+
+xA | xB ∼ N (µA − V −1
+
+AA VAB(xB − µB), V −1
+
+AA ).
+
+To complete the proof, we simply note that
+(cid:20)VAA VAB
+VBA VBB
+
+BBΣBA(ΣAA − ΣABΣ−1
+
+(ΣAA − ΣABΣ−1
+
+(cid:20)
+−Σ−1
+
+=
+
+(cid:21)
+
+BBΣBA)−1
+
+BBΣBA)−1
+
+−(ΣAA − ΣABΣ−1
+
+(ΣBB − ΣBAΣ−1
+
+BBΣBA)−1ΣABΣ−1
+AAΣAB)−1
+
+BB
+
+(cid:21)
+
+follows from standard formulas for the inverse of a partitioned matrix. Substituting the
+relevant blocks into the previous expression gives the desired result.
+
+Appendix A.3
+
+In this section, we present an alternative (and easier) derivation of the conditional distri-
+bution of multivariate Gaussian distribution. Note that, as in Appendix A.2, we can write
+p(xA | xB) as following:
+
+p(xA | xB) =
+
+(cid:82)
+
+xA
+
+1
+
+(cid:40)
+
+p(xA, xB; µ, Σ)dxA
+(cid:18)(cid:20)xA − µA
+xB − µB
+
+1
+2
+
+−
+
+exp
+
+=
+
+1
+Z1
+
+(cid:20)
+
+·
+
+(cid:18)
+
+1
+
+(2π)n/2|Σ|1/2 exp
+(cid:21)(cid:19)T (cid:20)VAA VAB
+VBA VBB
+
+−
+
+1
+2
+(cid:21) (cid:20)xA − µA
+xB − µB
+
+(cid:21)(cid:41)
+
+(x − µ)T Σ−1(x − µ)
+
+(cid:19)(cid:21)
+
+(4)
+
+(5)
+
+13
+
+where Z1 is a proportionality constant which does not depend on xA.
+
+This derivation uses an additional assumption that the conditional distribution is a mul-
+tivariate Gaussian distribution; in other words, we assume that p(xA | xB) ∼ N (µ∗, Σ∗) for
+some µ∗, Σ∗. (Alternatively, you can think about this derivation as another way of ﬁnding
+“completion-of-squares”.)
+
+The key intuition in this derivation is that p(xA | xB) will be maximized when xA = µ∗ (cid:44)
+x∗
+A. To maximize p(xA | xB), we compute the gradient of log p(xA | xB) w.r.t. xA and set it
+to zero. Using Equation (5), we have
+
+∇xA log p(xA | xB)|xA=x∗
+= −VAA(x∗
+= 0.
+
+A
+
+A − µA) − VAB(xB − µB)
+
+This implies that
+
+µ∗ = x∗
+
+A = µA − V −1
+
+AA VAB(xB − µB).
+
+(6)
+
+(7)
+(8)
+
+(9)
+
+Similarly, we use the fact that the inverse covariance matrix of a Gaussian distribution
+p(·) is a negative Hessian of log p(·).
+In other words, the inverse covariance matrix of a
+Gaussian distribution p(xA|xB) is a negative Hessian of log p(xA|xB). Using Equation (5),
+we have
+
+Therefore, we get
+
+Σ∗−1 = −∇xA∇T
+xA
+= VAA.
+
+log p(xA | xB)
+
+Σ∗ = V −1
+AA .
+
+(10)
+(11)
+
+(12)
+
+14
+
+

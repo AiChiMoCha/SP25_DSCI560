@@ -1,0 +1,1815 @@
+More on Multivariate Gaussians
+
+Chuong B. Do
+
+July 10, 2019
+
+Up to this point in class, you have seen multivariate Gaussians arise in a number of appli-
+cations, such as the probabilistic interpretation of linear regression, Gaussian discriminant
+analysis, mixture of Gaussians clustering, and most recently, factor analysis. In these lec-
+ture notes, we attempt to demystify some of the fancier properties of multivariate Gaussians
+that were introduced in the recent factor analysis lecture. The goal of these notes is to give
+you some intuition into where these properties come from, so that you can use them with
+conﬁdence on your homework (hint hint!) and beyond.
+
+1 Deﬁnition
+
+A vector-valued random variable x
+sian) distribution with mean µ
+density function is given by
+
+∈
+∈
+
+Rd is said to have a multivariate normal (or Gaus-
+1 if its probability
+Rd and covariance matrix Σ
+
+Sd
+
+++
+
+∈
+
+p(x; µ, Σ) =
+
+1
+(2π)d/2
+
+Σ
+|
+
+|
+
+1/2 exp
+
+1
+2
+
+(x
+
+−
+
+−
+
+(cid:18)
+
+µ)T Σ−1(x
+
+−
+
+µ)
+
+.
+
+(cid:19)
+
+We write this as x
+
+(µ, Σ).
+
+∼ N
+
+2 Gaussian facts
+
+Multivariate Gaussians turn out to be extremely handy in practice due to the following facts:
+
+•
+
+Fact #1: If you know the mean µ and covariance matrix Σ of a Gaussian random
+variable x, you can write down the probability density function for x directly.
+
+1Recall from the section notes on linear algebra that Sd
+
+++ is the space of symmetric positive deﬁnite n
+
+matrices, deﬁned as
+
+d
+
+×
+
+Rd×d : A = AT and xT Ax > 0 for all x
+
+Sd
+
+++ =
+
+A
+
+∈
+
+(cid:8)
+
+Rd such that x
+
+= 0
+
+.
+
+∈
+
+(cid:9)
+
+1
+
+6
+•
+
+•
+
+Fact #2: The following Gaussian integrals have closed-form solutions:
+
+∞
+
+∞
+
+p(x; µ, Σ)dx =
+
+Zx∈Rd
+
+Z
+xip(x; µ, σ2)dx = µi
+
+µj)p(x; µ, σ2)dx = Σij.
+
+Zx∈Rd
+µi)(xj −
+
+(xi −
+
+Zx∈Rd
+
+−∞ · · ·
+
+p(x; µ, Σ)dx1 . . . dxd = 1
+
+−∞
+
+Z
+
+Fact #3: Gaussians obey a number of closure properties:
+
+– The sum of independent Gaussian random variables is Gaussian.
+
+– The marginal of a joint Gaussian distribution is Gaussian.
+
+– The conditional of a joint Gaussian distribution is Gaussian.
+
+At ﬁrst glance, some of these facts, in particular facts #1 and #2, may seem either
+intuitively obvious or at least plausible. What is probably not so clear, however, is why
+these facts are so powerful. In this document, we’ll provide some intuition for how these facts
+can be used when performing day-to-day manipulations dealing with multivariate Gaussian
+random variables.
+
+3 Closure properties
+
+In this section, we’ll go through each of the closure properties described earlier, and we’ll
+either prove the property using facts #1 and #2, or we’ll at least give some type of intuition
+as to why the property is true.
+
+The following is a quick roadmap of what we’ll cover:
+
+why is it Gaussian?
+resulting density function
+
+no
+yes
+
+yes
+yes
+
+sums marginals
+
+conditionals
+yes
+yes
+
+3.1 Sum of independent Gaussians is Gaussian
+
+The formal statement of this rule is:
+
+Suppose that y
+∼ N
+tributed random variables, where µ, µ′
+is also Gaussian:
+
+(µ, Σ) and z
+
+∼ N
+∈
+
+(µ′, Σ′) are independent Gaussian dis-
+Rd and Σ, Σ′
+++. Then, their sum
+
+Sd
+
+∈
+
+y + z
+
+∼ N
+
+(µ + µ′, Σ + Σ′).
+
+Before we prove anything, here are some observations:
+
+2
+
+(
+
+∼ N
+−
+
+1. The ﬁrst thing to point out is that the importance of the independence assumption in
+(µ, Σ) for some mean
+y. Clearly, z also has a
+
+the above rule. To see why this matters, suppose that y
+vector µ and covariance matrix Σ, and suppose that z =
+Gaussian distribution (in fact, z
+
+µ, Σ), but y + z is identically zero!
+
+∼ N
+2. The second thing to point out is a point of confusion for many students:
+
+if we add
+together two Gaussian densities (“bumps” in multidimensional space), wouldn’t we get
+back some bimodal (i.e., “two-humped” density)? Here, the thing to realize is that the
+density of the random variable y + z in this rule is NOT found by simply adding the
+densities of the individual random variables y and z. Rather, the density of y + z will
+actually turn out to be a convolution of the densities for y and z.2 To show that the
+convolution of two Gaussian densities gives a Gaussian density, however, is beyond the
+scope of this class.
+
+−
+
+Instead, let’s just use the observation that the convolution does give some type of Gaus-
+µ, Σ) would be, if
+sian density, along with Fact #1, to ﬁgure out what the density, p(y + z
+we were to actually compute the convolution. How can we do this? Recall that from Fact
+#1, a Gaussian distribution is fully speciﬁed by its mean vector and covariance matrix. If
+we can determine what these are, then we’re done.
+
+|
+
+But this is easy! For the mean, we have
+
+E[yi + zi] = E[yi] + E[zi] = µi + µ′
+i
+
+from linearity of expectations. Therefore, the mean of y + z is simply µ + µ′. Also, the
+(i, j)th entry of the covariance matrix is given by
+
+E[(yi + zi)(yj + zj)]
+
+E[yi + zi]E[yj + zj]
+
+−
+
+= E[yiyj + ziyj + yizj + zizj]
+= E[yiyj] + E[ziyj] + E[yizj] + E[zizj]
+= (E[yiyj]
+
+E[yi]E[yj]) + (E[zizj]
+
+−
+
+(E[yi] + E[zi])(E[yj] + E[zj])
+E[yi]E[yj]
+
+E[zi]E[yj]
+
+−
+
+E[zi]E[zj])
+
+−
+
+−
+
+−
+
+E[yi]E[zj]
+
+E[zi][zj]
+
+−
+
+−
+
++ (E[ziyj]
+
+E[zi]E[yj]) + (E[yizj]
+
+E[yi]E[zj]).
+
+−
+Using the fact that y and z are independent, we have E[ziyj] = E[zi]E[yj] and E[yizj] =
+E[yi]E[zj]. Therefore, the last two terms drop out, and we are left with,
+
+−
+
+E[(yi + zi)(yj + zj)]
+= (E[yiyj]
+= Σij + Σ′
+
+−
+ij.
+
+−
+
+E[yi + zi]E[yj + zj]
+
+E[yi]E[yj]) + (E[zizj]
+
+E[zi]E[zj])
+
+−
+
+2For example, if y and z were univariate Gaussians (i.e., y
+
+convolution of their probability densities is given by
+
+(µ, σ2), z
+
+∼ N
+
+∼ N
+
+(µ′, σ′2
+
+)), then the
+
+p(y + z; µ, µ′, σ2, σ′2
+
+) =
+
+=
+
+∞
+
+Z
+
+−∞
+∞
+
+−∞
+
+Z
+
+p(w; µ, σ2)p(y + z
+
+w; µ′, σ′2
+
+)dw
+
+−
+
+1
+√2πσ
+
+exp
+
+−
+
+(cid:18)
+
+1
+2σ2 (w
+
+−
+
+µ)2
+
+·
+
+(cid:19)
+
+1
+
+√2πσ′ exp
+
+−
+
+(cid:18)
+
+1
+2σ′2 (y + z
+
+w
+
+−
+
+−
+
+µ′)2
+
+dw
+
+(cid:19)
+
+3
+
+From this, we can conclude that the covariance matrix of y + z is simply Σ + Σ′.
+
+At this point, take a step back and think about what we have just done. Using some
+simple properties of expectations and independence, we have computed the mean and co-
+variance matrix of y + z. Because of Fact #1, we can thus write down the density for y + z
+immediately, without the need to perform a convolution!3
+
+3.2 Marginal of a joint Gaussian is Gaussian
+
+The formal statement of this rule is:
+
+Suppose that
+
+ΣAA ΣAB
+ΣBA ΣBB(cid:21)(cid:19)
+(cid:20)
+Rd, and the dimensions of the mean vectors and covariance
+where xA ∈
+matrix subblocks are chosen to match xA and xB. Then, the marginal densities,
+
+Rn, xB ∈
+
+µA
+µB(cid:21)
+
+xA
+xB(cid:21)
+
+∼ N
+
+(cid:18)(cid:20)
+
+(cid:20)
+
+,
+
+,
+
+are Gaussian:
+
+p(xA) =
+
+p(xB) =
+
+ZxB∈Rd
+
+ZxA∈Rn
+
+p(xA, xB; µ, Σ)dxB
+
+p(xA, xB; µ, Σ)dxA
+
+xA ∼ N
+xB ∼ N
+
+(µA, ΣAA)
+(µB, ΣBB).
+
+To justify this rule, let’s just focus on the marginal distribution with respect to the variables
+xA.4
+
+First, note that computing the mean and covariance matrix for a marginal distribution
+is easy: simply take the corresponding subblocks from the mean and covariance matrix of
+the joint density. To make sure this is absolutely clear, let’s look at the covariance between
+xA,i and xA,j (the ith component of xA and the jth component of xA). Note that xA,i and
+xA,j are also the ith and jth components of
+
+xA
+xB(cid:21)
+
+(cid:20)
+
+3Of course, we needed to know that y + z had a Gaussian distribution in the ﬁrst place.
+4In general, for a random vector x which has a Gaussian distribution, we can always permute entries of
+x so long as we permute the entries of the mean vector and the rows/columns of the covariance matrix in
+the corresponding way. As a result, it suﬃces to look only at xA, and the result for xB follows immediately.
+
+4
+
+(since xA appears at the top of this vector). To ﬁnd their covariance, we need to simply look
+at the (i, j)th element of the covariance matrix,
+
+.
+
+ΣAA ΣAB
+ΣBA ΣBB(cid:21)
+The (i, j)th element is found in the ΣAA subblock, and in fact, is precisely ΣAA,ij. Using
+, we see that the covariance matrix for xA is simply
+this argument for all i, j
+}
+ΣAA. A similar argument can be used to ﬁnd that the mean of xA is simply µA. Thus, the
+above argument tells us that if we knew that the marginal distribution over xA is Gaussian,
+then we could immediately write down a density function for xA in terms of the appropriate
+submatrices of the mean and covariance matrices for the joint density!
+
+1, . . . , m
+
+∈ {
+
+(cid:20)
+
+The above argument, though simple, however, is somewhat unsatisfying: how can we
+actually be sure that xA has a multivariate Gaussian distribution? The argument for this
+is slightly long-winded, so rather than saving up the punchline, here’s our plan of attack up
+front:
+
+1. Write the integral form of the marginal density explicitly.
+
+2. Rewrite the integral by partitioning the inverse covariance matrix.
+
+3. Use a “completion-of-squares” argument to evaluate the integral over xB.
+
+4. Argue that the resulting density is Gaussian.
+
+Let’s see each of these steps in action.
+
+3.2.1 The marginal density in integral form
+
+Suppose that we wanted to compute the density function of xA directly. Then, we would
+need to compute the integral,
+
+p(xA) =
+
+ZxB∈Rd
+
+p(xA, xB; µ, Σ)dxB
+
+=
+
+1
+
+1/2
+
+n+n
+2
+
+(2π)
+
+ΣAA ΣAB
+ΣBA ΣBB(cid:12)
+(cid:12)
+(cid:12)
+(cid:12)
+3.2.2 Partitioning the inverse covariance matrix
+
+ZxB∈Rd
+
+(cid:12)
+(cid:12)
+(cid:12)
+(cid:12)
+
+(cid:20)
+
+exp
+
+1
+2
+
+ −
+
+xA −
+xB −
+
+µA
+µB(cid:21)
+
+−1
+
+T
+
+ΣAA ΣAB
+ΣBA ΣBB(cid:21)
+
+(cid:20)
+
+xA −
+xB −
+
+µA
+µB(cid:21)!
+
+(cid:20)
+
+dxB.
+
+To make any sort of progress, we’ll need to write the matrix product in the exponent in a
+slightly diﬀerent form. In particular, let us deﬁne the matrix V
+
+R(m+n)×(m+n) as5
+
+∈
+
+5Sometimes, V is called the “precision” matrix.
+
+V =
+
+VAA VAB
+VBA VBB(cid:21)
+
+(cid:20)
+
+= Σ−1.
+
+5
+
+It might be tempting to think that
+
+V =
+
+VAA VAB
+VBA VBB(cid:21)
+
+ΣAA ΣAB
+ΣBA ΣBB(cid:21)
+However, the rightmost equality does not hold! We’ll return to this issue in a later step; for
+now, though, it suﬃces to deﬁne V as above without worrying what actual contents of each
+submatrix are.
+
+AA Σ−1
+BA Σ−1
+
+AB
+BB(cid:21)
+
+Σ−1
+Σ−1
+
+“=”
+
+=
+
+(cid:20)
+
+(cid:20)
+
+(cid:20)
+
+−1
+
+Using this deﬁnition of V , the integral expands to
+
+p(xA) =
+
+1
+Z
+
+exp
+
+ZxB∈Rd
+
+1
+2
+
+−
+
+(cid:16)
+
+h
+
+µA)T VAA(xA −
+
+µA) +
+
+1
+2
+
+µA)T VAB(xB −
+
+µB)
+
++
+
+(xB −
+
+µB)T VBA(xA −
+where Z is some constant not depending on either xA or xB that we’ll choose to ignore for
+the moment. If you haven’t worked with partitioned matrices before, then the expansion
+above may seem a little magical to you. It is analogous to the idea that when deﬁning a
+quadratic form based on some 2
+
+µB)T VBB(xB −
+
+2 matrix A, then
+
+(xB −
+
+µA) +
+
+µB)
+
+i(cid:17)
+
+dxB,
+
+(xA −
+1
+2
+
+(xA −
+1
+2
+
+×
+
+xT Ax =
+
+Aijxixj = x1A11x1 + x1A12x2 + x2A21x1 + x2A22x2.
+
+i
+X
+
+j
+X
+
+Take some time to convince yourself that the matrix generalization above also holds.
+
+3.2.3
+
+Integrating out xB
+
+To evaluate the integral, we’ll somehow want to integrate out xB.
+In general, however,
+Gaussian integrals are hard to compute by hand. Is there anything we can do to save time?
+There are, in fact, a number of Gaussian integrals for which the answer is already known
+(see Fact #2). The basic idea in this section, then, will be to transform the integral we had
+in the last section into a form where we can apply one of the results from Fact #2 in order
+to perform the required integration easily.
+
+The key to this is a mathematical trick known as “completion of squares.” Consider the
+quadratic function zT Az + bT z + c where A is a symmetric, nonsingular matrix. Then, one
+can verify directly that
+
+1
+2
+
+zT Az + bT z + c =
+
+1
+2
+
+z + A−1b
+
+T A
+
+z + A−1b
+
++ c
+
+1
+2
+
+−
+
+bT A−1b.
+
+(cid:1)
+This is the multivariate generalization of the “completion of squares” argument used in single
+variable algebra:
+
+(cid:0)
+
+(cid:1)
+
+(cid:0)
+
+1
+2
+
+az2 + bz + c =
+
+2
+
+b
+a
+
+(cid:19)
+
++ c
+
+−
+
+b2
+2a
+
+1
+2
+
+a
+
+z +
+
+(cid:18)
+
+6
+
+To apply the completion of squares in our situation above, let
+
+µB
+
+z = xB −
+A = VBB
+b = VBA(xA −
+(xA −
+c =
+
+1
+2
+
+µA)
+
+µA)T VAA(xA −
+
+µA).
+
+Then, it follows that the integral can be rewritten as
+
+p(xA) =
+
+1
+Z
+
+exp
+
+ −"
+
+ZxB∈Rd
+
+1
+2
+
+xB −
+
+µB + V −1
+
+BBVBA(xA −
+
+µA)
+
+T
+
+VBB
+
+xB −
+
+µB + V −1
+
+BBVBA(xA −
+
+µA)
+
+(cid:0)
++
+
+1
+2
+
+(xA −
+
+µA)T VAA(xA −
+
+µA)
+
+−
+
+(cid:1)
+1
+2
+
+(cid:0)
+(xA −
+
+µA)T VABV −1
+
+BBVBA(xA −
+
+µA)
+
+(cid:1)
+
+#!
+
+dxB
+
+We can factor out the terms not including xB to obtain,
+
+p(xA) = exp
+
+(cid:18)
+1
+Z
+
+·
+
+1
+2
+
+−
+
+(xA −
+
+ZxB ∈Rd
+
+µA)T VAA(xA −
+1
+2 "
+(cid:0)
+
+xB −
+
+ −
+
+exp
+
+µA) +
+
+1
+2
+
+(xA −
+
+µA)T VABV −1
+
+BBVBA(xA −
+
+µA)
+
+µB + V −1
+
+BBVBA(xA −
+
+µA)
+
+T
+
+VBB
+
+xB −
+
+(cid:1)
+
+(cid:0)
+
+(cid:19)
+µB + V −1
+BBVBA(xA −
+
+dxB
+
+µA)
+
+#!
+
+(cid:1)
+
+At this point, we can now apply Fact #2. In particular, we know that generically speaking,
+for a multivariate Gaussian distributed random variable x with mean µ and covariance matrix
+Σ, the density function normalizes, i.e.,
+
+1
+(2π)d/2
+
+1/2
+
+Σ
+|
+
+|
+
+Rd
+
+Z
+
+exp
+
+−
+
+(cid:18)
+
+1
+2
+
+(x
+
+−
+
+µ)T Σ−1(x
+
+−
+
+µ)
+
+= 1,
+
+(cid:19)
+
+or equivalently,
+
+exp
+
+−
+
+(cid:18)
+
+Rd
+
+Z
+
+1
+2
+
+(x
+
+−
+
+µ)T Σ−1(x
+
+−
+
+µ)
+
+= (2π)d/2
+
+(cid:19)
+
+1/2.
+
+Σ
+|
+
+|
+
+We use this fact to get rid of the remaining integral in our expression for p(xA):
+
+p(xA) =
+
+1
+Z ·
+
+(2π)d/2
+
+1/2
+
+VBB|
+
+|
+
+exp
+
+·
+
+1
+2
+
+−
+
+(cid:18)
+
+(xA −
+
+µA)T (VAA −
+
+VABV −1
+
+BBVBA)(xA −
+
+µA)
+
+.
+
+(cid:19)
+
+3.2.4 Arguing that resulting density is Gaussian
+
+At this point, we are almost done! Ignoring the normalization constant in front, we see that
+the density of xA is the exponential of a quadratic form in xA. We can quickly recognize
+that our density is none other than a Gaussian with mean vector µA and covariance matrix
+BBVBA)−1. Although the form of the covariance matrix may seem a bit complex,
+(VAA −
+
+VABV −1
+
+7
+
+we have already achieved what we set out to show in the ﬁrst place—namely, that xA has a
+marginal Gaussian distribution. Using the logic before, we can conclude that this covariance
+matrix must somehow reduce to ΣAA.
+
+But, in case you are curious, it’s also possible to show that our derivation is consistent
+with this earlier justiﬁcation. To do this, we use the following result for partitioned matrices:
+
+A B
+C D
+
+(cid:20)
+
+−1
+
+=
+
+(cid:21)
+
+(cid:20)
+
+−
+
+M −1
+
+M −1BD−1
+
+−
+D−1CM −1 D−1 + D−1CM −1BD−1
+
+.
+
+(cid:21)
+
+BD−1C. This formula can be thought of as the multivariable generalization
+
+where M = A
+−
+of the explicit inverse for a 2
+
+2 matrix,
+
+×
+
+−1
+
+a b
+c d
+
+(cid:20)
+
+(cid:21)
+
+=
+
+ad
+
+1
+
+−
+
+bc
+
+d
+c
+
+−
+
+(cid:20)
+
+b
+−
+a
+
+.
+
+(cid:21)
+
+Using the formula, it follows that
+
+−1
+
+ΣAA ΣAB
+ΣBA ΣBB(cid:21)
+
+(cid:20)
+
+=
+
+=
+
+(cid:20)
+
+(cid:20)
+
+VAA VAB
+VBA VBB(cid:21)
+(VAA −
+V −1
+BBVBA(VAA −
+
+−
+
+VABV −1
+
+BBVBA)−1
+VABV −1
+
+BBVBA)−1
+
+(VAA −
+
+−
+
+(VBB −
+
+VABV −1
+
+BBVBA)−1VABV −1
+AA VAB)−1
+
+VBAV −1
+
+BB
+
+(cid:21)
+
+We immediately see that (VAA −
+
+VABV −1
+
+BBVBA)−1 = ΣAA, just as we expected!
+
+3.3 Conditional of a joint Gaussian is Gaussian
+
+The formal statement of this rule is:
+
+Suppose that
+
+ΣAA ΣAB
+ΣBA ΣBB(cid:21)(cid:19)
+(cid:20)
+Rd, and the dimensions of the mean vectors and covariance
+where xA ∈
+matrix subblocks are chosen to match xA and xB. Then, the conditional densities
+
+Rn, xB ∈
+
+µA
+µB(cid:21)
+
+xA
+xB(cid:21)
+
+∼ N
+
+(cid:18)(cid:20)
+
+(cid:20)
+
+,
+
+,
+
+p(xA |
+
+xB) =
+
+p(xB |
+
+xA) =
+
+R
+
+p(xA, xB; µ, Σ)
+xA∈Rn p(xA, xB; µ, Σ)dxA
+p(xA, xB; µ, Σ)
+xB∈Rd p(xA, xB; µ, Σ)dxB
+
+are also Gaussian:
+
+R
+
+xA |
+xB |
+
+xB ∼ N
+xA ∼ N
+
+µA + ΣABΣ−1
+µB + ΣBAΣ−1
+(cid:0)
+
+(cid:0)
+
+BB(xB −
+AA(xA −
+8
+
+µB), ΣAA −
+µA), ΣBB −
+
+ΣABΣ−1
+ΣBAΣ−1
+
+BBΣBA
+AAΣAB
+
+.
+(cid:1)
+
+(cid:1)
+
+As before, we’ll just examine the conditional distribution xB |
+hold by symmetry. Our plan of attack will be as follows:
+
+xA, and the other result will
+
+1. Write the form of the conditional density explicitly.
+
+2. Rewrite the expression by partitioning the inverse covariance matrix.
+
+3. Use a “completion-of-squares” argument.
+
+4. Argue that the resulting density is Gaussian.
+
+Let’s see each of these steps in action.
+
+3.3.1 The conditional density written explicitly
+
+Suppose that we wanted to compute the density function of xB given xA directly. Then, we
+would need to compute
+
+p(xB |
+
+xA) =
+
+p(xA, xB; µ, Σ)
+xB∈Rn p(xA, xB; µ, Σ)dxA
+T
+1
+R
+Z ′ exp
+
+1
+2
+
+=
+
+µA
+µB(cid:21)
+where Z ′ is a normalization constant that we used to absorb factors not depending on xB.
+Note that this time, we don’t even need to compute any integrals – the value of the integral
+does not depend on xB, and hence the integral can be folded into the normalization constant
+Z ′.
+
+ΣAA ΣAB
+ΣBA ΣBB(cid:21)
+
+µA
+µB(cid:21)!
+
+xA −
+xB −
+
+xA −
+xB −
+
+ −
+
+(cid:20)
+
+(cid:20)
+
+(cid:20)
+
+−1
+
+3.3.2 Partitioning the inverse covariance matrix
+
+As before, we reparameterize our density using the matrix V , to obtain
+
+p(xB |
+
+xA) =
+
+=
+
+1
+Z ′ exp
+1
+Z ′ exp
+
+ −
+
+−
+
+h
+
+(cid:16)
+
+1
+2
+
+xA −
+xB −
+(cid:20)
+(xA −
+1
++
+2
+
+1
+2
+
+T
+
+µA
+µB(cid:21)
+(cid:20)
+µA)T VAA(xA −
+
+VAA VAB
+VBA VBB(cid:21) (cid:20)
+µA) +
+
+xA −
+xB −
+1
+2
+
+(xB −
+
+µB)T VBA(xA −
+
+µA) +
+
+µA
+µB(cid:21)!
+
+(xA −
+1
+2
+
+(xB −
+
+µA)T VAB(xB −
+
+µB)
+
+µB)T VBB(xB −
+
+µB)
+
+.
+
+i(cid:17)
+
+3.3.3 Use a “completion of squares” argument
+
+Recall that
+
+1
+2
+
+zT Az + bT z + c =
+
+1
+2
+
+z + A−1b
+
+T A
+
+z + A−1b
+
++ c
+
+1
+2
+
+−
+
+bT A−1b
+
+(cid:0)
+
+(cid:1)
+
+(cid:0)
+
+(cid:1)
+
+9
+
+provided A is a symmetric, nonsingular matrix. As before, to apply the completion of squares
+in our situation above, let
+
+µB
+
+z = xB −
+A = VBB
+b = VBA(xA −
+c =
+(xA −
+
+1
+2
+
+µA)
+
+µA)T VAA(xA −
+
+µA).
+
+Then, it follows that the expression for p(xB |
+1
+2
+
+1
+Z′ exp
+
+µB + V −1
+
+p(xB |
+
+xB −
+
+xA) =
+
+BBVBA(xA −
+
+ −"
+
+xA) can be rewritten as
+
+µA)
+
+T
+
+VBB
+
+xB −
+
+µB + V −1
+
+BBVBA(xA −
+
+µA)
+
+(cid:0)
++
+
+1
+2
+
+(xA −
+
+µA)T VAA(xA −
+
+µA)
+
+−
+
+(cid:1)
+1
+2
+
+(cid:0)
+(xA −
+
+µA)T VABV −1
+
+BBVBA(xA −
+
+µA)
+
+(cid:1)
+
+#!
+
+Absorbing the portion of the exponent which does not depend on xB into the normalization
+constant, we have
+
+p(xB |
+
+xA) =
+
+1
+Z′′ exp
+
+ −
+
+1
+2
+
+(cid:0)
+
+xB −
+
+µB + V −1
+
+BBVBA(xA −
+
+µA)
+
+T
+
+VBB
+
+xB −
+
+µB + V −1
+
+BBVBA(xA −
+
+µA)
+
+(cid:1)
+
+(cid:0)
+
+!
+
+(cid:1)
+
+3.3.4 Arguing that resulting density is Gaussian
+Looking at the last form, p(xB |
+V −1
+BBVBA(xA −
+ΣAA ΣAB
+ΣBA ΣBB(cid:21)
+
+(VAA −
+V −1
+BBVBA(VAA −
+
+µA) and covariance matrix V −1
+
+BBVBA)−1
+VABV −1
+
+BBVBA)−1
+
+VABV −1
+
+−
+
+−
+
+=
+
+(cid:20)
+
+(cid:20)
+
+xA) has the form of a Gaussian density with mean µB −
+BB. As before, recall our matrix identity,
+
+(VAA −
+
+(VBB −
+
+VABV −1
+
+BBVBA)−1VABV −1
+AA VAB)−1
+
+VBAV −1
+
+BB
+
+.
+
+(cid:21)
+
+From this, it follows that
+
+µB|A = µB −
+
+V −1
+BBVBA(xA −
+
+µA) = µB + ΣBAΣ−1
+
+AA(xA −
+
+µA).
+
+Conversely, we can also apply our matrix identity to obtain:
+
+=
+
+VAA VAB
+VBA VBB(cid:21)
+(cid:20)
+from which it follows that
+
+(ΣAA −
+Σ−1
+BBΣBA(ΣAA −
+
+−
+
+(cid:20)
+
+ΣABΣ−1
+
+BBΣBA)−1
+ΣABΣ−1
+
+BBΣBA)−1
+
+(ΣAA −
+
+−
+
+(ΣBB −
+
+ΣABΣ−1
+
+BBΣBA)−1ΣABΣ−1
+AAΣAB)−1
+
+ΣBAΣ−1
+
+BB
+
+,
+
+(cid:21)
+
+ΣB|A = V −1
+
+BB = ΣBB −
+
+ΣBAΣ−1
+
+AAΣAB.
+
+And, we’re done!
+
+10
+
+4 Summary
+
+In these notes, we used a few simple properties of multivariate Gaussians (plus a couple
+matrix algebra tricks) in order to argue that multivariate Gaussians satisfy a number of
+closure properties. In general, multivariate Gaussians are exceedingly useful representations
+of probability distributions because the closure properties ensure that most of the types
+of operations we would ever want to perform using a multivariate Gaussian can be done
+in closed form. Analytically, integrals involving multivariate Gaussians are often nice in
+practice since we can rely on known Gaussian integrals to avoid having to ever perform the
+integration ourselves.
+
+5 Exercise
+
+Test your understanding! Let A
+and c. Prove that
+
+∈
+
+Rd×d be a symmetric nonsingular square matrix, b
+
+Rd,
+
+∈
+
+exp
+
+1
+2
+
+−
+
+(cid:18)
+
+Zx∈Rd
+
+xT Ax
+
+xT b
+
+−
+
+dx =
+
+−
+
+c
+(cid:19)
+
+(2π)d/2
+
+1/2 exp(c
+
+A
+|
+
+|
+
+−
+
+bT A−1b)
+
+.
+
+References
+
+For more information on multivariate Gaussians, see
+
+Bishop, Christopher M. Pattern Recognition and Machine Learning. Springer,
+2006.
+
+11
+
+

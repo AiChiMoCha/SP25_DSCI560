@@ -1,0 +1,1007 @@
+Bias-Variance Analysis:
+Theory and Practice
+
+Anand Avati
+
+1
+
+Introduction
+
+In this set of notes, we will explore the fundamental Bias-Variance tradeoﬀ
+in Statistics and Machine Learning under the squared error loss. The con-
+cepts of Bias and Variance are slightly diﬀerent in the contexts of Statistics
+vs Machine Learning, though the two are closely related in spirit. We will
+ﬁrst start with the classical notions from Statistics, using Linear Regression
+with L2-regularization as a case study. The simplicity of Linear Regression
+allows us to derive closed form expressions for the Bias and Variance terms
+and appreciate the tradeoﬀ better. Then we will study the notion of Bias and
+Variance and their decomposition in the context of Machine Learning (pre-
+diction), and see the connections to the classical notions using L2-regularized
+Linear Regression as an example.
+
+Throughout this document we will use the following notation. We are
+given an i.i.d. data set S = {(x(i), y(i))}n
+i=1 that was generated from some
+data generating probability distribution having some unknown (constant)
+parameter θ∗ ∈ Rd. Here x(i) ∈ Rd and y(i) ∈ R. For notational convenience,
+let X ∈ Rn×d denote the design matrix, and (cid:126)y ∈ Rn the vector of labels. In
+the case of regression X is considered given (constant).
+
+2 Bias and Variance in Statistical Inference
+
+We start with the classical setting of statistical inference. Our goal in sta-
+tistical inference is to construct an estimator for the unknown parameter θ∗
+given the observed data set S.
+
+1
+
+Let us indicate our estimator as ˆθn, where n is the size of the dataset
+used to ﬁt the model. For example, in the case of Linear Regression, ˆθn =
+(X T X)−1X T (cid:126)y. Note that ˆθn is a random variable even though θ∗ was not.
+This is because ˆθn is a (deterministic) function of the noisy data set S, where
+noise is typically in the labels (cid:126)y. It is worth noting that the randomness in ˆθn
+therefore indirectly depends on θ∗, due to this noise. The distribution of ˆθn
+is commonly called the Sampling distribution. The Bias and Variance of the
+estimator ˆθn are just the (centered) ﬁrst and second moments of its sampling
+distribution.
+
+We call Bias(ˆθn) ≡ E[ˆθn − θ∗] the Bias of the estimator ˆθn. The estimator
+
+ˆθn is called Unbiased if E[ˆθn − θ∗] = 0 (i.e. E[ˆθn] = θ∗) for all values of θ∗.
+
+Similarly, we call Var(ˆθn) ≡ Cov[ˆθn] the Variance of the estimator. Note
+that, unlike Bias, the Variance of the estimator does not directly depend on
+the true parameter θ∗.
+
+The Bias and Variance of an estimator are not necessarily directly related
+(just as how the ﬁrst and second moment of any distribution are not neces-
+sarily related). It is possible to have estimators that have high or low bias
+and have either high or low variance. Under the squared error, the Bias and
+Variance of an estimator are related as:
+(cid:107)ˆθn − θ∗(cid:107)2(cid:105)
+(cid:104)
+(cid:104)
+(cid:107)ˆθn − E[ˆθn] + E[ˆθn] − θ∗(cid:107)2(cid:105)
+
+(cid:107)ˆθn − E[ˆθn](cid:107)2 + (cid:107)E[ˆθn] − θ∗(cid:107)2
+(cid:125)
+
++2(ˆθn − E[ˆθn]
+(cid:125)
+
+)T (E[ˆθn] − θ∗)
+
+MSE(ˆθn) = E
+
+= E
+
+= E
+
+
+
+
+
+(cid:124)
+
+(cid:124)
+
+(cid:123)(cid:122)
+Constant
+
+(cid:123)(cid:122)
+Zero Mean
+
+(cid:104)
+
+= E
+
+= E
+
+= tr
+
+(cid:104)
+
+(cid:107)ˆθn − E[ˆθn](cid:107)2(cid:105)
+
++ (cid:107)E[ˆθn] − θ∗(cid:107)2
+(ˆθn − E[ˆθn])(ˆθn − E[ˆθn])T (cid:105)(cid:105)
+(cid:104)
++ (cid:107)Bias(ˆθn)(cid:107)2.
+
+tr
+(cid:104)
+Var(ˆθn)
+
+(cid:105)
+
++ (cid:107)E[ˆθn] − θ∗(cid:107)2
+
+It is quite often the case that techniques employed to reduce Variance results
+in an increase in Bias, and vice versa. This phenomenon is called the Bias
+Variance Tradeoﬀ. Balancing the two evils (Bias and Variance) in an optimal
+way is at the heart of successful model development. Now we will do a case
+study of Linear Regression with L2-regularization, where this trade-oﬀ can
+be easily formalized.
+
+2
+
+2.1 Bias Variance Tradeoﬀ in Linear Regression with
+
+L2-regularization
+
+Recall that in Linear Regression we make the assumption y(i) = θ∗T x(i) +
+(cid:15)(i) where each (cid:15)(i) ∼ N (0, τ 2) i.i.d.. We assume X is given, and hence
+constant. For notational simplicity let (cid:126)(cid:15) ∈ Rn ∼ N ((cid:126)0, τ 2I) where (cid:126)(cid:15)i = (cid:15)(i).
+So, (cid:126)y = Xθ∗ + (cid:126)(cid:15). Recall that Linear Regression with L2-regularization (with
+regularization parameter λ > 0) minimizes the cost function
+
+J(θ) =
+
+λ
+2
+
+(cid:107)θ(cid:107)2
+
+2 +
+
+1
+2
+
+n
+(cid:88)
+
+i=1
+
+(cid:0)y(i) − θT x(i)(cid:1)2
+
+,
+
+and enjoys a closed form solution
+
+ˆθn = arg min
+θ∈Rd
+
+J(θ)
+
+(cid:35)
+
+(cid:0)y(i) − θT x(i)(cid:1)2
+
+n
+(cid:88)
+
+i=1
+
+(cid:34)
+
+1
+2
+
+2 +
+
+(cid:107)θ(cid:107)2
+
+= arg min
+θ∈Rd
+
+λ
+2
+(cid:20)λ
+1
+2
+2
+= (X T X + λI)−1X T (cid:126)y.
+
+= arg min
+θ∈Rd
+
+(cid:107)θ(cid:107)2
+
+2 +
+
+(cid:21)
+
+(cid:107)Xθ − (cid:126)y(cid:107)2
+2
+
+Consider the eigendecomposition of the symmetric Positive Semi Deﬁnite
+(PSD) matrix X T X :
+
+X T X = U
+
+
+
+
+
+
+(cid:124)
+
+σ2
+1
+...
+0
+
+. . .
+0
+...
+. . .
+. . . σ2
+d
+(cid:123)(cid:122)
+d)
+diag(σ2
+1,...,σ2
+
+U T ,
+
+
+
+
+
+
+(cid:125)
+
+where U T U = U U T = I, and {σ2
+d} are the eigenvalues, where
+i could be 0. However, even when X (and hence X T X) is not
+some of the σ2
+full rank, (X T X + λI) is always symmetric and Positive Deﬁnite (PD) since
+we are adding λ > 0 to all the diagonal elements of X T X:
+
+2, . . . , σ2
+
+1, σ2
+
+X T X + λI = U
+
+
+
+
+
+
+σ2
+1 + λ . . .
+...
+. . .
+. . . σ2
+0
+
+0
+...
+d + λ
+
+
+ U T .
+
+
+3
+
+This implies
+
+(cid:0)X T X + λI(cid:1)−1
+
+= U
+
+
+
+
+
+
+1
+σ2
+1+λ
+...
+0
+
+. . .
+. . .
+. . .
+
+
+ U T .
+
+
+0
+...
+
+1
+σ2
+d+λ
+
+Therefore ˆθn always exists and is unique. Now we analyze the Bias and
+Variance of ˆθn. We start with the expression for the estimator
+
+ˆθn = (X T X + λI)−1X T (cid:126)y
+
+= (X T X + λI)−1X T (Xθ∗ + (cid:126)(cid:15))
+
+(cid:104)(cid:0)X T X + λI(cid:1)−1
+
+=
+
+X T X
+
+(cid:105)
+
+θ∗ +
+
+(cid:104)(cid:0)X T X + λI(cid:1)−1
+
+X T (cid:105)
+
+(cid:126)(cid:15)
+
+To compute the Bias of this model, we take the expectation of the above and
+observe that (remember, X is considered constant in regression):
+
+E[ˆθn] = E
+
+(cid:105)
+
+X T X
+(cid:105)
+
+X T X
+
+θ∗ +
+
+X T X
+
+θ∗ +
+
+θ∗ +
+(cid:104)(cid:0)X T X + λI(cid:1)−1
+(cid:104)(cid:0)X T X + λI(cid:1)−1
+
+(cid:104)(cid:0)X T X + λI(cid:1)−1
+X T (cid:105)
+X T (cid:105)(cid:126)0
+
+X T (cid:105)
+
+(cid:105)
+(cid:126)(cid:15)
+
+E [(cid:126)(cid:15)]
+
+(cid:105)
+
+(cid:105)
+
+X T X
+
+θ∗
+
+(cid:104)(cid:104)(cid:0)X T X + λI(cid:1)−1
+(cid:104)(cid:0)X T X + λI(cid:1)−1
+(cid:104)(cid:0)X T X + λI(cid:1)−1
+(cid:104)(cid:0)X T X + λI(cid:1)−1
+
+=
+
+=
+
+=
+
+= U
+
+= U
+
+= U
+
+= U
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1
+σ2
+1+λ
+...
+0
+
+1
+σ2
+1+λ
+...
+0
+
+1
+σ2
+1+λ
+...
+0
+
+σ2
+1
+σ2
+1+λ
+...
+0
+
+. . .
+. . .
+. . .
+
+. . .
+. . .
+. . .
+
+. . .
+. . .
+. . .
+
+. . .
+. . .
+. . .
+
+0
+...
+
+1
+σ2
+d+λ
+0
+...
+
+1
+σ2
+d+λ
+0
+...
+
+1
+σ2
+d+λ
+
+0
+...
+
+σ2
+d
+σ2
+d+λ
+
+
+ U T θ∗
+
+
+. . .
+0
+...
+. . .
+. . . σ2
+d
+
+ U T θ∗
+
+
+. . .
+0
+...
+. . .
+. . . σ2
+d
+
+
+ U T X T Xθ∗
+
+
+
+ U T U
+
+
+
+
+
+
+
+σ2
+1
+...
+0
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+σ2
+1
+...
+0
+
+U T θ∗.
+
+4
+
+From the above, we can make a few observations. First, when λ = 0, we
+see that E[ˆθn] = θ∗. This implies that standard linear regression estimator
+(without regularization) is Unbiased. Second, the above expression is essen-
+tially a “shrunk” θ∗ because all the eigenvalues of the matrix are less than
+one. In fact, the more regularization we add (i.e. larger λ), the smaller the
+eigenvalues will be, and hence the stronger the “shrinkage” towards 0. This
+implies that the estimator ˆθn of L2-regularized Linear Regression is Biased
+(towards 0 in this case).
+
+Though we paid the price of adding regularization in the form of having a
+Biased estimator, we do however gain something in return: reduced variance.
+In order to analyze the variance of the estimator ˆθn, ﬁrst recall the following
+property of multivariate Gaussians:
+
+If (cid:126)(cid:15) ∼ N ((cid:126)0, τ 2I), then A(cid:126)(cid:15) ∼ N ((cid:126)0, A(τ 2I)AT ).
+
+This gives us (again, remember X is given, and hence constant in regression):
+
+Cov[ˆθn] = Cov
+
+= Cov
+
+(cid:104)(cid:0)X T X + λI(cid:1)−1
+(cid:104)(cid:0)X T X + λI(cid:1)−1
+
+
+(cid:105)
+
+X T (cid:126)y
+
+(cid:105)
+X T (Xθ∗ + (cid:126)(cid:15))
+
+
+
+
+
+
+X T
+(cid:126)(cid:15)
+(cid:125)
+
+
+
+(using above property)
+
+. . .
+0
+...
+. . .
+. . . σ2
+d
+
+
+ U T U
+
+
+
+
+
+
+
+1
+σ2
+1+λ
+...
+0
+
+. . .
+. . .
+. . .
+
+
+ U T
+
+
+0
+...
+
+1
+σ2
+d+λ
+
+(cid:0)X T X + λI(cid:1)−1
+(cid:124)
+
+(cid:123)(cid:122)
+Constant
+
+
+
+=
+
++
+
+
+
+= Cov
+
+= Cov
+
+X T (cid:17)
+
+(cid:123)(cid:122)
+Constant
+
+X T Xθ∗
+(cid:125)
+(cid:105)
+(cid:126)(cid:15)
+(cid:104)(cid:0)X T X + λI(cid:1)−1
+X (cid:0)X T X + λI(cid:1)−1(cid:105)
+(cid:104)
+
+(cid:0)X T X + λI(cid:1)−1
+(cid:124)
+(cid:104)(cid:16)(cid:0)X T X + λI(cid:1)−1
+X T (cid:105)
+X T (cid:105)
+=
+= τ 2 (cid:0)X T X + λI(cid:1)−1 (cid:0)X T X(cid:1) (cid:0)X T X + λI(cid:1)−1
+0
+...
+
+(cid:104)(cid:0)X T X + λI(cid:1)−1
+(cid:104)(cid:0)X T X + λI(cid:1)−1
+
+
+ U T U
+
+
+= τ 2 U
+
+Cov[(cid:126)(cid:15)]
+
+τ 2I
+
+
+
+
+
+
+
+
+
+
+
+1
+σ2
+1+λ
+...
+0
+
+. . .
+. . .
+. . .
+
+σ2
+1
+...
+0
+
+X T (cid:105)T
+
+= U
+
+
+
+
+
+
+
+(σ2
+
+τ 2σ2
+1
+1+λ)2
+...
+0
+
+. . .
+. . .
+. . .
+
+1
+σ2
+d+λ
+
+0
+...
+
+τ 2σ2
+d
+d+λ)2
+
+(σ2
+
+
+
+
+
+
+
+U T .
+
+5
+
+From the above expression we observe that as we add more regularization
+larger λ), the smaller the spectrum (i.e. all the eigenvalues) of the
+(i.e.
+covariance of the estimator ˆθn, and hence smaller tr
+
+(cid:105)
+Var(ˆθn)
+.
+
+(cid:104)
+
+Thus we clearly see the Bias Variance trade-oﬀ as a function of λ. The
+larger the value of λ, the higher the Bias (undesirable) but also smaller the
+Variance (desirable) of ˆθn, and vice versa. There exists a sweet spot for λ
+that minimizes the sum of the two evils, and ﬁnding that sweet spot is better
+explained in the context of prediction, which is the next section.
+
+3 Bias and Variance in Prediction
+
+In a prediction (Supervised Machine Learning) setting, our goals are diﬀerent
+Instead of constructing an estimator ˆθn for the
+from statistical inference.
+unknown parameter, we wish to learn a function f that can predict y given x
+well (with respect to some loss function). As before, we are given a training
+set S = {(x(i), y(i))}n
+i=1. We make the assumption that y = f (x) + (cid:15), where (cid:15)
+satisﬁes E[(cid:15)] = 0 and V[(cid:15)] = τ 2 ((cid:15) is not necessarily Gaussian). Further, we
+deﬁne (not assume) the “true” f as
+
+f (x(cid:48)) ≡ E[y|x = x(cid:48)].
+
+Our task now is to construct a hypothesis ˆfn given a ﬁxed size training set S
+that mimics f well on all future unseen examples. In other words, ˆfn needs
+to have good generalization error. We will only consider the case where the
+generalization error is the expected squared error loss on an unseen example.
+Suppose ˆfn is obtained with some (unspeciﬁed) training process over S.
+As before, note that ˆfn is random, and the randomness comes due to the (cid:15)(i)’s
+embedded in the training set examples. Consider a new unseen example pair
+(y∗, x∗) and the corresponding generalization error, where the expectation is
+over the randomness in (cid:15) embedded in the test example, and in ˆfn:
+
+MSE( ˆfn) = E
+
+= E
+
+(cid:20)(cid:16)
+
+(cid:20)(cid:16)
+
+y∗ − ˆfn(x∗)
+
+(cid:17)2(cid:21)
+
+(cid:15) + f (x∗) − ˆfn(x∗)
+
+(cid:17)2(cid:21)
+
+6
+
+(cid:20)(cid:16)
+
+(cid:20)(cid:16)
+
+(cid:20)(cid:16)
+
+f (x∗) − ˆfn(x∗)
+
+(cid:17)2(cid:21)
+
++ E
+
+(cid:104)
+
+(cid:105)
+2(cid:15)(f (x∗) − ˆfn(x∗))
+
+f (x∗) − ˆfn(x∗)
+
+(cid:17)2(cid:21)
+
+f (x∗) − ˆfn(x∗)
+
+(cid:17)2(cid:21)
+
++ E [(cid:15)]
+(cid:124)(cid:123)(cid:122)(cid:125)
+= 0
+
+E
+
+(cid:104)
+
+(cid:105)
+2(f (x∗) − ˆfn(x∗))
+
+(i.i.d. (cid:15))
+
+= E (cid:2)(cid:15)2(cid:3) + E
+
+= E (cid:2)(cid:15)2(cid:3) + E
+
+= E (cid:2)(cid:15)2(cid:3) + E
+
+= E (cid:2)(cid:15)2(cid:3) + E
+
+(cid:104)
+f (x∗) − ˆfn(x∗)
+
+(cid:105)2
+
++ V
+(cid:105)2
+(cid:104) ˆfn(x∗) − f (x∗)
+(cid:123)(cid:122)
+Bias2
+
+(cid:125)
+
+(cid:104)
+
+(cid:105)
+
+(E[X 2] = V[X] + E[X]2)
+
+(V[a − X] = V[X])
+
+f (x∗) − ˆfn(x∗)
+(cid:105)
+(cid:104) ˆfn(x∗)
+(cid:123)(cid:122)
+Variance
+
++ V
+(cid:124)
+
+(cid:125)
+
+=
+
+τ 2
+(cid:124)(cid:123)(cid:122)(cid:125)
+Irreducible error
+
++ E
+(cid:124)
+
+The above decomposition suggests similarities with the statistical infer-
+ence setting. The Bias and Variance are, as before, just the (centered) ﬁrst
+and second moments of ˆfn (skipping x∗ in the notation). Bias of ˆfn at input
+x∗ is deﬁned as E[ ˆfn − f ] , and Variance is V[ ˆfn]. Such a clean decomposition
+into Bias and Variance terms exists only for the squared error loss. Proposals
+have been made for more general losses, though none are widely accepted.
+
+3.1 Prediction with L2-regularized Linear Regression
+
+Now let us tie all this back to the case of L2-regularized Linear Regression.
+Let us assume f (x) = θ∗T x where θ∗ is the true unknown parameter. Now
+n x where ˆθn is the L2-regularized Linear Regression estimator. We
+ˆfn(x) = ˆθT
+can see the relation between the Bias and Variance terms of prediction and
+of inference as follows:
+
+Bias( ˆfn) = E[ ˆfn(x) − f (x)]
+= E[ˆθT
+n x − θ∗T x]
+= E[ˆθn − θ∗]T x
+= Bias(ˆθn)T x.
+Var(ˆθn)
+
+x.
+
+(cid:105)
+
+(and similarly) Var( ˆfn) = xT (cid:104)
+
+The irreducible error appears only in the prediction setting, as it is an artifact
+of the noise in the test example (there is no such test example in the inference
+setting). In other words, the noise in the training data contributes to the
+
+7
+
+Variance term, and the noise in the test example manifests itself as the
+irreducible error term.
+
+In order to minimize the generalization error, we need to reduce one
+or more of the decomposed components. There is nothing we can do to
+reduce irreducible error, since it is just noise in the data (i.e., the same x
+could have diﬀerent y values in diﬀerent examples). Thus we are left with
+balancing the Bias and Variance terms. In the case of L2-regularized Linear
+Regression, we could consider adjusting the λ value. In the inference setting,
+we saw that increasing λ reduces the Variance but increases the Bias. This
+tradeoﬀ directly translates into the prediction setting as well, based on the
+above relations. Back then it was not clear what might be a good sweet
+spot for setting the λ value. However in the prediction setting, there is an
+obvious answer: choose λ to be the value that minimizes the squared error
+(generalization error) in cross-validation.
+
+4 Bias and Variance in practice
+
+To wrap things up, we can relate the Bias Variance decomposition to the
+commonly used terms overﬁtting and underﬁtting in the following informal
+way:
+
+• Overﬁtting relates to having a High Variance model or estimator. To
+ﬁght overﬁtting, we need to focus on reducing the Variance of the esti-
+mator, such as: increase regularization, obtain larger data set, decrease
+number of features, use a smaller model, etc.
+
+• Underﬁtting relates to having a High Bias model or estimator. To ﬁght
+underﬁtting, we need to focus on reducing the Bias in the estimator,
+such as: decrease regularization, use more features, use a larger model,
+etc.
+
+The ﬁrst step in improving generalization error is to characterize which com-
+ponent in the decomposition has the highest contribution, and go after that
+component. Unfortunately there is no theoretically sound yet tractable way
+of calculating the breakdown. However there are certain heuristics that are
+extremely useful. Loosely speaking:
+
+• Training error can be treated as the amount of Bias in the model or
+estimator. If the model is unable to ﬁt the training data itself well, then
+it is likely that the model has High Bias. This is the underﬁtting regime.
+
+8
+
+• Gap between cross-validation error and Training error can be treated as
+the Variance of the model or the estimator. If the Training error is low
+but the Cross Validation error is high, it is very likely that model has
+High Variance. This is the overﬁtting regime.
+
+We should always analyze the model performance by looking at the train-
+ing error and cross-validation error simultaneously. This is the only tractable
+(albeit heuristic) way to obtain an estimate of the Bias and Variance compo-
+nents. Only then should we take steps that are targeted towards addressing
+either Bias or Variance purposefully.
+
+Steps taken to ﬁght overﬁtting (i.e. ﬁght High Variance) generally do not
+necessarily help ﬁght underﬁtting (i.e. High Bias). For example, it is futile
+to spend time and resources in obtaining more data (technique to ﬁght High
+Variance) when the training error itself is high (symptom of High Bias).
+
+Similarly steps taken to ﬁght underﬁtting (i.e. ﬁght High Bias) generally
+do not necessarily help ﬁght overﬁtting (i.e. High Variance). For example,
+it is futile to switch to a larger neural network (technique to ﬁght High
+Bias) when the gap between cross-validation error and training error is high
+(symptom of High Variance).
+
+Many times steps taken to ﬁght one (either High Bias or High Variance)
+can end up worsening the other. This is essentially how the Bias Variance
+trade-oﬀ is encountered in practice.
+
+9
+
+

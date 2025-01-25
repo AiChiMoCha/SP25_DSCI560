@@ -1,0 +1,1942 @@
+The Multivariate Gaussian Distribution
+
+Chuong B. Do
+
+July 10, 2019
+
+A vector-valued random variable X =
+
+X1 · · ·
+normal (or Gaussian) distribution with mean µ
+(cid:2)
+if its probability density function2 is given by
+
+T
+
+Xd
+
+is said to have a multivariate
+1
+
+Rd and covariance matrix Σ
+(cid:3)
+
+Sd
+
+++
+
+∈
+
+∈
+
+p(x; µ, Σ) =
+
+1
+(2π)d/2
+
+Σ
+|
+
+|
+
+1/2 exp
+
+1
+2
+
+(x
+
+−
+
+−
+
+(cid:18)
+
+µ)T Σ−
+
+1(x
+
+−
+
+µ)
+
+.
+
+(cid:19)
+
+We write this as X
+∼ N
+of their basic properties.
+
+(µ, Σ). In these notes, we describe multivariate Gaussians and some
+
+1 Relationship to univariate Gaussians
+
+Recall that the density function of a univariate normal (or Gaussian) distribution is
+given by
+
+p(x; µ, σ2) =
+
+1
+√2πσ
+
+exp
+
+1
+2σ2 (x
+
+−
+
+µ)2
+
+.
+
+(cid:19)
+
+−
+
+(cid:18)
+
+µ)2, is a quadratic function of the
+Here, the argument of the exponential function,
+variable x. Furthermore, the parabola points downwards, as the coeﬃcient of the quadratic
+1
+, is a constant that does not depend on x;
+term is negative. The coeﬃcient in front,
+√2πσ
+hence, we can think of it as simply a “normalization factor” used to ensure that
+
+1
+2σ2 (x
+
+−
+
+−
+
+1
+√2πσ
+
+∞
+
+exp
+
+Z
+
+−∞
+
+−
+
+(cid:18)
+
+1
+2σ2 (x
+
+−
+
+µ)2
+
+= 1.
+
+(cid:19)
+
+1Recall from the section notes on linear algebra that Sd
+
+++ is the space of symmetric positive deﬁnite n
+
+matrices, deﬁned as
+
+d
+
+×
+
+Sd
+
+++ =
+
+A
+
+∈
+
+Rd×d
+
+: A = AT
+
+and xT Ax > 0 for all x
+
+Rd
+
+∈
+
+such that x
+
+= 0
+
+.
+
+(cid:9)
+
+(cid:8)
+2In these notes, we use the notation p(
+
+notes on probability theory).
+
+) to denote density functions, instead of fX (
+•
+
+) (as in the section
+•
+
+1
+
+6
+0.9
+
+0.8
+
+0.7
+
+0.6
+
+0.5
+
+0.4
+
+0.3
+
+0.2
+
+0.1
+
+0
+
+0
+
+0.02
+
+0.015
+
+0.01
+
+0.005
+
+0
+10
+
+1
+
+2
+
+3
+
+4
+
+5
+
+6
+
+7
+
+8
+
+9
+
+10
+
+−10
+
+−10
+
+5
+
+0
+
+−5
+
+10
+
+5
+
+0
+
+−5
+
+Figure 1: The ﬁgure on the left shows a univariate Gaussian density for a single variable X.
+The ﬁgure on the right shows a multivariate Gaussian density over two variables X1 and X2.
+
+µ)T Σ−
+
+In the case of the multivariate Gaussian density, the argument of the exponential function,
+1
+µ), is a quadratic form in the vector variable x. Since Σ is positive
+2(x
+−
+deﬁnite, and since the inverse of any positive deﬁnite matrix is also positive deﬁnite, then
+for any non-zero vector z, zT Σ−
+
+1z > 0. This implies that for any vector x
+
+= µ,
+
+1(x
+
+−
+
+−
+
+(x
+
+(x
+
+−
+
+−
+
+1
+2
+
+−
+
+µ)T Σ−
+
+1(x
+
+µ)T Σ−
+
+1(x
+
+µ) > 0
+
+µ) < 0.
+
+−
+
+−
+
+Like in the univariate case, you can think of the argument of the exponential function as
+1/2 ) has an
+being a downward opening quadratic bowl. The coeﬃcient in front (i.e.,
+|
+even more complicated form than in the univariate case. However, it still does not depend
+on x, and hence it is again simply a normalization factor used to ensure that
+
+1
+(2π)d/2
+
+Σ
+|
+
+1
+(2π)d/2
+
+∞
+
+∞
+
+1/2
+
+Σ
+|
+
+|
+
+Z
+
+−∞ Z
+
+−∞
+
+· · ·
+
+∞
+
+exp
+
+Z
+
+−∞
+
+1
+2
+
+(x
+
+−
+
+−
+
+(cid:18)
+
+µ)T Σ−
+
+1(x
+
+µ)
+
+−
+
+(cid:19)
+
+dx1dx2 · · ·
+
+dxd = 1.
+
+2 The covariance matrix
+
+The concept of the covariance matrix is vital to understanding multivariate Gaussian
+distributions. Recall that for a pair of random variables X and Y , their covariance is
+deﬁned as
+
+Cov[X, Y ] = E[(X
+
+E[X])(Y
+
+E[Y ])] = E[XY ]
+
+E[X]E[Y ].
+
+−
+When working with multiple variables, the covariance matrix provides a succinct way to
+In particular, the covariance matrix,
+summarize the covariances of all pairs of variables.
+which we usually denote as Σ, is the n
+
+d matrix whose (i, j)th entry is Cov[Xi, Xj].
+
+−
+
+−
+
+×
+
+2
+
+6
+The following proposition (whose proof is provided in the Appendix A.1) gives an alter-
+
+native way to characterize the covariance matrix of a random vector X:
+
+Proposition 1. For any random vector X with mean µ and covariance matrix Σ,
+
+Σ = E[(X
+
+µ)(X
+
+−
+
+−
+
+µ)T ] = E[XX T ]
+
+µµT .
+
+−
+
+(1)
+
+In the deﬁnition of multivariate Gaussians, we required that the covariance matrix Σ
+++). Why does this restriction exist? As seen
+be symmetric positive deﬁnite (i.e., Σ
+in the following proposition, the covariance matrix of any random vector must always be
+symmetric positive semideﬁnite:
+
+Sd
+
+∈
+
+Proposition 2. Suppose that Σ is the covariance matrix corresponding to some random
+vector X. Then Σ is symmetric positive semideﬁnite.
+
+Proof. The symmetry of Σ follows immediately from its deﬁnition. Next, for any vector
+z
+
+Rd, observe that
+
+∈
+
+d
+
+d
+
+zT Σz =
+
+(Σijzizj)
+
+=
+
+=
+
+i=1
+X
+d
+
+j=1
+X
+d
+
+i=1
+X
+d
+
+j=1
+X
+d
+
+i=1
+X
+
+j=1
+X
+d
+
+(Cov[Xi, Xj]
+
+zizj)
+
+·
+
+(E[(Xi −
+
+E[Xi])(Xj −
+
+E[Xj])]
+
+zizj)
+
+·
+
+d
+
+= E
+
+(Xi −
+
+j=1
+X
+
+"
+
+i=1
+X
+
+E[Xi])(Xj −
+
+E[Xj])
+
+zizj
+
+·
+
+.
+
+#
+
+(2)
+
+(3)
+
+Here, (2) follows from the formula for expanding a quadratic form (see section notes on linear
+algebra), and (3) follows by linearity of expectations (see probability notes).
+
+i
+
+j xixjzizj = (xT z)2
+
+To complete the proof, observe that the quantity inside the brackets is of the form
+0 (see problem set #1). Therefore, the quantity inside the
+expectation is always nonnegative, and hence the expectation itself must be nonnegative.
+P
+We conclude that zT Σz
+
+P
+
+≥
+
+0.
+
+≥
+
+From the above proposition it follows that Σ must be symmetric positive semideﬁnite in
+1 to exist (as required in
+order for it to be a valid covariance matrix. However, in order for Σ−
+the deﬁnition of the multivariate Gaussian density), then Σ must be invertible and hence full
+rank. Since any full rank symmetric positive semideﬁnite matrix is necessarily symmetric
+positive deﬁnite, it follows that Σ must be symmetric positive deﬁnite.
+
+3
+
+σ2
+0
+1
+0 σ2
+2(cid:12)
+(cid:12)
+1
+(cid:12)
+(cid:12)
+σ2
+2 −
+
+(cid:12)
+(cid:12)
+(cid:12)
+(cid:12)
+2π(σ2
+1 ·
+
+3 The diagonal covariance matrix case
+
+To get an intuition for what a multivariate Gaussian is, consider the simple case where n = 2,
+and where the covariance matrix Σ is diagonal, i.e.,
+
+x =
+
+x1
+x2(cid:21)
+
+(cid:20)
+
+µ =
+
+µ1
+µ2(cid:21)
+
+(cid:20)
+
+Σ =
+
+σ2
+0
+1
+0 σ2
+2(cid:21)
+
+(cid:20)
+
+In this case, the multivariate Gaussian density has the form,
+
+p(x; µ, Σ) =
+
+2π
+
+1
+
+1/2 exp
+
+T
+
+1
+2
+
+x1 −
+x2 −
+
+µ1
+µ2(cid:21)
+
+(cid:20)
+
+σ2
+0
+1
+0 σ2
+2(cid:21)
+
+(cid:20)
+
+1
+
+−
+
+x1 −
+x2 −
+
+µ1
+µ2(cid:21)!
+
+(cid:20)
+
+ −
+
+=
+
+x1 −
+µ1
+µ2(cid:21)!
+x2 −
+·
+2 matrix3, and the
+where we have relied on the explicit formula for the determinant of a 2
+fact that the inverse of a diagonal matrix is simply found by taking the reciprocal of each
+diagonal entry. Continuing,
+
+0)1/2 exp
+
+x1 −
+x2 −
+
+µ1
+µ2(cid:21)
+
+ −
+
+×
+
+"
+
+(cid:20)
+
+0
+
+,
+
+1
+2
+
+0
+1
+σ2
+2 # (cid:20)
+
+T
+
+1
+σ2
+1
+0
+
+p(x; µ, Σ) =
+
+=
+
+=
+
+1
+2πσ1σ2
+
+1
+2πσ1σ2
+1
+√2πσ1
+
+exp
+
+exp
+
+exp
+
+1
+2
+
+(cid:20)
+1
+2σ2
+1
+1
+2σ2
+1
+
+ −
+
+−
+
+(cid:18)
+
+−
+
+(cid:18)
+
+T
+
+x1 −
+x2 −
+(x1 −
+
+µ1
+µ2(cid:21)
+µ1)2
+
+1
+σ2
+1
+1
+σ2
+2
+
+"
+
+−
+
+(x1 −
+
+µ1)2
+
+·
+
+(cid:19)
+
+µ1)
+µ2)#!
+
+(x1 −
+(x2 −
+1
+(x2 −
+2σ2
+2
+1
+√2πσ2
+
+µ2)2
+
+exp
+
+(cid:19)
+
+1
+2σ2
+2
+
+−
+
+(cid:18)
+
+(x2 −
+
+µ2)2
+
+.
+(cid:19)
+
+The last equation we recognize to simply be the product of two independent Gaussian den-
+sities, one with mean µ1 and variance σ2
+
+More generally, one can show that an d-dimensional Gaussian with mean µ
+
+agonal covariance matrix Σ = diag(σ2
+Gaussian random variables with mean µi and variance σ2
+
+2, . . . , σ2
+
+1, σ2
+
+i , respectively.
+
+1, and the other with mean µ2 and variance σ2
+2.
+Rd and di-
+d) is the same as a collection of d independent
+
+∈
+
+4
+
+Isocontours
+
+Another way to understand a multivariate Gaussian conceptually is to understand the shape
+of its isocontours. For a function f : R2
+
+R, an isocontour is a set of the form
+
+→
+
+R2 : f (x) = c
+
+.
+
+(cid:9)
+
+x
+
+∈
+
+(cid:8)
+
+for some c
+
+R.4
+
+∈
+a b
+d
+c
+
+(cid:12)
+(cid:12)
+(cid:12)
+is a set of the form
+(cid:12)
+
+(cid:12)
+(cid:12)
+(cid:12)
+(cid:12)
+
+3Namely,
+4Isocontours are often also known as level curves. More generally, a level set of a function f : Rd
+
+= ad
+
+bc.
+
+−
+
+R,
+
+→
+
+R2 : f (x) = c
+
+x
+
+∈
+
+(cid:8)
+
+for some c
+
+∈
+
+(cid:9)
+
+R.
+
+4
+
+4.1 Shape of isocontours
+
+What do the isocontours of a multivariate Gaussian look like? As before, let’s consider the
+case where n = 2, and Σ is diagonal, i.e.,
+
+x =
+
+x1
+x2(cid:21)
+
+(cid:20)
+
+µ =
+
+µ1
+µ2(cid:21)
+
+(cid:20)
+
+Σ =
+
+σ2
+0
+1
+0 σ2
+2(cid:21)
+
+(cid:20)
+
+As we showed in the last section,
+
+p(x; µ, Σ) =
+
+1
+2πσ1σ2
+
+exp
+
+1
+2σ2
+1
+
+−
+
+(cid:18)
+
+(x1 −
+
+µ1)2
+
+−
+
+1
+2σ2
+2
+
+(x2 −
+
+µ2)2
+
+.
+
+(cid:19)
+
+(4)
+
+Now, let’s consider the level set consisting of all points where p(x; µ, Σ) = c for some constant
+c
+
+R. In particular, consider the set of all x1, x2 ∈
+
+R such that
+
+∈
+
+c =
+
+1
+2πσ1σ2
+
+1
+2σ2
+1
+
+(x1 −
+
+µ1)2
+
+−
+
+1
+2σ2
+2
+
+(x2 −
+
+µ2)2
+
+(cid:19)
+
+exp
+
+1
+2σ2
+1
+
+−
+
+(x1 −
+
+−
+
+(cid:18)
+(x1 −
+µ1)2
+
+µ2)2
+
+(cid:19)
+
+(x2 −
+µ2)2
+
+µ1)2
+
+1
+2σ2
+2
+
+−
+
+(x2 −
+
+−
+
+1
+2σ2
+2
+1
+2σ2
+2
+
+µ1)2 +
+
+(x2 −
+
+µ2)2
+
+µ1)2
+1
+2πcσ1σ2
+
++
+
+(x2 −
+2 log
+
+2σ2
+
+µ2)2
+1
+2πcσ1σ2
+
+(cid:18)
+1
+2σ2
+−
+1
+1
+2σ2
+1
+
+(x1 −
+(x1 −
+1 log
+
+2σ2
+
+2πcσ1σ2 = exp
+
+log(2πcσ1σ2) =
+
+log
+
+1
+2πcσ1σ2 (cid:19)
+
+(cid:18)
+
+=
+
+1 =
+
+Deﬁning
+
+(cid:16)
+
+(cid:17)
+
+(cid:16)
+
+r1 =
+
+s
+
+2σ2
+
+1 log
+
+1
+2πcσ1σ2 (cid:19)
+
+(cid:18)
+
+r2 =
+
+it follows that
+
+2σ2
+
+2 log
+
+s
+
+.
+
+(cid:17)
+
+1
+2πcσ1σ2 (cid:19)
+
+,
+
+(cid:18)
+
+1 =
+
+x1 −
+
+µ1
+r1 (cid:19)
+
+(cid:18)
+
+2
+
++
+
+(cid:18)
+
+2
+
+x2 −
+
+µ2
+r2 (cid:19)
+
+.
+
+(5)
+
+Equation (5) should be familiar to you from high school analytic geometry: it is the equation
+of an axis-aligned ellipse, with center (µ1, µ2), where the x1 axis has length 2r1 and the
+x2 axis has length 2r2!
+
+4.2 Length of axes
+
+To get a better understanding of how the shape of the level curves vary as a function of
+the variances of the multivariate Gaussian distribution, suppose that we are interested in
+
+5
+
+8
+
+6
+
+4
+
+2
+
+0
+
+−2
+
+−4
+
+−6
+
+−6
+
+−4
+
+−2
+
+0
+
+2
+
+4
+
+6
+
+8
+
+10
+
+12
+
+8
+
+6
+
+4
+
+2
+
+0
+
+−2
+
+−4
+
+−4
+
+−2
+
+0
+
+2
+
+4
+
+6
+
+8
+
+10
+
+Figure 2:
+The ﬁgure on the left shows a heatmap indicating values of the density function for an
+
+axis-aligned multivariate Gaussian with mean µ =
+
+and diagonal covariance matrix Σ =
+
+3
+2
+
+(cid:21)
+
+(cid:20)
+
+25 0
+9
+0
+
+. Notice that the Gaussian is centered at (3, 2), and that the isocontours are all
+
+(cid:21)
+
+(cid:20)
+elliptically shaped with major/minor axis lengths in a 5:3 ratio. The ﬁgure on the right
+shows a heatmap indicating values of the density function for a non axis-aligned multivariate
+
+Gaussian with mean µ =
+
+and covariance matrix Σ =
+
+. Here, the ellipses are
+
+again centered at (3, 2), but now the major and minor axes have been rotated via a linear
+transformation.
+
+10 5
+5
+5
+
+(cid:20)
+
+(cid:21)
+
+3
+2
+
+(cid:20)
+
+(cid:21)
+
+6
+
+the values of r1 and r2 at which c is equal to a fraction 1/e of the peak height of Gaussian
+density.
+
+First, observe that maximum of Equation (4) occurs where x1 = µ1 and x2 = µ2. Substi-
+tuting these values into Equation (4), we see that the peak height of the Gaussian density
+is
+
+1
+2πσ1σ2 .
+Second, we substitute c = 1
+e
+
+into the equations for r1 and r2 to obtain
+
+1
+2πσ1σ2
+
+(cid:16)
+
+(cid:17)
+
+2σ2
+
+1 log
+
+r1 = v
+u
+u
+u
+t
+
+2σ2
+
+2 log
+
+r2 = v
+u
+u
+u
+t
+
+2πσ1σ2 ·
+
+2πσ1σ2 ·
+
+
+
+
+
+
+
+
+
+1
+
+1
+e
+
+1
+
+1
+e
+
+(cid:16)
+
+(cid:16)
+
+1
+2πσ1σ2
+
+1
+2πσ1σ2
+
+
+
+
+
+(cid:17)
+
+
+
+
+
+(cid:17)
+
+= σ1√2
+
+= σ2√2.
+
+From this, it follows that the axis length needed to reach a fraction 1/e of the peak height of
+the Gaussian density in the ith dimension grows in proportion to the standard deviation σi.
+Intuitively, this again makes sense: the smaller the variance of some random variable xi, the
+more “tightly” peaked the Gaussian distribution in that dimension, and hence the smaller
+the radius ri.
+
+4.3 Non-diagonal case, higher dimensions
+
+Clearly, the above derivations rely on the assumption that Σ is a diagonal matrix. However,
+Instead
+in the non-diagonal case, it turns out that the picture is not all that diﬀerent.
+of being an axis-aligned ellipse, the isocontours turn out to be simply rotated ellipses.
+Furthermore, in the d-dimensional case, the level sets form geometrical structures known as
+ellipsoids in Rd.
+
+5 Linear transformation interpretation
+
+In the last few sections, we focused primarily on providing an intuition for how multivariate
+Gaussians with diagonal covariance matrices behaved. In particular, we found that an d-
+dimensional multivariate Gaussian with diagonal covariance matrix could be viewed simply
+as a collection of d independent Gaussian-distributed random variables with means and vari-
+ances µi and σ2
+i , respectvely. In this section, we dig a little deeper and provide a quantitative
+interpretation of multivariate Gaussians when the covariance matrix is not diagonal.
+
+The key result of this section is the following theorem (see proof in Appendix A.2).
+
+Theorem 1. Let X
+B
+
+Rd
+
+×
+
+∼ N
+
+d such that if we deﬁne Z = B−
+
+(µ, Σ) for some µ
+
+Rd and Σ
+
+∈
+µ), then Z
+
+∈
+1(X
+
+∈
+
+−
+
+7
+
+Sd
+
+++. Then, there exists a matrix
+
+(0, I).
+
+∼ N
+
+To understand the meaning of this theorem, note that if Z
+
+(0, I), then using the
+analysis from Section 4, Z can be thought of as a collection of d independent standard normal
+µ) then X = BZ + µ
+random variables (i.e., Zi ∼ N
+follows from simple algebra.
+
+(0, 1)). Furthermore, if Z = B−
+
+∼ N
+
+1(X
+
+−
+
+Consequently, the theorem states that any random variable X with a multivariate Gaus-
+sian distribution can be interpreted as the result of applying a linear transformation (X =
+BZ + µ) to some collection of d independent standard normal random variables (Z).
+
+8
+
+Appendix A.1
+
+Proof. We prove the ﬁrst of the two equalities in (1); the proof of the other equality is similar.
+
+Cov[X1, Xd]
+...
+Cov[Xd, Xd]
+
+
+
+
+
+E[(X1 −
+
+µd)2]
+
+µ1)(Xd −
+...
+E[(Xd −
+µ1)(Xd −
+...
+(Xd −
+
+µd)2
+
+µd)
+
+(X1 −
+
+· · ·
+. . .
+
+· · ·
+
+· · ·
+. . .
+
+· · ·
+
+µ1)]
+
+µ1)
+
+· · ·
+. . .
+
+Cov[X1, X1]
+...
+Cov[Xd, X1]
+E[(X1 −
+...
+µd)(X1 −
+µ1)2
+
+E[(Xd −
+
+· · ·
+µ1)2]
+
+Σ = 
+
+
+
+
+= 
+
+
+
+
+= E 
+
+
+
+
+= E 
+
+
+
+
+
+(X
+
+= E
+
+(cid:2)
+
+(Xd −
+X1 −
+...
+Xd −
+−
+
+
+
+(X1 −
+...
+µd)(X1 −
+µ1
+
+µd
+
+
+
+µ)(X
+
+(cid:2)
+
+−
+
+µ)T
+
+.
+
+(cid:3)
+
+
+
+X1 −
+
+µ1 · · ·
+
+Xd −
+
+µd
+
+
+
+
+
+
+(cid:3)
+
+µd)]
+
+
+
+
+
+
+
+
+
+
+
+(6)
+
+(7)
+
+Here, (6) follows from the fact that the expectation of a matrix is simply the matrix found
+by taking the componentwise expectation of each entry. Also, (7) follows from the fact that
+for any vector z
+
+Rd,
+
+∈
+
+z1
+z2
+...
+zd
+
+
+
+
+
+
+
+
+(cid:2)
+
+zzT = 
+
+
+
+
+
+z1 z2
+
+zd
+
+· · ·
+
+z1z1 z1z2
+z2z1 z2z2
+...
+...
+zdz1 zdz2
+
+= 
+
+
+
+
+
+(cid:3)
+
+· · ·
+· · ·
+. . .
+
+· · ·
+
+z1zd
+z2zd
+...
+zdzd
+
+
+
+.
+
+
+
+
+
+
+Appendix A.2
+
+We restate the theorem below:
+
+Theorem 1. Let X
+B
+
+Rd
+
+×
+
+∼ N
+
+d such that if we deﬁne Z = B−
+
+(µ, Σ) for some µ
+
+Rd and Σ
+
+∈
+µ), then Z
+
+∈
+1(X
+
+(0, I).
+
+Sd
+
+++. Then, there exists a matrix
+
+∈
+The derivation of this theorem requires some advanced linear algebra and probability
+theory and can be skipped for the purposes of this class. Our argument will consist of two
+parts. First, we will show that the covariance matrix Σ can be factorized as Σ = BBT
+for some invertible matrix B. Second, we will perform a “change-of-variable” from X to a
+diﬀerent vector valued random variable Z using the relation Z = B−
+
+∼ N
+
+1(X
+
+µ).
+
+−
+
+−
+
+9
+
+Step 1: Factorizing the covariance matrix. Recall the following two properties of
+symmetric matrices from the notes on linear algebra5:
+
+1. Any real symmetric matrix A
+
+d can always be represented as A = U ΛU T , where
+U is a full rank orthogonal matrix containing of the eigenvectors of A as its columns,
+and Λ is a diagonal matrix containing A’s eigenvalues.
+
+Rd
+
+∈
+
+×
+
+2. If A is symmetric positive deﬁnite, all its eigenvalues are positive.
+
+Since the covariance matrix Σ is positive deﬁnite, using the ﬁrst fact, we can write Σ = U ΛU T
+for some appropriately deﬁned matrices U and Λ. Using the second fact, we can deﬁne
+d to be the diagonal matrix whose entries are the square roots of the corresponding
+Λ1/2
+entries from Λ. Since Λ = Λ1/2(Λ1/2)T , we have
+
+Rd
+
+∈
+
+×
+
+Σ = U ΛU T = U Λ1/2(Λ1/2)T U T = U Λ1/2(U Λ1/2)T = BBT ,
+
+where B = U Λ1/2.6
+1 = B−
+formula for the density of a multivariate Gaussian as
+
+In this case, then Σ−
+
+T B−
+
+1, so we can rewrite the standard
+
+p(x; µ, Σ) =
+
+(2π)d/2
+
+1
+BBT
+
+|
+
+|
+
+1/2 exp
+
+1
+2
+
+(x
+
+−
+
+−
+
+(cid:18)
+
+µ)T B−
+
+T B−
+
+1(x
+
+−
+
+µ)
+
+.
+
+(cid:19)
+
+(8)
+
+1(X
+
+Step 2: Change of variables. Now, deﬁne the vector-valued random variable Z =
+B−
+µ). A basic formula of probability theory, which we did not introduce in the section
+notes on probability theory, is the “change-of-variables” formula for relating vector-valued
+random variables:
+
+−
+
+Xd
+Suppose that X =
+joint density function fX : Rd
+diﬀerentiable function, then Z has joint density fZ : Rd
+
+∈
+R. If Z = H(X)
+
+X1 · · ·
+
+Rd is a vector-valued random variable with
+Rd where H is a bijective,
+
+(cid:3)
+→
+
+∈
+
+(cid:2)
+
+T
+
+R, where
+
+→
+
+fZ(z) = fX(x)
+
+det 
+
+
+∂x1
+∂z1
+
+...
+
+· · ·
+. . .
+
+∂x1
+∂zd
+
+...
+
+∂xd
+∂z1
+
+
+
+∂xd
+∂zd
+
+.
+
+(cid:12)
+
+(cid:12)
+(cid:12)
+
+(cid:12)
+(cid:12)
+
+(cid:12)
+(cid:12)
+
+· (cid:12)
+(cid:12)
+(cid:12)
+(cid:12)
+(cid:12)
+(cid:12)
+(cid:12)
+
+
+
+Using the change-of-variable formula, one can show (after some algebra, which we’ll skip)
+that the vector variable Z has the following joint density:
+
+
+
+
+
+
+
+· · ·
+
+The claim follows immediately.
+
+pZ(z) =
+
+1
+
+(2π)d/2 exp
+
+1
+2
+
+zT z
+
+.
+
+(cid:19)
+
+−
+
+(cid:18)
+
+(9)
+
+(cid:3)
+
+5See section on “Eigenvalues and Eigenvectors of Symmetric Matrices.”
+6To show that B is invertible, it suﬃces to observe that U is an invertible matrix, and right-multiplying
+U by a diagonal matrix (with no zero diagonal entries) will rescale its columns but will not change its rank.
+
+10
+
+

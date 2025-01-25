@@ -1,0 +1,386 @@
+CS229 Lecture notes
+
+Andrew Ng
+
+Part XII
+Independent Components
+Analysis
+
+Our next topic is Independent Components Analysis (ICA). Similar to PCA,
+this will ﬁnd a new basis in which to represent our data. However, the goal
+is very diﬀerent.
+
+As a motivating example, consider the “cocktail party problem.” Here, d
+speakers are speaking simultaneously at a party, and any microphone placed
+in the room records only an overlapping combination of the d speakers’ voices.
+But lets say we have d diﬀerent microphones placed in the room, and because
+each microphone is a diﬀerent distance from each of the speakers, it records a
+diﬀerent combination of the speakers’ voices. Using these microphone record-
+ings, can we separate out the original d speakers’ speech signals?
+
+To formalize this problem, we imagine that there is some data s ∈ Rd
+
+that is generated via d independent sources. What we observe is
+
+x = As,
+
+where A is an unknown square matrix called the mixing matrix. Repeated
+observations gives us a dataset {x(i); i = 1, . . . , n}, and our goal is to recover
+the sources s(i) that had generated our data (x(i) = As(i)).
+
+In our cocktail party problem, s(i) is an d-dimensional vector, and s(i)
+is
+j
+the sound that speaker j was uttering at time i. Also, x(i) in an d-dimensional
+vector, and x(i)
+is the acoustic reading recorded by microphone j at time i.
+j
+Let W = A−1 be the unmixing matrix. Our goal is to ﬁnd W , so
+that given our microphone recordings x(i), we can recover the sources by
+computing s(i) = W x(i). For notational convenience, we also let wT
+i denote
+
+1
+
+2
+
+.
+
+
+
+the i-th row of W , so that
+
+W = 
+
+— wT
+1 —
+...
+— wT
+d —
+
+
+
+
+
+
+
+Thus, wi ∈ Rd, and the j-th source can be recovered as s(i)
+
+j = wT
+
+j x(i).
+
+1
+
+ICA ambiguities
+
+To what degree can W = A−1 be recovered? If we have no prior knowledge
+about the sources and the mixing matrix, it is easy to see that there are some
+inherent ambiguities in A that are impossible to recover, given only the x(i)’s.
+Speciﬁcally, let P be any d-by-d permutation matrix. This means that
+each row and each column of P has exactly one “1.” Here are some examples
+of permutation matrices:
+
+P =
+
+
+
+0 1 0
+1 0 0
+0 0 1
+
+; P =
+
+
+
+0 1
+1 0
+
+(cid:20)
+
+(cid:21)
+
+; P =
+
+1 0
+0 1
+
+.
+
+(cid:21)
+
+(cid:20)
+
+
+
+
+
+If z is a vector, then P z is another vector that contains a permuted version
+of z’s coordinates. Given only the x(i)’s, there will be no way to distinguish
+between W and P W . Speciﬁcally, the permutation of the original sources is
+ambiguous, which should be no surprise. Fortunately, this does not matter
+for most applications.
+
+Further, there is no way to recover the correct scaling of the wi’s. For in-
+stance, if A were replaced with 2A, and every s(i) were replaced with (0.5)s(i),
+then our observed x(i) = 2A · (0.5)s(i) would still be the same. More broadly,
+if a single column of A were scaled by a factor of α, and the corresponding
+source were scaled by a factor of 1/α, then there is again no way to determine
+that this had happened given only the x(i)’s. Thus, we cannot recover the
+“correct” scaling of the sources. However, for the applications that we are
+concerned with—including the cocktail party problem—this ambiguity also
+does not matter. Speciﬁcally, scaling a speaker’s speech signal s(i)
+j by some
+positive factor α aﬀects only the volume of that speaker’s speech. Also, sign
+changes do not matter, and s(i)
+sound identical when played on a
+speaker. Thus, if the wi found by an algorithm is scaled by any non-zero real
+number, the corresponding recovered source si = wT
+i x will be scaled by the
+
+j and −s(i)
+
+j
+
+3
+
+same factor; but this usually does not matter. (These comments also apply
+to ICA for the brain/MEG data that we talked about in class.)
+
+Are these the only sources of ambiguity in ICA? It turns out that they
+are, so long as the sources si are non-Gaussian. To see what the diﬃculty is
+with Gaussian data, consider an example in which n = 2, and s ∼ N (0, I).
+Here, I is the 2x2 identity matrix. Note that the contours of the density of
+the standard normal distribution N (0, I) are circles centered on the origin,
+and the density is rotationally symmetric.
+
+Now, suppose we observe some x = As, where A is our mixing matrix.
+
+Then, the distribution of x will be Gaussian, x ∼ N (0, AAT ), since
+
+Es∼N (0,I)[x] = E[As] = AE[s] = 0
+Cov[x] = Es∼N (0,I)[xxT ] = E[AssT AT ] = AE[ssT ]AT = A · Cov[s] · AT = AAT
+
+Now, let R be an arbitrary orthogonal (less formally, a rotation/reﬂection)
+matrix, so that RRT = RT R = I, and let A′ = AR. Then if the data had
+been mixed according to A′ instead of A, we would have instead observed
+x′ = A′s. The distribution of x′ is also Gaussian, x′ ∼ N (0, AAT ), since
+Es∼N (0,I)[x′(x′)T ] = E[A′ssT (A′)T ] = E[ARssT (AR)T ] = ARRT AT = AAT .
+Hence, whether the mixing matrix is A or A′, we would observe data from
+a N (0, AAT ) distribution. Thus, there is no way to tell if the sources were
+mixed using A and A′. There is an arbitrary rotational component in the
+mixing matrix that cannot be determined from the data, and we cannot
+recover the original sources.
+
+Our argument above was based on the fact that the multivariate standard
+normal distribution is rotationally symmetric. Despite the bleak picture that
+this paints for ICA on Gaussian data, it turns out that, so long as the data is
+not Gaussian, it is possible, given enough data, to recover the d independent
+sources.
+
+2 Densities and linear transformations
+
+Before moving on to derive the ICA algorithm proper, we ﬁrst digress brieﬂy
+to talk about the eﬀect of linear transformations on densities.
+
+Suppose a random variable s is drawn according to some density ps(s).
+For simplicity, assume for now that s ∈ R is a real number. Now, let the
+random variable x be deﬁned according to x = As (here, x ∈ R, A ∈ R). Let
+px be the density of x. What is px?
+
+Let W = A−1. To calculate the “probability” of a particular value of x,
+it is tempting to compute s = W x, then then evaluate ps at that point, and
+
+4
+
+conclude that “px(x) = ps(W x).” However, this is incorrect. For example,
+let s ∼ Uniform[0, 1], so ps(s) = 1{0 ≤ s ≤ 1}. Now, let A = 2, so x = 2s.
+Clearly, x is distributed uniformly in the interval [0, 2]. Thus, its density is
+given by px(x) = (0.5)1{0 ≤ x ≤ 2}. This does not equal ps(W x), where
+W = 0.5 = A−1. Instead, the correct formula is px(x) = ps(W x)|W |.
+
+More generally, if s is a vector-valued distribution with density ps, and
+
+x = As for a square, invertible matrix A, then the density of x is given by
+
+px(x) = ps(W x) · |W |,
+
+where W = A−1.
+Remark. If you’re seen the result that A maps [0, 1]d to a set of volume |A|,
+then here’s another way to remember the formula for px given above, that also
+generalizes our previous 1-dimensional example. Speciﬁcally, let A ∈ Rd×d be
+given, and let W = A−1 as usual. Also let C1 = [0, 1]d be the d-dimensional
+hypercube, and deﬁne C2 = {As : s ∈ C1} ⊆ Rd to be the image of C1
+under the mapping given by A. Then it is a standard result in linear algebra
+(and, indeed, one of the ways of deﬁning determinants) that the volume of
+C2 is given by |A|. Now, suppose s is uniformly distributed in [0, 1]d, so its
+density is ps(s) = 1{s ∈ C1}. Then clearly x will be uniformly distributed
+in C2. Its density is therefore found to be px(x) = 1{x ∈ C2}/vol(C2) (since
+it must integrate over C2 to 1). But using the fact that the determinant
+of the inverse of a matrix is just the inverse of the determinant, we have
+1/vol(C2) = 1/|A| = |A−1| = |W |. Thus, px(x) = 1{x ∈ C2}|W | = 1{W x ∈
+C1}|W | = ps(W x)|W |.
+
+3
+
+ICA algorithm
+
+We are now ready to derive an ICA algorithm. We describe an algorithm
+by Bell and Sejnowski, and we give an interpretation of their algorithm as a
+method for maximum likelihood estimation. (This is diﬀerent from their orig-
+inal interpretation involving a complicated idea called the infomax principal
+which is no longer necessary given the modern understanding of ICA.)
+
+We suppose that the distribution of each source sj is given by a density
+
+ps, and that the joint distribution of the sources s is given by
+
+d
+
+p(s) =
+
+ps(sj).
+
+j=1
+Y
+
+5
+
+Note that by modeling the joint distribution as a product of marginals, we
+capture the assumption that the sources are independent. Using our formulas
+from the previous section, this implies the following density on x = As =
+W −1s:
+
+d
+
+p(x) =
+
+ps(wT
+
+j x) · |W |.
+
+j=1
+Y
+All that remains is to specify a density for the individual sources ps.
+
+Recall that, given a real-valued random variable z, its cumulative distri-
+z0
+−∞ pz(z)dz and
+
+bution function (cdf) F is deﬁned by F (z0) = P (z ≤ z0) =
+the density is the derivative of the cdf: pz(z) = F ′(z).
+
+Thus, to specify a density for the si’s, all we need to do is to specify some
+cdf for it. A cdf has to be a monotonic function that increases from zero
+to one. Following our previous discussion, we cannot choose the Gaussian
+cdf, as ICA doesn’t work on Gaussian data. What we’ll choose instead as
+a reasonable “default” cdf that slowly increases from 0 to 1, is the sigmoid
+function g(s) = 1/(1 + e−s). Hence, ps(s) = g′(s).1
+
+R
+
+The square matrix W is the parameter in our model. Given a training
+
+set {x(i); i = 1, . . . , n}, the log likelihood is given by
+
+ℓ(W ) =
+
+n
+
+d
+
+i=1  
+X
+
+j=1
+X
+
+log g′(wT
+
+j x(i)) + log |W |
+
+.
+
+!
+
+We would like to maximize this in terms W . By taking derivatives and using
+the fact (from the ﬁrst set of notes) that ∇W |W | = |W |(W −1)T , we easily
+derive a stochastic gradient ascent learning rule. For a training example x(i),
+the update rule is:
+
+1 − 2g(wT
+1 − 2g(wT
+
+1 x(i))
+2 x(i))
+
+...
+
+1 − 2g(wT
+
+d x(i))
+
+W := W + α 
+
+
+
+
+
+
+
+
+
+
+
+
+,
+
+
+
+
+
+
+
+
+x(i)T + (W T )−1
+
+
+
+
+
+1If you have prior knowledge that the sources’ densities take a certain form, then it
+is a good idea to substitute that in here. But in the absence of such knowledge, the
+sigmoid function can be thought of as a reasonable default that seems to work well for
+many problems. Also, the presentation here assumes that either the data x(i) has been
+preprocessed to have zero mean, or that it can naturally be expected to have zero mean
+(such as acoustic signals). This is necessary because our assumption that ps(s) = g′(s)
+implies E[s] = 0 (the derivative of the logistic function is a symmetric function, and
+hence gives a density corresponding to a random variable with zero mean), which implies
+E[x] = E[As] = 0.
+
+6
+
+where α is the learning rate.
+
+After the algorithm converges, we then compute s(i) = W x(i) to recover
+
+the original sources.
+
+Remark. When writing down the likelihood of the data, we implicitly as-
+sumed that the x(i)’s were independent of each other (for diﬀerent values
+of i; note this issue is diﬀerent from whether the diﬀerent coordinates of
+x(i) are independent), so that the likelihood of the training set was given
+i p(x(i); W ). This assumption is clearly incorrect for speech data and
+by
+other time series where the x(i)’s are dependent, but it can be shown that
+having correlated training examples will not hurt the performance of the al-
+gorithm if we have suﬃcient data. However, for problems where successive
+training examples are correlated, when implementing stochastic gradient as-
+cent, it sometimes helps accelerate convergence if we visit training examples
+(I.e., run stochastic gradient ascent on a
+in a randomly permuted order.
+randomly shuﬄed copy of the training set.)
+
+Q
+
+

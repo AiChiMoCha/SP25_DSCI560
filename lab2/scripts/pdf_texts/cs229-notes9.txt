@@ -1,0 +1,814 @@
+CS229 Lecture notes
+
+Andrew Ng
+
+Part X
+Factor analysis
+
+When we have data x(i) ∈ Rd that comes from a mixture of several Gaussians,
+the EM algorithm can be applied to ﬁt a mixture model. In this setting, we
+usually imagine problems where we have suﬃcient data to be able to discern
+the multiple-Gaussian structure in the data. For instance, this would be the
+case if our training set size n was signiﬁcantly larger than the dimension d
+of the data.
+
+Now, consider a setting in which d (cid:29) n. In such a problem, it might be
+diﬃcult to model the data even with a single Gaussian, much less a mixture
+of Gaussian. Speciﬁcally, since the n data points span only a low-dimensional
+subspace of Rd, if we model the data as Gaussian, and estimate the mean
+and covariance using the usual maximum likelihood estimators,
+
+µ =
+
+Σ =
+
+1
+n
+
+1
+n
+
+n
+(cid:88)
+
+x(i)
+
+i=1
+n
+(cid:88)
+
+(x(i) − µ)(x(i) − µ)T ,
+
+i=1
+
+we would ﬁnd that the matrix Σ is singular. This means that Σ−1 does not
+exist, and 1/|Σ|1/2 = 1/0. But both of these terms are needed in computing
+the usual density of a multivariate Gaussian distribution. Another way of
+stating this diﬃculty is that maximum likelihood estimates of the parameters
+result in a Gaussian that places all of its probability in the aﬃne space
+spanned by the data,1 and this corresponds to a singular covariance matrix.
+
+1This is the set of points x satisfying x = (cid:80)n
+
+i=1 αix(i), for some αi’s so that (cid:80)n
+
+i=1 α1 =
+
+1.
+
+1
+
+2
+
+More generally, unless n exceeds d by some reasonable amount, the max-
+imum likelihood estimates of the mean and covariance may be quite poor.
+Nonetheless, we would still like to be able to ﬁt a reasonable Gaussian model
+to the data, and perhaps capture some interesting covariance structure in
+the data. How can we do this?
+
+In the next section, we begin by reviewing two possible restrictions on
+Σ that allow us to ﬁt Σ with small amounts of data but neither will give
+a satisfactory solution to our problem. We next discuss some properties of
+Gaussians that will be needed later; speciﬁcally, how to ﬁnd marginal and
+conditonal distributions of Gaussians. Finally, we present the factor analysis
+model, and EM for it.
+
+1 Restrictions of Σ
+
+If we do not have suﬃcient data to ﬁt a full covariance matrix, we may
+place some restrictions on the space of matrices Σ that we will consider. For
+instance, we may choose to ﬁt a covariance matrix Σ that is diagonal. In this
+setting, the reader may easily verify that the maximum likelihood estimate
+of the covariance matrix is given by the diagonal matrix Σ satisfying
+
+Σjj =
+
+1
+n
+
+n
+(cid:88)
+
+(x(i)
+
+j − µj)2.
+
+i=1
+
+Thus, Σjj is just the empirical estimate of the variance of the j-th coordinate
+of the data.
+
+Recall that the contours of a Gaussian density are ellipses. A diagonal
+Σ corresponds to a Gaussian where the major axes of these ellipses are axis-
+aligned.
+
+Sometimes, we may place a further restriction on the covariance matrix
+that not only must it be diagonal, but its diagonal entries must all be equal.
+In this setting, we have Σ = σ2I, where σ2 is the parameter under our control.
+The maximum likelihood estimate of σ2 can be found to be:
+
+σ2 =
+
+1
+nd
+
+d
+(cid:88)
+
+n
+(cid:88)
+
+(x(i)
+
+j − µj)2.
+
+j=1
+
+i=1
+
+This model corresponds to using Gaussians whose densities have contours
+that are circles (in 2 dimensions; or spheres/hyperspheres in higher dimen-
+sions).
+
+3
+
+If we are ﬁtting a full, unconstrained, covariance matrix Σ to data, it is
+necessary that n ≥ d + 1 in order for the maximum likelihood estimate of Σ
+not to be singular. Under either of the two restrictions above, we may obtain
+non-singular Σ when n ≥ 2.
+
+However, restricting Σ to be diagonal also means modeling the diﬀerent
+coordinates xi, xj of the data as being uncorrelated and independent. Often,
+it would be nice to be able to capture some interesting correlation structure
+in the data. If we were to use either of the restrictions on Σ described above,
+we would therefore fail to do so. In this set of notes, we will describe the
+factor analysis model, which uses more parameters than the diagonal Σ and
+captures some correlations in the data, but also without having to ﬁt a full
+covariance matrix.
+
+2 Marginals and conditionals of Gaussians
+
+Before describing factor analysis, we digress to talk about how to ﬁnd condi-
+tional and marginal distributions of random variables with a joint multivari-
+ate Gaussian distribution.
+
+Suppose we have a vector-valued random variable
+
+x =
+
+(cid:20) x1
+x2
+
+(cid:21)
+
+,
+
+where x1 ∈ Rr, x2 ∈ Rs, and x ∈ Rr+s. Suppose x ∼ N (µ, Σ), where
+
+µ =
+
+(cid:21)
+
+(cid:20) µ1
+µ2
+
+, Σ =
+
+(cid:20) Σ11 Σ12
+Σ21 Σ22
+
+(cid:21)
+
+.
+
+Here, µ1 ∈ Rr, µ2 ∈ Rs, Σ11 ∈ Rr×r, Σ12 ∈ Rr×s, and so on. Note that since
+covariance matrices are symmetric, Σ12 = ΣT
+
+21.
+
+Under our assumptions, x1 and x2 are jointly multivariate Gaussian.
+What is the marginal distribution of x1? It is not hard to see that E[x1] = µ1,
+and that Cov(x1) = E[(x1 − µ1)(x1 − µ1)] = Σ11. To see that the latter is
+true, note that by deﬁnition of the joint covariance of x1 and x2, we have
+
+that
+
+Cov(x) = Σ
+
+(cid:21)
+
+=
+
+(cid:20) Σ11 Σ12
+Σ21 Σ22
+= E[(x − µ)(x − µ)T ]
+(cid:34)(cid:18) x1 − µ1
+x2 − µ2
+
+= E
+
+(cid:19) (cid:18) x1 − µ1
+x2 − µ2
+
+4
+
+(cid:19)T (cid:35)
+
+= E
+
+(cid:20) (x1 − µ1)(x1 − µ1)T
+(x2 − µ2)(x1 − µ1)T
+
+(x1 − µ1)(x2 − µ2)T
+(x2 − µ2)(x2 − µ2)T
+
+(cid:21)
+
+.
+
+Matching the upper-left subblocks in the matrices in the second and the last
+lines above gives the result.
+
+Since marginal distributions of Gaussians are themselves Gaussian, we
+therefore have that the marginal distribution of x1 is given by x1 ∼ N (µ1, Σ11).
+Also, we can ask, what is the conditional distribution of x1 given x2? By
+referring to the deﬁnition of the multivariate Gaussian distribution, it can
+be shown that x1|x2 ∼ N (µ1|2, Σ1|2), where
+
+µ1|2 = µ1 + Σ12Σ−1
+Σ1|2 = Σ11 − Σ12Σ−1
+
+22 (x2 − µ2),
+22 Σ21.
+
+(1)
+(2)
+
+When we work with the factor analysis model in the next section, these
+formulas for ﬁnding conditional and marginal distributions of Gaussians will
+be very useful.
+
+3 The Factor analysis model
+
+In the factor analysis model, we posit a joint distribution on (x, z) as follows,
+where z ∈ Rk is a latent random variable:
+
+z ∼ N (0, I)
+
+x|z ∼ N (µ + Λz, Ψ).
+
+Here, the parameters of our model are the vector µ ∈ Rd, the matrix
+Λ ∈ Rd×k, and the diagonal matrix Ψ ∈ Rd×d. The value of k is usually
+chosen to be smaller than d.
+
+5
+
+Thus, we imagine that each datapoint x(i) is generated by sampling a k
+dimension multivariate Gaussian z(i). Then, it is mapped to a d-dimensional
+aﬃne space of Rd by computing µ + Λz(i). Lastly, x(i) is generated by adding
+covariance Ψ noise to µ + Λz(i).
+
+Equivalently (convince yourself that this is the case), we can therefore
+
+also deﬁne the factor analysis model according to
+
+z ∼ N (0, I)
+(cid:15) ∼ N (0, Ψ)
+x = µ + Λz + (cid:15)
+
+where (cid:15) and z are independent.
+
+Let’s work out exactly what distribution our model deﬁnes. Our random
+
+variables z and x have a joint Gaussian distribution
+
+(cid:21)
+
+(cid:20) z
+x
+
+∼ N (µzx, Σ).
+
+We will now ﬁnd µzx and Σ.
+
+We know that E[z] = 0, from the fact that z ∼ N (0, I). Also, we have
+
+that
+
+E[x] = E[µ + Λz + (cid:15)]
+
+= µ + ΛE[z] + E[(cid:15)]
+= µ.
+
+Putting these together, we obtain
+
+µzx =
+
+(cid:21)
+
+(cid:20) (cid:126)0
+µ
+
+Next, to ﬁnd Σ, we need to calculate Σzz = E[(z − E[z])(z − E[z])T ] (the
+upper-left block of Σ), Σzx = E[(z − E[z])(x − E[x])T ] (upper-right block),
+and Σxx = E[(x − E[x])(x − E[x])T ] (lower-right block).
+
+Now, since z ∼ N (0, I), we easily ﬁnd that Σzz = Cov(z) = I. Also,
+
+E[(z − E[z])(x − E[x])T ] = E[z(µ + Λz + (cid:15) − µ)T ]
+
+= E[zzT ]ΛT + E[z(cid:15)T ]
+= ΛT .
+
+In the last step, we used the fact that E[zzT ] = Cov(z) (since z has zero
+mean), and E[z(cid:15)T ] = E[z]E[(cid:15)T ] = 0 (since z and (cid:15) are independent, and
+
+6
+
+hence the expectation of their product is the product of their expectations).
+Similarly, we can ﬁnd Σxx as follows:
+
+E[(x − E[x])(x − E[x])T ] = E[(µ + Λz + (cid:15) − µ)(µ + Λz + (cid:15) − µ)T ]
+
+= E[ΛzzT ΛT + (cid:15)zT ΛT + Λz(cid:15)T + (cid:15)(cid:15)T ]
+= ΛE[zzT ]ΛT + E[(cid:15)(cid:15)T ]
+= ΛΛT + Ψ.
+
+Putting everything together, we therefore have that
+
+(cid:21)
+
+(cid:20) z
+x
+
+∼ N
+
+(cid:18)(cid:20) (cid:126)0
+µ
+
+(cid:21)
+
+,
+
+(cid:20) I
+
+ΛT
+
+Λ ΛΛT + Ψ
+
+(cid:21)(cid:19)
+
+.
+
+(3)
+
+Hence, we also see that the marginal distribution of x is given by x ∼
+N (µ, ΛΛT + Ψ). Thus, given a training set {x(i); i = 1, . . . , n}, we can write
+down the log likelihood of the parameters:
+
+(cid:96)(µ, Λ, Ψ) = log
+
+n
+(cid:89)
+
+i=1
+
+1
+
+(2π)d/2|ΛΛT + Ψ|1/2 exp
+
+(cid:18)
+
+−
+
+1
+2
+
+(x(i) − µ)T (ΛΛT + Ψ)−1(x(i) − µ)
+
+(cid:19)
+
+.
+
+To perform maximum likelihood estimation, we would like to maximize this
+quantity with respect to the parameters. But maximizing this formula ex-
+plicitly is hard (try it yourself), and we are aware of no algorithm that does
+so in closed-form. So, we will instead use to the EM algorithm. In the next
+section, we derive EM for factor analysis.
+
+4 EM for factor analysis
+
+The derivation for the E-step is easy. We need to compute Qi(z(i)) =
+p(z(i)|x(i); µ, Λ, Ψ). By substituting the distribution given in Equation (3)
+into the formulas (1-2) used for ﬁnding the conditional distribution of a
+Gaussian, we ﬁnd that z(i)|x(i); µ, Λ, Ψ ∼ N (µz(i)|x(i), Σz(i)|x(i)), where
+
+µz(i)|x(i) = ΛT (ΛΛT + Ψ)−1(x(i) − µ),
+Σz(i)|x(i) = I − ΛT (ΛΛT + Ψ)−1Λ.
+
+So, using these deﬁnitions for µz(i)|x(i) and Σz(i)|x(i), we have
+
+Qi(z(i)) =
+
+1
+(2π)k/2|Σz(i)|x(i)|1/2 exp
+
+(cid:18)
+
+−
+
+1
+2
+
+(z(i) − µz(i)|x(i))T Σ−1
+
+z(i)|x(i)(z(i) − µz(i)|x(i))
+
+(cid:19)
+
+.
+
+Let’s now work out the M-step. Here, we need to maximize
+
+n
+(cid:88)
+
+(cid:90)
+
+i=1
+
+z(i)
+
+Qi(z(i)) log
+
+p(x(i), z(i); µ, Λ, Ψ)
+Qi(z(i))
+
+dz(i)
+
+7
+
+(4)
+
+with respect to the parameters µ, Λ, Ψ. We will work out only the optimiza-
+tion with respect to Λ, and leave the derivations of the updates for µ and Ψ
+as an exercise to the reader.
+
+We can simplify Equation (4) as follows:
+n
+(cid:88)
+
+(cid:90)
+
+Qi(z(i)) (cid:2)log p(x(i)|z(i); µ, Λ, Ψ) + log p(z(i)) − log Qi(z(i))(cid:3) dz(i) (5)
+
+i=1
+
+z(i)
+
+=
+
+n
+(cid:88)
+
+i=1
+
+Ez(i)∼Qi
+
+(cid:2)log p(x(i)|z(i); µ, Λ, Ψ) + log p(z(i)) − log Qi(z(i))(cid:3)
+
+(6)
+
+Here, the “z(i) ∼ Qi” subscript indicates that the expectation is with respect
+to z(i) drawn from Qi.
+In the subsequent development, we will omit this
+subscript when there is no risk of ambiguity. Dropping terms that do not
+depend on the parameters, we ﬁnd that we need to maximize:
+
+n
+(cid:88)
+
+i=1
+
+=
+
+=
+
+E (cid:2)log p(x(i)|z(i); µ, Λ, Ψ)(cid:3)
+
+n
+(cid:88)
+
+i=1
+n
+(cid:88)
+
+i=1
+
+(cid:20)
+
+E
+
+log
+
+(cid:20)
+
+E
+
+−
+
+1
+2
+
+1
+
+(2π)d/2|Ψ|1/2 exp
+
+(cid:18)
+
+−
+
+1
+2
+
+(x(i) − µ − Λz(i))T Ψ−1(x(i) − µ − Λz(i))
+
+(cid:19)(cid:21)
+
+log |Ψ| −
+
+n
+2
+
+log(2π) −
+
+1
+2
+
+(cid:21)
+(x(i) − µ − Λz(i))T Ψ−1(x(i) − µ − Λz(i))
+
+Let’s maximize this with respect to Λ. Only the last term above depends
+on Λ. Taking derivatives, and using the facts that tr a = a (for a ∈ R),
+trAB = trBA, and ∇AtrABAT C = CAB + C T AB, we get:
+(cid:21)
+
+−E
+
+(x(i) − µ − Λz(i))T Ψ−1(x(i) − µ − Λz(i))
+
+n
+(cid:88)
+
+∇Λ
+
+(cid:20)1
+2
+
+i=1
+
+n
+(cid:88)
+
+i=1
+n
+(cid:88)
+
+i=1
+n
+(cid:88)
+
+i=1
+
+=
+
+=
+
+=
+
+(cid:20)
+
+∇ΛE
+
+−tr
+
+(cid:20)
+
+∇ΛE
+
+−tr
+
+1
+2
+
+1
+2
+
+z(i)T
+
+ΛT Ψ−1Λz(i) + trz(i)T
+
+(cid:21)
+ΛT Ψ−1(x(i) − µ)
+
+ΛT Ψ−1Λz(i)z(i)T
+
++ trΛT Ψ−1(x(i) − µ)z(i)T (cid:21)
+
+(cid:104)
+
+E
+
+−Ψ−1Λz(i)z(i)T
+
++ Ψ−1(x(i) − µ)z(i)T (cid:105)
+
+8
+
+Setting this to zero and simplifying, we get:
+
+ΛEz(i)∼Qi
+
+z(i)z(i)T (cid:105)
+(cid:104)
+
+=
+
+n
+(cid:88)
+
+i=1
+
+n
+(cid:88)
+
+i=1
+
+(x(i) − µ)Ez(i)∼Qi
+
+z(i)T (cid:105)
+(cid:104)
+
+.
+
+Hence, solving for Λ, we obtain
+
+(cid:32) n
+
+(cid:88)
+
+(x(i) − µ)Ez(i)∼Qi
+
+Λ =
+
+(cid:33) (cid:32) n
+
+(cid:88)
+
+(cid:104)
+
+z(i)T (cid:105)
+
+Ez(i)∼Qi
+
+z(i)z(i)T (cid:105)
+(cid:104)
+
+(cid:33)−1
+
+.
+
+(7)
+
+i=1
+
+i=1
+
+It is interesting to note the close relationship between this equation and the
+normal equation that we’d derived for least squares regression,
+
+“θT = (yT X)(X T X)−1.”
+
+The analogy is that here, the x’s are a linear function of the z’s (plus noise).
+Given the “guesses” for z that the E-step has found, we will now try to
+It is therefore
+estimate the unknown linearity Λ relating the x’s and z’s.
+no surprise that we obtain something similar to the normal equation. There
+is, however, one important diﬀerence between this and an algorithm that
+performs least squares using just the “best guesses” of the z’s; we will see
+this diﬀerence shortly.
+
+To complete our M-step update, let’s work out the values of the expecta-
+tions in Equation (7). From our deﬁnition of Qi being Gaussian with mean
+µz(i)|x(i) and covariance Σz(i)|x(i), we easily ﬁnd
+
+Ez(i)∼Qi
+(cid:104)
+
+z(i)T (cid:105)
+(cid:104)
+z(i)z(i)T (cid:105)
+
+Ez(i)∼Qi
+
+= µT
+
+z(i)|x(i)
+
+= µz(i)|x(i)µT
+
+z(i)|x(i) + Σz(i)|x(i).
+
+The latter comes from the fact that, for a random variable Y , Cov(Y ) =
+E[Y Y T ] − E[Y ]E[Y ]T , and hence E[Y Y T ] = E[Y ]E[Y ]T + Cov(Y ). Substitut-
+ing this back into Equation (7), we get the M-step update for Λ:
+
+Λ =
+
+(cid:32) n
+
+(cid:88)
+
+i=1
+
+(x(i) − µ)µT
+
+z(i)|x(i)
+
+(cid:33) (cid:32) n
+
+(cid:88)
+
+i=1
+
+µz(i)|x(i)µT
+
+z(i)|x(i) + Σz(i)|x(i)
+
+.
+
+(8)
+
+(cid:33)−1
+
+It is important to note the presence of the Σz(i)|x(i) on the right hand side of
+this equation. This is the covariance in the posterior distribution p(z(i)|x(i))
+of z(i) give x(i), and the M-step must take into account this uncertainty
+
+9
+
+about z(i) in the posterior. A common mistake in deriving EM is to assume
+that in the E-step, we need to calculate only expectation E[z] of the latent
+random variable z, and then plug that into the optimization in the M-step
+everywhere z occurs. While this worked for simple problems such as the
+mixture of Gaussians, in our derivation for factor analysis, we needed E[zzT ]
+as well E[z]; and as we saw, E[zzT ] and E[z]E[z]T diﬀer by the quantity Σz|x.
+Thus, the M-step update must take into account the covariance of z in the
+posterior distribution p(z(i)|x(i)).
+
+Lastly, we can also ﬁnd the M-step optimizations for the parameters µ
+
+and Ψ. It is not hard to show that the ﬁrst is given by
+
+µ =
+
+1
+n
+
+n
+(cid:88)
+
+i=1
+
+x(i).
+
+Since this doesn’t change as the parameters are varied (i.e., unlike the update
+for Λ, the right hand side does not depend on Qi(z(i)) = p(z(i)|x(i); µ, Λ, Ψ),
+which in turn depends on the parameters), this can be calculated just once
+and needs not be further updated as the algorithm is run. Similarly, the
+diagonal Ψ can be found by calculating
+
+Φ =
+
+1
+n
+
+n
+(cid:88)
+
+i=1
+
+x(i)x(i)T
+
+−x(i)µT
+
+z(i)|x(i)ΛT −Λµz(i)|x(i)x(i)T
+
++Λ(µz(i)|x(i)µT
+
+z(i)|x(i)+Σz(i)|x(i))ΛT ,
+
+and setting Ψii = Φii (i.e., letting Ψ be the diagonal matrix containing only
+the diagonal entries of Φ).
+
+

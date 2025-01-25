@@ -1,0 +1,1964 @@
+Review of Probability Theory
+
+Zahra Koochak and Jeremy Irvin
+
+Sample Space Ω
+
+{HH, HT , TH, TT }
+
+Event A ⊆ Ω
+
+{HH, HT }, Ω
+
+Event Space F
+
+Probability Measure P : F → R
+
+P(A) ≥ 0 ∀A ∈ F
+
+P(Ω) = 1
+
+then
+
+If A1, A2, ... disjoint set of events (Ai ∩ Aj = ∅ when i (cid:54)= j),
+
+(cid:33)
+
+(cid:32)
+
+(cid:91)
+
+P
+
+i
+
+(cid:88)
+
+i
+
+Ai
+
+=
+
+P(Ai )
+
+Elements of Probability
+
+{HH, HT , TH, TT }
+
+Event A ⊆ Ω
+
+{HH, HT }, Ω
+
+Event Space F
+
+Probability Measure P : F → R
+
+P(A) ≥ 0 ∀A ∈ F
+
+P(Ω) = 1
+
+then
+
+If A1, A2, ... disjoint set of events (Ai ∩ Aj = ∅ when i (cid:54)= j),
+
+(cid:33)
+
+(cid:32)
+
+(cid:91)
+
+P
+
+i
+
+(cid:88)
+
+i
+
+Ai
+
+=
+
+P(Ai )
+
+Elements of Probability
+
+Sample Space Ω
+
+Event A ⊆ Ω
+
+{HH, HT }, Ω
+
+Event Space F
+
+Probability Measure P : F → R
+
+P(A) ≥ 0 ∀A ∈ F
+
+P(Ω) = 1
+
+then
+
+If A1, A2, ... disjoint set of events (Ai ∩ Aj = ∅ when i (cid:54)= j),
+
+(cid:33)
+
+(cid:32)
+
+(cid:91)
+
+P
+
+i
+
+(cid:88)
+
+i
+
+Ai
+
+=
+
+P(Ai )
+
+Elements of Probability
+
+Sample Space Ω
+
+{HH, HT , TH, TT }
+
+{HH, HT }, Ω
+
+Event Space F
+
+Probability Measure P : F → R
+
+P(A) ≥ 0 ∀A ∈ F
+
+P(Ω) = 1
+
+then
+
+If A1, A2, ... disjoint set of events (Ai ∩ Aj = ∅ when i (cid:54)= j),
+
+(cid:33)
+
+(cid:32)
+
+(cid:91)
+
+P
+
+i
+
+(cid:88)
+
+i
+
+Ai
+
+=
+
+P(Ai )
+
+Elements of Probability
+
+Sample Space Ω
+
+{HH, HT , TH, TT }
+
+Event A ⊆ Ω
+
+Ω
+
+Event Space F
+
+Probability Measure P : F → R
+
+P(A) ≥ 0 ∀A ∈ F
+
+P(Ω) = 1
+
+then
+
+If A1, A2, ... disjoint set of events (Ai ∩ Aj = ∅ when i (cid:54)= j),
+
+(cid:33)
+
+(cid:32)
+
+(cid:91)
+
+P
+
+i
+
+(cid:88)
+
+i
+
+Ai
+
+=
+
+P(Ai )
+
+Elements of Probability
+
+Sample Space Ω
+
+{HH, HT , TH, TT }
+
+Event A ⊆ Ω
+
+{HH, HT },
+
+Event Space F
+
+Probability Measure P : F → R
+
+P(A) ≥ 0 ∀A ∈ F
+
+P(Ω) = 1
+
+then
+
+If A1, A2, ... disjoint set of events (Ai ∩ Aj = ∅ when i (cid:54)= j),
+
+(cid:33)
+
+(cid:32)
+
+(cid:91)
+
+P
+
+i
+
+(cid:88)
+
+i
+
+Ai
+
+=
+
+P(Ai )
+
+Elements of Probability
+
+Sample Space Ω
+
+{HH, HT , TH, TT }
+
+Event A ⊆ Ω
+
+{HH, HT }, Ω
+
+Probability Measure P : F → R
+
+P(A) ≥ 0 ∀A ∈ F
+
+P(Ω) = 1
+
+then
+
+If A1, A2, ... disjoint set of events (Ai ∩ Aj = ∅ when i (cid:54)= j),
+
+(cid:33)
+
+(cid:32)
+
+(cid:91)
+
+P
+
+i
+
+(cid:88)
+
+i
+
+Ai
+
+=
+
+P(Ai )
+
+Elements of Probability
+
+Sample Space Ω
+
+{HH, HT , TH, TT }
+
+Event A ⊆ Ω
+
+{HH, HT }, Ω
+
+Event Space F
+
+P(A) ≥ 0 ∀A ∈ F
+
+P(Ω) = 1
+
+then
+
+If A1, A2, ... disjoint set of events (Ai ∩ Aj = ∅ when i (cid:54)= j),
+
+(cid:33)
+
+(cid:32)
+
+(cid:91)
+
+P
+
+i
+
+(cid:88)
+
+i
+
+Ai
+
+=
+
+P(Ai )
+
+Elements of Probability
+
+Sample Space Ω
+
+{HH, HT , TH, TT }
+
+Event A ⊆ Ω
+
+{HH, HT }, Ω
+
+Event Space F
+
+Probability Measure P : F → R
+
+P(Ω) = 1
+
+then
+
+If A1, A2, ... disjoint set of events (Ai ∩ Aj = ∅ when i (cid:54)= j),
+
+(cid:33)
+
+(cid:32)
+
+(cid:91)
+
+P
+
+i
+
+(cid:88)
+
+i
+
+Ai
+
+=
+
+P(Ai )
+
+Elements of Probability
+
+Sample Space Ω
+
+{HH, HT , TH, TT }
+
+Event A ⊆ Ω
+
+{HH, HT }, Ω
+
+Event Space F
+
+Probability Measure P : F → R
+
+P(A) ≥ 0 ∀A ∈ F
+
+If A1, A2, ... disjoint set of events (Ai ∩ Aj = ∅ when i (cid:54)= j),
+
+then
+
+(cid:33)
+
+(cid:32)
+
+(cid:91)
+
+P
+
+i
+
+(cid:88)
+
+i
+
+Ai
+
+=
+
+P(Ai )
+
+Elements of Probability
+
+Sample Space Ω
+
+{HH, HT , TH, TT }
+
+Event A ⊆ Ω
+
+{HH, HT }, Ω
+
+Event Space F
+
+Probability Measure P : F → R
+
+P(A) ≥ 0 ∀A ∈ F
+
+P(Ω) = 1
+
+Elements of Probability
+
+Sample Space Ω
+
+{HH, HT , TH, TT }
+
+Event A ⊆ Ω
+
+{HH, HT }, Ω
+
+Event Space F
+
+Probability Measure P : F → R
+
+P(A) ≥ 0 ∀A ∈ F
+
+P(Ω) = 1
+
+If A1, A2, ... disjoint set of events (Ai ∩ Aj = ∅ when i (cid:54)= j),
+then
+
+(cid:32)
+
+(cid:91)
+
+P
+
+(cid:33)
+
+Ai
+
+=
+
+i
+
+(cid:88)
+
+i
+
+P(Ai )
+
+Let B be any event such that P(B) (cid:54)= 0.
+
+P(A|B) := P(A∩B)
+
+P(B)
+
+A ⊥ B if and only if P(A ∩ B) = P(A)P(B)
+
+A ⊥ B if and only if P(A|B) = P(A∩B)
+
+P(B) = P(A)P(B)
+
+P(B) = P(A)
+
+Conditional Probability and Independence
+
+P(A|B) := P(A∩B)
+
+P(B)
+
+A ⊥ B if and only if P(A ∩ B) = P(A)P(B)
+
+A ⊥ B if and only if P(A|B) = P(A∩B)
+
+P(B) = P(A)P(B)
+
+P(B) = P(A)
+
+Conditional Probability and Independence
+
+Let B be any event such that P(B) (cid:54)= 0.
+
+A ⊥ B if and only if P(A ∩ B) = P(A)P(B)
+
+A ⊥ B if and only if P(A|B) = P(A∩B)
+
+P(B) = P(A)P(B)
+
+P(B) = P(A)
+
+Conditional Probability and Independence
+
+Let B be any event such that P(B) (cid:54)= 0.
+
+P(A|B) := P(A∩B)
+P(B)
+
+A ⊥ B if and only if P(A|B) = P(A∩B)
+
+P(B) = P(A)P(B)
+
+P(B) = P(A)
+
+Conditional Probability and Independence
+
+Let B be any event such that P(B) (cid:54)= 0.
+
+P(A|B) := P(A∩B)
+P(B)
+
+A ⊥ B if and only if P(A ∩ B) = P(A)P(B)
+
+Conditional Probability and Independence
+
+Let B be any event such that P(B) (cid:54)= 0.
+
+P(A|B) := P(A∩B)
+P(B)
+
+A ⊥ B if and only if P(A ∩ B) = P(A)P(B)
+
+A ⊥ B if and only if P(A|B) = P(A∩B)
+
+P(B) = P(A)P(B)
+
+P(B) = P(A)
+
+ω0 = HHHTHTTHTT
+
+A RV is X : Ω → R
+
+# of heads: X (ω0) = 5
+
+# of tosses until tails: X (ω0) = 4
+
+Val(X ) := X (Ω)
+
+Val(X ) = {0, 1, ..., 10}
+
+Random Variables (RV)
+
+A RV is X : Ω → R
+
+# of heads: X (ω0) = 5
+
+# of tosses until tails: X (ω0) = 4
+
+Val(X ) := X (Ω)
+
+Val(X ) = {0, 1, ..., 10}
+
+Random Variables (RV)
+
+ω0 = HHHTHTTHTT
+
+# of heads: X (ω0) = 5
+
+# of tosses until tails: X (ω0) = 4
+
+Val(X ) := X (Ω)
+
+Val(X ) = {0, 1, ..., 10}
+
+Random Variables (RV)
+
+ω0 = HHHTHTTHTT
+
+A RV is X : Ω → R
+
+# of tosses until tails: X (ω0) = 4
+
+Val(X ) := X (Ω)
+
+Val(X ) = {0, 1, ..., 10}
+
+Random Variables (RV)
+
+ω0 = HHHTHTTHTT
+
+A RV is X : Ω → R
+
+# of heads: X (ω0) = 5
+
+Val(X ) := X (Ω)
+
+Val(X ) = {0, 1, ..., 10}
+
+Random Variables (RV)
+
+ω0 = HHHTHTTHTT
+
+A RV is X : Ω → R
+
+# of heads: X (ω0) = 5
+
+# of tosses until tails: X (ω0) = 4
+
+Val(X ) = {0, 1, ..., 10}
+
+Random Variables (RV)
+
+ω0 = HHHTHTTHTT
+
+A RV is X : Ω → R
+
+# of heads: X (ω0) = 5
+
+# of tosses until tails: X (ω0) = 4
+
+Val(X ) := X (Ω)
+
+Random Variables (RV)
+
+ω0 = HHHTHTTHTT
+
+A RV is X : Ω → R
+
+# of heads: X (ω0) = 5
+
+# of tosses until tails: X (ω0) = 4
+
+Val(X ) := X (Ω)
+
+Val(X ) = {0, 1, ..., 10}
+
+FX : R → [0, 1]
+
+FX (x) = P(X ≤ x):= P({ω|X (ω) ≤ x})
+
+Cumulative Distribution Function (CDF)
+
+FX (x) = P(X ≤ x):= P({ω|X (ω) ≤ x})
+
+Cumulative Distribution Function (CDF)
+
+FX : R → [0, 1]
+
+:= P({ω|X (ω) ≤ x})
+
+Cumulative Distribution Function (CDF)
+
+FX : R → [0, 1]
+
+FX (x) = P(X ≤ x)
+
+Cumulative Distribution Function (CDF)
+
+FX : R → [0, 1]
+
+FX (x) = P(X ≤ x):= P({ω|X (ω) ≤ x})
+
+Cumulative Distribution Function (CDF)
+
+FX : R → [0, 1]
+
+FX (x) = P(X ≤ x):= P({ω|X (ω) ≤ x})
+
+Discrete RV: Val(X ) countable
+
+Continuous RV: Val(X ) uncountable
+
+P(X = k) := P({ω|X (ω) = k})
+
+P(a ≤ X ≤ b) := P({ω|a ≤ X (ω) ≤ b})
+
+Probability Mass Function (PMF)
+
+pX : Val(X ) → [0, 1]
+
+Probability Density Function (PDF)
+
+fX : R → R
+
+pX (x) := P(X = x)
+
+(cid:80)
+
+pX (x) = 1
+
+x∈Val(X )
+
+fX (x) := d
+
+dx FX (x)
+
+fX (x) (cid:54)= P(X = x)
+
+(cid:82) ∞
+
+−∞ fX (x)dx
+
+= 1
+
+(cid:124) (cid:123)(cid:122) (cid:125)
+
+P(x≤X ≤x+dx)
+
+Discrete vs. Continuous RV
+
+P(X = k) := P({ω|X (ω) = k})
+
+P(a ≤ X ≤ b) := P({ω|a ≤ X (ω) ≤ b})
+
+Continuous RV: Val(X ) uncountable
+
+Probability Mass Function (PMF)
+
+pX : Val(X ) → [0, 1]
+
+Probability Density Function (PDF)
+
+fX : R → R
+
+pX (x) := P(X = x)
+
+(cid:80)
+
+pX (x) = 1
+
+x∈Val(X )
+
+fX (x) := d
+
+dx FX (x)
+
+fX (x) (cid:54)= P(X = x)
+
+(cid:82) ∞
+
+−∞ fX (x)dx
+
+= 1
+
+(cid:124) (cid:123)(cid:122) (cid:125)
+
+P(x≤X ≤x+dx)
+
+Discrete vs. Continuous RV
+
+Discrete RV: Val(X ) countable
+
+Continuous RV: Val(X ) uncountable
+
+P(a ≤ X ≤ b) := P({ω|a ≤ X (ω) ≤ b})
+
+Probability Mass Function (PMF)
+
+pX : Val(X ) → [0, 1]
+
+Probability Density Function (PDF)
+
+fX : R → R
+
+pX (x) := P(X = x)
+
+(cid:80)
+
+pX (x) = 1
+
+x∈Val(X )
+
+fX (x) := d
+
+dx FX (x)
+
+fX (x) (cid:54)= P(X = x)
+
+(cid:82) ∞
+
+−∞ fX (x)dx
+
+= 1
+
+(cid:124) (cid:123)(cid:122) (cid:125)
+
+P(x≤X ≤x+dx)
+
+Discrete vs. Continuous RV
+
+Discrete RV: Val(X ) countable
+
+P(X = k) := P({ω|X (ω) = k})
+
+Continuous RV: Val(X ) uncountable
+
+P(a ≤ X ≤ b) := P({ω|a ≤ X (ω) ≤ b})
+
+Probability Density Function (PDF)
+
+fX : R → R
+
+fX (x) := d
+
+dx FX (x)
+
+fX (x) (cid:54)= P(X = x)
+
+(cid:82) ∞
+
+−∞ fX (x)dx
+
+= 1
+
+(cid:124) (cid:123)(cid:122) (cid:125)
+
+P(x≤X ≤x+dx)
+
+pX (x) := P(X = x)
+
+(cid:80)
+
+pX (x) = 1
+
+x∈Val(X )
+
+Discrete vs. Continuous RV
+
+Discrete RV: Val(X ) countable
+
+P(X = k) := P({ω|X (ω) = k})
+
+Probability Mass Function (PMF)
+pX : Val(X ) → [0, 1]
+
+Continuous RV: Val(X ) uncountable
+
+P(a ≤ X ≤ b) := P({ω|a ≤ X (ω) ≤ b})
+
+Probability Density Function (PDF)
+
+fX : R → R
+
+fX (x) := d
+
+dx FX (x)
+
+fX (x) (cid:54)= P(X = x)
+
+(cid:82) ∞
+
+−∞ fX (x)dx
+
+= 1
+
+(cid:124) (cid:123)(cid:122) (cid:125)
+
+P(x≤X ≤x+dx)
+
+(cid:80)
+
+pX (x) = 1
+
+x∈Val(X )
+
+Discrete vs. Continuous RV
+
+Discrete RV: Val(X ) countable
+
+P(X = k) := P({ω|X (ω) = k})
+
+Probability Mass Function (PMF)
+pX : Val(X ) → [0, 1]
+
+pX (x) := P(X = x)
+
+Continuous RV: Val(X ) uncountable
+
+P(a ≤ X ≤ b) := P({ω|a ≤ X (ω) ≤ b})
+
+Probability Density Function (PDF)
+
+fX : R → R
+
+fX (x) := d
+
+dx FX (x)
+
+fX (x) (cid:54)= P(X = x)
+
+(cid:82) ∞
+
+−∞ fX (x)dx
+
+= 1
+
+(cid:124) (cid:123)(cid:122) (cid:125)
+
+P(x≤X ≤x+dx)
+
+Discrete vs. Continuous RV
+
+Discrete RV: Val(X ) countable
+
+P(X = k) := P({ω|X (ω) = k})
+
+Probability Mass Function (PMF)
+pX : Val(X ) → [0, 1]
+
+pX (x) := P(X = x)
+
+(cid:80)
+
+pX (x) = 1
+
+x∈Val(X )
+
+P(a ≤ X ≤ b) := P({ω|a ≤ X (ω) ≤ b})
+
+Probability Density Function (PDF)
+
+fX : R → R
+
+fX (x) := d
+
+dx FX (x)
+
+fX (x) (cid:54)= P(X = x)
+
+(cid:82) ∞
+
+−∞ fX (x)dx
+
+= 1
+
+(cid:124) (cid:123)(cid:122) (cid:125)
+
+P(x≤X ≤x+dx)
+
+Discrete vs. Continuous RV
+
+Discrete RV: Val(X ) countable
+
+Continuous RV: Val(X ) uncountable
+
+P(X = k) := P({ω|X (ω) = k})
+
+Probability Mass Function (PMF)
+pX : Val(X ) → [0, 1]
+
+pX (x) := P(X = x)
+
+(cid:80)
+
+pX (x) = 1
+
+x∈Val(X )
+
+Probability Density Function (PDF)
+
+fX : R → R
+
+fX (x) := d
+
+dx FX (x)
+
+fX (x) (cid:54)= P(X = x)
+
+(cid:82) ∞
+
+−∞ fX (x)dx
+
+= 1
+
+(cid:124) (cid:123)(cid:122) (cid:125)
+
+P(x≤X ≤x+dx)
+
+Discrete vs. Continuous RV
+
+Discrete RV: Val(X ) countable
+
+Continuous RV: Val(X ) uncountable
+
+P(X = k) := P({ω|X (ω) = k})
+
+P(a ≤ X ≤ b) := P({ω|a ≤ X (ω) ≤ b})
+
+Probability Mass Function (PMF)
+pX : Val(X ) → [0, 1]
+
+pX (x) := P(X = x)
+
+(cid:80)
+
+pX (x) = 1
+
+x∈Val(X )
+
+fX (x) := d
+
+dx FX (x)
+
+fX (x) (cid:54)= P(X = x)
+
+(cid:82) ∞
+
+−∞ fX (x)dx
+
+= 1
+
+(cid:124) (cid:123)(cid:122) (cid:125)
+
+P(x≤X ≤x+dx)
+
+Discrete vs. Continuous RV
+
+Discrete RV: Val(X ) countable
+
+Continuous RV: Val(X ) uncountable
+
+P(X = k) := P({ω|X (ω) = k})
+
+P(a ≤ X ≤ b) := P({ω|a ≤ X (ω) ≤ b})
+
+Probability Mass Function (PMF)
+pX : Val(X ) → [0, 1]
+
+Probability Density Function (PDF)
+fX : R → R
+
+pX (x) := P(X = x)
+
+(cid:80)
+
+pX (x) = 1
+
+x∈Val(X )
+
+fX (x) (cid:54)= P(X = x)
+
+(cid:82) ∞
+
+−∞ fX (x)dx
+
+= 1
+
+(cid:124) (cid:123)(cid:122) (cid:125)
+
+P(x≤X ≤x+dx)
+
+Discrete vs. Continuous RV
+
+Discrete RV: Val(X ) countable
+
+Continuous RV: Val(X ) uncountable
+
+P(X = k) := P({ω|X (ω) = k})
+
+P(a ≤ X ≤ b) := P({ω|a ≤ X (ω) ≤ b})
+
+Probability Mass Function (PMF)
+pX : Val(X ) → [0, 1]
+
+pX (x) := P(X = x)
+
+(cid:80)
+
+pX (x) = 1
+
+x∈Val(X )
+
+Probability Density Function (PDF)
+fX : R → R
+
+fX (x) := d
+
+dx FX (x)
+
+(cid:82) ∞
+
+−∞ fX (x)dx
+
+= 1
+
+(cid:124) (cid:123)(cid:122) (cid:125)
+
+P(x≤X ≤x+dx)
+
+Discrete vs. Continuous RV
+
+Discrete RV: Val(X ) countable
+
+Continuous RV: Val(X ) uncountable
+
+P(X = k) := P({ω|X (ω) = k})
+
+P(a ≤ X ≤ b) := P({ω|a ≤ X (ω) ≤ b})
+
+Probability Mass Function (PMF)
+pX : Val(X ) → [0, 1]
+
+Probability Density Function (PDF)
+fX : R → R
+
+pX (x) := P(X = x)
+
+(cid:80)
+
+pX (x) = 1
+
+x∈Val(X )
+
+fX (x) := d
+
+dx FX (x)
+
+fX (x) (cid:54)= P(X = x)
+
+= 1
+
+(cid:124) (cid:123)(cid:122) (cid:125)
+
+P(x≤X ≤x+dx)
+
+Discrete vs. Continuous RV
+
+Discrete RV: Val(X ) countable
+
+Continuous RV: Val(X ) uncountable
+
+P(X = k) := P({ω|X (ω) = k})
+
+P(a ≤ X ≤ b) := P({ω|a ≤ X (ω) ≤ b})
+
+Probability Mass Function (PMF)
+pX : Val(X ) → [0, 1]
+
+Probability Density Function (PDF)
+fX : R → R
+
+pX (x) := P(X = x)
+
+(cid:80)
+
+pX (x) = 1
+
+x∈Val(X )
+
+fX (x) := d
+
+dx FX (x)
+
+fX (x) (cid:54)= P(X = x)
+(cid:82) ∞
+−∞ fX (x)dx
+
+Discrete vs. Continuous RV
+
+Discrete RV: Val(X ) countable
+
+Continuous RV: Val(X ) uncountable
+
+P(X = k) := P({ω|X (ω) = k})
+
+P(a ≤ X ≤ b) := P({ω|a ≤ X (ω) ≤ b})
+
+Probability Mass Function (PMF)
+pX : Val(X ) → [0, 1]
+
+Probability Density Function (PDF)
+fX : R → R
+
+pX (x) := P(X = x)
+
+(cid:80)
+
+pX (x) = 1
+
+x∈Val(X )
+
+fX (x) := d
+
+dx FX (x)
+
+fX (x) (cid:54)= P(X = x)
+(cid:82) ∞
+−∞ fX (x)dx
+(cid:124) (cid:123)(cid:122) (cid:125)
+P(x≤X ≤x+dx)
+
+= 1
+
+g : R → R
+
+Expected Value
+
+Let X be a discrete RV with PMF pX .
+
+E[g (X )] := (cid:80)
+
+g (x)pX (x)
+
+x∈Val(X )
+
+Let X be a continuous RV with PDF fX .
+
+E[g (X )] := (cid:82) ∞
+
+−∞ g (x)fX (x)dx
+
+Variance
+
+Var (X ) := E[(X − E[X ])2]= E[X 2] − E[X ]2
+
+Expected Value and Variance
+
+Expected Value
+
+Let X be a discrete RV with PMF pX .
+
+E[g (X )] := (cid:80)
+
+g (x)pX (x)
+
+x∈Val(X )
+
+Let X be a continuous RV with PDF fX .
+
+E[g (X )] := (cid:82) ∞
+
+−∞ g (x)fX (x)dx
+
+Variance
+
+Var (X ) := E[(X − E[X ])2]= E[X 2] − E[X ]2
+
+Expected Value and Variance
+
+g : R → R
+
+Let X be a discrete RV with PMF pX .
+
+E[g (X )] := (cid:80)
+
+g (x)pX (x)
+
+x∈Val(X )
+
+Let X be a continuous RV with PDF fX .
+
+E[g (X )] := (cid:82) ∞
+
+−∞ g (x)fX (x)dx
+
+Variance
+
+Var (X ) := E[(X − E[X ])2]= E[X 2] − E[X ]2
+
+Expected Value and Variance
+
+g : R → R
+
+Expected Value
+
+E[g (X )] := (cid:80)
+
+g (x)pX (x)
+
+x∈Val(X )
+
+Let X be a continuous RV with PDF fX .
+
+E[g (X )] := (cid:82) ∞
+
+−∞ g (x)fX (x)dx
+
+Variance
+
+Var (X ) := E[(X − E[X ])2]= E[X 2] − E[X ]2
+
+Expected Value and Variance
+
+g : R → R
+
+Expected Value
+
+Let X be a discrete RV with PMF pX .
+
+Let X be a continuous RV with PDF fX .
+
+E[g (X )] := (cid:82) ∞
+
+−∞ g (x)fX (x)dx
+
+Variance
+
+Var (X ) := E[(X − E[X ])2]= E[X 2] − E[X ]2
+
+Expected Value and Variance
+
+g : R → R
+
+Expected Value
+
+Let X be a discrete RV with PMF pX .
+
+E[g (X )] := (cid:80)
+
+g (x)pX (x)
+
+x∈Val(X )
+
+E[g (X )] := (cid:82) ∞
+
+−∞ g (x)fX (x)dx
+
+Variance
+
+Var (X ) := E[(X − E[X ])2]= E[X 2] − E[X ]2
+
+Expected Value and Variance
+
+g : R → R
+
+Expected Value
+
+Let X be a discrete RV with PMF pX .
+
+E[g (X )] := (cid:80)
+
+g (x)pX (x)
+
+x∈Val(X )
+
+Let X be a continuous RV with PDF fX .
+
+Variance
+
+Var (X ) := E[(X − E[X ])2]= E[X 2] − E[X ]2
+
+Expected Value and Variance
+
+g : R → R
+
+Expected Value
+
+Let X be a discrete RV with PMF pX .
+
+E[g (X )] := (cid:80)
+
+g (x)pX (x)
+
+x∈Val(X )
+
+Let X be a continuous RV with PDF fX .
+
+E[g (X )] := (cid:82) ∞
+
+−∞ g (x)fX (x)dx
+
+Var (X ) := E[(X − E[X ])2]= E[X 2] − E[X ]2
+
+Expected Value and Variance
+
+g : R → R
+
+Expected Value
+
+Let X be a discrete RV with PMF pX .
+
+E[g (X )] := (cid:80)
+
+g (x)pX (x)
+
+x∈Val(X )
+
+Let X be a continuous RV with PDF fX .
+
+E[g (X )] := (cid:82) ∞
+
+−∞ g (x)fX (x)dx
+
+Variance
+
+= E[X 2] − E[X ]2
+
+Expected Value and Variance
+
+g : R → R
+
+Expected Value
+
+Let X be a discrete RV with PMF pX .
+
+E[g (X )] := (cid:80)
+
+g (x)pX (x)
+
+x∈Val(X )
+
+Let X be a continuous RV with PDF fX .
+
+E[g (X )] := (cid:82) ∞
+
+−∞ g (x)fX (x)dx
+
+Variance
+
+Var (X ) := E[(X − E[X ])2]
+
+Expected Value and Variance
+
+g : R → R
+
+Expected Value
+
+Let X be a discrete RV with PMF pX .
+
+E[g (X )] := (cid:80)
+
+g (x)pX (x)
+
+x∈Val(X )
+
+Let X be a continuous RV with PDF fX .
+
+E[g (X )] := (cid:82) ∞
+
+−∞ g (x)fX (x)dx
+
+Variance
+
+Var (X ) := E[(X − E[X ])2]= E[X 2] − E[X ]2
+
+Example Distributions
+
+Distribution
+
+Bernoulli(p)
+
+Binomial(n, p)
+Geometric(p)
+
+Poisson(λ)
+
+Uniform(a, b)
+
+Gaussian(µ, σ2)
+Exponential(λ)
+
+PDF or PMF
+(cid:26) p,
+
+if x = 1
+if x = 0.
+
+1 − p,
+(cid:1)pk (1 − p)n−k for k = 0, 1, ..., n
+
+(cid:0)n
+k
+p(1 − p)k−1 for k = 1, 2, ...
+e−λλk
+for k = 0, 1, ...
+k!
+1
+b−a for all x ∈ (a, b)
+e− (x−µ)2
+1
+√
+2π
+
+σ
+λe−λx for all x ≥ 0, λ ≥ 0
+
+2σ2
+
+for all x ∈ (−∞, ∞)
+
+Mean Variance
+
+p
+
+np
+1
+p
+λ
+a+b
+2
+
+µ
+1
+λ
+
+p(1 − p)
+
+np(1 − p)
+1−p
+p2
+λ
+(b−a)2
+12
+σ2
+1
+λ2
+
+Two Random Variables
+
+Bivariate CDF
+
+FXY (x, y ) = P(X ≤ x, Y ≤ y )
+
+Bivariate PMF
+
+pXY (x, y ) = P(X = x, Y = y )
+
+Marginal PMF
+
+pX (x) = (cid:80)
+
+y pXY (x, y )
+
+Bivariate PDF
+
+fXY (x, y ) = ∂2FXY (x,y )
+
+∂x∂y
+
+Marginal PDF
+
+fX (x) = (cid:82) ∞
+
+−∞ fXY (x, y )dy
+
+Bayes’ Theorem
+
+(cid:73) Given the conditional probability of an event P(x|y )
+(cid:73) Want to ﬁnd the ”reverse” conditional probability, P(y |x)
+
+P(y |x) =
+
+P(x|y )P(y )
+P(x)
+y (cid:48)∈value y P(x|y (cid:48))P(y (cid:48))
+
+where:P(x) = (cid:80)
+
+X and Y are continuous
+
+f (y |x) =
+
+f (x|y )f (y )
+f (x)
+y (cid:48)∈value y f (x|y (cid:48))f (y (cid:48))dy (cid:48)
+
+where:f (x) = (cid:82)
+
+Example for Bayes Rule
+
+(cid:73) You randomly choose a treasure chest to open, and then
+
+randomly choose a coin from that treasure chest. If the coin
+you choose is gold, then what is the probability that you
+choose chest A?
+
+a)
+
+1
+3
+
+b)
+
+2
+3
+
+c)1
+
+d)None
+
+Independence
+
+Two random variables X and Y are independent if:
+
+(cid:73) pXY (x, y ) = pX (x)pY (y )
+(cid:73) pY |X (x, y ) = PY (y )
+
+For continuous random variables:
+
+pXY (x, y ) → fXY (x, y )
+
+Example for independent random variables
+
+(cid:73) Spin a spinner numbered 1 to 7, and toss a coin. What is the
+probability of getting an odd. number on the spinner and a
+tail on the coin?
+
+pXY (x, y ) = pX (x)pY (y ) =
+
+1
+2
+
+×
+
+4
+7
+
+=
+
+2
+7
+
+Expectation
+
+(cid:73) X, Y :Two continuous random variables
+(cid:73) g , R2 → R : A function of X and Y
+
+E (g (x, y )) =
+
+(cid:90)
+
+(cid:90)
+
+x∈Val(x)
+
+y ∈Val(y )
+
+g (x, y )fXY (x, y )dxdy
+
+Example
+g (x, y ) = 3x, fx,y = 4xy , 0 < x < 1, 0 < y < 1
+E (g (x, y )) = (cid:82) 1
+0
+
+(cid:82) 1
+0 3x × 4xy dxdy
+
+Covariance of two random variables X and Y
+
+Cov [x, y ] = E [(x − E [x])(y − (E [y ]))]
+
+= E (XY ) − E (X )E (Y )
+
+If X and Y are independent, then:
+
+E (XY ) = E (X )E (Y ) → Cov [x, y ] = 0
+
+Var [X + Y ] = [E (X + Y )]2 − E ((X + Y )2)
+
+Var [X + Y ] = Var [X ] + Var [Y ] + 2Cov [X , Y ]
+
+Multivariant Gaussian (Normal) distribution
+
+x ∈ IRn. Model p(x1), p(x2), ....etc. at the same time. Parameters
+:µ ∈ IRn, Σ ∈ IRn×n(covariancematrix)
+
+p(x; µ, Σ) =
+
+1
+
+(2π)n/2|Σ|
+
+1
+2
+
+exp(−
+
+1
+2
+
+(x − µ)T Σ−1(x − µ))
+
+Multivariant Gaussian (Normal examples)
+
+Multivariant Gaussian (Normal examples)
+
+Multivariant Gaussian (Normal examples)
+
+Multivariant Gaussian (Normal examples)
+
+Multivariant Gaussian (Normal examples)
+
+Conditional Probability and Expectation
+
+Remember:
+
+Let B be any event such that P(B) (cid:54)= 0.
+P(A|B) := P(A∩B)
+P(B)
+
+Conditional Probability and Expectation
+
+X,Y are RVs with the same probability space,
+
+we have
+
+P(X = x|Y = y ) =
+
+P(X = x, Y = y )
+P(Y = y )
+
+E(X |Y = y ) =
+
+x
+
+P(X = x, Y = y )
+P(Y = y )
+
+(cid:88)
+
+x
+
+It is actually a random variable
+
+E[X |Y ](y ) = E[X |Y = y ] is a function of Y
+
+Conditional Probability and Expectation
+
+E[X |Y ]
+
+Conditional Probability and Expectation
+
+E[X |Y ]
+
+It is actually a random variable
+
+E[X |Y ](y ) = E[X |Y = y ] is a function of Y
+
+A brief proof of X,Y being discrete and ﬁnite
+
+E[E[X |Y ]] = E[
+
+xP(X = x|Y )]
+
+(cid:88)
+
+xP(X = x|Y = y ))P(Y = y )
+
+xP(X = x, Y = y )
+
+P(X = x, Y = y ))
+
+=
+
+=
+
+=
+
+=
+
+(cid:88)
+
+(cid:88)
+
+x
+
+(
+
+x
+
+(cid:88)
+
+(cid:88)
+
+(cid:88)
+
+(cid:88)
+
+x
+
+x(
+
+y
+
+y
+
+y
+
+x
+
+x
+
+= E[X ]
+
+(cid:88)
+
+xP(X = x)
+
+Law of Total Expectation
+
+Let X, Y be RVs with the same probability space, then
+E[X ] = E[E[X |Y ]]
+
+E[E[X |Y ]] = E[
+
+xP(X = x|Y )]
+
+(cid:88)
+
+xP(X = x|Y = y ))P(Y = y )
+
+xP(X = x, Y = y )
+
+P(X = x, Y = y ))
+
+=
+
+=
+
+=
+
+=
+
+(cid:88)
+
+(cid:88)
+
+x
+
+(
+
+x
+
+(cid:88)
+
+(cid:88)
+
+(cid:88)
+
+(cid:88)
+
+x
+
+x(
+
+y
+
+y
+
+y
+
+x
+
+x
+
+= E[X ]
+
+(cid:88)
+
+xP(X = x)
+
+Law of Total Expectation
+
+Let X, Y be RVs with the same probability space, then
+E[X ] = E[E[X |Y ]]
+A brief proof of X,Y being discrete and ﬁnite
+
+Law of Total Expectation
+
+Let X, Y be RVs with the same probability space, then
+E[X ] = E[E[X |Y ]]
+A brief proof of X,Y being discrete and ﬁnite
+
+E[E[X |Y ]] = E[
+
+(cid:88)
+
+xP(X = x|Y )]
+
+x
+
+(cid:88)
+(
+
+(cid:88)
+
+=
+
+xP(X = x|Y = y ))P(Y = y )
+
+y
+(cid:88)
+
+x
+(cid:88)
+
+xP(X = x, Y = y )
+
+y
+(cid:88)
+
+x
+
+x(
+
+(cid:88)
+
+P(X = x, Y = y ))
+
+x
+(cid:88)
+
+y
+
+xP(X = x)
+
+=
+
+=
+
+=
+
+x
+= E[X ]
+
+More Conditioned Bayes Rule
+
+P(a|b, c) =
+
+P(b|a, c)P(a|c)
+P(b|c)
+
+It is actually the same as the Bayes Rule:
+
+P(a|b) =
+
+P(b|a)P(a)
+P(b)
+
+with a random variable c that all the probabilities are
+conditioned on.
+
+More Conditioned Bayes Rule
+
+A proof:
+
+P(b|a, c)P(a|c)
+P(b|c)
+
+=
+
+=
+
+P(b, a, c)P(a|c)
+P(b|c)P(a, c)
+P(b, a, c)P(a, c)
+P(b|c)P(a, c)P(c)
+P(b, a, c)
+P(b|c)P(c)
+P(b, a, c)
+P(b, c)
+= P(a|b, c)
+
+=
+
+=
+
+

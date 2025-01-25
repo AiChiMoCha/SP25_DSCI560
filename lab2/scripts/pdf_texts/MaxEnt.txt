@@ -1,0 +1,398 @@
+Maximum Entropy and Exponential Families
+
+Christopher R´e
+(edits by Tri Dao and Anand Avati)
+
+August 5, 2019
+
+Abstract
+
+The goal of this note is to derive the exponential form of probability distribution from
+more basic considerations, in particular Entropy. It follows a description by ET Jaynes
+in Chapter 11 of his book Probability Theory: the Logic of Science [1].1
+
+1 Motivating the Exponential Model
+
+This section will motivate the exponential model form that we’ve seen in lecture.
+
+The Setup The setup for our problem is that we are given a ﬁnite set of instances Y and
+a set of m statistics (Tj, cj) in which Tj : Y → R and cj ∈ R. An instance (or possible
+world) is just an element in a set. We can think about a statistic as a measurement of an
+instance, it tells us the important features of that instance that are important for our model.
+More precisely, the only information we have about the instances is the values of Ti on these
+instances. Our goal is to ﬁnd a probability function p such that
+
+p : Y → [0, 1] such that
+
+p(y) = 1.
+
+(cid:88)
+
+y∈Y
+
+The main goal of this note is to provide a set of assumptions under which such distri-
+butions have a speciﬁc functional form, the exponential family, that we saw in generalized
+linear model:
+
+p(y; η) = exp {η · T (y) − a(η)}
+in which η ∈ Rm, T (y) ∈ Rm and T (y)j = Tj(y). Notice that there is exactly one parameter
+for each statistic. As we’ll see for discrete distributions, we are able to derive this exponential
+form as a consequences of a maximizing entropy subject to matching the statistics.2
+
+1This work is available online in many places including http://omega.albany.edu:8008/ETJ-PS/cc11g.
+
+ps.
+
+2Unfortunately, for continuous distributions, such a derivation does not work due to some technical issues
+
+with Entropy–this hasn’t stopped folks from using it as justiﬁcation.
+
+1
+
+1.1 The problem: Too many distributions!
+
+We’ll see the problem of deﬁning a distribution from statistics (measurements). We’ll see
+that often there are often many probability distributions that satisfy our constraints, and
+we’ll be forced to pick among them.3
+
+The Constraints We interpret a statistic as a constraint on p of the following form:
+
+Ep[Tj] = cj i.e.,
+
+N
+(cid:88)
+
+i=1
+
+Tj(yi)pi = (cid:104)Tj, p(cid:105) = cj
+
+Let’s get some notation to describe these constraints. Let N = |Y|, then the probability we
+are after is p ∈ RN subject to constraints.
+
+• There are m constraints of the form
+
+(cid:104)Tj, p(cid:105) = cj for j = 1, . . . , m.
+
+• A single constraint of the form (cid:80)N
+
+i=1 pi = 1 to ensure that p is a probability distribution.
+
+We can write this more succinctly as (cid:104)1, p(cid:105) = 1.
+
+• We also have that pi ≥ 0 for i = 1, . . . , N .
+
+More compactly, we can write all constraints in a matrix G as
+
+G =
+
+(cid:19)
+
+(cid:18) 1
+T
+
+∈ R(m+1)×N so that Gp =
+
+(cid:18) 1
+c
+
+(cid:19)
+
+.
+
+If N(G) = ∅, then this means that p is uniquely deﬁned as G has an inverse. In this case,
+p = G−1c. However often m is much smaller than N , so that N(G) (cid:54)= ∅–and there are many
+solutions that satisfy the constraints.
+
+Example 1.1 Suppose we have three possible worlds, i.e., Y = {y1, y2, y3} and one statistic
+T (yi) = i and c = 2.5. Then, we have:
+
+G =
+
+(cid:19)
+
+(cid:18) 1 1 1
+1 2 3
+
+and N(G) =
+
+
+
+
+
+
+
+
+
+1
+−2
+1
+
+Let p(1) = (1/12, 1/3, 7/12) then Gp = (1, 2.5)T –but so do (inﬁnitely) many others, in par-
+ticular q(α) = p(1) + α(1, −2, 1) is valid so long as α ∈ [−1/12, 1/6] (due to positivity).
+
+3Throughout this section, it will be convenient to view p and Tj as functions from Y → R–and also as
+
+vectors indexed by Y. Their use should be clear from the context.
+
+2
+
+Picking a probability distribution p In the case ∅ (cid:54)= N(G), there are many probability
+distributions we can pick. All of these distributions can be written as follows:
+
+p = p(0) + p(1) in which p(0) ∈ N(G) and p(1) satisﬁes Gp(1) =
+
+(cid:19)
+
+(cid:18)1
+c
+
+Example 1.2 Continuing the computation above, we see p(0) = α(1, −2, 1) is a vector in
+N(G).
+
+Which p should we pick? Well, we’ll use one method called the method of maximum
+entropy. In turn, this will lead to the fact that our function p has a very special form–the
+form of exponential family distributions!
+
+1.2 Entropy
+
+To pick among the distributions, we’ll need some scoring method.4 We’ll cut to the chase
+here and deﬁne the entropy, which is a function on probability distributions p ∈ RN such
+that p ≥ 0 and (cid:104)1, p(cid:105) = 1.
+
+H(p) = −
+
+N
+(cid:88)
+
+i=1
+
+pi log pi
+
+Eﬀectively, the entropy rewards one for “spreading” the distribution out more. One can
+motivate Entropy from axioms, and either Jaynes or the Wikipedia page is pretty good
+on this account.5. The intuition should be that entropy can be used to select the least
+informative prior, it’s a way of making as few additional assumptions as possible. In other
+words, we want to encode the prior information given by the constraints on the statistics
+while being as “objective” or “agnostic” as possible. This is called the maximum entropy
+principle.
+
+For example, one can verify that under no constraints, H(p) is maximized with pi = N −1–
+
+that is all alternatives have equal probability. This is what we mean by spread out.
+
+We’ll pick the distribution that maximizes entropy subject to our constraints. Mathe-
+
+matically, we’ll examine:
+
+max
+p∈RN
+
+H(p) s.t. (cid:104)1, p(cid:105) = 1, p ≥ 0, and T p = c
+
+We will not discuss it, but under appropriate conditions there is a unique solution p.
+
+4A few natural methods don’t work as we might think they should (minimizing variance, etc.) See [1,
+
+Ch.11] for a description of these alternative approaches.
+
+5https://en.wikipedia.org/wiki/Entropy_(information_theory)#Rationale
+
+3
+
+1.3 The Lagrangian
+
+We’ll create a function called the Lagrangian that has the property that any critical point of
+the Lagrangian is a critical point of the constrained problem. We will show that all critical
+points of the Lagrangian (and so our original problem) can be written in the exponential
+format we described above.
+
+To simplify our discussion, let’s imagine that p > 0, i.e,. there are no possible worlds y
+
+such that p(y) = 0. In this case, our problem reduces to:
+
+max
+p∈RN
+
+H(p) s.t. T p = c and (cid:104)1, p(cid:105) = 1
+
+We can write the Lagrangian L : RN × (Rm × R) → R as follows:
+
+L(p; η, λ) = H(p) + (cid:104)η, T p − c(cid:105) + λ ((cid:104)1, p(cid:105) − 1)
+
+The special property of L is that any critical point of our original solution, in particular
+any maximum or minimum corresponds to a critical point of the Lagrangian. Thus, if we
+prove something about critical points of the Lagrangian, we prove something about the
+critical points of the original function. Later in the course, we’ll see more sophisticated uses
+of Lagrangians but for now we include a simple derivation below to give a hint what’s going
+on. For this section, we’ll assume this special property is true.
+
+Due to that special property, we ﬁnd the critical points of L by diﬀerentiating with
+
+respect to pi and setting the resulting equations to 0.
+
+∂
+∂pi
+
+L =
+
+∂
+∂pi
+
+[H(p) + (cid:104)η, T p − c(cid:105) + λ((cid:104)1, p(cid:105) − 1)]
+
+= −(log pi + 1) + (cid:104)η, T (yi)(cid:105) + λ
+
+Setting this expression equal to 0 and solving for pi we learn:
+
+pi = eλ−1 exp {(cid:104)η, T (yi)(cid:105)}
+
+⇒ p(y) ∝ exp{η · T (y)}
+
+which is of the right form–except that we have one too many parameters, namely λ. Nev-
+ertheless, this is remarkable: at a critical point, it’s always the case that the exponential
+family “pops out”!
+
+Eliminating λ The parameter λ can be eliminated, which is the ﬁnal step to match our
+original claimed exponential form. To do so, we sum over all the pi which we know on one
+hand is equal to 1, and the other hand, we have the above expression for pi. This gives us
+the following equation:
+
+N
+(cid:88)
+
+i=1
+
+pi = 1 and
+
+N
+(cid:88)
+
+i=1
+
+pi = eλ−1
+
+(cid:32) N
+(cid:88)
+
+i=1
+
+(cid:33)
+
+exp {η · T (yi)}
+
+thus e−λ+1 =
+
+(cid:33)
+
+exp {η · T (y)}
+
+(cid:32)
+
+(cid:88)
+
+y∈Y
+
+4
+
+Thus, we have expressed λ as a function of η and we can eliminate it. To do so, we write:
+
+Z(η) =
+
+(cid:88)
+
+y∈Y
+
+exp {η · T (y)}
+
+⇒ p(y; η) = Z(η)−1 exp{η · T (y)}
+
+= exp{η · T (y) − a(η)} where a(η) = log Z(η)
+
+This function Z is called the partition function, and a is called the log-partition function.
+The above is the claimed exponential form we saw in lecture.
+
+2 Why the Lagrangian? [optional]
+
+We observe that this is a constrained optimization problem with linear constraints.6
+
+Let r be the rank of G and so dim(N(G)) = N − r. We create a function φ : RN −r → R
+such that there is a map between any point in the domain of φ and a feasible solution to
+our constrained problem, and moreover φ will take the same value as H. In contrast to our
+original constrained problem, φ has an unconstrained domain (all of RN −r), and so we can
+apply standard calculus to ﬁnd its critical points. To that end, we deﬁne a (linear) map
+B ∈ RN ×(N −r) that has rank N − r. We also insist that BT B = IN −r. Such a B exists, as it
+is simply the ﬁrst N − r columns of a change of basis matrix from the standard basis to an
+orthonormal basis for N(G). We have
+
+where p(1) is a ﬁxed vector satisfying Gp(1) =
+
+φ(x) = H(Bx + p(1)),
+(cid:18)1
+c
+
+(cid:19)
+.
+
+Observe that for any x ∈ RN −r, Bx ∈ N(G) so that G(Bx + p(1)) = Gp(1) =
+
+(cid:19)
+
+(cid:18)1
+c
+
+and so
+
+Bx + p(1) is feasible. Moreover, B is a bijection from RN −r to the set of feasible solutions.7
+Importantly, φ is now unconstrained, and so any saddle point (and so any maximum or
+minimum) must satisfy:
+
+∇xφ(x) = 0
+
+Gradient Decomposition Any critical point of H yields a critical point of φ, that is, if
+p = p(0) + p(1) is a critical point of H then x = BT p(0) is a critical point of φ. Consider any
+critical point p, then we can uniquely decompose the gradient as:
+
+∇pH(p) = g0 + g1 in which g0 ∈ N(G) and g1 ∈ N(G)⊥.
+
+6One can form the Lagrangian for non-linear constraints, but to derive it we need to use fancier math
+
+like the implicit function theorem. We only need linear constraints for our applications.
+
+7For contradiction, suppose p, q are distinct feasible solutions then, p (cid:54)= q but BT p = BT q but we can
+write p = p(0) + p(1) and q = q(0) + p(1) from the above. However, BT p = BT q implies that BT p(0) = BT q(0).
+In turn since B is a bijection on N(G) this implies that p(0) = q(0).
+
+5
+
+We claim g0 = B∇φ(BT p) or equivalently BT g = ∇xφ(BT p). From direct calculation,
+∇xφ(x) = ∇xH(Bx + p(1)) = BT ∇pH(p(0) + p(1)) = BT ∇pH(p) = BT g0, where the last
+equality is due to g1 ∈ N(G)⊥. A critical point of H satisfying the constraints must not
+change along any direction that satisﬁes the constraints, which is to say that we must have
+g0 = 0. Very roughly, one can have the intuition that if p were a maximum (or minimum),
+then if g0 were non-zero there would be a way to strictly increase (or decrease) the function
+in a neighbor around p–contradicting p being a maximum (minimum).
+
+Lagrangian Since g1 ∈ N(G)⊥ = R(GT ) (see the fundamental theorem of linear algebra),
+we can ﬁnd a η(p) such that g1 = −GT η(p), which motivates the following functional form:
+
+L(p, η(p)) = H(p) + (cid:104)η(p), Gp − c(cid:105)
+
+By the deﬁnition of η(p), we have:
+
+∇pL(p, η(p)) = g0 + g1 + GT η(p) = g0.
+
+That is, for any critical point p of the original function (which corresponds to g0 = 0) we
+can select η(p) so that it is a critical point of L(p, η). Informally, the multipliers combines
+the rows of G to cancel g1, the component of the gradient in the direction of the constraints.
+This establishes that any critical point of the original constrained function is also a critical
+point of the Lagrangian.
+
+References
+
+[1] Jaynes, Edwin T, Probability theory: The logic of science, Cambridge University Press,
+
+2003.
+
+6
+
+

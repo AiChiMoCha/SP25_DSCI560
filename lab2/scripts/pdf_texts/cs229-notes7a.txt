@@ -1,0 +1,115 @@
+CS229 Lecture notes
+
+Andrew Ng
+
+The k-means clustering algorithm
+
+In the clustering problem, we are given a training set {x(1), . . . , x(n)}, and
+want to group the data into a few cohesive “clusters.” Here, x(i) ∈ Rd
+as usual; but no labels y(i) are given. So, this is an unsupervised learning
+problem.
+
+The k-means clustering algorithm is as follows:
+
+1. Initialize cluster centroids µ1, µ2, . . . , µk ∈ Rd randomly.
+
+2. Repeat until convergence: {
+
+For every i, set
+
+For each j, set
+
+}
+
+c(i) := arg min
+
+j
+
+||x(i) − µj||2.
+
+µj := P
+
+n
+
+i=1 1{c(i) = j}x(i)
+n
+i=1 1{c(i) = j}
+P
+
+.
+
+In the algorithm above, k (a parameter of the algorithm) is the number
+of clusters we want to ﬁnd; and the cluster centroids µj represent our current
+guesses for the positions of the centers of the clusters. To initialize the cluster
+centroids (in step 1 of the algorithm above), we could choose k training
+examples randomly, and set the cluster centroids to be equal to the values of
+these k examples. (Other initialization methods are also possible.)
+
+The inner-loop of the algorithm repeatedly carries out two steps: (i)
+“Assigning” each training example x(i) to the closest cluster centroid µj, and
+(ii) Moving each cluster centroid µj to the mean of the points assigned to it.
+Figure 1 shows an illustration of running k-means.
+
+1
+
+2
+
+(a)
+
+(b)
+
+(c)
+
+(d)
+
+(e)
+
+(f)
+
+Figure 1: K-means algorithm. Training examples are shown as dots, and
+cluster centroids are shown as crosses. (a) Original dataset. (b) Random ini-
+tial cluster centroids (in this instance, not chosen to be equal to two training
+examples). (c-f) Illustration of running two iterations of k-means. In each
+iteration, we assign each training example to the closest cluster centroid
+(shown by “painting” the training examples the same color as the cluster
+centroid to which is assigned); then we move each cluster centroid to the
+mean of the points assigned to it. (Best viewed in color.) Images courtesy
+Michael Jordan.
+
+Is the k-means algorithm guaranteed to converge? Yes it is, in a certain
+
+sense. In particular, let us deﬁne the distortion function to be:
+
+J(c, µ) =
+
+n
+
+X
+i=1
+
+||x(i) − µc(i)||2
+
+Thus, J measures the sum of squared distances between each training exam-
+ple x(i) and the cluster centroid µc(i) to which it has been assigned. It can
+be shown that k-means is exactly coordinate descent on J. Speciﬁcally, the
+inner-loop of k-means repeatedly minimizes J with respect to c while holding
+µ ﬁxed, and then minimizes J with respect to µ while holding c ﬁxed. Thus,
+J must monotonically decrease, and the value of J must converge. (Usu-
+ally, this implies that c and µ will converge too. In theory, it is possible for
+
+3
+
+k-means to oscillate between a few diﬀerent clusterings—i.e., a few diﬀerent
+values for c and/or µ—that have exactly the same value of J, but this almost
+never happens in practice.)
+
+The distortion function J is a non-convex function, and so coordinate
+descent on J is not guaranteed to converge to the global minimum. In other
+words, k-means can be susceptible to local optima. Very often k-means will
+work ﬁne and come up with very good clusterings despite this. But if you
+are worried about getting stuck in bad local minima, one common thing to
+do is run k-means many times (using diﬀerent random initial values for the
+cluster centroids µj). Then, out of all the diﬀerent clusterings found, pick
+the one that gives the lowest distortion J(c, µ).
+
+

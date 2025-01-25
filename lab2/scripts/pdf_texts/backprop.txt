@@ -1,0 +1,113 @@
+CS229: Additional Notes on Backpropagation
+
+1 Forward propagation
+
+Recall that given input x, we deﬁne a[0] = x. Then for layer (cid:96) = 1, 2, . . . , N ,
+where N is the number of layers of the network, we have
+
+1. z[(cid:96)] = W [(cid:96)]a[(cid:96)−1] + b[(cid:96)]
+
+2. a[(cid:96)] = g[(cid:96)](z[(cid:96)])
+
+In these notes we assume the nonlinearities g[(cid:96)] are the same for all layers be-
+sides layer N . This is because in the output layer we may be doing regression
+[hence we might use g(x) = x] or binary classiﬁcation [g(x) = sigmoid(x)] or
+multiclass classiﬁcation [g(x) = softmax(x)]. Hence we distinguish g[N ] from
+g, and assume g is used for all layers besides layer N .
+
+Finally, given the output of the network a[N ], which we will more simply
+denote as ˆy, we measure the loss J(W, b) = L(a[N ], y) = L(ˆy, y). For example,
+for real-valued regression we might use the squared loss
+
+L(ˆy, y) =
+
+1
+2
+
+(ˆy − y)2
+
+and for binary classiﬁcation using logistic regression we use
+
+L(ˆy, y) = −(y log ˆy + (1 − y) log(1 − ˆy))
+
+or negative log-likelihood. Finally, for softmax regression over k classes, we
+use the cross entropy loss
+
+L(ˆy, y) = −
+
+k
+(cid:88)
+
+j=1
+
+1{y = j} log ˆyj
+
+which is simply negative log-likelihood extended to the multiclass setting.
+Note that ˆy is a k-dimensional vector in this case. If we use y to instead
+denote the k-dimensional vector of zeros with a single 1 at the lth position,
+where the true label is l, we can also express the cross entropy loss as
+
+L(ˆy, y) = −
+
+k
+(cid:88)
+
+j=1
+
+yj log ˆyj
+
+1
+
+2
+
+2 Backpropagation
+
+Let’s deﬁne one more piece of notation that’ll be useful for backpropagation.1
+We will deﬁne
+
+δ[(cid:96)] = ∇z[(cid:96)]L(ˆy, y)
+
+We can then deﬁne a three-step “recipe” for computing the gradients with
+
+respect to every W [(cid:96)], b[(cid:96)] as follows:
+
+1. For output layer N , we have
+
+δ[N ] = ∇z[N ]L(ˆy, y)
+
+if g[N ]
+Sometimes we may want to compute ∇z[N ]L(ˆy, y) directly (e.g.
+is the softmax function), whereas other times (e.g. when g[N ] is the
+sigmoid function σ) we can apply the chain rule:
+
+∇z[N ]L(ˆy, y) = ∇ˆyL(ˆy, y) ◦ (g[N ])(cid:48)(z[N ])
+
+Note (g[N ])(cid:48)(z[N ]) denotes the elementwise derivative w.r.t. z[N ].
+
+2. For (cid:96) = N − 1, N − 2, . . . , 1, we have
+
+δ[(cid:96)] = (W [(cid:96)+1](cid:62)
+
+δ[(cid:96)+1]) ◦ g(cid:48)(z[(cid:96)])
+
+3. Finally, we can compute the gradients for layer (cid:96) as
+
+∇W [(cid:96)]J(W, b) = δ[(cid:96)]a[(cid:96)−1](cid:62)
+∇b[(cid:96)]J(W, b) = δ[(cid:96)]
+
+where we use ◦ to indicate the elementwise product. Note the above proce-
+dure is for a single training example.
+
+You can try applying the above algorithm to logistic regression (N = 1,
+g[1] is the sigmoid function σ) to sanity check steps (1) and (3). Recall that
+σ(cid:48)(z) = σ(z) ◦ (1 − σ(z)) and σ(z[1]) is simply a[1]. Note that for logistic
+regression, if x is a column vector in Rd×1, then W [1] ∈ R1×d, and hence
+∇W [1]J(W, b) ∈ R1×d. Example code for two layers is also given at:
+
+http://cs229.stanford.edu/notes/backprop.py
+
+1These notes are closely adapted from:
+http://ufldl.stanford.edu/tutorial/supervised/MultiLayerNeuralNetworks/
+Scribe: Ziang Xie
+
+

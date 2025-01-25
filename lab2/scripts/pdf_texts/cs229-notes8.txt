@@ -1,0 +1,1281 @@
+CS229 Lecture notes
+
+Tengyu Ma and Andrew Ng
+
+May 13, 2019
+
+Part IX
+The EM algorithm
+
+In the previous set of notes, we talked about the EM algorithm as applied to
+ﬁtting a mixture of Gaussians. In this set of notes, we give a broader view
+of the EM algorithm, and show how it can be applied to a large family of
+estimation problems with latent variables. We begin our discussion with a
+very useful result called Jensen’s inequality
+
+1 Jensen’s inequality
+
+Let f be a function whose domain is the set of real numbers. Recall that
+f is a convex function if f ′′(x) ≥ 0 (for all x ∈ R). In the case of f taking
+vector-valued inputs, this is generalized to the condition that its hessian H
+is positive semi-deﬁnite (H ≥ 0). If f ′′(x) > 0 for all x, then we say f is
+strictly convex (in the vector-valued case, the corresponding statement is
+that H must be positive deﬁnite, written H > 0). Jensen’s inequality can
+then be stated as follows:
+
+Theorem. Let f be a convex function, and let X be a random variable.
+Then:
+
+E[f (X)] ≥ f (EX).
+
+Moreover, if f is strictly convex, then E[f (X)] = f (EX) holds true if and
+only if X = E[X] with probability 1 (i.e., if X is a constant).
+
+Recall our convention of occasionally dropping the parentheses when writ-
+
+ing expectations, so in the theorem above, f (EX) = f (E[X]).
+
+For an interpretation of the theorem, consider the ﬁgure below.
+
+1
+
+2
+
+f
+
+f(a)
+
+E[f(X)]
+
+f(b)
+
+f(EX)
+
+a
+
+E[X]
+
+b
+
+Here, f is a convex function shown by the solid line. Also, X is a random
+variable that has a 0.5 chance of taking the value a, and a 0.5 chance of
+taking the value b (indicated on the x-axis). Thus, the expected value of X
+is given by the midpoint between a and b.
+
+We also see the values f (a), f (b) and f (E[X]) indicated on the y-axis.
+Moreover, the value E[f (X)] is now the midpoint on the y-axis between f (a)
+and f (b). From our example, we see that because f is convex, it must be the
+case that E[f (X)] ≥ f (EX).
+
+Incidentally, quite a lot of people have trouble remembering which way
+the inequality goes, and remembering a picture like this is a good way to
+quickly ﬁgure out the answer.
+Remark. Recall that f is [strictly] concave if and only if −f is [strictly]
+convex (i.e., f ′′(x) ≤ 0 or H ≤ 0). Jensen’s inequality also holds for concave
+functions f , but with the direction of all the inequalities reversed (E[f (X)] ≤
+f (EX), etc.).
+
+2 The EM algorithm
+
+Suppose we have an estimation problem in which we have a training set
+{x(1), . . . , x(n)} consisting of n independent examples. We have a latent vari-
+able model p(x, z; θ) with z being the latent variable (which for simplicity is
+assumed to take ﬁnite number of values). The density for x can be obtained
+by marginalized over the latent variable z:
+
+p(x; θ) =
+
+p(x, z; θ)
+
+Xz
+
+(1)
+
+We wish to ﬁt the parameters θ by maximizing the log-likelihood of the
+
+data, deﬁned by
+
+3
+
+ℓ(θ) =
+
+n
+
+Xi=1
+
+log p(x(i); θ)
+
+We can rewrite the objective in terms of the joint density p(x, z; θ) by
+
+ℓ(θ) =
+
+n
+
+Xi=1
+n
+
+log p(x(i); θ)
+
+=
+
+log
+
+p(x(i), z(i); θ).
+
+Xi=1
+
+Xz(i)
+
+(2)
+
+(3)
+
+(4)
+
+But, explicitly ﬁnding the maximum likelihood estimates of the parameters
+θ may be hard since it will result in diﬃcult non-convex optimization prob-
+lems.1 Here, the z(i)’s are the latent random variables; and it is often the case
+that if the z(i)’s were observed, then maximum likelihood estimation would
+be easy.
+
+In such a setting, the EM algorithm gives an eﬃcient method for max-
+imum likelihood estimation. Maximizing ℓ(θ) explicitly might be diﬃcult,
+and our strategy will be to instead repeatedly construct a lower-bound on ℓ
+(E-step), and then optimize that lower-bound (M-step).2
+
+It turns out that the summation
+
+n
+i=1 is not essential here, and towards a
+simpler exposition of the EM algorithm, we will ﬁrst consider optimizing the
+P
+the likelihood log p(x) for a single example x. After we derive the algorithm
+for optimizing log p(x), we will convert it to an algorithm that works for n
+examples by adding back the sum to each of the relevant equations. Thus,
+now we aim to optimize log p(x; θ) which can be rewritten as
+
+log p(x; θ) = log
+
+p(x, z; θ)
+
+(5)
+
+Xz
+
+1It’s mostly an empirical observation that the optimization problem is diﬃcult to op-
+
+timize.
+
+2Empirically, the E-step and M-step can often be computed more eﬃciently than op-
+timizing the function ℓ(·) directly. However, it doesn’t necessarily mean that alternating
+the two steps can always converge to the global optimum of ℓ(·). Even for mixture of
+Gaussians, the EM algorithm can either converge to a global optimum or get stuck, de-
+pending on the properties of the training data. Empirically, for real-world data, often EM
+can converge to a solution with relatively high likelihood (if not the optimum), and the
+theory behind it is still largely not understood.
+
+Let Q be a distribution over the possible values of z. That is,
+Q(z) ≥ 0).
+
+Consider the following:3
+
+log p(x; θ) = log
+
+p(x, z; θ)
+
+Xz
+
+= log
+
+Q(z)
+
+Xz
+
+≥
+
+Q(z) log
+
+Xz
+
+p(x, z; θ)
+Q(z)
+
+p(x, z; θ)
+Q(z)
+
+4
+
+z Q(z) = 1,
+
+P
+
+(6)
+
+(7)
+
+The last step of this derivation used Jensen’s inequality. Speciﬁcally,
+f (x) = log x is a concave function, since f ′′(x) = −1/x2 < 0 over its domain
+x ∈ R+. Also, the term
+
+Q(z)
+
+p(x, z; θ)
+
+(cid:20)
+
+Q(z) (cid:21)
+
+Xz
+
+in the summation is just an expectation of the quantity [p(x, z; θ)/Q(z)] with
+respect to z drawn according to the distribution given by Q.4 By Jensen’s
+inequality, we have
+
+f
+
+Ez∼Q (cid:20)
+
+(cid:18)
+
+p(x, z; θ)
+
+Q(z) (cid:21)(cid:19)
+
+≥ Ez∼Q (cid:20)
+
+f
+
+p(x, z; θ)
+
+(cid:18)
+
+Q(z) (cid:19)(cid:21)
+
+,
+
+where the “z ∼ Q” subscripts above indicate that the expectations are with
+respect to z drawn from Q. This allowed us to go from Equation (6) to
+Equation (7).
+
+Now, for any distribution Q, the formula (7) gives a lower-bound on
+log p(x; θ). There are many possible choices for the Q’s. Which should we
+choose? Well, if we have some current guess θ of the parameters, it seems
+natural to try to make the lower-bound tight at that value of θ. I.e., we will
+make the inequality above hold with equality at our particular value of θ.
+
+To make the bound tight for a particular value of θ, we need for the step
+involving Jensen’s inequality in our derivation above to hold with equality.
+
+3If z were continuous, then Q would be a density, and the summations over z in our
+
+discussion are replaced with integrals over z.
+
+4We note that the notion p(x,z;θ)
+
+Q(z) only makes sense if Q(z) 6= 0 whenever p(x, z; θ) 6= 0.
+
+Here we implicitly assume that we only consider those Q with such a property.
+
+5
+
+For this to be true, we know it is suﬃcient that the expectation be taken
+over a “constant”-valued random variable. I.e., we require that
+
+p(x, z; θ)
+Q(z)
+
+= c
+
+for some constant c that does not depend on z. This is easily accomplished
+by choosing
+
+Q(z) ∝ p(x, z; θ).
+
+Actually, since we know
+further tells us that
+
+P
+
+z Q(z) = 1 (because it is a distribution), this
+
+Q(z) =
+
+p(x, z; θ)
+z p(x, z; θ)
+
+=
+
+P
+p(x, z; θ)
+p(x; θ)
+= p(z|x; θ)
+
+(8)
+
+Thus, we simply set the Q’s to be the posterior distribution of the z’s given
+x and the setting of the parameters θ.
+
+Indeed, we can directly verify that when Q(z) = p(z|x; θ), then equa-
+
+tion (7) is an equality because
+
+Q(z) log
+
+p(x, z; θ)
+Q(z)
+
+Xz
+
+p(z|x; θ) log
+
+p(x, z; θ)
+p(z|x; θ)
+
+p(z|x; θ) log
+
+p(z|x; θ)p(x; θ)
+p(z|x; θ)
+
+p(z|x; θ) log p(x; θ)
+
+=
+
+=
+
+=
+
+Xz
+
+Xz
+
+Xz
+
+= log p(x; θ)
+
+p(z|x; θ)
+
+Xz
+
+For convenience, we call the expression in Equation (7) the evidence
+
+P
+
+= log p(x; θ)
+
+(because
+
+z p(z|x; θ) = 1)
+
+lower bound (ELBO) and we denote it by
+
+ELBO(x; Q, θ) =
+
+Q(z) log
+
+Xz
+
+p(x, z; θ)
+Q(z)
+
+(9)
+
+6
+
+With this equation, we can re-write equation (7) as
+
+∀Q, θ, x,
+
+log p(x; θ) ≥ ELBO(x; Q, θ)
+
+(10)
+
+Intuitively, the EM algorithm alternatively updates Q and θ by a) setting
+Q(z) = p(z|x; θ) following Equation (8) so that ELBO(x; Q, θ) = log p(x; θ)
+for x and the current θ, and b) maximizing ELBO(x; Q, θ) w.r.t θ while ﬁxing
+the choice of Q.
+
+Recall that all the discussion above was under the assumption that we
+aim to optimize the log-likelihood log p(x; θ) for a single example x. It turns
+out that with multiple training examples, the basic idea is the same and we
+only needs to take a sum over examples at relevant places. Next, we will
+build the evidence lower bound for multiple training examples and make the
+EM algorithm formal.
+
+Recall we have a training set {x(1), . . . , x(n)}. Note that the optimal choice
+of Q is p(z|x; θ), and it depends on the particular example x. Therefore here
+we will introduce n distributions Q1, . . . , Qn, one for each example x(i). For
+each example x(i), we can build the evidence lower bound
+
+log p(x(i); θ) ≥ ELBO(x(i); Qi, θ) =
+
+Qi(z(i)) log
+
+Xz(i)
+
+p(x(i), z(i); θ)
+Qi(z(i))
+
+Taking sum over all the examples, we obtain a lower bound for the log-
+likelihood
+
+ℓ(θ) ≥
+
+ELBO(x(i); Qi, θ)
+
+Xi
+
+=
+
+Qi(z(i)) log
+
+Xi Xz(i)
+
+p(x(i), z(i); θ)
+Qi(z(i))
+
+(11)
+
+For any set of distributions Q1, . . . , Qn, the formula (11) gives a lower-
+bound on ℓ(θ), and analogous to the argument around equation (8), the Qi
+that attains equality satisﬁes
+
+Qi(z(i)) = p(z(i)|x(i); θ)
+
+Thus, we simply set the Qi’s to be the posterior distribution of the z(i)’s
+given x(i) with the current setting of the parameters θ.
+
+Now, for this choice of the Qi’s, Equation (11) gives a lower-bound on
+the loglikelihood ℓ that we’re trying to maximize. This is the E-step.
+In
+the M-step of the algorithm, we then maximize our formula in Equation (11)
+with respect to the parameters to obtain a new setting of the θ’s. Repeatedly
+carrying out these two steps gives us the EM algorithm, which is as follows:
+
+7
+
+Repeat until convergence {
+
+(E-step) For each i, set
+
+Qi(z(i)) := p(z(i)|x(i); θ).
+
+(M-step) Set
+
+θ := arg max
+
+θ
+
+n
+
+Xi=1
+
+ELBO(x(i); Qi, θ)
+
+= arg max
+
+θ Xi Xz(i)
+
+Qi(z(i)) log
+
+p(x(i), z(i); θ)
+Qi(z(i))
+
+.
+
+(12)
+
+}
+
+How do we know if this algorithm will converge? Well, suppose θ(t) and
+θ(t+1) are the parameters from two successive iterations of EM. We will now
+prove that ℓ(θ(t)) ≤ ℓ(θ(t+1)), which shows EM always monotonically im-
+proves the log-likelihood. The key to showing this result lies in our choice of
+the Qi’s. Speciﬁcally, on the iteration of EM in which the parameters had
+started out as θ(t), we would have chosen Q(t)
+i (z(i)) := p(z(i)|x(i); θ(t)). We
+saw earlier that this choice ensures that Jensen’s inequality, as applied to get
+Equation (11), holds with equality, and hence
+
+ℓ(θ(t)) =
+
+n
+
+Xi=1
+
+ELBO(x(i); Q(t)
+i
+
+, θ(t))
+
+(13)
+
+The parameters θ(t+1) are then obtained by maximizing the right hand side
+of the equation above. Thus,
+
+ℓ(θ(t+1)) ≥
+
+n
+
+Xi=1
+
+n
+
+ELBO(x(i); Q(t)
+i
+
+, θ(t+1))
+
+(because ineqaulity (11) holds for all Q and θ)
+
+≥
+
+ELBO(x(i); Q(t)
+i
+
+, θ(t))
+
+(see reason below)
+
+Xi=1
+= ℓ(θ(t))
+
+(by equation (13))
+
+where the last inequality follows from that θ(t+1) is chosen explicitly to be
+
+arg max
+
+θ
+
+n
+
+Xi=1
+
+ELBO(x(i); Q(t)
+i
+
+, θ)
+
+8
+
+Hence, EM causes the likelihood to converge monotonically. In our de-
+scription of the EM algorithm, we said we’d run it until convergence. Given
+the result that we just showed, one reasonable convergence test would be
+to check if the increase in ℓ(θ) between successive iterations is smaller than
+some tolerance parameter, and to declare convergence if EM is improving
+ℓ(θ) too slowly.
+
+Remark. If we deﬁne (by overloading ELBO(·))
+
+ELBO(Q, θ) =
+
+n
+
+Xi=1
+
+ELBO(x(i); Qi, θ) =
+
+Qi(z(i)) log
+
+Xi Xz(i)
+
+p(x(i), z(i); θ)
+Qi(z(i))
+
+(14)
+
+then we know ℓ(θ) ≥ ELBO(Q, θ) from our previous derivation. The EM
+can also be viewed an alternating maximization algorithm on ELBO(Q, θ),
+in which the E-step maximizes it with respect to Q (check this yourself), and
+the M-step maximizes it with respect to θ.
+
+2.1 Other interpretation of ELBO
+
+Let ELBO(x; Q, θ) =
+are several other forms of ELBO. First, we can rewrite
+
+z Q(z) log p(x,z;θ)
+
+Q(z) be deﬁned as in equation (9). There
+
+P
+
+ELBO(x; Q, θ) = Ez∼Q[log p(x, z; θ)] − Ez∼Q[log Q(z)]
+
+= Ez∼Q[log p(x|z; θ)] − DKL(Qkpz)
+
+(15)
+
+where we use pz to denote the marginal distribution of z (under the distri-
+bution p(x, z; θ)), and DKL() denotes the KL divergence
+
+Q(z)
+p(z)
+
+DKL(Qkpz) =
+
+Q(z) log
+
+(16)
+
+Xz
+In many cases, the marginal distribution of z does not depend on the param-
+eter θ. In this case, we can see that maximizing ELBO over θ is equivalent
+to maximizing the ﬁrst term in (15). This corresponds to maximizing the
+conditional likelihood of x conditioned on z, which is often a simpler question
+than the original question.
+
+Another form of ELBO(·) is (please verify yourself)
+
+ELBO(x; Q, θ) = log p(x) − DKL(Qkpz|x)
+
+(17)
+
+where pz|x is the conditional distribution of z given x under the parameter
+θ. This forms shows that the maximizer of ELBO(Q, θ) over Q is obtained
+when Q = pz|x, which was shown in equation (8) before.
+
+9
+
+3 Mixture of Gaussians revisited
+
+Armed with our general deﬁnition of the EM algorithm, let’s go back to our
+old example of ﬁtting the parameters φ, µ and Σ in a mixture of Gaussians.
+For the sake of brevity, we carry out the derivations for the M-step updates
+only for φ and µj, and leave the updates for Σj as an exercise for the reader.
+The E-step is easy. Following our algorithm derivation above, we simply
+
+calculate
+
+w(i)
+
+j = Qi(z(i) = j) = P (z(i) = j|x(i); φ, µ, Σ).
+Here, “Qi(z(i) = j)” denotes the probability of z(i) taking the value j under
+the distribution Qi.
+
+Next, in the M-step, we need to maximize, with respect to our parameters
+
+φ, µ, Σ, the quantity
+
+n
+
+Xi=1 Xz(i)
+
+Qi(z(i)) log
+
+p(x(i), z(i); φ, µ, Σ)
+Qi(z(i))
+
+=
+
+=
+
+n
+
+k
+
+Xi=1
+n
+
+Xj=1
+k
+
+Xi=1
+
+Xj=1
+
+Qi(z(i) = j) log
+
+p(x(i)|z(i) = j; µ, Σ)p(z(i) = j; φ)
+Qi(z(i) = j)
+2(x(i) − µj)T Σ−1
+
+− 1
+
+j (x(i) − µj)
+
+1
+
+(2π)d/2|Σj |1/2 exp
+
+w(i)
+j
+
+log
+
+(cid:0)
+
+w(i)
+j
+
+· φj
+
+(cid:1)
+
+Let’s maximize this with respect to µl. If we take the derivative with respect
+to µl, we ﬁnd
+
+1
+
+(2π)d/2|Σj |1/2 exp
+
+− 1
+
+2(x(i) − µj)T Σ−1
+
+j (x(i) − µj)
+
+(cid:0)
+
+w(i)
+j
+
+· φj
+
+(cid:1)
+
+∇µl
+
+n
+
+k
+
+Xi=1
+
+Xj=1
+
+w(i)
+j
+
+log
+
+n
+
+k
+
+= −∇µl
+
+Xi=1
+
+Xj=1
+
+n
+
+1
+2
+
+Xi=1
+n
+
+=
+
+=
+
+w(i)
+l
+
+(cid:0)
+
+Xi=1
+
+Σ−1
+
+l x(i) − Σ−1
+
+l µl
+
+(cid:1)
+
+w(i)
+j
+
+1
+2
+
+(x(i) − µj)T Σ−1
+
+j (x(i) − µj)
+
+w(i)
+
+l ∇µl2µT
+
+l Σ−1
+
+l x(i) − µT
+
+l Σ−1
+
+l µl
+
+Setting this to zero and solving for µl therefore yields the update rule
+
+µl :=
+
+P
+
+n
+
+i=1 w(i)
+l x(i)
+i=1 w(i)
+
+n
+
+l
+
+,
+
+P
+
+which was what we had in the previous set of notes.
+
+10
+
+Let’s do one more example, and derive the M-step update for the param-
+eters φj. Grouping together only the terms that depend on φj, we ﬁnd that
+we need to maximize
+
+n
+
+k
+
+w(i)
+j
+
+log φj.
+
+Xi=1
+
+Xj=1
+
+However, there is an additional constraint that the φj’s sum to 1, since they
+represent the probabilities φj = p(z(i) = j; φ). To deal with the constraint
+that
+
+k
+j=1 φj = 1, we construct the Lagrangian
+
+P
+
+n
+
+k
+
+k
+
+L(φ) =
+
+w(i)
+j
+
+log φj + β(
+
+φj − 1),
+
+Xi=1
+
+Xj=1
+
+Xj=1
+
+where β is the Lagrange multiplier.5 Taking derivatives, we ﬁnd
+
+∂
+∂φj
+
+L(φ) =
+
+n
+
+Xi=1
+
+w(i)
+j
+φj
+
++ β
+
+Setting this to zero and solving, we get
+
+φj =
+
+P
+
+n
+
+i=1 w(i)
+−β
+
+j
+
+n
+
+i=1 w(i)
+
+j
+
+P
+
+I.e., φj ∝
+. Using the constraint that
+j=1 w(i)
+n
+k
+that −β =
+Qi(z(i) = j), and since probabilities sum to 1,
+have our M-step updates for the parameters φj:
+
+i=1 1 = n. (This used the fact that w(i)
+P
+j w(i)
+
+j φj = 1, we easily ﬁnd
+j =
+j = 1.) We therefore
+
+j =
+
+n
+i=1
+
+P
+
+P
+
+P
+
+P
+
+φj :=
+
+1
+n
+
+n
+
+Xi=1
+
+w(i)
+j
+
+.
+
+The derivation for the M-step updates to Σj are also entirely straightfor-
+
+ward.
+
+5We don’t need to worry about the constraint that φj ≥ 0, because as we’ll shortly see,
+
+the solution we’ll ﬁnd from this derivation will automatically satisfy that anyway.
+
+11
+
+4 Variational inference and variational auto-
+
+encoder
+
+Loosely speaking, variational auto-encoder [2] generally refers to a family of
+algorithms that extend the EM algorithms to more complex models parame-
+terized by neural networks. It extends the technique of variational inference
+with the additional “re-parametrization trick” which will be introduced be-
+low. Variational auto-encoder may not give the best performance for many
+datasets, but it contains several central ideas about how to extend EM algo-
+rithms to high-dimensional continuous latent variables with non-linear mod-
+els. Understanding it will likely give you the language and backgrounds to
+understand various recent papers related to it.
+
+As a running example, we will consider the following parameterization of
+p(x, z; θ) by a neural network. Let θ be the collection of the weights of a
+neural network g(z; θ) that maps z ∈ Rk to Rd. Let
+
+z ∼ N (0, Ik×k)
+
+x|z ∼ N (g(z; θ), σ2Id×d)
+
+(18)
+(19)
+
+Here Ik×k denotes identity matrix of dimension k by k, and σ is a scalar that
+we assume to be known for simplicity.
+
+For the Gaussian mixture models in Section 3, the optimal choice of
+Q(z) = p(z|x; θ) for each ﬁxed θ, that is the posterior distribution of z,
+can be analytically computed. In many more complex models such as the
+model (19), it’s intractable to compute the exact the posterior distribution
+p(z|x; θ).
+
+Recall that from equation (10), ELBO is always a lower bound for any
+choice of Q, and therefore, we can also aim for ﬁnding an approximation of
+the true posterior distribution. Often, one has to use some particular form
+to approximate the true posterior distribution. Let Q be a family of Q’s that
+we are considering, and we will aim to ﬁnd a Q within the family of Q that is
+closest to the true posterior distribution. To formalize, recall the deﬁnition
+of the ELBO lower bound as a function of Q and θ deﬁned in equation (14)
+
+ELBO(Q, θ) =
+
+n
+
+Xi=1
+
+ELBO(x(i); Qi, θ) =
+
+Qi(z(i)) log
+
+Xi Xz(i)
+
+p(x(i), z(i); θ)
+Qi(z(i))
+
+Recall that EM can be viewed as alternating maximization of ELBO(Q, θ).
+
+Here instead, we optimize the EBLO over Q ∈ Q
+
+max
+Q∈Q
+
+max
+θ
+
+ELBO(Q, θ)
+
+(20)
+
+12
+
+Now the next question is what form of Q (or what structural assumptions
+to make about Q) allows us to eﬃciently maximize the objective above. When
+the latent variable z are high-dimensional discrete variables, one popular as-
+sumption is the mean ﬁeld assumption, which assumes that Qi(z) gives a
+distribution with independent coordinates, or in other words, Qi can be de-
+composed into Qi(z) = Q1
+i (zk). There are tremendous applications
+of mean ﬁeld assumptions to learning generative models with discrete latent
+variables, and we refer to [1] for a survey of these models and their impact
+to a wide range of applications including computational biology, computa-
+tional neuroscience, social sciences. We will not get into the details about
+the discrete latent variable cases, and our main focus is to deal with contin-
+uous latent variables, which requires not only mean ﬁeld assumptions, but
+additional techniques.
+
+i (z1) · · · Qk
+
+When z ∈ Rk is a continuous latent variable, there are several decisions to
+make towards successfully optimizing (20). First we need to give a succinct
+representation of the distribution Qi because it is over an inﬁnite number of
+points. A natural choice is to assume Qi is a Gaussian distribution with some
+mean and variance. We would also like to have more succinct representation
+of the means of Qi of all the examples. Note that Qi(z(i)) is supposed to
+approximate p(z(i)|x(i); θ). It would make sense let all the means of the Qi’s
+be some function of x(i). Concretely, let q(·; φ), v(·; φ) be two functions that
+map from dimension d to k, which are parameterized by φ and ψ, we assume
+that
+
+Qi = N (q(x(i); φ), diag(v(x(i); ψ))2)
+
+(21)
+Here diag(w) means the k × k matrix with the entries of w ∈ Rk on the
+diagonal. In other words, the distribution Qi is assumed to be a Gaussian
+distribution with independent coordinates, and the mean and standard de-
+viations are governed by q and v. Often in variational auto-encoder, q and v
+are chosen to be neural networks.6 In recent deep learning literature, often
+q, v are called encoder (in the sense of encoding the data into latent code),
+whereas g(z; θ) if often referred to as the decoder.
+
+We remark that Qi of such form in many cases are very far from a good
+approximation of the true posterior distribution. However, some approxima-
+tion is necessary for feasible optimization. In fact, the form of Qi needs to
+satisfy other requirements (which happened to be satisﬁed by the form (21))
+Before optimizing the ELBO, let’s ﬁrst verify whether we can eﬃciently
+evaluate the value of the ELBO for ﬁxed Q of the form (21) and θ. We
+
+6q and v can also share parameters. We sweep this level of details under the rug in this
+
+note.
+
+rewrite the ELBO as a function of φ, ψ, θ by
+
+ELBO(φ, ψ, θ) =
+
+n
+
+Xi=1
+
+Ez(i)∼Qi (cid:20)
+
+log
+
+p(x(i), z(i); θ)
+Qi(z(i))
+
+,
+
+(cid:21)
+
+where Qi = N (q(x(i); φ), diag(v(x(i); ψ))2)
+
+13
+
+(22)
+
+Note that to evaluate Qi(z(i)) inside the expectation, we should be able to
+compute the density of Qi. To estimate the expectation Ez(i)∼Qi, we
+should be able to sample from distribution Qi so that we can build an
+empirical estimator with samples. It happens that for Gaussian distribution
+Qi = N (q(x(i); φ), diag(v(x(i); ψ))2), we are able to be both eﬃciently.
+
+Now let’s optimize the ELBO. It turns out that we can run gradient
+ascent over φ, ψ, θ instead of alternating maximization. There is no strong
+need to compute the maximum over each variable at a much greater cost. (For
+Gaussian mixture model in Section 3, computing the maximum is analytically
+feasible and relatively cheap, and therefore we did alternating maximization.)
+Mathematically, let η be the learning rate, the gradient ascent step is
+
+θ := θ + η∇θELBO(φ, ψ, θ)
+φ := φ + η∇φELBO(φ, ψ, θ)
+ψ := ψ + η∇ψELBO(φ, ψ, θ)
+
+Computing the gradient over θ is simple because
+
+∇θELBO(φ, ψ, θ) = ∇θ
+
+= ∇θ
+
+n
+
+Xi=1
+n
+
+Xi=1
+
+Ez(i)∼Qi (cid:20)
+
+log p(x(i), z(i); θ)
+Qi(z(i))
+
+(cid:21)
+
+Ez(i)∼Qi
+
+log p(x(i), z(i); θ)
+
+(cid:2)
+
+(cid:3)
+
+=
+
+n
+
+Xi=1
+
+Ez(i)∼Qi
+
+∇θ log p(x(i), z(i); θ)
+
+,
+
+(23)
+
+(cid:2)
+
+(cid:3)
+
+But computing the gradient over φ and ψ is tricky because the sampling
+distribution Qi depends on φ and ψ.
+(Abstractly speaking, the issue we
+face can be simpliﬁed as the problem of computing the gradient Ez∼Qφ[f (φ)]
+with respect to variable φ. We know that in general, ∇Ez∼Qφ[f (φ)]
+6=
+Ez∼Qφ[∇f (φ)] because the dependency of Qφ on φ has to be taken into ac-
+count as well. )
+
+The idea that comes to rescue is the so-called re-parameterization
+trick: we rewrite z(i) ∼ Qi = N (q(x(i); φ), diag(v(x(i); ψ))2) in an equivalent
+
+14
+
+way:
+
+z(i) = q(x(i); φ) + v(x(i); ψ) ⊙ ξ(i) where ξ(i) ∼ N (0, Ik×k)
+
+(24)
+
+Here x ⊙ y denotes the entry-wise product of two vectors of the same
+dimension. Here we used the fact that x ∼ N (µ, σ2) is equivalent to that
+x = µ+ξσ with ξ ∼ N (0, 1). We mostly just used this fact in every dimension
+simultaneously for the random variable z(i) ∼ Qi.
+With this re-parameterization, we have that
+
+Ez(i)∼Qi (cid:20)
+
+log
+
+p(x(i), z(i); θ)
+Qi(z(i))
+
+(cid:21)
+
+= Eξ(i)∼N (0,1) (cid:20)
+
+log
+
+p(x(i), q(x(i); φ) + v(x(i); ψ) ⊙ ξ(i); θ)
+Qi(q(x(i); φ) + v(x(i); ψ) ⊙ ξ(i))
+
+(cid:21)
+
+(25)
+
+It follows that
+
+∇φEz(i)∼Qi (cid:20)
+
+log
+
+p(x(i), z(i); θ)
+Qi(z(i))
+
+(cid:21)
+
+= ∇φEξ(i)∼N (0,1) (cid:20)
+
+log
+
+= Eξ(i)∼N (0,1) (cid:20)
+
+∇φ log
+
+p(x(i), q(x(i); φ) + v(x(i); ψ) ⊙ ξ(i); θ)
+Qi(q(x(i); φ) + v(x(i); ψ) ⊙ ξ(i))
+(cid:21)
+p(x(i), q(x(i); φ) + v(x(i); ψ) ⊙ ξ(i); θ)
+Qi(q(x(i); φ) + v(x(i); ψ) ⊙ ξ(i))
+
+(cid:21)
+
+We can now sample multiple copies of ξ(i)’s to estimate the the expecta-
+tion in the RHS of the equation above.7 We can estimate the gradient with
+respect to ψ similarly, and with these, we can implement the gradient ascent
+algorithm to optimize the ELBO over φ, ψ, θ.
+
+There are not many high-dimensional distributions with analytically com-
+putable density function are known to be re-parameterizable. We refer to [2]
+for a few other choices that can replace Gaussian distribution.
+
+References
+
+[1] David M Blei, Alp Kucukelbir, and Jon D McAuliﬀe. Variational in-
+ference: A review for statisticians. Journal of the American Statistical
+Association, 112(518):859–877, 2017.
+
+[2] Diederik P Kingma and Max Welling. Auto-encoding variational bayes.
+
+arXiv preprint arXiv:1312.6114, 2013.
+
+7Empirically people sometimes just use one sample to estimate it for maximum com-
+
+putational eﬃciency.
+
+

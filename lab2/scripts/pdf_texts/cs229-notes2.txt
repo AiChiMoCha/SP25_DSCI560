@@ -1,0 +1,1651 @@
+CS229 Lecture Notes
+
+Andrew Ng
+
+Part IV
+Generative Learning algorithms
+
+So far, we’ve mainly been talking about learning algorithms that model
+p(y|x; θ), the conditional distribution of y given x. For instance, logistic
+regression modeled p(y|x; θ) as hθ(x) = g(θT x) where g is the sigmoid func-
+tion. In these notes, we’ll talk about a diﬀerent type of learning algorithm.
+Consider a classiﬁcation problem in which we want to learn to distinguish
+between elephants (y = 1) and dogs (y = 0), based on some features of
+an animal. Given a training set, an algorithm like logistic regression or
+the perceptron algorithm (basically) tries to ﬁnd a straight line—that is, a
+decision boundary—that separates the elephants and dogs. Then, to classify
+a new animal as either an elephant or a dog, it checks on which side of the
+decision boundary it falls, and makes its prediction accordingly.
+
+Here’s a diﬀerent approach. First, looking at elephants, we can build a
+model of what elephants look like. Then, looking at dogs, we can build a
+separate model of what dogs look like. Finally, to classify a new animal, we
+can match the new animal against the elephant model, and match it against
+the dog model, to see whether the new animal looks more like the elephants
+or more like the dogs we had seen in the training set.
+
+Algorithms that try to learn p(y|x) directly (such as logistic regression),
+or algorithms that try to learn mappings directly from the space of inputs X
+to the labels {0, 1}, (such as the perceptron algorithm) are called discrim-
+inative learning algorithms. Here, we’ll talk about algorithms that instead
+try to model p(x|y) (and p(y)). These algorithms are called generative
+learning algorithms. For instance, if y indicates whether an example is a
+dog (0) or an elephant (1), then p(x|y = 0) models the distribution of dogs’
+features, and p(x|y = 1) models the distribution of elephants’ features.
+
+After modeling p(y) (called the class priors) and p(x|y), our algorithm
+
+1
+
+2
+
+can then use Bayes rule to derive the posterior distribution on y given x:
+
+p(y|x) =
+
+p(x|y)p(y)
+p(x)
+
+.
+
+Here, the denominator is given by p(x) = p(x|y = 1)p(y = 1) + p(x|y =
+0)p(y = 0) (you should be able to verify that this is true from the standard
+properties of probabilities), and thus can also be expressed in terms of the
+quantities p(x|y) and p(y) that we’ve learned. Actually, if were calculating
+p(y|x) in order to make a prediction, then we don’t actually need to calculate
+the denominator, since
+
+arg max
+
+y
+
+p(y|x) = arg max
+
+y
+
+= arg max
+
+y
+
+p(x|y)p(y)
+p(x)
+p(x|y)p(y).
+
+1 Gaussian discriminant analysis
+
+The ﬁrst generative learning algorithm that we’ll look at is Gaussian discrim-
+inant analysis (GDA). In this model, we’ll assume that p(x|y) is distributed
+according to a multivariate normal distribution. Let’s talk brieﬂy about the
+properties of multivariate normal distributions before moving on to the GDA
+model itself.
+
+1.1 The multivariate normal distribution
+
+The multivariate normal distribution in d-dimensions, also called the multi-
+variate Gaussian distribution, is parameterized by a mean vector µ ∈ Rd
+and a covariance matrix Σ ∈ Rd×d, where Σ ≥ 0 is symmetric and positive
+semi-deﬁnite. Also written “N (µ, Σ)”, its density is given by:
+
+p(x; µ, Σ) =
+
+1
+
+(2π)d/2|Σ|1/2 exp
+
+−
+
+1
+2
+
+(cid:18)
+
+(x − µ)T Σ−1(x − µ)
+
+.
+
+(cid:19)
+
+In the equation above, “|Σ|” denotes the determinant of the matrix Σ.
+
+For a random variable X distributed N (µ, Σ), the mean is (unsurpris-
+
+ingly) given by µ:
+
+E[X] =
+
+x p(x; µ, Σ)dx = µ
+
+The covariance of a vector-valued random variable Z is deﬁned as Cov(Z) =
+
+Zx
+
+E[(Z − E[Z])(Z − E[Z])T ]. This generalizes the notion of the variance of a
+
+3
+
+real-valued random variable. The covariance can also be deﬁned as Cov(Z) =
+E[ZZ T ] − (E[Z])(E[Z])T . (You should be able to prove to yourself that these
+two deﬁnitions are equivalent.) If X ∼ N (µ, Σ), then
+
+Cov(X) = Σ.
+
+Here are some examples of what the density of a Gaussian distribution
+
+looks like:
+
+0.25
+
+0.2
+
+0.15
+
+0.1
+
+0.05
+
+3
+
+2
+
+1
+
+0.25
+
+0.2
+
+0.15
+
+0.1
+
+0.05
+
+0.25
+
+0.2
+
+0.15
+
+0.1
+
+0.05
+
+0
+
+−1
+
+−2
+
+−3
+
+−3
+
+−2
+
+0
+
+−1
+
+3
+
+2
+
+1
+
+3
+
+2
+
+1
+
+0
+
+−1
+
+−2
+
+−3
+
+−3
+
+−2
+
+0
+
+−1
+
+3
+
+2
+
+1
+
+3
+
+2
+
+1
+
+0
+
+−1
+
+−2
+
+−3
+
+−3
+
+−2
+
+0
+
+−1
+
+3
+
+2
+
+1
+
+The left-most ﬁgure shows a Gaussian with mean zero (that is, the 2x1
+zero-vector) and covariance matrix Σ = I (the 2x2 identity matrix). A Gaus-
+sian with zero mean and identity covariance is also called the standard nor-
+mal distribution. The middle ﬁgure shows the density of a Gaussian with
+zero mean and Σ = 0.6I; and in the rightmost ﬁgure shows one with , Σ = 2I.
+We see that as Σ becomes larger, the Gaussian becomes more “spread-out,”
+and as it becomes smaller, the distribution becomes more “compressed.”
+
+Let’s look at some more examples.
+
+0.25
+
+0.2
+
+0.15
+
+0.1
+
+0.05
+
+3
+
+2
+
+1
+
+0
+
+−1
+
+−2
+
+0.25
+
+0.2
+
+0.15
+
+0.1
+
+0.05
+
+3
+
+2
+
+1
+
+−3
+
+−3
+
+−2
+
+0
+
+−1
+
+3
+
+2
+
+1
+
+0
+
+−1
+
+−2
+
+3
+
+2
+
+0
+
+−1
+
+1
+
+−3
+
+−3
+
+−2
+
+0.25
+
+0.2
+
+0.15
+
+0.1
+
+0.05
+
+3
+
+2
+
+1
+
+0
+
+−1
+
+−2
+
+−3
+
+−3
+
+−2
+
+0
+
+−1
+
+3
+
+2
+
+1
+
+The ﬁgures above show Gaussians with mean 0, and with covariance
+
+matrices respectively
+
+1
+0
+
+0
+1
+
+Σ =
+
+(cid:20)
+
+; Σ =
+
+(cid:21)
+
+(cid:20)
+
+1
+0.5
+
+0.5
+1
+
+; Σ =
+
+(cid:21)
+
+(cid:20)
+
+1
+0.8
+
+0.8
+1
+
+.
+
+(cid:21)
+
+The leftmost ﬁgure shows the familiar standard normal distribution, and we
+see that as we increase the oﬀ-diagonal entry in Σ, the density becomes more
+
+4
+
+“compressed” towards the 45◦ line (given by x1 = x2). We can see this more
+clearly when we look at the contours of the same three densities:
+
+3
+
+2
+
+1
+
+0
+
+−1
+
+−2
+
+−3
+
+−3
+
+3
+
+2
+
+1
+
+0
+
+−1
+
+−2
+
+−3
+
+−3
+
+3
+
+2
+
+1
+
+0
+
+−1
+
+−2
+
+−3
+
+−3
+
+−2
+
+−1
+
+0
+
+1
+
+2
+
+3
+
+3
+
+2
+
+1
+
+0
+
+−1
+
+−2
+
+−3
+
+−3
+
+−2
+
+−1
+
+0
+
+1
+
+2
+
+3
+
+−2
+
+−1
+
+0
+
+1
+
+2
+
+3
+
+Here’s one last set of examples generated by varying Σ:
+
+3
+
+2
+
+1
+
+0
+
+−1
+
+−2
+
+−3
+
+−3
+
+3
+
+2
+
+1
+
+0
+
+−1
+
+−2
+
+−3
+
+−3
+
+−2
+
+−1
+
+0
+
+1
+
+2
+
+3
+
+−2
+
+−1
+
+0
+
+1
+
+2
+
+3
+
+−2
+
+−1
+
+0
+
+1
+
+2
+
+3
+
+The plots above used, respectively,
+
+Σ =
+
+(cid:20)
+
+1
+-0.5
+
+-0.5
+1
+
+; Σ =
+
+(cid:21)
+
+(cid:20)
+
+1
+-0.8
+
+-0.8
+1
+
+; Σ =
+
+(cid:21)
+
+(cid:20)
+
+3
+0.8
+
+0.8
+1
+
+.
+
+(cid:21)
+
+From the leftmost and middle ﬁgures, we see that by decreasing the oﬀ-
+diagonal elements of the covariance matrix, the density now becomes “com-
+pressed” again, but in the opposite direction. Lastly, as we vary the pa-
+rameters, more generally the contours will form ellipses (the rightmost ﬁgure
+showing an example).
+
+As our last set of examples, ﬁxing Σ = I, by varying µ, we can also move
+
+the mean of the density around.
+
+0.25
+
+0.2
+
+0.15
+
+0.1
+
+0.05
+
+0.25
+
+0.2
+
+0.15
+
+0.1
+
+0.05
+
+0.25
+
+0.2
+
+0.15
+
+0.1
+
+0.05
+
+3
+
+2
+
+1
+
+0
+
+−1
+
+2
+
+1
+
+0
+
+−1
+
+−2
+
+−3
+
+−3
+
+−2
+
+3
+
+3
+
+2
+
+1
+
+0
+
+−1
+
+−2
+
+−3
+
+−3
+
+−2
+
+2
+
+1
+
+0
+
+−1
+
+3
+
+2
+
+3
+
+1
+
+0
+
+−1
+
+−2
+
+−3
+
+−3
+
+−2
+
+0
+
+−1
+
+3
+
+2
+
+1
+
+5
+
+The ﬁgures above were generated using Σ = I, and respectively
+
+µ =
+
+1
+0
+
+(cid:20)
+
+(cid:21)
+
+; µ =
+
+-0.5
+0
+
+(cid:20)
+
+; µ =
+
+(cid:21)
+
+(cid:20)
+
+-1
+-1.5
+
+.
+
+(cid:21)
+
+1.2 The Gaussian Discriminant Analysis model
+
+When we have a classiﬁcation problem in which the input features x are
+continuous-valued random variables, we can then use the Gaussian Discrim-
+inant Analysis (GDA) model, which models p(x|y) using a multivariate nor-
+mal distribution. The model is:
+
+y ∼ Bernoulli(φ)
+
+x|y = 0 ∼ N (µ0, Σ)
+x|y = 1 ∼ N (µ1, Σ)
+
+Writing out the distributions, this is:
+
+p(y) = φy(1 − φ)1−y
+
+p(x|y = 0) =
+
+p(x|y = 1) =
+
+1
+
+(2π)d/2|Σ|1/2 exp
+
+1
+
+(2π)d/2|Σ|1/2 exp
+
+−
+
+−
+
+1
+2
+1
+2
+
+(cid:18)
+
+(cid:18)
+
+(x − µ0)T Σ−1(x − µ0)
+
+(x − µ1)T Σ−1(x − µ1)
+
+(cid:19)
+
+(cid:19)
+
+Here, the parameters of our model are φ, Σ, µ0 and µ1. (Note that while
+there’re two diﬀerent mean vectors µ0 and µ1, this model is usually applied
+using only one covariance matrix Σ.) The log-likelihood of the data is given
+by
+
+ℓ(φ, µ0, µ1, Σ) = log
+
+= log
+
+n
+
+i=1
+Y
+n
+
+i=1
+Y
+
+p(x(i), y(i); φ, µ0, µ1, Σ)
+
+p(x(i)|y(i); µ0, µ1, Σ)p(y(i); φ).
+
+By maximizing ℓ with respect to the parameters, we ﬁnd the maximum like-
+lihood estimate of the parameters (see problem set 1) to be:
+
+6
+
+φ =
+
+1
+n
+
+µ0 =
+
+µ1 =
+
+Σ =
+
+n
+
+1{y(i) = 1}
+
+i=1
+X
+n
+i=1 1{y(i) = 0}x(i)
+n
+i=1 1{y(i) = 0}
+n
+i=1 1{y(i) = 1}x(i)
+P
+n
+i=1 1{y(i) = 1}
+n
+P
+
+P
+
+P
+1
+n
+
+i=1
+X
+
+(x(i) − µy(i))(x(i) − µy(i))T .
+
+Pictorially, what the algorithm is doing can be seen in as follows:
+
+1
+
+0
+
+−1
+
+−2
+
+−3
+
+−4
+
+−5
+
+−6
+
+−7
+
+−2
+
+−1
+
+0
+
+1
+
+2
+
+3
+
+4
+
+5
+
+6
+
+7
+
+Shown in the ﬁgure are the training set, as well as the contours of the
+two Gaussian distributions that have been ﬁt to the data in each of the
+two classes. Note that the two Gaussians have contours that are the same
+shape and orientation, since they share a covariance matrix Σ, but they have
+diﬀerent means µ0 and µ1. Also shown in the ﬁgure is the straight line
+giving the decision boundary at which p(y = 1|x) = 0.5. On one side of
+the boundary, we’ll predict y = 1 to be the most likely outcome, and on the
+other side, we’ll predict y = 0.
+
+7
+
+1.3 Discussion: GDA and logistic regression
+
+The GDA model has an interesting relationship to logistic regression. If we
+view the quantity p(y = 1|x; φ, µ0, µ1, Σ) as a function of x, we’ll ﬁnd that it
+can be expressed in the form
+
+p(y = 1|x; φ, Σ, µ0, µ1) =
+
+1
+1 + exp(−θT x)
+
+,
+
+where θ is some appropriate function of φ, Σ, µ0, µ1.1 This is exactly the form
+that logistic regression—a discriminative algorithm—used to model p(y =
+1|x).
+
+When would we prefer one model over another? GDA and logistic regres-
+sion will, in general, give diﬀerent decision boundaries when trained on the
+same dataset. Which is better?
+
+We just argued that if p(x|y) is multivariate gaussian (with shared Σ),
+then p(y|x) necessarily follows a logistic function. The converse, however,
+is not true; i.e., p(y|x) being a logistic function does not imply p(x|y) is
+multivariate gaussian. This shows that GDA makes stronger modeling as-
+sumptions about the data than does logistic regression.
+It turns out that
+when these modeling assumptions are correct, then GDA will ﬁnd better ﬁts
+to the data, and is a better model. Speciﬁcally, when p(x|y) is indeed gaus-
+sian (with shared Σ), then GDA is asymptotically eﬃcient. Informally,
+this means that in the limit of very large training sets (large n), there is no
+algorithm that is strictly better than GDA (in terms of, say, how accurately
+they estimate p(y|x)). In particular, it can be shown that in this setting,
+GDA will be a better algorithm than logistic regression; and more generally,
+even for small training set sizes, we would generally expect GDA to better.
+In contrast, by making signiﬁcantly weaker assumptions, logistic regres-
+sion is also more robust and less sensitive to incorrect modeling assumptions.
+There are many diﬀerent sets of assumptions that would lead to p(y|x) taking
+the form of a logistic function. For example, if x|y = 0 ∼ Poisson(λ0), and
+x|y = 1 ∼ Poisson(λ1), then p(y|x) will be logistic. Logistic regression will
+also work well on Poisson data like this. But if we were to use GDA on such
+data—and ﬁt Gaussian distributions to such non-Gaussian data—then the
+results will be less predictable, and GDA may (or may not) do well.
+
+To summarize: GDA makes stronger modeling assumptions, and is more
+data eﬃcient (i.e., requires less training data to learn “well”) when the mod-
+eling assumptions are correct or at least approximately correct. Logistic
+
+1This uses the convention of redeﬁning the x(i)’s on the right-hand-side to be (d + 1)-
+
+dimensional vectors by adding the extra coordinate x(i)
+
+0 = 1; see problem set 1.
+
+8
+
+regression makes weaker assumptions, and is signiﬁcantly more robust to
+deviations from modeling assumptions. Speciﬁcally, when the data is in-
+deed non-Gaussian, then in the limit of large datasets, logistic regression will
+almost always do better than GDA. For this reason, in practice logistic re-
+gression is used more often than GDA. (Some related considerations about
+discriminative vs. generative models also apply for the Naive Bayes algo-
+rithm that we discuss next, but the Naive Bayes algorithm is still considered
+a very good, and is certainly also a very popular, classiﬁcation algorithm.)
+
+2 Naive Bayes
+
+In GDA, the feature vectors x were continuous, real-valued vectors. Let’s
+now talk about a diﬀerent learning algorithm in which the xj’s are discrete-
+valued.
+
+For our motivating example, consider building an email spam ﬁlter using
+machine learning. Here, we wish to classify messages according to whether
+they are unsolicited commercial (spam) email, or non-spam email. After
+learning to do this, we can then have our mail reader automatically ﬁlter
+out the spam messages and perhaps place them in a separate mail folder.
+Classifying emails is one example of a broader set of problems called text
+classiﬁcation.
+
+Let’s say we have a training set (a set of emails labeled as spam or non-
+spam). We’ll begin our construction of our spam ﬁlter by specifying the
+features xj used to represent an email.
+
+We will represent an email via a feature vector whose length is equal to
+the number of words in the dictionary. Speciﬁcally, if an email contains the
+j-th word of the dictionary, then we will set xj = 1; otherwise, we let xj = 0.
+For instance, the vector
+
+x =
+
+1
+0
+0
+...
+1
+...
+0
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+a
+aardvark
+aardwolf
+...
+buy
+...
+zygmurgy
+
+is used to represent an email that contains the words “a” and “buy,” but not
+
+9
+
+“aardvark,” “aardwolf” or “zygmurgy.”2 The set of words encoded into the
+feature vector is called the vocabulary, so the dimension of x is equal to
+the size of the vocabulary.
+
+Having chosen our feature vector, we now want to build a generative
+model. So, we have to model p(x|y). But if we have, say, a vocabulary of
+50000 words, then x ∈ {0, 1}50000 (x is a 50000-dimensional vector of 0’s and
+1’s), and if we were to model x explicitly with a multinomial distribution over
+the 250000 possible outcomes, then we’d end up with a (250000 −1)-dimensional
+parameter vector. This is clearly too many parameters.
+
+To model p(x|y), we will therefore make a very strong assumption. We will
+assume that the xi’s are conditionally independent given y. This assumption
+is called the Naive Bayes (NB) assumption, and the resulting algorithm is
+called the Naive Bayes classiﬁer. For instance, if y = 1 means spam email;
+“buy” is word 2087 and “price” is word 39831; then we are assuming that if
+I tell you y = 1 (that a particular piece of email is spam), then knowledge
+of x2087 (knowledge of whether “buy” appears in the message) will have no
+eﬀect on your beliefs about the value of x39831 (whether “price” appears).
+More formally, this can be written p(x2087|y) = p(x2087|y, x39831). (Note that
+this is not the same as saying that x2087 and x39831 are independent, which
+would have been written “p(x2087) = p(x2087|x39831)”; rather, we are only
+assuming that x2087 and x39831 are conditionally independent given y.)
+
+We now have:
+
+p(x1, . . . , x50000|y)
+
+= p(x1|y)p(x2|y, x1)p(x3|y, x1, x2) · · · p(x50000|y, x1, . . . , x49999)
+= p(x1|y)p(x2|y)p(x3|y) · · · p(x50000|y)
+
+d
+
+=
+
+p(xj|y)
+
+j=1
+Y
+
+The ﬁrst equality simply follows from the usual properties of probabilities,
+and the second equality used the NB assumption. We note that even though
+
+2Actually, rather than looking through an English dictionary for the list of all English
+words, in practice it is more common to look through our training set and encode in our
+feature vector only the words that occur at least once there. Apart from reducing the
+number of words modeled and hence reducing our computational and space requirements,
+this also has the advantage of allowing us to model/include as a feature many words
+that may appear in your email (such as “cs229”) but that you won’t ﬁnd in a dictionary.
+Sometimes (as in the homework), we also exclude the very high frequency words (which
+will be words like “the,” “of,” “and”; these high frequency, “content free” words are called
+stop words) since they occur in so many documents and do little to indicate whether an
+email is spam or non-spam.
+
+10
+
+the Naive Bayes assumption is an extremely strong assumptions, the resulting
+algorithm works well on many problems.
+
+Our model is parameterized by φj|y=1 = p(xj = 1|y = 1), φj|y=0 = p(xj =
+1|y = 0), and φy = p(y = 1). As usual, given a training set {(x(i), y(i)); i =
+1, . . . , n}, we can write down the joint likelihood of the data:
+
+L(φy, φj|y=0, φj|y=1) =
+
+p(x(i), y(i)).
+
+n
+
+i=1
+Y
+
+Maximizing this with respect to φy, φj|y=0 and φj|y=1 gives the maximum
+likelihood estimates:
+
+φj|y=1 =
+
+φj|y=0 =
+
+φy =
+
+P
+
+P
+
+P
+
+n
+
+i=1 1{x(i)
+
+j = 1 ∧ y(i) = 1}
+
+n
+i=1 1{y(i) = 1}
+
+n
+
+i=1 1{x(i)
+P
+
+j = 1 ∧ y(i) = 0}
+
+n
+i=1 1{y(i) = 0}
+
+n
+i=1 1{y(i) = 1}
+n
+
+P
+
+In the equations above, the “∧” symbol means “and.” The parameters have
+a very natural interpretation. For instance, φj|y=1 is just the fraction of the
+spam (y = 1) emails in which word j does appear.
+
+Having ﬁt all these parameters, to make a prediction on a new example
+
+with features x, we then simply calculate
+
+p(y = 1|x) =
+
+p(x|y = 1)p(y = 1)
+p(x)
+
+=
+
+d
+j=1 p(xj|y = 1)
+
+p(y = 1)
+
+(cid:16)Q
+d
+j=1 p(xj|y = 1)
+
+p(y = 1) +
+
+(cid:17)
+d
+j=1 p(xj|y = 0)
+
+p(y = 0)
+
+,
+
+and pick whichever class has the higher posterior probability.
+
+(cid:17)
+
+(cid:16)Q
+
+(cid:16)Q
+
+(cid:17)
+
+Lastly, we note that while we have developed the Naive Bayes algorithm
+mainly for the case of problems where the features xj are binary-valued, the
+generalization to where xj can take values in {1, 2, . . . , kj} is straightforward.
+Here, we would simply model p(xj|y) as multinomial rather than as Bernoulli.
+Indeed, even if some original input attribute (say, the living area of a house,
+as in our earlier example) were continuous valued, it is quite common to
+discretize it—that is, turn it into a small set of discrete values—and apply
+Naive Bayes. For instance, if we use some feature xj to represent living area,
+we might discretize the continuous values as follows:
+
+11
+
+1
+
+xi
+
+1200-1600 >1600
+
+800-1200
+3
+
+Living area (sq. feet) < 400
+
+400-800
+2
+Thus, for a house with living area 890 square feet, we would set the value
+of the corresponding feature xj to 3. We can then apply the Naive Bayes
+algorithm, and model p(xj|y) with a multinomial distribution, as described
+previously. When the original, continuous-valued attributes are not well-
+modeled by a multivariate normal distribution, discretizing the features and
+using Naive Bayes (instead of GDA) will often result in a better classiﬁer.
+
+5
+
+4
+
+2.1 Laplace smoothing
+
+The Naive Bayes algorithm as we have described it will work fairly well
+for many problems, but there is a simple change that makes it work much
+better, especially for text classiﬁcation. Let’s brieﬂy discuss a problem with
+the algorithm in its current form, and then talk about how we can ﬁx it.
+
+Consider spam/email classiﬁcation, and let’s suppose that, we are in the
+year of 20xx, after completing CS229 and having done excellent work on the
+project, you decide around May 20xx to submit work you did to the NeurIPS
+conference for publication.3 Because you end up discussing the conference
+in your emails, you also start getting messages with the word “neurips”
+in it. But this is your ﬁrst NeurIPS paper, and until this time, you had
+not previously seen any emails containing the word “neurips”; in particular
+“neurips” did not ever appear in your training set of spam/non-spam emails.
+Assuming that “neurips” was the 35000th word in the dictionary, your Naive
+Bayes spam ﬁlter therefore had picked its maximum likelihood estimates of
+the parameters φ35000|y to be
+
+φ35000|y=1 =
+
+φ35000|y=0 =
+
+P
+
+P
+
+n
+
+i=1 1{x(i)
+
+n
+
+i=1 1{x(i)
+P
+
+35000 = 1 ∧ y(i) = 1}
+n
+i=1 1{y(i) = 1}
+35000 = 1 ∧ y(i) = 0}
+n
+i=1 1{y(i) = 0}
+
+= 0
+
+= 0
+
+I.e., because it has never seen “neurips” before in either spam or non-spam
+training examples, it thinks the probability of seeing it in either type of email
+is zero. Hence, when trying to decide if one of these messages containing
+
+P
+
+3NeurIPS is one of the top machine learning conferences. The deadline for submitting
+
+a paper is typically in May-June.
+
+12
+
+“neurips” is spam, it calculates the class posterior probabilities, and obtains
+
+p(y = 1|x) =
+
+d
+j=1 p(xj|y = 1)p(y = 1)
+
+d
+j=1 p(xj|y = 1)p(y = 1) +
+Q
+
+d
+j=1 p(xj|y = 0)p(y = 0)
+
+=
+
+0
+Q
+.
+0
+
+Q
+
+d
+j=1 p(xj|y)” includes a term p(x35000|y) =
+This is because each of the terms “
+0 that is multiplied into it. Hence, our algorithm obtains 0/0, and doesn’t
+know how to make a prediction.
+
+Q
+
+Stating the problem more broadly, it is statistically a bad idea to esti-
+mate the probability of some event to be zero just because you haven’t seen
+it before in your ﬁnite training set. Take the problem of estimating the mean
+of a multinomial random variable z taking values in {1, . . . , k}. We can pa-
+rameterize our multinomial with φj = p(z = j). Given a set of n independent
+observations {z(1), . . . , z(n)}, the maximum likelihood estimates are given by
+
+As we saw previously, if we were to use these maximum likelihood estimates,
+then some of the φj’s might end up as zero, which was a problem. To avoid
+this, we can use Laplace smoothing, which replaces the above estimate
+with
+
+n
+i=1 1{z(i) = j}
+n
+
+.
+
+φj =
+
+P
+
+1 +
+
+φj =
+
+n
+i=1 1{z(i) = j}
+k + n
+
+.
+
+P
+
+Here, we’ve added 1 to the numerator, and k to the denominator. Note that
+k
+j=1 φj = 1 still holds (check this yourself!), which is a desirable property
+since the φj’s are estimates for probabilities that we know must sum to 1.
+P
+Also, φj 6= 0 for all values of j, solving our problem of probabilities being
+estimated as zero. Under certain (arguably quite strong) conditions, it can
+be shown that the Laplace smoothing actually gives the optimal estimator
+of the φj’s.
+
+Returning to our Naive Bayes classiﬁer, with Laplace smoothing, we
+
+therefore obtain the following estimates of the parameters:
+
+φj|y=1 =
+
+φj|y=0 =
+
+1 +
+
+1 +
+
+n
+
+i=1 1{x(i)
+2 +
+P
+i=1 1{x(i)
+n
+P
+2 +
+P
+
+j = 1 ∧ y(i) = 1}
+
+n
+i=1 1{y(i) = 1}
+
+j = 1 ∧ y(i) = 0}
+
+n
+i=1 1{y(i) = 0}
+
+P
+
+13
+
+(In practice, it usually doesn’t matter much whether we apply Laplace smooth-
+ing to φy or not, since we will typically have a fair fraction each of spam and
+non-spam messages, so φy will be a reasonable estimate of p(y = 1) and will
+be quite far from 0 anyway.)
+
+2.2 Event models for text classiﬁcation
+
+To close oﬀ our discussion of generative learning algorithms, let’s talk about
+one more model that is speciﬁcally for text classiﬁcation. While Naive Bayes
+as we’ve presented it will work well for many classiﬁcation problems, for text
+classiﬁcation, there is a related model that does even better.
+
+In the speciﬁc context of text classiﬁcation, Naive Bayes as presented uses
+the what’s called the Bernoulli event model (or sometimes multi-variate
+Bernoulli event model). In this model, we assumed that the way an email
+is generated is that ﬁrst it is randomly determined (according to the class
+priors p(y)) whether a spammer or non-spammer will send you your next
+message. Then, the person sending the email runs through the dictionary,
+deciding whether to include each word j in that email independently and
+according to the probabilities p(xj = 1|y) = φj|y. Thus, the probability of a
+message was given by p(y)
+
+d
+j=1 p(xj|y).
+
+Q
+
+Here’s a diﬀerent model, called the Multinomial event model. To
+describe this model, we will use a diﬀerent notation and set of features for
+representing emails. We let xj denote the identity of the j-th word in the
+email. Thus, xj is now an integer taking values in {1, . . . , |V |}, where |V |
+is the size of our vocabulary (dictionary). An email of d words is now rep-
+resented by a vector (x1, x2, . . . , xd) of length d; note that d can vary for
+diﬀerent documents. For instance, if an email starts with “A NeurIPS . . . ,”
+then x1 = 1 (“a” is the ﬁrst word in the dictionary), and x2 = 35000 (if
+“neurips” is the 35000th word in the dictionary).
+
+In the multinomial event model, we assume that the way an email is
+generated is via a random process in which spam/non-spam is ﬁrst deter-
+mined (according to p(y)) as before. Then, the sender of the email writes the
+email by ﬁrst generating x1 from some multinomial distribution over words
+(p(x1|y)). Next, the second word x2 is chosen independently of x1 but from
+the same multinomial distribution, and similarly for x3, x4, and so on, until
+all d words of the email have been generated. Thus, the overall probability of
+d
+a message is given by p(y)
+j=1 p(xj|y). Note that this formula looks like the
+one we had earlier for the probability of a message under the Bernoulli event
+model, but that the terms in the formula now mean very diﬀerent things. In
+particular xj|y is now a multinomial, rather than a Bernoulli distribution.
+
+Q
+
+14
+
+The parameters for our new model are φy = p(y) as before, φk|y=1 =
+p(xj = k|y = 1) (for any j) and φk|y=0 = p(xj = k|y = 0). Note that we have
+assumed that p(xj|y) is the same for all values of j (i.e., that the distribution
+according to which a word is generated does not depend on its position j
+within the email).
+
+If we are given a training set {(x(i), y(i)); i = 1, . . . , n} where x(i) =
+1 , x(i)
+di ) (here, di is the number of words in the i-training example),
+
+2 , . . . , x(i)
+
+(x(i)
+the likelihood of the data is given by
+
+L(φy, φk|y=0, φk|y=1) =
+
+p(x(i), y(i))
+
+n
+
+=
+
+i=1
+Y
+n
+
+di
+
+i=1  
+Y
+
+j=1
+Y
+
+p(x(i)
+
+j |y; φk|y=0, φk|y=1)
+
+p(y(i); φy).
+
+!
+
+Maximizing this yields the maximum likelihood estimates of the parameters:
+
+j = k ∧ y(i) = 1}
+
+j = k ∧ y(i) = 0}
+
+φk|y=1 =
+
+φk|y=0 =
+
+φy =
+
+P
+
+P
+
+P
+
+n
+i=1
+
+n
+i=1
+
+di
+
+j=1 1{x(i)
+n
+i=1 1{y(i) = 1}di
+j=1 1{x(i)
+di
+P
+n
+i=1 1{y(i) = 0}di
+
+P
+
+P
+
+n
+i=1 1{y(i) = 1}
+P
+n
+
+.
+
+If we were to apply Laplace smoothing (which is needed in practice for good
+performance) when estimating φk|y=0 and φk|y=1, we add 1 to the numerators
+and |V | to the denominators, and obtain:
+
+1 +
+
+1 +
+
+φk|y=1 =
+
+φk|y=0 =
+
+n
+i=1
+|V | +
+P
+n
+i=1
+|V | +
+P
+
+P
+
+P
+
+di
+
+j=1 1{x(i)
+
+j = k ∧ y(i) = 1}
+
+n
+i=1 1{y(i) = 1}di
+
+j=1 1{x(i)
+di
+P
+
+j = k ∧ y(i) = 0}
+
+n
+i=1 1{y(i) = 0}di
+
+.
+
+P
+While not necessarily the very best classiﬁcation algorithm, the Naive Bayes
+classiﬁer often works surprisingly well. It is often also a very good “ﬁrst thing
+to try,” given its simplicity and ease of implementation.
+
+
