@@ -61,5 +61,9 @@ def fetch_stock_data(symbols, start_date, end_date):
     print("🎉 All stock data has been processed.")
 
 if __name__ == "__main__":
-    stock_list = ["AAPL", "GOOGL", "MSFT","ASML"]  # Modify as needed
-    fetch_stock_data(stock_list, "2024-01-01", "2024-02-01")
+    stock_list = ['DIS', 'ET', 'CAE', 'PANW', 'PYPL', 'VST', 'USAC', 'AM', 'TEM',
+ 'TSLA', 'NFLX', 'ENLC', 'NGL', 'PTEN', 'FEI', 'T', 'LGF/A',
+ 'AB', 'NVDA', 'AVGO', 'GOOGL', 'MU', 'BAX', 'ETRN',
+ 'NGD', 'XLE', 'AGI', 'MAG', 'AMZN', 'V', 'SPY', 'AAPL',
+ 'HIL', 'HL', 'CRM', 'RBLX', 'MSFT', 'WBD', 'VSAT']
+    fetch_stock_data(stock_list, "2022-01-01", "2025-02-06")
