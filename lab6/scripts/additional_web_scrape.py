@@ -1,241 +1,93 @@
 #!/usr/bin/env python3
-import os
-import re
 import requests
 from bs4 import BeautifulSoup
-import pytesseract
-import ocrmypdf
-import tempfile
-from PyPDF2 import PdfReader
-from pdf2image import convert_from_path
 from sqlalchemy import create_engine, text
 
-def extract_text_from_pdf(pdf_path):
-    """
-    尝试使用 ocrmypdf 将 PDF 转换为带文字层的 PDF，
-    然后使用 PyPDF2 提取文本。如果转换出错则回退到原有 OCR 方法。
-    """
-    with tempfile.TemporaryDirectory() as tmpdir:
-        ocr_pdf = os.path.join(tmpdir, "temp.pdf")
-        try:
-            # 强制OCR，即使已有文字层
-            ocrmypdf.ocr(pdf_path, ocr_pdf, force_ocr=True)
-        except Exception as e:
-            print(f"使用 ocrmypdf 处理 {pdf_path} 时出错：{e}")
-            return extract_text_fallback(pdf_path)
-        
-        try:
-            reader = PdfReader(ocr_pdf)
-            text_content = ""
-            for page in reader.pages:
-                page_text = page.extract_text()
-                if page_text:
-                    text_content += page_text + "\n"
-            return text_content
-        except Exception as e:
-            print(f"使用 PyPDF2 读取OCR PDF时出错：{e}")
-            return extract_text_fallback(pdf_path)
 
-def extract_text_fallback(pdf_path):
-    """
-    回退方案：使用 PyPDF2 直接提取文本，如果结果为空，再使用 pdf2image+pytesseract。
-    """
-    text_content = ""
-    try:
-        reader = PdfReader(pdf_path)
-        for page in reader.pages:
-            page_text = page.extract_text()
-            if page_text:
-                text_content += page_text + "\n"
-    except Exception as e:
-        print(f"回退方案：使用 PyPDF2 处理 {pdf_path} 时出错：{e}")
-    if not text_content.strip():
-        try:
-            images = convert_from_path(pdf_path)
-            for image in images:
-                text_content += pytesseract.image_to_string(image) + "\n"
-        except Exception as e:
-            print(f"回退方案：使用 OCR 处理 {pdf_path} 时出错：{e}")
-    return text_content
-
-def extract_api_from_text(full_text):
-    """
-    在全文中搜索关键词 “API”、“API Number”、“API No.” 或 “API #” 后，
-    在接下来的30个字符内查找符合10位数字格式（2位+3位+5位，允许空格或连字符）的字符串。
-    返回匹配到的字符串（例如 "33-105-90258"），否则返回 None。
-    """
-    keywords_pattern = re.compile(r"(?si)(API(?:\s*Number|\s*No\.?|\s*#))")
-    for match in keywords_pattern.finditer(full_text):
-        start = match.end()
-        window = full_text[start:start+30]
-        # 注意：字符集中的连字符需要转义
-        digits_match = re.search(r"\(?(\d{2}\s*[\-\–]\s*\d{3}\s*[\-\–]\s*\d{5})\)?", window)
-        if digits_match:
-            candidate = digits_match.group(1).strip()
-            candidate_clean = re.sub(r"[\s\-\–]+", "", candidate)
-            if len(candidate_clean) == 10:
-                return candidate  # 可根据需要返回 candidate_clean
+def get_data_by_th(soup, th_text):
+    th = soup.find("th", string=th_text)
+    if th and th.next_sibling:
+        return th.next_sibling.get_text(strip=True)
     return None
 
-def parse_stimulation_data(full_text):
-    """
-    在全文中查找刺激数据行，例如 '07/20/2013 Dakota 5625 6150 8 9000 Gallons'，
-    若匹配到则返回该字符串，否则返回 None。
-    """
-    stim_match = re.search(r"(\d{1,2}/\d{1,2}/\d{4}.*Gallons)", full_text)
-    if stim_match:
-        return stim_match.group(1).strip()
-    return None
 
-def extract_well_name(full_text):
-    """
-    尝试从文本中提取井名（查找 “Well Name” 或 “Well Name and Number” 标签）。
-    """
-    match = re.search(r"Well Name(?:\s*and Number)?\s*[:：]?\s*(.+)", full_text, re.IGNORECASE)
-    if match:
-        return match.group(1).splitlines()[0].strip()
-    return None
-
-def extract_address(full_text):
-    """
-    尝试从文本中提取地址（查找 “Address” 标签后面的内容）。
-    """
-    match = re.search(r"Address\s*[:：]?\s*(.+)", full_text, re.IGNORECASE)
-    if match:
-        return match.group(1).splitlines()[0].strip()
-    return None
-
-def extract_coordinates(full_text):
-    """
-    尝试提取经纬度，例如格式 '48° 06' 35.99" -103° 43' 54.57"'，
-    返回 (latitude, longitude)，否则返回 (None, None)。
-    """
-    coord_pattern = re.compile(
-        r"(\d{1,2}°\s*\d{1,2}'\s*\d{1,2}(?:\.\d+)?\")\s*([\-–]?\d{1,4}°\s*\d{1,2}'\s*\d{1,2}(?:\.\d+)?\")"
-    )
-    match = coord_pattern.search(full_text)
-    if match:
-        lat = match.group(1).strip()
-        lon = match.group(2).strip()
-        return lat, lon
-    return None, None
-
-def extract_field(full_text):
-    """
-    尝试提取 Field 字段，例如 "Field: Baker"
-    """
-    match = re.search(r"Field\s*[:：]?\s*(\S+)", full_text, re.IGNORECASE)
-    if match:
-        return match.group(1).strip()
-    return None
-
-def extract_county(full_text):
-    """
-    尝试提取 County 字段，例如 "County: Williams"
-    """
-    match = re.search(r"County\s*[:：]?\s*(\S+)", full_text, re.IGNORECASE)
-    if match:
-        return match.group(1).strip()
-    return None
-
-def extract_fields(full_text):
-    """
-    提取 API、刺激数据、井名、地址、经纬度、Field 和 County。
-    """
-    data = {}
-    data["api"] = extract_api_from_text(full_text)
-    data["stimulation_data"] = parse_stimulation_data(full_text)
-    data["well_name"] = extract_well_name(full_text)
-    data["address"] = extract_address(full_text)
-    lat, lon = extract_coordinates(full_text)
-    data["latitude"] = lat
-    data["longitude"] = lon
-    data["field"] = extract_field(full_text)
-    data["county"] = extract_county(full_text)
-    return data
-
-def ensure_required_columns(engine):
-    """
-    检查数据库表 oil_wells 是否存在所需字段，如果缺失则自动添加。
-    需要的字段包括：api (VARCHAR), stimulation_data (TEXT),
-    well_name (VARCHAR), address (TEXT), latitude (VARCHAR), longitude (VARCHAR),
-    field (VARCHAR), county (VARCHAR), 以及附加爬取的字段：
-    well_status (VARCHAR), well_type (VARCHAR), closest_city (VARCHAR), production_info (TEXT)。
-    """
-    with engine.connect() as conn:
-        result = conn.execute(text("SHOW COLUMNS FROM oil_wells"))
-        existing_cols = [row["Field"] for row in result.mappings().all()]
-    needed = {
-        "api": "VARCHAR(255)",
-        "stimulation_data": "TEXT",
-        "well_name": "VARCHAR(255)",
-        "address": "TEXT",
-        "latitude": "VARCHAR(50)",
-        "longitude": "VARCHAR(50)",
-        "field": "VARCHAR(100)",
-        "county": "VARCHAR(100)",
-        "well_status": "VARCHAR(100)",
-        "well_type": "VARCHAR(100)",
-        "closest_city": "VARCHAR(100)",
-        "production_info": "TEXT"
+def get_well_details(well_name=None, api_no=None):
+    # Construct the first URL with parameters
+    params = {
+        "type": "wells",
     }
-    for col, col_type in needed.items():
-        if col not in existing_cols:
-            try:
-                with engine.begin() as conn:
-                    conn.execute(text(f"ALTER TABLE oil_wells ADD COLUMN {col} {col_type}"))
-                print(f"字段 '{col}' 已添加。")
-            except Exception as e:
-                print(f"添加字段 '{col}' 时出错：{e}")
-        else:
-            print(f"字段 '{col}' 已存在。")
+    if well_name:
+        params["well_name"] = well_name
+    if api_no:
+        params["api_no"] = api_no
 
-def scrape_additional_info(api, well_name):
-    """
-    根据 API 和井名构造搜索查询，访问 DrillingEdge 搜索页面，
-    获取井页面链接，再解析井页面，抓取附加信息：井状态、井类型、最近城市和产量信息。
-    注意：下面的解析规则仅为示例，需根据实际页面结构进行调整。
-    """
-    query = f"{api} {well_name}"
-    search_url = "https://www.drillingedge.com/search"
-    params = {"q": query}
-    try:
-        response = requests.get(search_url, params=params, timeout=10)
-        response.raise_for_status()
+    results = {
+        "api_no": api_no,
+        "closest_city": None,
+        "county": "",
+        "latest_barrels_of_oil_produced": None,
+        "latest_mcf_of_gas_produced": None,
+        "latitude": 0.0,
+        "link": "",
+        "longitude": 0.0,
+        "operator": "",
+        "well_name": well_name,
+        "well_status": None,
+        "well_type": None,
+    }
+
+    response = requests.get('https://www.drillingedge.com/search', params=params)
+
+    if response.status_code == 200:
         soup = BeautifulSoup(response.text, "html.parser")
-        # 假设搜索结果中第一个 <a> 标签为目标井链接
-        link = soup.find("a", href=True)
-        if not link:
-            print("未找到搜索结果链接。")
-            return None
-        well_page_url = link["href"]
-        if well_page_url.startswith("/"):
-            well_page_url = "https://www.drillingedge.com" + well_page_url
-        # 访问井页面
-        well_response = requests.get(well_page_url, timeout=10)
-        well_response.raise_for_status()
-        well_soup = BeautifulSoup(well_response.text, "html.parser")
-        # 以下部分根据实际页面结构进行调整：
-        def get_text_after(label):
-            el = well_soup.find(text=re.compile(label, re.I))
-            if el:
-                parent = el.parent
-                # 假设目标信息在父节点的下一个兄弟标签中
-                sib = parent.find_next_sibling()
-                if sib:
-                    return sib.get_text(strip=True)
-            return None
 
-        scraped = {
-            "well_status": get_text_after("Well Status"),
-            "well_type": get_text_after("Well Type"),
-            "closest_city": get_text_after("Closest City"),
-            "production_info": get_text_after("Produced")  # 例如 "Produced" 后面跟产量信息
-        }
-        return scraped
-    except Exception as e:
-        print(f"查询或解析时出错：{e}")
-        return None
+        # Find the first href
+        well_page_links = soup.find("table", class_="table wide-table interest_table").find("a")
+        if well_page_links:
+            well_page_link = well_page_links["href"]
+            results["link"] = well_page_link
+            response = requests.get(well_page_link)
+
+            if response.status_code == 200:
+                soup = BeautifulSoup(response.text, "html.parser")
+
+                meta_info = soup.find("section", class_="meta_info")
+                results["operator"] = meta_info.find_all("div")[2].find("span").text
+
+                block_stats = meta_info.find_all("p", class_="block_stat")
+                for stat in block_stats:
+                    text = stat.get_text()
+                    span_text = stat.find("span").text
+
+                    text = text.replace(span_text, "").strip().split(" ")[:4]
+                    text = " ".join(text).lower().replace(" ", "_")
+
+                    results[f"latest_{text}"] = span_text.strip()
+
+                well_table = soup.find("article", class_="well_table")
+                if well_table:
+                    results["well_status"] = get_data_by_th(well_table, "Well Status").strip()
+                    results["well_type"] = get_data_by_th(well_table, "Well Type").strip()
+                    results["closest_city"] = get_data_by_th(well_table, "Closest City").strip()
+                    results["county"] = get_data_by_th(well_table, "County").strip()
+                    results["well_name"] = get_data_by_th(well_table, "Well Name").strip()
+
+            json_data_url = f"{well_page_link}?json"
+            response = requests.get(json_data_url).json()
+            results["latitude"] = float(response["data"][0]["lat"])
+            results["longitude"] = float(response["data"][0]["lon"])
+    return results
+
+
+def extract_info(result):
+    info = {
+        "well_status": result['well_status'],
+        "well_type": result['well_type'],
+        "closest_city": result['closest_city'],
+        "production_info": f"{result.get('latest_barrels_of_oil_produced', '0')} barrels of oil, "
+                           f"{result.get('latest_mcf_of_gas_produced', '0')} mcf of gas"
+    }
+    return info
 
 def update_database_with_scraped_info(engine, row_id, scraped_info):
     update_sql = """
@@ -256,23 +108,9 @@ def update_database_with_scraped_info(engine, row_id, scraped_info):
         })
 
 def main():
-    # 修改为你的数据库连接信息
-    db_url = "mysql+pymysql://DSCI560:560560@172.16.161.128/oil_wells_db"
+    db_url = "mysql+pymysql://phpmyadmin:Hyq010113!@localhost/oil_wells_db"
     engine = create_engine(db_url, echo=False)
-    
-    # 创建表（若不存在）
-    create_table_sql = """
-    CREATE TABLE IF NOT EXISTS oil_wells (
-        id INT AUTO_INCREMENT PRIMARY KEY
-    )
-    """
-    with engine.begin() as conn:
-        conn.execute(text(create_table_sql))
-        print("表 oil_wells 已创建或已存在。")
-    
-    ensure_required_columns(engine)
-    
-    # 从数据库中读取之前插入的记录
+
     with engine.connect() as conn:
         result = conn.execute(text("SELECT id, api, well_name FROM oil_wells"))
         rows = result.mappings().all()
@@ -282,17 +120,19 @@ def main():
         api = row["api"]
         well_name = row["well_name"]
         if not api or not well_name:
-            print(f"记录 {row_id} 缺少 API 或井名，跳过。")
+            print(f"Record {row_id} missing API or well name, skipping.")
             continue
-        print(f"处理记录 {row_id}: API={api}, Well Name={well_name}")
-        scraped_info = scrape_additional_info(api, well_name)
+        print(f"Processing records {row_id}: API={api}, Well Name={well_name}")
+        result = get_well_details(well_name, api)
+        scraped_info = extract_info(result)
         if scraped_info:
             update_database_with_scraped_info(engine, row_id, scraped_info)
-            print(f"记录 {row_id} 更新成功，附加信息：{scraped_info}")
+            print(f"Record {row_id} updated successfully, additional information: {scraped_info}")
         else:
-            print(f"记录 {row_id} 未能获取附加信息。")
+            print(f"Failed to fetch additional information for record {row_id}.")
     
-    print("所有记录附加信息更新完毕。")
+    print("All record additional information updated.")
 
 if __name__ == "__main__":
+
     main()
