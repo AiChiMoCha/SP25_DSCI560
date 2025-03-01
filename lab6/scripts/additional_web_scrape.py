@@ -2,6 +2,7 @@
 import requests
 from bs4 import BeautifulSoup
 from sqlalchemy import create_engine, text
+import time
 
 
 def get_data_by_th(soup, th_text):
@@ -13,13 +14,14 @@ def get_data_by_th(soup, th_text):
 
 def get_well_details(well_name=None, api_no=None):
     # Construct the first URL with parameters
-    params = {
-        "type": "wells",
-    }
-    if well_name:
-        params["well_name"] = well_name
+    params = {"type": "wells"}
     if api_no:
-        params["api_no"] = api_no
+        params["api_no"] = api_no.replace(' ', '')
+        well_name = None
+    elif well_name:
+        params["well_name"] = well_name
+    else:
+        return None
 
     results = {
         "api_no": api_no,
@@ -85,9 +87,14 @@ def extract_info(result):
         "well_type": result['well_type'],
         "closest_city": result['closest_city'],
         "production_info": f"{result.get('latest_barrels_of_oil_produced', '0')} barrels of oil, "
-                           f"{result.get('latest_mcf_of_gas_produced', '0')} mcf of gas"
+                           f"{result.get('latest_mcf_of_gas_produced', '0')} mcf of gas",
+        "latitude": result['latitude'],
+        "longitude": result['longitude'],
+        "county": result['county'],
+        "well_name": result['well_name']
     }
     return info
+
 
 def update_database_with_scraped_info(engine, row_id, scraped_info):
     update_sql = """
@@ -95,7 +102,11 @@ def update_database_with_scraped_info(engine, row_id, scraped_info):
     SET well_status = :well_status,
         well_type = :well_type,
         closest_city = :closest_city,
-        production_info = :production_info
+        production_info = :production_info,
+        latitude = :latitude,
+        longitude = :longitude,
+        county = :county,
+        well_name = :well_name
     WHERE id = :id
     """
     with engine.begin() as conn:
@@ -104,6 +115,10 @@ def update_database_with_scraped_info(engine, row_id, scraped_info):
             "well_type": scraped_info.get("well_type"),
             "closest_city": scraped_info.get("closest_city"),
             "production_info": scraped_info.get("production_info"),
+            "latitude": scraped_info.get("latitude"),
+            "longitude": scraped_info.get("longitude"),
+            "county": scraped_info.get("county"),
+            "well_name": scraped_info.get("well_name"),
             "id": row_id
         })
 
@@ -119,9 +134,7 @@ def main():
         row_id = row["id"]
         api = row["api"]
         well_name = row["well_name"]
-        if not api or not well_name:
-            print(f"Record {row_id} missing API or well name, skipping.")
-            continue
+
         print(f"Processing records {row_id}: API={api}, Well Name={well_name}")
         result = get_well_details(well_name, api)
         scraped_info = extract_info(result)
@@ -130,9 +143,10 @@ def main():
             print(f"Record {row_id} updated successfully, additional information: {scraped_info}")
         else:
             print(f"Failed to fetch additional information for record {row_id}.")
+        
+        time.sleep(1)
     
     print("All record additional information updated.")
 
 if __name__ == "__main__":
-
     main()
