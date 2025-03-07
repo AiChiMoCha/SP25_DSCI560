@@ -17,8 +17,8 @@ def connect_db():
     try:
         return mysql.connector.connect(
             host="localhost",
-            user="phpmyadmin",
-            password="Hyq010113!",
+            user="xxxxx",
+            password="xxxxx",
             database="reddit_db"
         )
     except mysql.connector.Error as e:

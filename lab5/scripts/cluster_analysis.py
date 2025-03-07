@@ -9,8 +9,8 @@ from sklearn.decomposition import PCA
 # connect MySQL
 db = mysql.connector.connect(
     host="localhost",
-    user="phpmyadmin",
-    password="Hyq010113!",
+    user="xxxxx",
+    password="xxxxx",
     database="reddit_db"
 )
 cursor = db.cursor()
