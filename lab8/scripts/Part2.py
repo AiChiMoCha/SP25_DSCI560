@@ -4,18 +4,33 @@ from sqlalchemy import create_engine
 from gensim.models import Word2Vec
 from sklearn.cluster import KMeans
 from sklearn.preprocessing import normalize
+from sklearn.metrics import silhouette_score
+from sklearn.metrics import davies_bouldin_score
+import matplotlib.pyplot as plt
+from sklearn.decomposition import PCA
+import seaborn as sns
+import nltk
+from nltk.corpus import stopwords
+import re
+from sklearn.feature_extraction.text import TfidfVectorizer
 
 # Connect to the MySQL reddit database
-db_url = "mysql+pymysql://DSCI560:560560@172.16.161.128/reddit"
+db_url = "mysql+pymysql://username:password@localhost/reddit_db"
 engine = create_engine(db_url, echo=False)
 
 # Load posts data
 query = "SELECT id, title FROM posts"
 posts_df = pd.read_sql(query, engine)
 
+nltk.download('stopwords')
+stop_words = set(stopwords.words('english'))
+
+
 def preprocess(text):
-    """Convert text to lowercase and split into tokens."""
-    return text.lower().split()
+    """Convert text to lowercase, remove special characters, split into tokens, and filter stopwords."""
+    text = re.sub(r'[^\w\s]', '', text)
+    return [word for word in text.lower().split() if word not in stop_words]
+
 
 # Build the corpus and collect document metadata
 corpus = []
@@ -80,3 +95,42 @@ for bins in bin_configs:
     output_filename = f"word2vec_results_{bins}_bins.csv"
     results_df.to_csv(output_filename, index=False)
     print(f"Word2Vec-Bag-of-Words clustering results saved to {output_filename}\n")
+
+    # Silhouette Score - The closer it is to 1, the better the clustering effect is.
+    silhouette_avg = silhouette_score(doc_vectors, doc_cluster_labels)
+    print(f"Silhouette Score (bins={bins}): {silhouette_avg}")
+
+    # Davies-Bouldin Index (DBI) - The lower the value, the higher the differentiation of clusters and the better the clustering effect.
+    dbi_score = davies_bouldin_score(doc_vectors, doc_cluster_labels)
+    print(f"Davies-Bouldin Index (bins={bins}): {dbi_score}")
+
+    # Within-Cluster SSE - The lower the value, the tighter the data in the cluster.
+    print(f"Within-Cluster SSE for bins={bins}: {kmeans_docs.inertia_}")
+
+    # PCA
+    pca = PCA(n_components=2)
+    doc_vectors_2d = pca.fit_transform(doc_vectors)
+
+    plt.figure(figsize=(8, 6))
+    sns.scatterplot(x=doc_vectors_2d[:, 0], y=doc_vectors_2d[:, 1], hue=doc_cluster_labels, palette='tab10')
+    plt.title(f"Clustering Visualization (bins={bins})")
+    plt.show()
+
+    # Get the text of all clusters
+    cluster_texts = {i: [] for i in range(n_clusters)}
+
+    for _, row in results_df.iterrows():
+        cluster_texts[row["cluster"]].append(row["title"])
+
+    # calculate TF-IDF
+    tfidf = TfidfVectorizer(stop_words='english')
+    tfidf_matrix = tfidf.fit_transform([" ".join(texts) for texts in cluster_texts.values()])
+    terms = tfidf.get_feature_names_out()
+
+    # Display high TF-IDF words for each cluster
+    for i in range(n_clusters):
+        print(f"Cluster {i}:")
+        top_indices = tfidf_matrix[i].toarray()[0].argsort()[-10:][::-1]
+        print([terms[idx] for idx in top_indices])
+
+
