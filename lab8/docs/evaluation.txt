@@ -1,0 +1,104 @@
+Part1
+
+Running Doc2Vec with vector_size = 50
+Doc2Vec clustering results saved to doc2vec_results_50.csv
+
+Silhouette Score for vector_size 50: 0.22758077085018158
+Davies-Bouldin Index for vector_size 50: 1.854970606485179
+Within-Cluster SSE for vector_size 50: 134.7251434326172
+Cluster 0:
+['solar', 'battery', 'world', 'new', 'power', 'energy', 'water', 'fusion', 'ev', 'batteries']
+Cluster 1:
+['human', 'new', 'ai', 'brain', 'robot', 'like', 'mit', 'cells', 'robots', 'blood']
+Cluster 2:
+['new', 'brain', 'cancer', 'researchers', 'robot', 'human', 'cells', 'ai', 'disease', 'treatment']
+Cluster 3:
+['energy', 'water', 'heat', 'battery', 'fuel', 'co2', 'new', 'world', 'power', 'scientists']
+Cluster 4:
+['new', 'scientists', 'quantum', 'ai', 'robot', 'researchers', 'water', 'light', 'tech', 'world']
+Running Doc2Vec with vector_size = 100
+Doc2Vec clustering results saved to doc2vec_results_100.csv
+
+Silhouette Score for vector_size 100: 0.28530460596084595
+Davies-Bouldin Index for vector_size 100: 1.650603571127905
+Within-Cluster SSE for vector_size 100: 94.66605377197266
+Cluster 0:
+['world', 'new', 'power', 'solar', 'water', 'battery', 'hydrogen', 'based', 'batteries', '1st']
+Cluster 1:
+['human', 'robot', 'ai', 'new', 'brain', 'humanoid', 'blood', 'like', 'robots', 'mit']
+Cluster 2:
+['energy', 'battery', 'water', 'power', 'heat', 'batteries', 'fuel', 'new', 'ev', '000']
+Cluster 3:
+['new', 'ai', 'researchers', 'robot', 'quantum', 'brain', 'scientists', 'human', 'cancer', 'robots']
+Cluster 4:
+['nuclear', 'fusion', 'new', 'battery', 'boost', 'reactor', 'efficiency', 'space', 'tech', 'water']
+Running Doc2Vec with vector_size = 200
+Doc2Vec clustering results saved to doc2vec_results_200.csv
+
+Silhouette Score for vector_size 200: 0.3837256133556366
+Davies-Bouldin Index for vector_size 200: 1.3248065991697935
+Within-Cluster SSE for vector_size 200: 58.91192626953125
+Cluster 0:
+['energy', 'battery', 'water', 'batteries', 'heat', 'fuel', 'power', 'new', 'world', 'solar']
+Cluster 1:
+['robot', 'brain', 'new', 'like', 'test', 'helps', 'robots', 'muscles', 'technique', 'hand']
+Cluster 2:
+['new', 'world', 'ai', 'scientists', 'quantum', 'solar', 'researchers', 'robot', 'water', 'powered']
+Cluster 3:
+['brain', 'new', 'human', 'researchers', 'ai', 'cancer', 'robot', 'cells', 'robots', 'heart']
+Cluster 4:
+['nuclear', 'battery', 'water', 'new', 'efficiency', 'fusion', 'storage', 'reactor', 'heat', 'energy']
+
+
+Part2
+
+Running Word2Vec-Bag-of-Words with 50 bins
+Word2Vec-Bag-of-Words clustering results saved to word2vec_results_50_bins.csv
+
+Silhouette Score (bins=50): 0.05002492601571487
+Davies-Bouldin Index (bins=50): 4.261869022660962
+Within-Cluster SSE for bins=50: 521.9404641439686
+Cluster 0:
+['reactor', 'co2', 'new', 'world', 'plastic', 'scientists', 'treatment', 'field', 'patients', '1st']
+Cluster 1:
+['ai', 'new', 'neutrons', 'fusion', 'world', 'years', 'researchers', 'wetsuits', 'air', 'high']
+Cluster 2:
+['powered', 'muscle', 'robot', '3d', 'world', 'lens', 'satellites', 'brew', 'connect', 'new']
+Cluster 3:
+['new', 'researchers', 'scientists', 'world', 'ai', 'self', 'robot', 'blood', '3d', 'technology']
+Cluster 4:
+['new', 'world', 'battery', 'scientists', 'energy', 'water', 'power', 'researchers', 'cells', 'solar']
+
+Running Word2Vec-Bag-of-Words with 100 bins
+Word2Vec-Bag-of-Words clustering results saved to word2vec_results_100_bins.csv
+
+Silhouette Score (bins=100): 0.023186035696326695
+Davies-Bouldin Index (bins=100): 4.8610939017468455
+Within-Cluster SSE for bins=100: 609.976084777978
+Cluster 0:
+['new', 'energy', 'world', 'power', 'battery', 'scientists', 'researchers', 'water', 'using', 'cells']
+Cluster 1:
+['engineers', 'space', 'glass', 'engine', 'mit', 'air', 'treatment', 'vision', 'helps', 'flight']
+Cluster 2:
+['new', 'world', 'robot', '3d', 'ai', 'scientists', 'researchers', 'bacteria', 'concrete', 'like']
+Cluster 3:
+['new', 'reactor', 'world', 'robot', 'researchers', 'water', 'scientists', 'breakthrough', 'method', 'control']
+Cluster 4:
+['new', 'scientists', 'laser', 'battery', 'researchers', 'tech', 'used', 'based', 'cancer', '000']
+
+Running Word2Vec-Bag-of-Words with 200 bins
+Word2Vec-Bag-of-Words clustering results saved to word2vec_results_200_bins.csv
+
+Silhouette Score (bins=200): 0.020660138468283074
+Davies-Bouldin Index (bins=200): 6.247985976989204
+Within-Cluster SSE for bins=200: 661.8948170287945
+Cluster 0:
+['space', '3d', 'powered', 'flight', 'air', 'engineers', 'glass', 'fuel', 'inspired', 'data']
+Cluster 1:
+['new', 'researchers', 'energy', 'power', 'scientists', 'world', 'battery', 'cells', 'water', 'ai']
+Cluster 2:
+['new', 'hydrogen', 'world', 'researchers', 'second', 'scientists', 'tech', 'ai', 'help', 'fuel']
+Cluster 3:
+['new', 'world', 'ai', 'scientists', '1st', 'create', 'robot', 'million', 'precise', 'color']
+Cluster 4:
+['new', 'scientists', 'heart', 'researchers', 'robot', 'like', 'world', '99', 'based', 'develop']
