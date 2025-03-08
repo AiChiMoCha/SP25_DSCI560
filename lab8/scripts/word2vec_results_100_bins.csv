@@ -1,202 +1,994 @@
 id,title,cluster,bins
+1benfn8,classic classroom toy inspires scientists to build electricity generator | the generator device generated an output of over 100 volts and worked for several days using only 100 ml water as fuel.,0,100
+1bev96s,wearable sticker reads even the smallest finger motions. the sensor can aid stroke patients and people with disabilities.,2,100
+1bfeigl,world’s largest ai chip with 4 trillion transistors to power supercomputers | the chip also needs 97percent lesser code to train a llm when compared to a gpu.,0,100
+1bfetog,woman given a new 3d-printed windpipe in a world-first,2,100
+1bg558q,aussie invention predicts power line faults that can cause bushfires,2,100
+1bgxloq,a cargo ship’s ‘windwing’ sails saved it up to 12 tons of fuel per day,2,100
+1bh51cf,"korean researchers power-shame nvidia with new neural ai chip — claim 625 times less power draw, 41 times smaller",0,100
+1bhnzvi,"laser-driven pacemaker guides ailing hearts with light | pv semiconductor tech could find applications in neurostimulation, too",2,100
+1bhrrve,a sprayable gel could make minimally invasive surgeries simpler and safer,4,100
+1bihhr0,"incorporating a phase-change material into concrete, researchers have created a self-heating material that can melt snow and ice for up to 10 hours without using salt or shovels.",0,100
+1bihi90,world's fastest wireless ev charger unlocks 100 kw parking spots,3,100
+1biig0z,nvidia has virtually recreated the entire planet — and now it wants to use its digital twin to crack weather forecasting for good,2,100
+1bjd042,winged cargo ship saves three tons of fuel per day on first voyage,2,100
+1bjwu9s,medics design ai tool to predict side-effects in breast cancer patients,0,100
+1bjxu2j,elon musk unveils clip of his first human patient implanted with neuralink brain-chip using 'telepathy' to play chess on computer,0,100
+1bk4nut,an ai robot is spotting sick tulips to slow the spread of disease through dutch bulb fields,3,100
+1bk8kls,"texas firm tops tesla with innovative solar rooftop solution | using lfp batteries, yotta energy has eliminated the need to install a separate battery pack and the extra wiring that it needs.",0,100
+1bkyd2t,this stretchy electronic material hardens upon impact just like “oobleck”,2,100
+1blhyax,exosuit muscle control steps closer to reality. brain-guided muscle stimulation finds relief with electronic clutch system.,3,100
+1blr3s7,the next generation of drugs could be made in space. here’s why,0,100
+1bmkkmw,pacemaker powered by light eliminates need for batteries and allows the heart to function more naturally. scientists have designed a solar panel-like pacemaker that can precisely control heartbeats.,3,100
+1bmkn8d,molecular weaving makes polymer composites stronger without compromising function,2,100
+1bmkx43,mind-blowing science: ‘star wars-style’ holograms to communicate with the brain,4,100
+1bne975,doctors take another step toward animal-to-human organ transplants with the first pig kidney transplant. the experimental procedure was done on a man experiencing end-stage kidney failure last week who had been on the transplant waiting list for two years.,1,100
+1bnub66,"scientists reveal new flow battery tech based on common chemical | at the center of the design is a lab-scale, iron-based flow battery with unparalleled cycling stability.",0,100
+1bnxqlk,"speaking without vocal cords, thanks to a new ai-assisted wearable device",0,100
+1bo4wxn,"this drug-delivering contact lens will heal corneal wounds faster | “the more injured you are, the more drug gets delivered, which is unique and potentially a game changer.”",3,100
+1bp1tgn,swiss hydrogen-powered train sets 1741-mile record for nonstop travel | the record attempt took place over 46 hours at a test track in colorado where stadler’s hydrogen-powered train is being tested.,3,100
+1bp21ej,"silicon spikes take out 96% of virus particles. an international research team led by rmit university has designed and manufactured a virus-killing surface that could help control disease spread in hospitals, labs and other high-risk environments.",3,100
+1bplkua,"ai chatbots are beating moore's law to improve at an even faster rate than computer chips | after eight months, a model only needs half the computing power to hit the same benchmark score",2,100
+1bpvigl,cern to supercharge world’s most powerful atom smasher to hunt new physics | team to construct vital detector parts and analysis tools for high-luminosity-lhc upgrade.,3,100
+1bq81ml,"scientists devise healthy mouse pups from two dads, without female dna | the application is expected to take a long time in humans, maybe 10 years or more and it is unknown whether the eggs are safe enough to produce (a) baby with two male dna.",4,100
+1bqb545,blazing bits transmitted 4.5 million times faster than broadband,0,100
+1bqozic,engineers find a new way to convert carbon dioxide into useful products,2,100
+1brj2z8,will liquid circuits enable brain-imitating computers? new microchips shuffle around ions like synapses in the human brain.,0,100
+1bs8o8x,"new tech promises instant paper-based glucose monitoring for under 15 cents | the device, affordable, and eco-friendly, uses a paper-based technology that can be connected to a smartphone app for instant glucose detection.",0,100
+1bt0hcg,"seeing with sound: new tech lets blind people ‘hear’ solar eclipse | millions are gearing up to witness the rare and unique total solar eclipse on monday, april 8.",0,100
+1bt6ae5,brain-cell transplants are the newest experimental epilepsy treatment,1,100
+1btvv12,"using a cellphone’s built-in compass to measure glucose, toxins and more | the compass in your cellphone could also be used to accurately measure the concentration of glucose and environmental toxins.",2,100
+1btvz8c,blink to generate power for smart contact lenses | a dual-mode power pack harvests energy from light and from tears,0,100
+1btz8g0,"this handheld device allows blind people to experience the solar eclipse with their ears. the technology, which translates the intensity of sunlight into a range of sounds, was designed to make eclipses more accessible to visually impaired people.",0,100
+1btzf1n,"scientists break brain disability barrier with thought-controlled interface | the system aids in enhancing neural plasticity, empowering the brain to adapt, grow, and reorganize, fostering continual development over time.",0,100
+1buguuc,thousands with type 1 diabetes in england to receive 'artificial pancreas',1,100
+1bv1t3w,"innovative sand battery can heat entire town for a week | water batteries, and now sand batteries",0,100
+1bv25ra,a new computational technique could make it easier to engineer useful proteins,0,100
+1bvc6f0,"opera is testing letting you download llms for local use, a first for a major browser",3,100
+1bvc9tb,waymo self-driving cars are delivering uber eats orders for first time,4,100
+1bve6yf,"‘the machine did it coldly’: israel used ai to identify 37,000 hamas targets",4,100
+1bvmjt8,this virtual second skin is allowing ‘touch’ for isolated sick children | the smart textile made of silicon is as thin as a film and shows how powerful “sensitive” can get.,1,100
+1bvnpjp,"gene-engineered bacteria grows plastic-free, self-dyeing vegan leather | for the first time, scientists genetically engineered bacteria to produce vegan leather, which also has self-dyeing properties.",2,100
+1bvo7uk,the best robot to search for life could look like a snake,2,100
+1bwekcu,"new window film drops temperature by 45 °f, slashes energy consumption | assisted by quantum physics and machine learning, researchers have developed a transparent window coating that lets in visible light but blocks heat-producing uv and infrared.",4,100
+1bwkn5c,world's largest digital astronomy camera ready to solve cosmic mysteries,2,100
+1bwvfpb,crafty quadcopter can operate indefinitely by recharging on power lines,2,100
+1bx99h7,"researchers develop paper battery that generates power from water, air | researchers at tohoku university have developed a paper-based magnesium-air battery that is eco-friendly and powerful.",0,100
+1by1lgr,game theory research shows ai can evolve into more selfish or cooperative personalities,2,100
+1byurwp,these electronic textiles don’t need chips or batteries | soft fibers light up and send wireless signals at the touch of a finger,2,100
+1bz05uw,"‘time is running out’: can a future of undetectable deepfakes be avoided? | tell-tale signs of generative ai images are disappearing as the technology improves, and experts are scrambling for new methods to counter disinformation",0,100
+1bz8ex5,"using tissue engineering techniques & a 3d printer, researchers have assembled a replica of an adult human ear that looks & feels natural. this offers the promise of grafts with well-defined anatomy & the correct biomechanical properties for those who are born with a congenital malformation.",4,100
+1bzr3sc,"dual layer, 3d magnetic recording to boost seagate’s hdd storage to 120tb+ | the approach could potentially increase data storage capacity ten times to 10 tbit per square inch providing relief to data centers.",2,100
+1c021qk,better biosensors just need a touch of cheap plastic. diluting organic semiconductors with polystyrene improves performance.,1,100
+1c02g0p,mit engineers craft spring device to enhance robotic muscles | this new flexure functions as a skeleton-like module to boost muscle performance in robots.,0,100
+1c0ih0f,"tiny tech consumes 10,000x less power to measure qubits in single shot | the device with a microscopic footprint consumes 10,000 times less power to measure qubits and gives noise-free readouts in a single shot.",2,100
+1c0m7nx,the us air force is testing a self-flying f-16 fighter jet — and is sending its boss up as a passenger,3,100
+1c0oc72,"scientists use laser light to achieve quantum states at room temperature, a first | the team used a “corkscrew” shaped polarized laser light source.",0,100
+1c1brte,northrop grumman introduces its first completed prototype manta ray uncrewed underwater vehicle that it is developing for darpa | the extra-large submarine glider is designed to carry out long-range undersea missions without human assistance.,4,100
+1c1btc7,robot uprising? openai and meta to release ais capable of reasoning,2,100
+1c287d8,muscle tissue harvested from mice cells move ‘biohybrid’ robots,4,100
+1c31igd,pogo stick microcopter bounces off floors and walls,1,100
+1c33uyt,how new tech is making geothermal energy a more versatile power source. geothermal has moved beyond being confined to areas with volcanic activity.,0,100
+1c3wnye,ai-powered ‘sonar’ on smartglasses tracks gaze and facial expressions,1,100
+1c4j1wu,"pea-sized, battery-free brain implant could cure neurological disorders | researchers have created a unique brain stimulator called digitally programmable over-brain therapeutic (dot).",0,100
+1c4laty,world’s 1st 60 ghz mmwave to pave way for ultrafast 6g communication | the antenna is built with metamaterials- materials engineered to possess special abilities that they do not have in their natural form.,2,100
+1c4nbh0,the tiny ultrabright laser that can melt steel. photonic crystals are the key to the brightest semiconductor laser ever.,1,100
+1c4vmht,world first energy storage unit demonstrates zero degradation over 5 years,0,100
+1c5w9ax,metal waste catalyst forges way to hydrogen production from water | a new method aims to deliver ‘the most promising green pathways for hydrogen production’ via electrolysis of water.,0,100
+1c66ppt,"‘world’s 1st’ paintball firing security cam offers teargas pellet upgrade | it’s the world’s first smart paintball security system and the device will create a new standard in active protection at home, the company claims.",0,100
+1c68uga,this hopping robot with flailing legs could explore asteroids in the future,0,100
+1c6bicv,"boston dynamics’ atlas humanoid robot goes electric | a day after retiring the hydraulic model, boston dynamics' ceo discusses the company’s commercial humanoid ambitions",2,100
+1c6mhaz,"“nanostitches” enable lighter and tougher composite materials. in research that may lead to next-generation airplanes and spacecraft, mit engineers used carbon nanotubes to prevent cracking in multilayered composites.",1,100
+1c72gws,breakthrough co2-fueled generator turns greenhouse gas into electricity | researchers claim that they were able to capture approximately 1 percent of the inherent energy contained within co2 gas.,2,100
+1c7tpak,us conducts world’s first ai-driven vs. human-piloted f-16 dogfight,0,100
+1c8i8e2,microsoft’s vasa-1 can deepfake a person with one photo and one audio track,1,100
+1c8ou5z,corkscrew polarized infrared laser light induces magnetism in strontium titanate at room temperature,1,100
+1c8wih9,"led touchscreen is also a pv charger. perovskite display tech can read fingerprints and gather health data, too.",3,100
+1c91sv8,home assistant’s next era begins now,1,100
+1c9ikcc,"this electrode material allows 33x more energy storage in wearables | modified carbon nanotube fiber excels with 33x energy storage, 3.3x strength, and 1.3x conductivity over regular fibers.",2,100
+1cada73,"meet qdel, the backlight-less display tech that could replace oled in premium tvs",0,100
+1cafhyg,hydrogen trains could revolutionize how americans get around,4,100
+1carkhm,"400,000 ‘solar balconies’ boost german home energy harvesting capacity | the solar balcony generates only a tenth of the power output of a rooftop solution, but it is portable if the homeowner wishes to relocate.",0,100
+1cb0qek,"gpt-4 can exploit zero-day security vulnerabilities all by itself, a new study finds",2,100
+1cb3cvg,"world’s only quantum-gas microscope imaging strontium’s individual atoms | researchers confirmed that strontium gas is a superfluid, lacking viscosity—a key quantum phase of matter.",2,100
+1cb6byr,curving terahertz signals around obstacles for 6g | the first curved thz data link could boost faster data networks beyond 5g,0,100
+1cblslb,"mit's powerful chip offers ai boost, defense against data breach | this new chip will adopt a three-part approach to protect ai devices from data attacks.",0,100
+1cbtdgx,mit study reveals ai model that can predict future actions of human,0,100
+1cc6xec,"plato's final resting place revealed using 'bionic eye' | with new technology, researchers decipher 1000 words from the herculaneum papyri that includes details about plato’s final resting place.",0,100
+1ccn78t,an ai startup made a hyperrealistic deepfake of me that’s so good it’s scary | synthesia's new technology is impressive but raises big questions about a world where we increasingly can’t tell what’s real,0,100
+1ccrar5,opencrispr-1: world’s first open-source ai scissor edits human genes | the gene editors developed by profluent are built upon the pioneering techniques recognized with nobel prizes.,0,100
+1ccrdrv,tiny biosensor unlocks the secrets of sweat,1,100
+1cd7c68,new laser tech using raman spectroscopy detects illegal elephant ivory | non-destructive laser technology swiftly detects illegal elephant ivory.,4,100
+1cdk79c,a new kind of gene-edited pig kidney was just transplanted into a person,2,100
+1ceeasd,energy-smart bricks keep waste out of landfill,1,100
+1ceqzra,darpa unleashes 20-foot autonomous robo-tank with glowing green eyes | it rolls through rough terrain like it's asphalt,1,100
+1cf45oh,"world's biggest 3d printer whirs into action. it's hoped giant device will be able to print homes, bridges, boats and wind turbines.",2,100
+1cff67b,ukraine is riddled with land mines. drones and ai can help,0,100
+1cg5lds,solar fuel production just needs a change in direction photoelectrodes that move electric charge diagonally split water better,0,100
+1cg8x3p,nasa uses laser link to beam data 140 million miles across space at 25 mbps,0,100
+1cgozvz,bacterial enzyme strips away blood types to create universal donor blood,1,100
+1chi7pu,miniature robotic bees navigate swarm flight autonomously,2,100
+1chjjkd,"meet stickbug, the new six-arm pollinating bot living in greenhouses | stickbug, a multi-agent robot aims to address the decline in natural pollinators by autonomously transferring pollen to specific types of flowers.",2,100
+1chn1bo,agricultural iot system sends power through the soil | tennessee field trials powers sensors for just pennies per day,2,100
+1cice6g,darpa’s massive manta ray robotic sub hits the sea,3,100
+1cigw4o,"sea turtle ears inspire a new heart monitor design | the device ""listens"" by detecting tiny vibrations in a beam sensor",4,100
+1ciut8o,stretchable e-skin could give robots human-level touch sensitivity,0,100
+1cj7l2q,this biometric dog collar could help in predicting earthquakes | the petpace biometric collar monitors a dog’s stress levels which might help us understand that an earthquake is coming.,0,100
+1cj8crn,these recyclable circuit boards could stem e-waste. vitrimer-based pcbs can be broken down into a gel for repeated reuse.,2,100
+1cja554,"transparent filter with 10,000-pixel power turns phone into pro camera | the study utilizes a transparent, one-centimeter-square plane featuring a 2d semiconductor—a thin film composed of only a few atoms.",1,100
+1cjo3yu,copper coating turns touchscreens into bacteria killers,1,100
+1cjue1p,an ai-controlled fighter jet took the air force leader for a historic ride. what that means for war,1,100
+1ck56c3,"smart antennas shape satellite internet tech to come. metasurface arrays will portably link up base stations, cars, and drones.",1,100
+1ckawq1,"researchers develop new device modeled on leeches for taking blood samples using microneedles and a suction cup instead of a large needle. it is low cost, helps people with needle phobia, reduces risk of needlestick injuries and can be used by people without medical training.",0,100
+1ckcqzz,new technique improves t cell-based immunotherapies for solid tumors,2,100
+1ckd5nn,"nasa’s orion capsule heat shield wore away in more than 100 places during 2022 test flight, posing ‘significant risks’ a new report highlights safety issues that nasa must address before using the spacecraft to send astronauts to the moon, and the agency is already working on fixing the problems.",2,100
+1ckqtmo,"china’s water battery has almost double energy capacity than lithium cells | aqueous batteries use water as the solvent for electrolytes, enhancing the safety of the batteries.",0,100
+1cldn2a,"generative ai will be designing new drugs all on its own in the near future | within a few years, experts at lilly and nvidia say ai will not only think up new drugs, but ones that humans could not create",0,100
+1clg5d8,"""video games"" for flies shed light on how they fly | biologists went to great lengths to study insects' complex wing structures",1,100
+1clibbi,deep-space lasers smash data speed records over interplanetary distances,2,100
+1clm0lh,scientists are trying to get cows pregnant with synthetic embryos,3,100
+1clrpxn,the invisible seafaring industry that keeps the internet afloat,1,100
+1clxwk8,nanotechnology-based oral insulin may replace injections for diabetes  | it consists of a “nano-carrier” that precisely delivers insulin molecules inside the body.,1,100
+1cm1r7r,"40,000 ai-narrated audiobooks flood audible, dividing authors and listeners | ai audiobooks have invited backlash from narrators",2,100
+1cmcmyt,sound waves cut cold brew coffee-making time from 24 hours to 3 mins | researchers have developed an ultrasonic machine to speed up the cold brew of ground coffee beans.,1,100
+1cmxyj5,raspberry pis get a built-in remote access tool: raspberry pi connect,1,100
+1cn25vj,"high-speed military amphibian skims the waves using surface effect | textron is developing a remarkable new surface effect amphibious transport for the us navy and marines. it can carry 50 tons of cargo, skims the waves at 50+ knots, and operates in water just four feet deep.",4,100
+1cn2v4h,this sound-suppressing silk can create quiet spaces,1,100
+1cnkbfi,"engineers develop ‘wraparound’ device for spinal cord treatment | this approach inspired by microelectronics involves wrapping very thin, high-resolution implants around the whole spinal cord.",1,100
+1cnmn0j,robot dogs armed with ai-targeting rifles undergo us marines special ops evaluation,3,100
+1co2z9e,femtosecond lasers solve solar panels' recycling issue,4,100
+1coco0a,"scientists unlock key to cheap hydrogen fuel with 95% less iridium | this new discovery dramatically reduces the need for a rare, expensive metal currently used in hydrogen fuel production.",0,100
+1covgos,2d gold sheet draws graphene comparisons. applications expected in water-to-hydrogen tech and efficient electronics.,2,100
+1cox4et,"smart contact lens to wirelessly detect irreversible vision loss early | the contact lens can provide real-time monitoring of eye pressure, which is crucial for conditions like glaucoma.",1,100
+1cp79vm,"is ai lying to me? scientists warn of growing capacity for deception | researchers find instances of systems double-crossing opponents, bluffing, pretending to be human and modifying behaviour in tests",0,100
+1cp7x63,bumble founder shares odd future of dating: your ai dates my ai,0,100
+1cpg8s3,"using mri, engineers have found a way to detect light deep in the brain. the new technique could enable detailed studies of how brain cells develop and communicate with each other.",0,100
+1cpljhz,making batteries takes lots of lithium: almost half of it could come from pennsylvania wastewater,3,100
+1cps031,"red, yellow, green ... and white? smarter vehicles could mean big changes for the traffic light",3,100
+1cq7ajl,university students in hawaii use cutting-edge technology to digitally restore historic buildings damaged by maui wildfires. a new course at university of hawaii at manoa has enrollees design digital twins of notable structures so that people can experience them virtually.,2,100
+1cqvnsn,world's highest-efficiency hydrogen system scales up for mass production,0,100
+1cqywcc,"scientists use bamboo to create transparent glass with fireproof power | with a transmittance of 71.6 percent, the transparent material increased energy conversion by 15 percent when employed in solar cells.",0,100
+1crho12,"openai’s newest ai model can hold a humanlike conversation | gpt-4o can see, hear and speak with near-instant response times.",2,100
+1crrt0k,startup sends bluetooth into low earth orbit. hubble network and life360 aim to launch a worldwide item-tracking network.,1,100
+1crsjrv,revolutionary ai device mimics human brain with few-molecule computing,0,100
+1cs3sy3,scientists develop an affordable sensor for lead contamination,2,100
+1csfy67,"in seawater, researchers see an untapped bounty of critical metals",2,100
+1cshtwv,this microcapacitor charges 100 million times faster than lithium-ion batteries | a materials tweak could push microcapacitors onto next-gen chips,0,100
+1csikm8,"power the poor: sweden makes low-cost zinc battery with 8,000 charging cycles | the battery is made from abundantly available materials and retains 80 percent of its performance over the course of 8,000 cycles.",4,100
+1csj6cj,robotic “superlimbs” could help moonwalkers recover from falls,0,100
+1ct0nr1,"new neural tech could power insect-sized intelligent flying robots | the system uses a five-layer spiking neural network with 28,800 neurons to analyze raw event-based camera data and estimate the camera’s 3d motion.",0,100
+1cta8fz,"""snake-like"" probe images arteries from within | the new fiber-optic probe could transform aneurysm and brain clot treatments",0,100
+1ctiduo,super-efficient solar cells: solar cells that combine traditional silicon with cutting-edge perovskites,0,100
+1cu2bzk,quantum internet inches closer: qubits sent 22 miles via fiber optic cable | three research labs in three different countries have found different ways to make the quantum internet possible.,3,100
+1cuuej4,uk builds world’s smallest light detector to shrink quantum computers | the detector is not just the world’s smallest but also 10 times faster than detectors previously built for quantum light detection.,0,100
+1cve5k6,5 things to know about nasa’s tiny twin polar satellites,1,100
+1cvf8dm,repurposed beer yeast may offer a cost-effective way to remove lead from water,3,100
+1cvgr9s,china’s first large-scale sodium-ion battery charges to 90% in 12 minutes,0,100
+1cvo54b,patagonia is cracking the code on endlessly recyclable wetsuits. the outdoor apparel retailer will start selling wetsuits made in part from used wetsuits deconstructed at a molecular level and reborn as new fabric.,2,100
+1cvppq0,"researchers achieve giant energy storage, power density on a microchip",0,100
+1cw3q89,"the supermarket scanner changed the way we buy groceries forever. invented 50 years ago, the curious box deciphered an arcane kind of code to offer shoppers a trip into the future.",1,100
+1cwftp6,"mad scientists build ""dune""-inspired stillsuit that can recycle sweat",2,100
+1cwfx1m,green concrete recycling twice the coal ash is built to last,1,100
+1cwjaf7,real-life 'stillsuit' recycles body fluids into drinkable water,2,100
+1cwq0l6,"world’s first drone-shepherd successfully steers cattle herd remotely | the program includes a docking station housing a drone that can land, recharge, and take off based on its preset schedule.",3,100
+1cws43o,single brain implant gives paralyzed man bilingual communication,2,100
+1cwyr24,"new windows ai feature records everything you’ve done on your pc | recall uses ai features ""to take images of your active screen every few seconds.""",0,100
+1cxazt6,"ai is a black box. anthropic figured out a way to look inside | what goes on in artificial neural networks work is largely a mystery, even to their creators. but researchers from anthropic have caught a glimpse.",2,100
+1cxb6gz,crushing it: autonomous ai robot creates a shock-absorbing shape no human ever could,0,100
+1cxccqe,"robotic palm mimics human touch. mit csail researchers enhance robotic precision with sophisticated tactile sensors in the palm and agile fingers, setting the stage for improvements in human-robot interaction and prosthetic technology.",0,100
+1cxnh5w,"copper-coated steel promises 90% bacterial elimination from surfaces | scientists developed a copper-coated nanotextured stainless steel (nss) surface to prevent bacterial infections, effective in most shared environments.",4,100
+1cxu1fl,you can now buy a 4-foot-tall humanoid robot for $16k,3,100
+1cxzbql,a device that zaps the spinal cord gave paralyzed people better control of their hands,3,100
+1cxzh9h,scientists grow diamonds from scratch in 15 minutes thanks to groundbreaking new process,3,100
+1cxzitn,"making steel with electricity. mit spinout boston metal is commercializing a new method for making steel and other metals, to help clean up the emissions-intensive industry.",2,100
+1cywl4s,'absolute miracle' breakthrough provides recipe for zero-carbon cement,2,100
+1cz5n2q,'bio-paper' implant: personalized wireless electrotherapy for parkinson's,1,100
+1czim1g,"scientists print invisible, spider silk-like sensors directly on skin | the fibres used in these sensors are at least 50 times thinner than a human hair.",4,100
+1czj6ta,"new warp drive concept does twist space, doesn’t move us very fast. while it won't make a useful spaceship engine, it may tell us more about relativity.",0,100
+1czkbwm,male birth control breakthrough safely switches off fit sperm for a while,3,100
+1d0123c,"new ‘invisible tweezers’ can make robot surgery non-invasive | the method uses acoustic emitters to create 3d vortex fields, acting like invisible tweezers to traverse bone and tissue.",0,100
+1d0jo4o,"2 teens won $50,000 for inventing a device that can filter toxic microplastics from water",3,100
+1d0kihg,"new tool blocks high-frequency signal interference, aids 6g tech | the adjustable filter is designed to prevent signals from causing interference, even in higher-frequency bands. the quarter-sized filter will unlock the next generation of wireless communications.",4,100
+1d142j3,"organic waste can't be added directly to concrete because it would decompose over time and weaken the building material. to overcome this challenge, researchers developed a technique to make concrete 30% stronger using coffee biochar made with a low-energy process without oxygen.",0,100
+1d1vuqe,"noise-canceling headphones use ai to let a single voice through. they could help wearers focus on specific voices in noisy environments, such as a friend in a crowd or a tour guide amid the urban hubbub.",0,100
+1d22f56,three new supercomputers reach top of green500 list. efficiency ratings matter more and more in the exascale age.,2,100
+1d2flj7,darpa intends to wirelessly charge drones while in flight by power-beaming,1,100
+1d2z84j,"neuralink rival sets brain-chip record with 4,096 electrodes on human brain | precision expects its minimally invasive brain implant to hit the market next year.",0,100
+1d3avu4,attosecond x-ray pulses reveal the dance of electrons,1,100
+1d3cmqn,scientists create new color-changing ‘sunglasses for windows’ to block heat | once activated the color changing film can retain the color for 40 hours unless a reverse potential is applied to make it transparent.,4,100
+1d3q527,world-first tooth-regrowing drug will be given to humans in september,1,100
+1d43v1n,"robotic ‘third thumb’ expands hand’s range of motion, carrying capacity | study showed, 98 percent of participants successfully manipulated objects with the third thumb, with only 13 unable to perform the task within the first minute.",2,100
+1d4su6x,australian firm cryogenically freezes man after death in hopes of revival | an australian man underwent the first successful cryonics suspension via southern cryonics and cryopath tech.,2,100
+1d5k01h,"world’s fastest vision chip for autonomous cars created in china is capable of sensing 10,000 frames per second.",2,100
+1d5vh9l,this lens is just three atoms thick and works like a quantum lighthouse. the tiniest fresnel lens may be perfect for augmented reality glasses.,2,100
+1d6dpqe,"what to know about world's first wooden satellite, set to launch this year",0,100
+1d6hz8u,"researchers hope that the world's first ""living processor"" will lead to energy-efficient computing power | online platform gives researchers remote access to 16 human brain organoids",0,100
+1d70v8n,"1x's eve humanoid robot masters task chaining, nears autonomous work",2,100
+1d73p56,synthetic plugs could reduce need for total knee replacements | an off-the-shelf surgical device could treat osteochondral defects and avoid total knee replacement.,4,100
+1d740pi,ai-directed drones could help find lost hikers faster,0,100
+1d7ot9u,can 'energy hog' hot tubs be made greener?,0,100
+1d7u7yy,night-vision lenses so thin and light that we can all see in the dark,1,100
+1d8my1g,stretchy displays sport better resolution | ultrathin oleds still shine when stretched,1,100
+1d8p8wq,"this system converts air to water using atmospheric water generators that contain a liquid desiccant. using the sun or renewable electricity they heat the desiccant to 65c which releases the moisture, and can be condensed into drinking water. each unit produces about 2,000 litres of drinking water.",0,100
+1d8qtmj,zoom ceo eric yuan wants ai clones in meetings | eric yuan wants to let your ai-powered ‘digital twins’ attend meetings for you.,2,100
+1d8r1e7,"asana’s new “ai teammate” can tell people what to do at work | instead of just showing who has been assigned what task, now asana says its ai tool can do the assigning or reach out to fill in missing information.",0,100
+1d8s5a9,‘dumb drones’ get smart: world’s 1st navigation tech to let uavs fly blind | these circuits are ten times more precise than the micro-electro-mechanical systems inertial measurement units typically used in commercial applications.,4,100
+1d9i1fa,"world’s first 3d e-skin gives robots human-like touching sense | this electronic skin from china can decode pressure, friction, and strain in real time",0,100
+1d9j2a1,hybrid bonding plays starring role in 3d chips. tech makes millions of connections in a square millimeter of silicon.,2,100
+1d9s9lj,"new water-based heat pump delivers 400% more heat than the energy it uses | seawarm’s heat pump can harness energy from any water body, offering a more sustainable solution for powering homes and businesses.",0,100
+1db32mo,climeworks captures double the co2 for half the energy. the world’s first megaton carbon capture site will join a growing field.,0,100
+1dbz1oy,"stanford's computational imaging lab designed a way to project moving, ai-generated 3d images on what appear to be standard lenses. the breakthrough centers on what the team calls a nanophotonic metasurface waveguide (a waveguide essentially being a piece of glass).",2,100
+1dbz36h,"researchers demonstrate the first chip-based 3d printer. smaller than a coin, this optical device could enable rapid prototyping on the go.",0,100
+1dbzfnq,"spiderwebs can pick up vibrations in air flow caused by sound waves, and researchers say microphones designed this way could become more sensitive and compact.",4,100
+1dchyyt,fast-charging sodium-ion battery uses anodes made from trees,0,100
+1dcipwm,"swiss scientists shrink super laser on a small chip in a world-first | miniaturized lasers are more cost effective to produce, portable and could power increasing number of applications in the future.",0,100
+1dcmj4h,digital twins are helping scientists run the world’s most complex experiments,0,100
+1dcxisr,"researchers developed a programmable metafluid with tunable springiness, optical properties, viscosity & can transition between a newtonian & non-newtonian fluid. the metafluid uses a suspension of small, elastomer spheres that buckle under pressure, radically changing the fluid's characteristics.",2,100
+1dcxlsv,"new water-based heat pump delivers 400% more heat than the energy it uses | seawarm’s heat pump can harness energy from any water body, offering a more sustainable solution for powering homes and businesses.",0,100
+1ddazv1,"researchers have created a tiny chip that can take images of objects through cardboard | the technology, designed to fit inside a smartphone, brings us a step closer to wielding superman’s x-ray vision abilities (without the x-rays).",0,100
+1dde5m4,the cement that could turn your house into a giant battery,0,100
+1ddex9z,"soft robot transformers bend, expand, twist to deliver meds inside body | robots for bladder control, blood flow measurement, stomach monitoring, and heart sensing and stimulation.",2,100
+1de5tqh,indian startup 3d prints rocket engine in just 72 hours,1,100
+1de80cn,"seashell-inspired cement is super stretchy, crack-resistant, unbreakable | the new material is 19x more flexible, stretches without breaking, and 17x more crack-resistant than regular cement.",2,100
+1de8l6i,smart powerline “neurons” boost grid capacity | sensor networks enable 40 percent more electricity to pulse through the lines,1,100
+1dew2p4,"‘liquid battery’: scientists discover way to store electricity in liquid fuel | the ‘liquid battery’ stores excess renewable energy as isopropanol, a liquid alcohol that serves as a high-density hydrogen carrier.",0,100
+1dfpy60,a 3d-printed engine by an indian startup takes rocket four miles into the sky | it's the world's first rocket engine to be 3d-printed in a single piece,2,100
+1dfwdir,this engineer’s solar panels are breaking efficiency records. yifeng chen has been at the helm of dozens of photovoltaic advances.,2,100
+1dgbsc4,seattle entrepreneurs are building autonomous robots to deliver hassle-free ev charging,0,100
+1dgft6y,biotech companies are trying to make milk without cows,0,100
+1dgixti,giant chips give supercomputers a run for their money. cerebras’s wafer-scale chips excel at molecular dynamics and ai inference.,2,100
+1dh742n,"purified silicon makes bigger, faster quantum computers. pushing out impurities from wafers points toward a million-qubit future.",4,100
+1dhcyoj,"mit's portable fingernail scanner can reduce cancer hospitalization by 50% | pointcheck, a portable fingernail scanner, empowers patients to track their white blood cell levels and detect early signs of infection.",4,100
+1dhwqvj,"scientists preserve dna in an amber-like polymer. with their “t-rex” method, dna embedded in the polymer could be used for long-term storage of genomes or digital data such as photos and music.",4,100
+1dhxmhz,"wireless chipset clocks 640 gbps transmission speed, 100x faster than 5g | the 65nm architecture used to fabricate the chip allows for large scale production at low costs.",3,100
+1dia7wx,tdk claims insane energy density in solid-state battery breakthrough. apple supplier says new tech has 100 times the capacity of its current batteries.,0,100
+1diebbi,tdk unveils prototype solid-state battery with 20 times the energy density of closest competitor | these tiny wafer batteries could power small devices like the apple watch in just a couple of years,0,100
+1dinfab,superman-inspired chip brings x-ray vision to regular smartphones,2,100
+1diqyf4,satellites can help detect early warning signs weeks before earthquakes | anomalies in the lithosphere and ionosphere can be detected days in advance,3,100
+1djkh9i,"a clean, green way to recycle solar panels. see how this italian startup recovers valuable materials without toxic chemicals.",2,100
+1dkda8s,"researchers leverage shadows to model 3d scenes, including objects blocked from view. this technique could lead to safer autonomous vehicles, more efficient ar/vr headsets, or faster warehouse robots.",0,100
+1dkivme,"for evs, semi-solid-state batteries offer a step forward. chinese automakers are rolling out batteries with gel electrolytes.",3,100
+1dl1vck,‘space hairdryer’ uses shockwaves to regenerate heart cells post-surgery | the clinical trial proved shockwave therapy’s ability to regenerate heart tissue as well as improve heart pumping function in patients.,3,100
+1dlsqzk,gel sensor uses motion to generate 83% higher voltage than counterparts,0,100
+1dm2aw8,"‘glassy gels’ are a new class of strong, stretchy, sticky materials. they're as tough as plastic but five times as elastic.",2,100
+1dmj3j5,humanoid robot with highest operational time in tests by us logistics giant,0,100
+1dmnn6t,is this the end of animal testing? researchers are increasingly turning to organ-on-a-chip technology for drug testing and other applications.,3,100
+1dmwg00,"swallowable robot with thrusters performs endoscopy at home | pillbot lets doctors examine the stomach remotely via a smartphone app, replacing upper endoscopy with minimal patient prep.",2,100
+1dnawje,‘living laboratory’: japan’s ‘woven city’ to get 1st residents — toyota,1,100
+1dnepmg,german team extracts battery-grade lithium from geothermal water | the new process could provide an alternative to more conventional ‘dirty’ methods of extracting lithium.,0,100
+1dngkrd,"designing for outer space. with nasa planning permanent bases in space and on the moon, mit students develop prototypes for habitats far from planet earth.",1,100
+1dngvmp,"world’s 1st epilepsy implant cuts seizures by 80%, recharges via headphones | seven months post-operation, oran has been reported to be “more alert and has not experienced any drop seizures during the day.”",2,100
+1do2pj3,"first-ever 3d printer that gulps plastic, metal, chips to make layered devices",2,100
+1do8olr,human-like skin for humanoids: japan creates new tissue binding tech for robots | researchers found a way to bind skin to complex structures by mimicking skin-ligament structures and using v-shaped perforations.,0,100
+1dogv0i,face screening tool detects stroke in seconds,1,100
+1dovrug,german firm synhelion opens ‘world’s 1st’ industrial solar fuel plant,0,100
+1doy3vq,"us scientists turn dry air into drinking water with 5 times more efficiency | even in desert-like conditions, the fins were saturated with water in about an hour.",0,100
+1dp0glg,"scientists move objects with sound, pave way for noninvasive drug delivery | the new sound-based method can move objects regardless of their surroundings or physical properties.",0,100
+1dporx1,"rhinos get radioactive horns, will trigger nuclear alarms if poached | witwatersrand university’s initiative could extend to protecting elephants, pangolins, and other endangered species.",3,100
+1dpsxfc,"world record-shattering 402 tb data sent in a second via optical fiber | 37.6 thz optical bandwidth achieved by using 6 doped-fiber amplifier variants and raman amplification, covering all low-loss transmission bands of silica fibers.",2,100
+1dqghqy,tiny lens that uses light trickery to detect gas created in germany,2,100
+1dqj83k,"one of the world's largest engines becomes a clean generator. originally designed to burn diesel, dual-fuel, or gasoline for tankers and container ships, the wärtsilä 31 marine engine gets a new life generating clean, renewable electricity.",2,100
+1dr85je,"nasa extends starliner mission for astronauts on iss, insisting ‘they are not stranded in space’",1,100
+1drmfye,"world's 1st smart glasses with gpt-4o identify objects, answer queries | solos smart eyewear announces airgo vision, the first glasses to incorporate gpt-4o technology.",2,100
+1drpsld,chinese scientists create robot with brain made from human stem cells,0,100
+1drzgzq,"record-shattering nyobolt's ev battery charges 10-80% under 5 minutes | this compact and powerful battery, designed for electric vehicles, achieves an 80% charge in a mere four minutes.",4,100
+1ds00gf,nuclear microreactor gets unmatched safety with live 3d temperature mapping,3,100
+1dsfz4o,wireless receiver blocks interference for better mobile device performance,3,100
+1dsq646,invisible assassins: new nanobots detonate hidden weapons to kill cancer,0,100
+1dsttfv,researchers craft smiling robot face from living human skin cells,0,100
+1dt5fv5,supershoes are reshaping distance running.,1,100
+1dtiudd,us builds world’s most accurate atomic clock ever to boost space science | light-based or optical atomic clocks could potentially lose a second in 30 billion years compared to microwave-based clocks.,3,100
+1dtiwtz,feel the beat: mit’s brain-powered bionic leg lets amputees dance again,1,100
+1dtu8bn,"engine innovation enables portable muscle power for assistive devices | the fluidic engine, with a battery-powered high-torque motor, generates pressure allowing the artificial muscle to exert substantial force.",1,100
+1dub0xz,"mit, harvard, columbia scientists create implantable microphones for the deaf",2,100
+1duwv3m,"figure’s 01 humanoids now working at bmw’s car plant in us | the humanoid operates autonomously, with actions guided by neural networks mapping pixels to actions.",1,100
+1dv4uki,"new tech turns industrial energy waste into drinking water, heat in norway",0,100
+1dv5ytc,a polyester-dissolving process could make modern clothing recyclable,0,100
+1dv7ai1,mind-reading ai recreates what you're looking at with amazing accuracy,2,100
+1dv7ybk,"100-year-old house showcases one of uk's best heat pumps | heat pumps are praised for their potential to reduce global co2 emissions by 500 million metric tons, according to the international energy agency.",0,100
+1dvacix,"3d-printed edible qr codes for tailored meals made in singapore | this technology can be applied in creating meals tailored to individual dietary needs, aesthetically pleasing dishes, and interactive food experiences such as edible qr codes.",2,100
+1dvns4t,japan introduces enormous humanoid robot to maintain train lines,2,100
+1dvuq21,ultimate test’: mit gives probiotic bacteria space-resilient superpower,1,100
+1dvv072,fish-friendly fans: us firm’s turbines make hydropower safe for marine life | the us-based firm had built the world’s first fish safe restoration hydro turbine in 2019.,0,100
+1dwnhiz,‘rocket suit’ in olympics: nasa-backed design could help swimmers clinch gold,0,100
+1dwnt3t,a way to let robots learn by listening will make them more useful,0,100
+1dwu2ai,"robogrocery: mit's soft robot packs groceries with record accuracy | rgb-d cameras capture depth and color data, enabling precise identification of objects’ shapes and sizes on the conveyor belt.",0,100
+1dxeodw,"400 robotic surgeries, 98% survival rate: saudi hospital achieves milestone",2,100
+1dxf0nq,"step aside futurama, scientist build robot that's controlled by a brain in a jar",3,100
+1dxowrz,"china's robot dog aids blind people with 90% voice recognition accuracy | the robot guide dog can reach speeds up to 3 m/s, accommodating both slow walking and faster paces. its six-legged structure guarantees stable, quiet motion.",0,100
+1dy69lj,ivf breakthrough: 1st-of-its-kind pregnancy pill boosts fertility greatly,2,100
+1dy9t2l,world’s first mouse model with fully functional human immune system developed | this new approach may offer a viable alternative to the use of non-human primates in immunological and microbiological research.,0,100
+1dyhq3b,"ammo atm? ai-powered bullet vending machines introduced in us | the company, according to its website, also says that its vending machines are as easy to use as an atm.",2,100
+1dyzdsz,no finger pricks: tiny laser-loaded band-aid tracks glucose from sweat | the innovative device integrates microlaser technology into a soft hydrogel film for precise biomarker detection in real-time.,2,100
+1dz0i8n,new fiber optics tech smashes data rate record. expanded bandwidth yields a transmission rate of 402 terabits per second.,0,100
+1dzbjo8,engineers have created a device that can efficiently convert heat into electrical voltage at temperatures lower than that of outer space. the innovation could help overcome a significant obstacle to the advancement of quantum computing technologies.,0,100
+1dztlfy,us develops world’s 1st forever-chemical-free battery with 20% more power | the process is free from pfas or forever chemicals and the company claims that it will have competitive pricing with other cobalt-based electrodes.,0,100
+1dzueq5,rice-sized warrior: new led device uses light to destroy deep cancers,0,100
+1dzveuo,xiaomi's self-optimizing autonomous factory will make 10m+ phones a year,4,100
+1e0l7kn,"world’s highest performing quantum chip unveiled by oxford ionics | by using electronics-based qubit control, quantum ionics could bring us quantum computers in a few years.",0,100
+1e0mj3o,us: cancer patient’s voice restored with world’s first larynx transplant,0,100
+1e0mqxs,ai brain implant restores bilingual communication for stroke survivor,0,100
+1e1f9qb,"hydrogen-powered air taxi sets record 523-mile trip, emits just water steam | joby’s hydrogen-electric demonstrator, based on their battery-electric aircraft, holds 88 lbs of liquid hydrogen and fewer batteries, sharing the same airframe.",4,100
+1e1tuhd,"artificial foot that mimics human movement to help people with limb loss | this unique foot is motor-free, flexible, and designed for all-weather use.",0,100
+1e1ucvp,wave begins delivery of fire-spewing engine with no moving parts,1,100
+1e1zznl,reasoning skills of large language models are often overestimated | mit news | massachusetts institute of technology,2,100
+1e274dp,"flexible artificial foot mimics human movement, can help people with limb loss",0,100
+1e2asbn,"new weightless carbon fiber battery could make cars, planes 50% lighter | this innovative material serves a dual purpose: it acts as both a structural component and a power source, eliminating the need for additional heavy batteries.",0,100
+1e2pmrf,silicon days over? new organic solar panel offers increased efficiency | organic semiconductors offer a viable alternative to silicon-based photovoltaic panels at a lower cost and with greater flexibility.,2,100
+1e2zdwh,world’s first mobile bricklayer robot that boosts construction speed enters us,0,100
+1e3rbrg,scientists finally discover dna key to fight deadly pancreatic cancer,0,100
+1e3s9ei,"soft robot can amputate and reattach its own legs | inspired by lizards and ants, this robot can change its shape at will",2,100
+1e4ltis,spacesuit prototype turns pee into drinking water | the system is inspired by the stillsuits for collecting moisture in the science fiction epic dune,2,100
+1e4lxld,us to test japan’s unique wind turbines that generate power even at 7 mph,0,100
+1e4pdgi,"solar panel waste makes ev batteries 99.9% efficient, retain 83.1% capacity | silicon anodes give lithium-ion batteries better energy density and can improve battery performance, even over 200 charge-discharge cycles.",0,100
+1e4rvyj,drone sits on power lines to recharge,3,100
+1e4znsy,new 'superlubricity' coating is a step toward friction-free machines,2,100
+1e5fn4e,paralyzed patient speaks with power of thoughts using brain-computer interface,0,100
+1e5htcp,"world’s 1st dual-tower solar plant unveiled, will make 1.8 billion kwh yearly | the 200-meter dual towers have 30,000 mirrors to cover an 800,000-square-meter light-collecting area.",4,100
+1e5hyj9,"shapeshifting battery can stretch 5000%, retain charge after 70 cycles | researchers used material used to make contact lenses to make the battery flexible.",0,100
+1e5i32x,"new drug reverses diabetes in mice, boosting insulin-making cells by 700% | one day this research could lead to game-changing new treatments for diabetes",0,100
+1e619ih,"the smallest, lightest solar-powered drone takes flight | it weighs less than a nickel and can fly nonstop while the sun shines",1,100
+1e68rt1,"this ""smart"" soil can water and feed itself | a newly engineered type of soil can capture water out of thin air to keep plants hydrated and manage the release of fertilizer.",3,100
+1e68t02,"enzyme-powered “snot bots” help deliver drugs in sticky situations | tiny, enzyme-powered bots can push through mucus, helping to deliver drugs more efficiently.",2,100
+1e6dt9o,"robot dog cleans up beaches with foot-mounted vacuums | thanks to vero, genoa has fewer cigarette butts littering the ground",2,100
+1e6ivyi,"charge less, power more: zinc-bromine battery tech hits record 10,000 charge cycles",0,100
+1e71fmi,‘dolphin skin’ propeller boosts fuel efficiency of cargo ships | a new propeller coated with a skin mimicking that of a dolphin holds the promise of significantly reducing fuel consumption and emissions in large cargo ships.,2,100
+1e734lu,"horsepower to poop power: horse manure better at generating electricity, heat",0,100
+1e7sn01,why bigger may not be better for nuclear energy,0,100
+1e8jz5f,"complete recycle of solid-state batteries possible, thanks to polymer layers",2,100
+1e8usdd,"new drug extends lifespan by 25%, fights aging, could prevent cancer | researchers administered an injection of an anti-il-11 antibody to 75-week-old mice, neutralizing the harmful effects of il-11.",0,100
+1e9a4id,graphene-based brain chip offers 200x more power for parkinson’s patients | inbrain’s graphene chip is a promising new technology with the potential to improve brain surgery and neurological treatments.,0,100
+1e9c02n,origami helps implant sensors in bio-printed tissue,1,100
+1e9im8v,rolls royce’s 120-inch-long mini space nuclear reactor gets funding boost,3,100
+1ea3pen,us scientists create plastic that glows and biodegrades on demand | the secret lies in integrating a special chemical called tert-butyl ester.,2,100
+1ea5gwq,sky drift: boeing’s pilotless air taxi could take passenger flight by 2030,4,100
+1ea6wai,dog-like robot jams home networks and disables devices during police raids — dhs develops neo robot for walking denial of service attacks | smart home defenses crumble when the neo dog arrives.,2,100
+1eaemw3,"new 3d-printed solar steam generators can desalinate, purify seawater | the ssg absorbs sunlight, converts it into thermal energy then uniformly transfers it to water, resulting in its absorption of heat and subsequent evaporation, as per scientists.",0,100
+1eayt44,test flight demonstrates navigation by cellphone signals | the new technique could protect against gps spoofing,4,100
+1eaz4m1,"breakthrough battery bears 212°f heat, hits 99.8% efficiency after 450 cycles",0,100
+1ebqw90,scientific milestone achieves atomic-scale imaging in a world-first | researchers have built a single molecule high resolution quantum sensor that can measure electric and magnetic fields in atoms.,2,100
+1ebsnaj,"ai-powered robotic exoskeleton enables paraplegic athlete carry olympic flame | as one of the first testers, piette has contributed to the improvement of robotic exoskeletons, even taking part in ‘cybathlons’.",2,100
+1ebss69,"breakthrough air-to-water converter works even at night, generates 20l daily",2,100
+1ebtswb,"device that turns wi-fi signals into electricity created by scientists | this rectifier is designed to operate at extremely low power levels, even below -20 dbm, overcoming the limitations faced by conventional technologies.",2,100
+1ec0mim,"new method turns banana waste into green textiles, energy | scientists estimate that the banana agricultural waste in pakistan could yield 57,488 million cubic meters of syngas.",0,100
+1eckiyu,"mit scientists have discovered a new way to produce hydrogen fuel, using just soda cans, seawater and coffee grounds | the team says the chemical reaction could be put to work powering engines or fuel cells in marine vehicles that suck in seawater.",0,100
+1ecn7jl,maglev titanium heart now whirs inside the chest of a live patient | the fully mechanical heart uses the same technology as high-speed rail lines. the feat marks a major step in keeping people alive as they wait for heart transplants.,4,100
+1ecpm7k,dual action antibiotic could make bacterial resistance nearly impossible,0,100
+1edesiu,"artificial blood vessels mimic human veins, offer breakthrough in heart surgery",4,100
+1edhgs0,"a.i. may save us, or may construct viruses to kill us (gift article)",3,100
+1ee5qot,us’ first robot-assisted dual kidney transplant performed in ohio,0,100
+1ee7oxz,samsung delivers solid-state battery for evs with 600-mile range as it teases 9-minute charging and 20-year lifespan tech,2,100
+1eekj1a,mit robot gently peels squash with one hand while holding it by other,2,100
+1eevlre,"new wearable tech could help track ptsd, sepsis early through nerve activity | this technology could enable doctors to pinpoint patients who are at increased risk of excessive immune responses or immunoparalysis.",0,100
+1eex81h,oak ridge sets a new record for wireless ev charging​ | ornl's zippy prototype delivered 270 kilowatts to a porsche taycan,0,100
+1eezhwy,uk scientists achieve unprecedented 402 tbps data transmission over optical fiber | they broke their own 319 tbps record set in march,3,100
+1efrmdm,"cat poo parasites could cure disorders like alzheimer’s, parkinson’s | engineered toxoplasma gondii successfully delivered therapeutic proteins to brain cells, marking a significant breakthrough in overcoming the blood-brain barrier.",0,100
+1efsgry,us scientists master control of hypersonic jet engine with light-based tech,0,100
+1egl5s7,"drought buster: solar tech extracts 3 liters of water from thin air daily | the design improves material flow and energy use, producing 0.65 l/m²/hr of freshwater under sunlight and 90% humidity.",0,100
+1egln6i,scientists create living mosquito repellent from human skin bacteria | new bacteria design reduces mosquito attraction by up to 64.4% and lasts over a week.,2,100
+1ehf9ml,construction of us’ first fourth-gen nuclear reactor ‘hermes’ begins,0,100
+1ehfbyl,using 3d printing to create 3d circuits: researchers unlock self-healing boards | a singapore team has developed a novel 3d printing technique for three-dimensional circuits,2,100
+1ei7oln,3d-printed ceramic ink removes “forever chemicals” from water,2,100
+1ei7tm3,neuralink rival synchron syncs apple vision pro to paralyzed patient’s thoughts,1,100
+1eib6l9,"219,000 kwh: norway deploys world’s largest vertical rooftop solar on soccer field | vertical solar panels generate 20-30 percent higher specific yield by the company’s own estimates.",0,100
+1ej0mt0,nuclear reactor breakthrough: new material can replace costly nickel alloys,0,100
+1ej65wo,"world’s first 18650 potassium-ion battery debuts, can replace lithium cells | the 18650 format, being the most widely used and designed cell format, ensures compatibility with existing devices and applications.",0,100
+1ejk6en,fully-automatic robot dentist performs world's first human procedure,0,100
+1ejou2g,watch: vacuum-footed robot dog cleans up the beach,2,100
+1ejt40y,flash recycling breakthrough achieves 98% efficiency in battery recovery,0,100
+1ekjr32,engineers use wood pulp to 3d-print stronger concrete for construction | cellulose nanofibrils (cnf) could potentially revolutionize 3d-printed concrete.,2,100
+1ekm1r5,"oxford dynamics’ robot can endure nuclear incidents, even fatal radiation",0,100
+1ekm20z,"cheap heat-storing 'firebricks' projected to save industries trillions | researchers predict that firebricks could reduce global reliance on batteries by 14.5%, hydrogen by 31%, and underground heat storage by 27.3% — if the world switches to full renewable energy by 2050.",0,100
+1el8i7c,phys.org: physicists develop new method to combine conventional internet with the quantum internet,3,100
+1elc401,"nezha-seadart: china tests air-sea hybrid drone with flight, dive capabilities | nezha-seadart can vertically take off, land from ground and water, and cruise in the air with lift generated by the wings.",1,100
+1elev2v,"soft gold electrode helps nerves to connect with electronics | the soft gold wires stretch along with the body’s movements, without poking or damaging surrounding tissues.",1,100
+1elfq61,"1st-ever quantum, classical internet merger achieved via single optical fiber | this novel quantum experiment has the potential to advance telecommunications.",2,100
+1elg4ai,new biomaterial regrows cartilage; could prevent knee replacement surgery,0,100
+1eljznm,new fuel cell achieves 60% electrical efficiency with 100% hydrogen | the solid oxide fuel cell (sofc) platform can now generate electricity with an incredible 60% efficiency when using 100% hydrogen.,0,100
+1elxcfe,new canine knee implant developed by texas university to treat pet’s injury | the rev knee method begins by uploading ct scans of a knee joint into software that recreates the patient’s unique tibial and femoral components.,1,100
+1em91cv,potential vaccine and treatment developed for flu and coronaviruses | team develops two nasal sprays – an immune activator and a new vaccine – to prevent virus transmission.,4,100
+1em9uct,world’s 1st ai-powered hearing aids boost speech understanding by 53 times,3,100
+1em9xsv,"this innovative device allows south american paleontologists to share fossils with the world. paleoscan offers scientists at far-flung institutions a less expensive way to digitize their collections and preserve at-risk specimens of fish, turtles, pterosaurs and more.",3,100
+1emaxir,"sandwich to star power: mayonnaise may unlock ‘never unstable’ nuclear fusion | although mayonnaise typically behaves as a solid, when subjected to a pressure gradient, it begins to flow in a manner similar to plasma under comparable conditions.",3,100
+1emcybo,could this new drug turn back the clock on multiple sclerosis?,0,100
+1emfrjt,soft robotic glove returns gripping power to weakened hands,0,100
+1en2ld6,"water-powered, electronics-free bandage heals chronic wounds 30% faster | when applied to a wound, a drop of water activates the battery, creating an electric field that promotes healing for several hours.",3,100
+1en43aa,"world’s largest, 78 kwp floating solar plant powers paris olympic village",4,100
+1en9ajl,nissan has demonstrated a new automotive paint that can drastically cool a vehicle parked in direct sunshine | tests have shown that treated cars stay up to 21.6 °f (12 °c) cooler than untreated cars parked side by side.,1,100
+1enmwg3,"new lensless fluorescence microbial detection system to save millions of lives | a more efficient, low-cost system to help detect microbes in water quickly and easily, could help save millions of lives yearly in developing countries.",0,100
+1enwq8v,japan adds co2 to old-school debris to create stronger concrete bricks | these new concrete blocks are strong enough to build houses and pavements.,2,100
+1eo04j9,figure says its new humanoid robot can chat and learn from its mistakes,0,100
+1eo2zgz,sandisk announces the world’s first 8tb sd card – the biggest memory card we’ve ever seen,2,100
+1eo52ib,"‘printable’ perovskite solar cells achieve 26% efficiency, 20-year lifespan | the other major benefit is that these new generation perovskite solar cells can be printed at very low room temperatures.",0,100
+1eoqlr3,new 3d printer ink makes recyclable electric circuits without heat or light | researchers from the us and korea have developed a new 3d printable ink that solidifies in salt water and is easily recyclable using just fresh water,0,100
+1eose29,world’s first fusion ignition breakthrough: us firm wins esteemed award,0,100
+1eox68e,breakthrough flexible solar panels are so thin they can be printed on any surface – even backpacks | a coating that's just 1 micron thick can be applied to almost any surface,4,100
+1epclyw,"robots can now train themselves with new ""practice makes perfect"" algorithm",0,100
+1epiona,boost ev safety with one spray: breakthrough coating enhances battery protection,0,100
+1epwhz7,"how a monk and a hippo, a solar-powered waste-collection vessel, joined forces to tackle bangkok’s plastic pollution.",1,100
+1epwsa1,"this futuristic space habitat is designed to self-assemble in orbit. the structure can be carried into space compactly, potentially lowering launch costs.",1,100
+1eq9gtw,"scientists hail ‘smart’ insulin that responds to changing blood sugar levels in real time | people with type 1 diabetes may in future only need to give themselves insulin once a week, say experts",3,100
+1eqar5t,"cern’s breakthrough experiment captures high-energy neutrinos for first time | the team analyzed a subset of the exposed detector volume, equivalent to 128.6 kg, focusing on high-energy neutrinos produced by lhc’s proton-proton collisions.",3,100
+1eqch5s,china’s new blood test achieves 90% accuracy in early gastric cancer detection,2,100
+1er4qjl,"rice’s ‘revolutionary’ reactor turns wastewater into green ammonia, drinking water | this breakthrough in electrochemical synthesis offers a sustainable alternative to traditional ammonia production methods.",3,100
+1er4sns,"world’s 1st carbon removal facility to capture 30,000 tons of co2 over decade | also canada’s first commercial direct air capture project, deep sky’s carbon removal innovations facility aims to capture 3,000 tons of co2 per year.",4,100
+1er603g,new glucose-responsive insulin may cut injection frequency to once a week,3,100
+1eriq9h,"ai predicts diseases with 98% accuracy in real-time using tongue color | ai-powered computer model to analyze patients’ tongue colors for real-time disease diagnoses such as anemia, covid-19, vascular and gastrointestinal issues, or asthma.",4,100
+1erze5z,martian ears: scientists develop sound system to track wind speeds on mars,2,100
+1esr8gx,"new brain tech turns paralyzed patient’s thoughts into speech with 97% accuracy | this innovation deciphers brain signals when a person attempts to speak, converting them into text, which the computer then vocalizes.",0,100
+1et4qkt,mit’s new ai-driven brain mapping platform sparks hope for alzheimer’s treatment,3,100
+1etkr9e,"thin metal oxide films printed at room temperature can transform display tech | the films are transparent and highly conductive, thus valuable for applications such as touch screens and display technologies.",1,100
+1etkryn,"researchers develop fabric that generates electricity from body heat | the fabric offers possibilities for health checks, and activity tracking.",3,100
+1etnx0c,"new air-powered computer fights device failure, cuts stroke, blood clot risk",2,100
+1etqevq,"us: world’s largest 8,500 mwh capacity battery to be built in maine | the project will use iron-air batteries that are easier to build, maintain and also recycle at the end of their life.",0,100
+1eufg65,from pebbles to power: the rise of potassium silicate batteries,0,100
+1ev6bsu,"flying robot can navigate collapsed structures easily, aid disaster response | hovering six feet up, drones convert 3d lidar data into a 2d map, analyzing pixels to identify doors and rooms.",2,100
+1ev8d44,"clean lithium extraction possible with new zero-water, zero-chemical method",3,100
+1evzc27,spit to save lives: 15-minute saliva test detects heart failure at home,1,100
+1evzip1,"scientists use light to expand implants, reducing child heart surgeries | blue light has enough energy to start the reaction while remaining safe for living tissues.",2,100
+1ew1fjc,"gps-free navigation nears reality with quantum technology breakthrough | integrated photonic chips enable compact, low-cost quantum navigation",0,100
+1ew2hip,unitree g1 humanoid robot ready to leap into mass production,3,100
+1ewmk8x,solar panel recyclers pioneer new methods for greening the industry,0,100
+1ewsdc3,"printed electronics with 1,000 times more charge could detect spoiled milk, food | the printed electronics can be used to scan everyday objects—for example, milk cartons and fridges—to enable communication between these objects and smartphones and computers.",2,100
+1ewtadv,plastic pollution solution: scientists develop green plastic alternative,2,100
+1ewutmz,light-activated implant could spare babies from multiple heart surgeries,3,100
+1ewuvxw,continuous flow reactor recycles many common plastics | aduro's water-based process could address growing plastic waste,3,100
+1ewyobq,brainwave-reading robot ‘coaches’ could rehabilitate stroke survivors | a new system allows rehabilitation robots to read brainwaves using a brain-computer interface headset.,0,100
+1ex6ygh,new bacteria-derived hydrogel effective in muscle tissue regeneration | a groundbreaking study in regenerative medicine: researchers manufactured a hydrogel out of bacteria that stimulates muscle repair.,2,100
+1exmlee,"salsa hack: 50% recycled glass mix boosts cilantro, pepper, jalapeño plant growth | preliminary results suggest that recycled glass not only accelerates plant growth but also prevents fungal growth.",1,100
+1exn9r3,unique ‘heart-in-a-box’ tech keeps donated organ beating for 9 hrs,3,100
+1eyef97,world's fastest microscope freezes time at 1 quintillionth of a second | physicists at the university of arizona have developed the world’s fastest electron microscope to capture events lasting just one quintillionth of a second.,2,100
+1eygkaa,‘natural cement’: scientists electrocute sand to stop coastline erosion | calculations estimate that the cost of electrically cementing one cubic meter of ground ranges from $3 to $6.,2,100
+1eyglsu,"‘world’s fastest’ microscope captures electron motion in striking detail | the researchers generated a single attosecond electron pulse to capture an electron in a fixed state, matching the speed at which electrons move.",2,100
+1eyhmwu,"lotus-inspired reactor turns carbon emissions into useful chemicals, fuel",3,100
+1eyveyh,"new nanogenerators achieve 140-fold power density gain, could rival solar cells | if a traditional nanogenerator produces ten milliwatts of power, this new technology could increase that output to over 1,000 milliwatts.",0,100
+1ez8rbn,"sprayable safety: stanford engineers wildfire-shielding gel to protect homes | the innovative gel transforms into a silica-based aerogel under heat, providing superior insulation and protection.",1,100
+1ezbga6,67-year-old receives world-first lung cancer vaccine as human trials begin,4,100
+1ezv07u,"eco-friendly ""living plastic"" contains the seeds of its own destruction",1,100
+1ezxdja,swarmbotics founders grew 'obsessed with robot swarms' and now plan to bring them to the battlefield,3,100
+1f02vpy,"mit develops low-cost, high-energy batteries using disordered rock salt cathodes |  the new material family primarily comprises manganese, an earth-abundant element less expensive than nickel and cobalt.",0,100
+1f049yo,lotus leaf-inspired tech advances 3d nanoscale tumor study,2,100
+1f0utuf,"us achieves superconductor breakthrough, can benefit quantum computing",0,100
+1f16dw7,"bacteria helping to extract rare metals from old batteries in boost for green tech | team at university of edinburgh using microbes to recycle lithium, cobalt and other expensive minerals",0,100
+1f1lpu5,"new ev battery transforms waste energy into power for extended range | deogam is currently field-testing their innovative battery in 500 hyundai ioniq 5 taxis on jeju island, south korea.",0,100
+1f1mel1,artificial sun: nuclear fusion closer to reality with this new method,0,100
+1f1mgoi,how do you 3d print glass? precisely shaped glass is a tricky substance for additive manufacturing,1,100
+1f1qbna,tiny might: nanoparticles with huge surface area created to capture carbon | the nanoparticles could be used to curb emissions from various industries including cement and metals.,4,100
+1f1qmlm,new laser could cram gps alternative into a shoebox | cold-atom interferometers' precise navigation is hampered by size and cost,0,100
+1f2d32v,"tiny 8mm mind-reading chip turns thoughts into text with 91% accuracy | by converting thoughts into text, the mibmi offers a revolutionary communication tool for people with severe motor disabilities.",2,100
+1f2d3lt,"japan’s manganese-boosted ev battery hits game-changing 820 wh/kg, no decay | manganese anodes in li-ion batteries achieved 820 wh/kg, surpassing nico batteries’ 750 wh/kg.",4,100
+1f2g9s1,h2starfire: new hydrogen engine boasts 60% efficien,0,100
+1f37b0t,"no glue required: wood and metal bonded with sound and 3d printing | the two methods create super strong bonds at the pore level, eliminating the need for caustic adhesives.",1,100
+1f37d91,"china scientists’ breakthrough flow battery hits 850 cycles, retains 99.95% capacity | with new organic molecules, the organic flow battery performed well for 600 cycles without a drop in capacity.",4,100
+1f39h04,"new wood-based material captures, releases co2 on demand",0,100
+1f3ybqz,injectable pacemaker regulates heartbeat for 5 days then dissolves,1,100
+1f3ye3p,"blood glucose affects voice pitch, with potential for diabetes monitoring",1,100
+1f405uc,"4-hour power: world’s 1st 62-mile-range hydrogen-powered drone soars in china | the drone weighs around 42 pounds (19kg), carries up to 13 pounds (6kg), flies for over 4 hours, and boasts industry-leading performance and design.",3,100
+1f42amw,every second counts: new blood test detects brain cancer in an hour,0,100
+1f47r05,"new device listens for blood pressure | ultrasound monitoring allows for continuous, non-invasive measurements",4,100
+1f4qhs4,"low cost ‘smart mask’ can detect disease from breath, researchers say | hopes that device may improve diagnosis and monitoring of conditions such as lung and kidney disease",4,100
+1f4u3en,"eth unveils iron-based hydrogen storage that’s 10x cheaper, safer",4,100
+1f4ulwr,new method turns plastic waste into valuable resources with vaporizing process | the new catalysts simplify the process by eliminating the need for a previously crucial step: removing hydrogen to create breakable points in the plastic’s structure.,3,100
+1f585kx,the world’s fastest microscope captures electrons down to the attosecond,2,100
+1f5kl9n,"world’s largest air-to-water heat pump to warm 30,000 homes in finland | the heat pump will supply 200 gwh of energy annually and help save 26,000 tonnes of carbon emissions.",0,100
+1f5mjyd,heart simulator with nanoparticles can temporarily correct arrhythmia,1,100
+1f5w5l2,researchers unlock cheap way to vaporize plastic and use it to make more plastic | the breakthrough enables a circular economy where plastic doesn't end up sitting in landfills,0,100
+1f6aztx,"fungus learns to drive in ""biohybrid"" robots | a new kind of “biohybrid” robot moves in response to signals from the nervous system of a fungus.",0,100
+1f6bw4x,"highly efficient perovskite nanocrystals to help develop next-gen ultra-hd leds | perovskites aren’t just limited to solar cells, they have the potential to provide the world with the best light emitters and displays ever witnessed.",2,100
+1f6ebgv,new fusion reactor design promises unprecedented plasma stability,3,100
+1f75zho,"new hydrogel ‘invention’ could slow, treat arthritis in early stages, claims china | this breakthrough development brings hope for millions of people suffering from osteoarthritis.",0,100
+1f7sdla,exploring peptide clumping for improved drug and material solutions,2,100
+1f7vzho,"sweat-powered finger wrap tracks glucose, vitamins, drug levels in your body | the device operates using biofuel cells positioned where it contacts the fingertip, which efficiently collect and convert chemicals in sweat into electricity.",2,100
+1f7y4jv,us firm plans santa-like spaceplane launches with rocket-powered sled,2,100
+1f7yhxc,uk aims for nuclear power breakthrough with ‘world-leading’ reactor design | step will aim to demonstrate net energy from fusion and pave the way for the commercialization of fusion energy.,0,100
+1f8h8x0,"world’s 1st platinum-magnesium fuel cell catalyst unveiled, to boost efficiency | scientists say the new fuel cell catalyst made from platinum and magnesium delivers exceptional efficiency and durability, potentially transforming clean energy technology.",0,100
+1f8qmx0,sensor-powered pen transforms braille into english text with 84.5% accuracy | the device’s real-time algorithm and tactile sensors make it a promising tool for learning and using braille.,2,100
+1f8vmp0,prototype quantum processor hits record 99.9% qubit fidelity in a major milestone | the achievement marks a way toward “fault-tolerant” quantum computing.,0,100
+1f9jqt9,us aims new water-based battery to power gird-scale energy storage,0,100
+1f9jubc,world’s 1st petahertz-frequency mixer advances ultra-fast communication tech | petahertz-frequency mixers would enable the transmission and processing of vastly larger amounts of information at many times higher speeds.,2,100
+1f9tzvi,how the marine corps is testing a ‘narco-boat’ for resupply efforts,1,100
+1fa1twv,scientists use food dye found in doritos to make see-through mice,0,100
+1fabf6p,"mit’s new silk-cellulose water filter blocks stubborn forever chemicals, metals | the new silk-cellulose filter outperforms traditional materials in removing contaminants, with strong antimicrobial properties that prevent fouling.",4,100
+1facruk,low-cost epr sensor on chip to boost quality control of food products,3,100
+1faenle,"shapeshifting aircraft could be possible with new alloy that stretches 20 times | shape-shifting aircraft have remained a part of science-fiction for decades, not any more.",4,100
+1fb4usb,us nuclear reactor breakthrough unravels plutonium oxide’s secrets at 3000 k | the research team employed an innovative method by suspending small samples of puo2 in a gas stream and then heating them with a laser.,3,100
+1fbw0s6,"'modular' approach can help connect, control millions of qubits",3,100
+1fcmmnx,china-us team creates plant-based nanoparticles to fight deadliest brain cancer | these nanoparticles are designed to penetrate the blood-brain barrier and target tumor cells directly.,4,100
+1fcn9ma,"new muscle-powered robot leg promises more speed, energy savings",0,100
+1fcpa68,"doctors have successfully operated on a pig – from 5,780 miles away | using a video game controller, surgeons in switzerland successfully performed an endoscopy on a pig in hong kong, paving the way for remote procedures in humans in areas where local expertise isn’t available.",3,100
+1fd7dfi,newly discovered antibody protects against all covid-19 variants,1,100
+1fde42d,"first-ever 3d metal printing in space achieved on iss | built with airbus, the metal 3d printer completed the first of four test shapes.",2,100
+1fde58y,"japan starts removing melted nuclear fuel 13 years after fukushima disaster  | advanced robotic technology, including a fishing rod-like arm, is being used to extract hazardous material from fukushima’s reactors amid high radiation levels.",0,100
+1fdfytm,princeton researchers bend dna strands with light to probe the genome,2,100
+1fdh122,"new filtration material could remove long-lasting chemicals from water membranes based on natural silk and cellulose can remove many contaminants, including “forever chemicals” and heavy metals.",4,100
+1fdj8bd,wireless system wavecore penetrates concrete walls without drilling | the system achieved a 4 gbps connection through a 12-inch concrete wall,0,100
+1fe638g,why you should always be wary of insider threats: a disgruntled employee at a us industrial firm deleted backups and locked it admins out of workstations in a failed data extortion attempt,2,100
+1fe85uv,polaris’ new mira prototype to fly with world’s 1st aerospike engine,0,100
+1fe9ln0,"world’s strongest battery could extend ev range by 70%, make phones credit card-thin | the structural battery uses carbon fiber for its electrodes negating need for copper or aluminum, which add weight.",0,100
+1ff0cht,new sugar-based polymer could help remove heavy metals from water,0,100
+1ff0lvt,"solar device makes 20l drinking water a day from seawater with 93% efficiency | the new device converts 93% of sunlight into usable energy, producing 20 liters of fresh water per square meter daily, significantly improving upon traditional desalination methods.",0,100
+1ffsme4,nature-inspired 'pyri' wildfire detector wins james dyson award,1,100
+1ffvgbm,"tiny laser creates 180,000°f, 800 million times atmospheric pressure in cosmic simulation | in a series of precise measurements, the scientists varied the timing between the laser pulse and the x-rays passing through the target.",4,100
+1fgkm47,"fluorescent nanomaterial to be used without lab, can transform forensics",3,100
+1fhae9c,"co2 turned into fuel: japan’s scientists convert captured carbon into green fuel | the new electrochemical cell converts bicarbonate (from captured carbon) into formate, a potent green fuel.",0,100
+1fhayyb,breakthrough edge state in atoms could lead to infinite energy sources,0,100
+1fi0gog,"""golden lettuce"" genetically engineered to pack 30 times more vitamins",1,100
+1fiwwnd,"engineers create powerful battery ‘fuel’ that stores energy even in low sun, wind | the team created a novel electrolyte, an acetamide and ε-caprolactam solvent, to aid in the battery’s energy storage and release.",0,100
+1fix1ev,neuralink rival synchron achieves 1st alexa control via brain chip,3,100
+1fj209n,"germany unveils solar roof tile that powers heat pumps as well as homes | each solar roof tile can generate 44 w of output, meaning just fives tiles can generate 200 w of power.",0,100
+1fjizwz,nhs scientists find new blood group solving 50-year mystery,4,100
+1fjnzjq,world-first adhd headband treats symptoms in 20 minutes per day,1,100
+1fjrdu4,engineers create squid-inspired magnetic screen for encrypted displays,1,100
+1fju3pm,transparent solar cell technology could allow smartphones and cars to self-charge | breakthrough in solar cell modularization paves way for commercial applications,0,100
+1fkg9yi,"world’s largest ethanol-to-jet fuel plant finalized, 250mn gallon yearly output | the 60-acre facility will revolutionize the global aviation industry by providing a scalable supply of low-carbon jet fuel.",4,100
+1fkjqih,solar fuels soon? researchers succeed in making ethylene from co2,0,100
+1fkk8x5,"indestructible 5d memory crystals to store humanity’s genome for billions of years | these crystals can store up to 360 terabytes of data for billions of years, resisting degradation even in extreme temperatures.",2,100
+1fkke4u,"hollow concrete mimics human bones for 5x better toughness | engineers have developed a new kind of concrete that promises more than 5 times the damage resistance of the usual stuff, by poking holes in its structure.",2,100
+1fkmmcj,"scientists have demonstrated a new potential treatment for bone cancer | a bioactive glass laced with a toxic metal was able to kill up to 99% of the cancer without harming healthy cells, and could even help regrow healthy bone after.",0,100
+1fl82k8,"molten salt battery can replace lithium devices, works in heat without catching fire | the high-temperature battery uses molten salt as the electrolyte.",0,100
+1fl9xm6,"highly toxic gallium kills 'greedy' cancer cells with 99% accuracy, study says",4,100
+1flae6f,"trash to tower: mit engineers 3d-print lego-like glass bricks as tough as concrete | the researchers used soda-lime glass, commonly found in glassblowing studios, to produce prototype bricks.",1,100
+1flc1qq,world’s first antenna that turns glass windows into 5g towers unveiled in japan | wave antenna has no external presence and helps improve 5g coverage in urban areas.,2,100
+1fm0m66,"defeating aids: mit reveals new vaccination method that could kill hiv in just two shots |  mit researchers found that the first dose primes the immune system, helping it generate a strong response to the second dose a week later.",0,100
+1fm1y0m,nuclear fusion: ornl's method to identify new alloys for reactors,0,100
+1fmofe0,researchers store entire human genome on ‘everlasting’ 5d memory crystal,0,100
+1fnf9ov,"us to hit energy jackpot with 2,200 mw floating plant that will power 770,000 homes |  the total power capacity of approved projects is now over 15 gw, with more than 5 gw being installed and over 300 mw already working.",0,100
+1fninkc,new gold nanoparticles offer a better way to analyze kidney health,3,100
+1fnj024,red to rescue: scientists turn co2 into a powerful cancer-fighting compound | a new bacteria-based technology could help combat climate change while producing a valuable antioxidant.,0,100
+1fo7f6j,openai ceo: we may have ai superintelligence in “a few thousand days”,3,100
+1fo8krf,"10,000-year-old dna, oldest ever in south africa, shows country’s genetic consistency | researchers from south africa just successfully sequenced the genomes of 13 individuals that lived 1,300-10,000 years ago.",1,100
+1fo9vxk,stretchy wearables can now heal themselves | korean breakthrough material opens up new path to biosensors and stimulators,0,100
+1fobs7x,"new rebar-tying robot could speed up construction, ease worker strain",0,100
+1foenle,horse kicks off production of powerful 1.2l hybrid engines for evs,1,100
+1fp01j6,"""world-first"" indoor vertical farm to produce 4m pounds of berries a year",1,100
+1fp0gdm,"new nasal spray offers 99.99% protection against flu, pneumonia, covid-19 | in treated mice, virus levels in the lungs dropped by more than 99.99%, with normal levels of inflammatory cells and cytokines observed, indicating effective protection against infection.",4,100
+1fp37aw,"new fireproof fabric can defend ev batteries from 2,300°f flames",0,100
+1fpsehd,"world’s largest waste-to-hydrogen plant unveiled, 30,000 tons yearly output |  hyundai engineering aims to contribute to sustainability by transforming plastic waste into hydrogen, accelerating the transition to a hydrogen society.",2,100
+1fpt92t,"thermoelectric generator pulls energy from room temperature heat | scientists in japan have developed a new organic device that can harvest energy from heat. unlike other thermoelectric generators, this one works at room temperature without a heat gradient.",0,100
+1fpup3q,project pele: us starts building unique 5mw mobile nuclear reactor,3,100
+1fqkyk2,"scientists turn toothpaste into edible transistors for smart health tracking | copper phthalocyanine, known for its teeth-whitening properties, can also be used as a semiconductor material.",4,100
+1fqlsrg,"breakthrough sun-powered tech pulls lithium from seawater, redefining energy | a membrane-free electrochemical cell separates lithium ions between brine and fresh water using iron-phosphate electrodes.",0,100
+1frdh69,"iter: first 5,200-ton vacuum vessel built to contain plasma for fusion",2,100
+1frh98p,meet lisa: the $1.6 billion space telescope that will redefine astronomy,1,100
+1frrz4e,"robot hand can detach from arm, crawl over to objects, and pick them up",2,100
+1fs2vw2,samsung unveils world’s first ultra-small solid-state battery,0,100
+1fssrie,"knit wit: 1st-ever cat cap that measures brain activity without sedation | in a first, veterinary scientists have successfully scanned the brains of cats in a conscious state.",0,100
+1fsui2r,uk explores world’s most powerful tidal turbine to unlock clean energy,3,100
+1ftl54s,"hybrid energy raft could power 1,000 homes daily with wave, wind, solar | the power plant is a 38-meter raft with wind turbines and solar panels, generating about 1 mw with a 40% capacity factor.",0,100
+1ftl70b,laser headband non-invasively ids stroke risk in real time | researchers have developed a wearable laser-based device that monitors brain blood flow changes and volume when a patient holds their breath.,4,100
+1ftn34s,caltech's laser headset becomes 1st-ever device to predict stroke noninvasively,2,100
+1fucu79,tiny robot convoy conducts successful endoscopic surgery in a medical first | the robotic convoy’s surgical efficacy was demonstrated using pig organs.,0,100
+1fugro3,"lg’s 100x thinner-than-hair material cuts battery explosion risk in evs by 50% | srl allows electricity to flow normally unless the battery gets too hot, in which case it acts like a fuse to stop it.",4,100
+1fv5dkt,"scientists have traced all 54.5 million connections in a fruit fly’s brain | by tracing every single connection between nerve cells in a single fruit fly’s brain, scientists have created the “connectome,” a tool that could help reveal how brains work.",0,100
+1fv6amw,world’s 1st solar-powered fuel delivery truck runs 8 hours on sunshine,3,100
+1fvwoy9,"mit’s star wars-inspired ‘tractor beam’ uses light to capture, manipulate cells | this device could be used to study dna, identify different types of cells, and explore the underlying causes of diseases.",0,100
+1fvxu2p,new polymer membrane boosts solid-state ev batteries' performance,0,100
+1fvysc4,"stronger, greener pvc developed through chemical bonding to end microplastic menace | researchers have found a way to electrically attach plasticizers directly to pvc molecules, creating a more stable and durable material through a process called “grafting.”",3,100
+1fw1jbl,"scar-free healing: worm protein could revolutionize wound treatment | scientists found treated skin healed faster, even regenerating hair follicles by day 12.",0,100
+1fwp39i,us: new tool could help power 22 million homes with marine renewable energy,0,100
+1fxfow6,"wine powers new battery tech, could boost ev range, performance",0,100
+1fxjcd1,pangolin-inspired robot poops tree seeds into holes it digs,4,100
+1fy4w72,wi-fi goes long range on new wilo standard | the new approach could underpin agricultural sensor networks and smart cities,0,100
+1fy5b1l,new paper-based sensor detects heart attack biomarkers in just 15 minutes | researchers have designed a paper-based vertical flow assay (vfa) to detect heart attack biomarkers.,4,100
+1fy5dp0,"brainchip unveils microscopic npu that consumes less than 1 milliwatt of power | designed for wearables, smart home, and iot applications",2,100
+1fy6aew,new metal-eating ‘bullet’ thrusters could power spacecraft for near-infinite range,0,100
+1fyy13r,world’s 1st donor cell therapy helps 3 autoimmune disorder patients,2,100
+1fyzxqs,"mussel-inspired sticky bacteria breaks down tough plastic waste faster | annually, the u.s. generates as much as 40 million tons of plastic waste.",2,100
+1fz9bu0,four-legged robot learns to climb ladders,4,100
+1fzpk1n,"scientists create 1st light-powered microrobot to swim through sticky mucus | the first light-driven, toroidal micro-robot capable of autonomous movement in viscous liquids has been designed.",4,100
+1fzpohr,electrical stitches speed wound healing in rats | new sutures generate static electricity to mimic the body's natural electrical signals,3,100
+1g02v71,nasa opened a $3m challenge for waste management in space!,1,100
+1g0f66q,"robotic ‘finger’ could perform your next intimate physical exam  | researchers have developed an ultrasensitive, human-like robotic ‘finger’ capable of safely performing routine physical examinations like a medical doctor would. they say the ‘robodoctor’ could be seen in medical clinics soon.",0,100
+1g0h2nq,us scientists turn waste streams into jet fuel that reduces carbon emissions by up to 70% | volatile fatty acids can play a critical role in decarbonizing the aviation industry.,2,100
+1g0hb3o,"new octopus-inspired adhesive’s gripping power holds anything underwater | this new technology has potential applications in underwater salvage, and rescue operations.",0,100
+1g0i9wn,lasers could take broadband where fiber optics can’t,2,100
+1g0mqy3,"south korea unveils world’s 1st autonomous, amphibious robotic missile launcher",0,100
+1g172r9,spider-man-inspired sticky silk fibers lift 80 times their weight | the first web-slinging technology in which a fluid material shot from a needle solidifies – and is strong enough to adhere to and pick up objects.,3,100
+1g19dkw,stretchable solar cells retain 95% efficiency after 100 stretches,0,100
+1g1bnrq,"us scientists shatter high-power uranium beam record, unlock new isotopes | a uranium beam striking a target undergoes fragmentation or fission, producing a range of rare, unstable isotopes with different numbers of neutrons.",0,100
+1g1zh1q,soft robotics: how vine-like robots are transforming tumor treatment,4,100
+1g2nc19,two people communicate in dreams: inception movie-styled sci-fi turned into reality | participants were sleeping at their homes when their brain waves and other polysomnographic data were tracked remotely by a specially developed apparatus,4,100
+1g2yjyd,"researchers develop method to make sound waves travel in one direction only | the research has applications in various fields, including radar technology and signal routing",3,100
+1g3f1bu,sodium batteries' commercialization gets boost with this novel method,3,100
+1g435dl,cardiovascular breakthrough: nanoparticle therapy cuts plaque buildup in arteries | the new therapy works by identifying and attacking the specific areas of inflammation in the arteries.,2,100
+1g45iiz,"'zerocal' cement production process takes co2 out of the equation | with 98% less co2 emissions than traditional methods by decomposing limestone – the key raw material involved in making cement – to access calcium oxide, aka lime, without releasing carbon dioxide in the process.",2,100
+1g45kfu,"world’s first 100% silicon anode ev battery unveiled, charges in 8.5 minutes | prologium’s 100 percent silicon composite anode enhances energy density and fast-charging performance.",0,100
+1g46xxx,new nanoparticle breakthrough targets fat absorption to combat obesity,0,100
+1g4wnpa,"breakthrough eye scanner can detect diabetes, heart disease, alzheimer’s | eyes can be windows to our overall health.",3,100
+1g4xbgk,florida hospital deploys $860k air-to-water generator in wake of hurricane milton | proves that air moisture capture can supplement emergency water supply,2,100
+1g4xxk3,"western digital launches 32tb hard drive in sata and sas flavors, which is a new record for shingled magnetic recording-based drives — ultrastar dc hc690 delivers sequential performance up to 257 mib/s",2,100
+1g4yped,prologium unveils 100% silicon composite anode ev battery at paris motor show,4,100
+1g51mop,"first-ever human skin atlas provides ‘molecular recipe’ to build skin, heal scars | through this organoid, the researchers were able to study how immune cells, specifically macrophages, contribute to blood vessel formation.",2,100
+1g5f5c0,"938 gbps: 6g testing hits 9000x 5g speed, could download 20+ movies in a second | the researchers achieved a 938 gbps transmission data rate with less than a 300 mhz gap between different rf and mm-wave bands.",3,100
+1g5qb0l,us space force backs nuclear microreactor-powered rocket breakthrough,0,100
+1g5qpzp,this eyewear offers a buckshot method to monitor health | emteq labs' sense glasses track food and facial expressions,1,100
+1g6hszs,"write with heat, erase with light: new tech could revolutionize data storage",0,100
+1g7833g,from fingertip to insight: tracking health with sweat-powered sensors,1,100
+1g7bqas,"china’s chery unveils autonomous flying car, completes 50-mile test flight |  the flying car, named ‘land and air vehicle’, is designed without a steering wheel and comes with full autonomous driving capabilities",1,100
+1g8lt7a,"handheld diagnostic that can isolate biomarkers for different diseases using sound waves, from a single drop of blood, in around an hour.",4,100
+1g8maxi,"us’ laser facility to advance fusion research to achieve limitless energy | beyond fusion and basic science research, the atlas facility will also support interdisciplinary work into topics like medicine.",4,100
+1g8mbpw,"china sets new world record with 800,000 times more magnetic field than earth’s | china’s record-breaking magnet sets the stage for developing reliable magnets capable of sustaining even stronger magnetic fields.",2,100
+1g8o4up,world’s first hydrogen-powered wheel loader deployed in austria,0,100
+1g9gwmv,"world’s largest alkaline electrolyzer will make 990 lbs of hydrogen per hour | according to shuangliang, the new device can pump out around 396 pounds of hydrogen gas per hour.",0,100
+1g9hdn9,"‘electric plastic’ could open door to new generation of implants and wearable tech | self-assembling, biocompatible molecular ribbons can store energy and information",0,100
+1g9iljv,scotland trials unique electric wallpapers to warm ‘oldest homes’ in world,1,100
+1g9yb20,anthropic’s latest ai update can use a computer on its own,0,100
+1ga62zk,my dead father is writing me notes again,1,100
+1ga7vkc,nyu develops new drug that attacks cancer cells without harming healthy ones | the researchers say the new technique may lead to new ways to treat patients with some cancers with minimal side effects.,0,100
+1ga81eq,"mercedes’ first eu plant to recycle 96% of batteries to power 50,000 new evs yearly | the facility processes 2,500 tonnes of batteries yearly, supplying recycled materials for over 50,000 new ev battery modules.",0,100
+1ga9gjd,"mit engineers create solar-powered desalination system producing 5,000 liters of water daily | this could be a game-changer for inland communities where resources are scarce",0,100
+1gaa894,australia: world-1st tech achieves 90% lithium recovery from deserts,3,100
+1gayuar,"rare earth oxide coatings allow turbine engines to operate at record 3,300°f | the researchers created and tested new combinations of rare earth elements, such as yttrium, erbium, and ytterbium.",4,100
+1gb1mgk,10 floors tall: china unveils world's most powerful hydraulic cylinder,2,100
+1gb41fk,50 mins of no oxygen: liver helps revive dead pig’s brain after heart attack | the key to the experiment’s success lies in incorporating the liver into a life support system known as liver-assisted brain normothermic machine perfusion.,2,100
+1gbqg92,"popular drug to end early pregnancies could also extend lifespan, scientists say | scientists say mifepristone, used in cancer and reproductive care, could pave the way for anti-aging treatments.",0,100
+1gbtnkj,oxford creates world’s smallest biodegradable battery for medical use,0,100
+1gd8ytf,"us develops portable device that extracts water from air using 50% less energy | the device uses special materials that change temperature when stretched or compressed, allowing it to cool the air and condense water vapor with minimal energy use.",0,100
+1gdahxn,high-performance computing software scans a mega quantum detector,3,100
+1gdl9zp,capturing carbon from the air just got easier,1,100
+1gdzobv,gold extraction from e-waste gets 10 times more efficient with new sponge material | researchers developed a nanoscale cross-dimensional composite material via self-assembly of two-dimensional graphene oxide and one-dimensional chitosan macromolecules.,0,100
+1geiha6,"mit’s new cancer therapy combines tumor destruction, chemo in single implant | the combination of phototherapy and chemotherapy could offer a more effective way to fight aggressive tumors.",0,100
+1getptm,3d laser bioprinter designed for precise human tissue engineering,4,100
+1gfkn0p,"scientists find co2-eating algae strain, could help in ocean decarbonization | this strain sinks easily in water, making it an excellent candidate for carbon sequestration projects and the bioproduction of valuable commodities.",0,100
+1gflnk0,3.5 gw: world first artificial island can power 3 million homes,0,100
+1gfobbs,"breakthrough light-harvesting photoswitch can store solar power for months | when heat is stored as chemical bonds, it can be retained for weeks and months without energy losses.",0,100
+1gfop1o,the world's first ever electric hydrofoil ferry begins operations,0,100
+1ggbp4p,"waste polystyrene patch generates static electricity from wind, could run acs | this energy harvesting is enabled by electrospinning alternating layers of small and large diameter polystyrene fibers.",2,100
+1ggdtlc,rice physicists rewrite magnetism rules to boost quantum computers,3,100
+1gghl7p,"powerful laser cuts 100mm steel underwater with ease for safer nuclear cleanup | even in simulated underwater conditions at depths up to 10 meters, kimm’s technology can use a powerful laser to cut through stainless steel",4,100
+1gh2tbz,"power on the move: new silk thread tech turns clothes into electricity generators | this flexible, lightweight, and non-toxic material makes it ideal for wearable applications.",0,100
+1gh4jg6,new plant plans to recycle 30% of us' retired solar panels in 2030,0,100
+1gh4wtp,used tire-based solar desalination tech makes 3.67 liters of drinking water daily | the device generated 3.67 liters of fresh water each day during the test in halifax harbour.,4,100
+1ghvn9j,"space debris tracking improved by 10,000x with breakthrough laser tech",0,100
+1gik7bn,"us firm follows unique pulsed magnetic concept to achieve fusion for limitless energy | the company is using pulser modules, a small meter-scale fusion chamber, and centimeter-scale fuel containers for the critical process.",0,100
+1gik8cw,"breakthrough material could help replace lithium cells, lead to potassium batteries | many of the highest-performing potassium-ion battery designs currently use cathodes made from prussian white.",0,100
+1gimonz,robot retrieves 1st melted fuel sample from damaged fukushima reactor,3,100
+1gjegsn,bidirectional charging ev batteries could help eu save over $23 billion a year,0,100
+1gjgxyg,world’s first immortal lip cells created in a groundbreaking lab study | researchers from the university of bern achieve a significant first step in lip research by producing immortalized lip cells in the lab.,0,100
+1gk4ika,world’s 1st cloned ferret gives birth to healthy kits in a conservation milestone | the introduction of genetic material from a cloned ferret aims to enhance genetic diversity and improve the species’ chances of survival.,2,100
+1gk69w7,"90% in 15 mins: us firm’s new ev battery achieves higher charge with silicon anode | the ev battery is close to achieving 1,000 cycles and has also passed the military nail penetration test.",0,100
+1gk6jpc,new high-speed 3d bioprinter uses acoustics to print human tissues,0,100
+1gkyspt,"silicon-based ev batteries promise 2x range, improved safety, and fast charging",0,100
+1gl1g6t,"europe’s record-breaking hyperloop hits 88-mile milestone at blazing 303 mph | tests hit a milestone, simulating an 88-mile hyperloop journey on a 7.3-mile track, reaching 303.4 mph, scaled to 25.3 mph in low-pressure tests.",1,100
+1glp5jj,from trash to fuel: us scientist unlocks green hydrogen potential in plastic bottles | the research uses low-amount solvents acting as hydrogen sources to break down a specific class of plastics called condensation polymers.,0,100
+1glq2sw,norwegian researchers develop energy-efficient co2 capture reactor,3,100
+1gltvxj,advanced sensing tech can detect lung cancer in your exhaled breath,0,100
+1gm7hna,security experts warn of new hacker strategy targeting windows drivers,2,100
+1gmh026,"researchers develop low-cost system to detect wildfires within seconds of ignition | this system, called fireloc, could detect fires igniting from up to 3,000 feet away and accurately map wildfires to within 180 feet of their origin.",3,100
+1gmhrb2,how nuclear power is shaping the future of commercial shipping,0,100
+1gmkv33,"gluing proteins together kills cancer super selectively | scientists have demonstrated a creative new way to kill cancer cells effectively, with few side effects. gluing two particular proteins together tricks the tumors into destroying themselves.",0,100
+1gmyyn9,ai helps robot dogs navigate the real world | four-legged robot dogs learned to perform new tricks by practising in a virtual platform that mimics real-world obstacles – a possible shortcut for training robots faster and more accurately,0,100
+1gnd9hh,"waste oil turned into biodiesel in just 60 minutes, can power all types of vehicles | chemists have also claimed that the reaction can be completed in under an hour at a temperature lower than that required to boil water.",2,100
+1gnpd51,us firm sets fusion plasma temperature record at 392 million degrees f,0,100
+1go0xuj,lg's ev battery with six times more energy to power rivian r2,0,100
+1go1r0p,"next-gen transparent semiconductor material could make electronics efficient, faster | the entirely synthetic material is both transparent and highly conductive, making it ideal for high-power electronics.",0,100
+1go2egw,"groundbreaking laser tech enables faster, safer landmine detection",4,100
+1gosc0p,"new stellarator design to boost fusion research, stays on all the time",3,100
+1goupx8,"students’ unique humanoid robot achieves real-time human mimicry, teleoperation | the robot’s inverse kinematics system allows it to replicate human motions, improving its responsive and adaptive interaction with the environment.",0,100
+1gpi588,"carpet waste makes concrete crack-proof, boosts strength by 40% — aussie engineers | the new technique significantly reduced early-age concrete cracking by up to 30%.",2,100
+1gpjcqw,"breakthrough robot nails surgery like a human doctor after watching videos | the model can quickly train robots for diverse surgeries, from basic tasks to full procedures, advancing robotic medical capabilities.",0,100
+1gpkd1k,"super-strong magnetic muscles lift 1,000 times their weight with ease",1,100
+1gqca2j,"superhuman vision lets robots see through walls, smoke with new lidar-like eyes | ai-powered panoradar turns radio waves into 3d views, offering robots lidar-like vision at lower cost.",2,100
+1gqdgbq,torso: new creepy humanoid robot with water-powered muscles unveiled | the humanoid’s hydraulic system pumps water to achieve the flex to activate its artificial muscles.,0,100
+1gqdnyv,beetle-inspired robots roll objects with new neural control system,0,100
+1gr3dkv,"fatbergs fighter: new self-healing zinc coating cuts sewer clogging by 30% | in lab tests, the coated concrete showed a 30% reduction in fat, oil, and grease buildup.",3,100
+1gr5pai,new microreactor converts co2 to methanol with renewable energy,0,100
+1grv3rt,"finland’s 100mw sand battery turns 2,000 tons of fireplace waste into power | in terms of size, this unique battery will have a height of about 13 meters and a width of roughly 15 meters.",2,100
+1grwr8n,wave-busting tech from edinburgh keeps robots steady in stormy waters,3,100
+1gsnsd2,electro-biodiesel: scientists make 45x more efficient fuel from co2,0,100
+1gte1hg,iter receives hyundai-made vacuum vessel to house nuclear reactions,2,100
+1gti13c,scientists make first mechanical qubit,0,100
+1gu4lnm,"china’s 3 gw solar plant with nearly 6,000,000 panels to power millions of homes | with nearly 6 million panels, the project will prevent release of 4.7 million tons of co2 every year.",0,100
+1gu5599,robot dog bert moves faster using new energy-efficient movement tech,0,100
+1gudeus,"revolutionary membrane tech separates 97% oil from water with 99.9% purity | researchers in china have unveiled a new, highly effective technique for separating oil and water mixtures.",0,100
+1guwcq8,tethered robots could turn moon’s lava tubes into future astronaut homes | the researchers put this system to the test in the harsh volcanic landscapes of lanzarote island in the atlantic ocean.,0,100
+1guxo1z,mit spinout uses engines to turn trash gas into green fuel factories,0,100
+1guz7z1,422-million-year-old ancient animal cell helps scientists create a mouse | the team uncovered that choanoflagellates possess versions of the sox and pou genes—key drivers of pluripotency.,0,100
+1gv7sdh,"niantic uses pokémon go player data to build ai navigation system. visual scans of the world have helped niantic build what it calls a ""large geospatial model.""",0,100
+1gve1wk,scientists identify tomato genes to tweak for sweeter fruit,2,100
+1gvnw6q,"new 3d bioprinter could build replicas of human organs, offering a boost for drug discovery | the invention uses light, sound and bubbles to quickly create copies of soft tissue that might one day support testing individualized therapies for cancer and other diseases",0,100
+1gvpxi0,"uk scientists extend solar cell life by stunning 66%, boost efficiency by 23% | to enhance the performance of lead-tin perovskite cells, the team investigated the role of the hole transport layer, a crucial component in solar cell function.",0,100
+1gvq5j4,princeton achieves 10x reduction in tritium needs for nuclear fusion,2,100
+1gvqhog,microsoft and atom computing combine for quantum error correction demo,2,100
+1gwek8q,no more injections: mit develop capsule that delivers drugs straight to the gut | this capsule is designed to release drugs directly into the stomach wall or other organs in the digestive tract.,1,100
+1gwgrar,space-age material to boost next-gen modular nuclear fusion reactors,0,100
+1gwia4j,chemists use light to break down pfas at room temperature | chemists have illustrated how an led light-based photocatalytic system can break the carbon-fluorine bonds in pfas.,2,100
+1gx581m,"us deploys first-ever autonomous robotic cameras in stratosphere nationwide | the swift robots offer enhanced resolution capabilities of 7 centimeters, which match or surpass traditional aerial survey quality.",2,100
+1gx7iyv,"bite of hope: malaria vaccine delivered by gene-edited mosquito kills infection by 89% | this technique gave the immune system a powerful boost, shielding people from the disease.",2,100
+1gx8c5v,"new solar cell coating triples efficiency, stability, conversion rate",0,100
+1gxmqb6,us deploys first-ever autonomous robotic cameras in stratosphere nationwide,0,100
+1gxy33o,"this new, yellow powder quickly pulls carbon dioxide from the air. scientists say just 200 grams of the porous material, known as a covalent organic framework, is called cof-999, could capture 44 pounds of the greenhouse gas per year—the same as a large tree",0,100
+1gxzucv,new heat-to-electricity tech beats battery storage with 60% efficiency,0,100
+1gyr6gl,"""... jet engines shouldn’t be possible"" “the air coming in is hotter than the melting point of the metal underneath... to get around this problem heat-resistant ceramic coatings are applied to the engine blades. now researchers are developing stronger coatings allowing the engines to run even hotter",1,100
+1gyukb6,"a reaction that only measured protons detected neutrons for the first time | for the last 10 years, scientists have been working on a neutron detector. finally, they tested it, and it worked like magic.",4,100
+1gzh4xb,"engineers turn rotten seaweed into car fuel, aim to cut 14 million-ton of co2 | seaweed is showing up on caribbean beaches and cleaning up costs are in millions of dollars. but this waste can be turned into precious fuels.",1,100
+1gzjrst,"boom supersonic xb-1 jet hits 25,040 feet in record-setting flight",1,100
+1h0c9tj,"to design better water filters, mit engineers look to manta rays. new research shows the filter-feeders strike a natural balance between permeability and selectivity that could inform design of water treatment systems.",0,100
+1h0cre8,scientists use sunlight to break the toughest plastic to recycle,0,100
+1h12sn1,researchers develop rare earth-free high power electric motors using copper | using copper coils instead of rare earth materials in the motor’s rotating part is much more accessible.,0,100
+1h14xgc,japan’s superalloys withstand 1112°f test to protect nuclear fusion reactors,4,100
+1h1u9dd,"gold-based drug slows cancer tumor growth by 82%, outperforms chemotherapy | gold’s unique properties make it ideal for medical applications, as it is highly stable and unreactive, which also explains its common use in jewelry and coins.",4,100
+1h1w4xn,"robot balloons soar 85,000 ft, map nyc-sized areas with 0 emissions",3,100
+1h2mxra,korea’s artificial sun switched on to target tungsten impurities,1,100
+1h3dnxy,uk unveils world's 1st ai-designed urban wind turbine with 7x efficiency,3,100
+1h444kn,world first: scientists convert heat into electricity using tungsten disilicide,0,100
+1h4ujrh,plasma compression breakthrough: general fusion hits 600 million neutrons per second | general fusion demonstrated the viability of a stable fusion process using its mtf approach.,2,100
+1h4vl96,"scientists make wood glow with 2,400-year-old honey fungus in a scientific adventure | the biohybrid of fungus and wood, developed in the lab, produces green light after being incubated for three months, with plans to increase its luminosity further.",4,100
+1h4vn07,"world’s largest co2 heat pump with 70mw capacity begins operation to power 25,000 homes",0,100
+1h4zvjw,interestingengineering has been banned,1,100
 1h5ng2l,ai dash cams give wake-up calls to drowsy drivers | innovative tech detects driver fatigue and signals them to take a break,4,100
-1h5qkfp,electronic ‘tattoos’ offer an alternative to electrodes for brain monitoring | a spray-on ink detects electrical activity in the brain for hours,0,100
-1h66avu,licking this “lollipop” will let you taste virtual flavors,3,100
-1h6fl9r,"a new catalyst can turn methane into something useful. mit chemical engineers have devised a way to capture methane, a potent greenhouse gas, and convert it into polymers.",1,100
+1h5qkfp,electronic ‘tattoos’ offer an alternative to electrodes for brain monitoring | a spray-on ink detects electrical activity in the brain for hours,3,100
+1h66avu,licking this “lollipop” will let you taste virtual flavors,1,100
+1h6fl9r,"a new catalyst can turn methane into something useful. mit chemical engineers have devised a way to capture methane, a potent greenhouse gas, and convert it into polymers.",2,100
 1h6gurk,refurbished heart pacemakers work like new,3,100
-1h6y0td,"robot cat that sticks landing may revolutionise asteroid mining, scientists say",1,100
-1h78m56,prenatal test accidentally picks up cancer in 50% of those with wonky results | the prenatal test results flagged cancers when other screens and tests missed it.,2,100
+1h6y0td,"robot cat that sticks landing may revolutionise asteroid mining, scientists say",3,100
+1h78m56,prenatal test accidentally picks up cancer in 50% of those with wonky results | the prenatal test results flagged cancers when other screens and tests missed it.,1,100
 1h78or2,billions of people to benefit from technology breakthrough that ensures freshwater for the world,0,100
-1h792n3,"carpet fibres stop concrete cracking. engineers in australia have found a way to make stronger and crack-resistant concrete with scrap carpet fibres, rolling out the red carpet for sustainability in the construction sector.",4,100
-1h7qdkm,'breakthrough' dementia drug looks to stop disease in its tracks,3,100
-1h8130c,two european satellites launch on mission to blot out the sun—for science,4,100
-1h815us,burned rice hulls could help batteries store more charge,4,100
-1h8350t,"scientists develop battery with 5,000+ year lifespan by encasing radioactive carbon in diamond | it could power electronics aboard space probes for centuries, among other things",2,100
-1h8fwm0,virtual lab powered by ‘ai scientists’ super-charges biomedical research,1,100
-1h8s83b,researchers claim record-breaking 25.7% efficency for perovskite-organic tandem solar cell,2,100
-1h8tarx,"drones with legs can walk, hop, and jump into the air",4,100
-1h98sb7,"the art of failure analysis. searching for defects in their chips, these engineers found something inspiring.",0,100
-1h9jtac,"""world's simplest"" nuclear reactors could be installed underground to provide heat to cities",3,100
-1h9jyfw,temporary scalp e-tattoos that scan brain could replace traditional eegs forever,3,100
-1h9p8h3,"scientists discover new way to make fuel from water and sunlight, but more work is needed",1,100
-1ha8fsu,"brain stimulation helps people ​walk after spinal injury | researchers created a ""brain atlas"" to find the right spot for electrodes",4,100
-1ha9xig,crop parasites can be deterred by “electric fences” a pesticide-free technique holds promise by scrambling protists’ senses,2,100
-1hb24op,sionic energy unveils 100-percent silicon anode battery,2,100
+1h792n3,"carpet fibres stop concrete cracking. engineers in australia have found a way to make stronger and crack-resistant concrete with scrap carpet fibres, rolling out the red carpet for sustainability in the construction sector.",2,100
+1h7qdkm,'breakthrough' dementia drug looks to stop disease in its tracks,2,100
+1h8130c,two european satellites launch on mission to blot out the sun—for science,1,100
+1h815us,burned rice hulls could help batteries store more charge,0,100
+1h8350t,"scientists develop battery with 5,000+ year lifespan by encasing radioactive carbon in diamond | it could power electronics aboard space probes for centuries, among other things",0,100
+1h8fwm0,virtual lab powered by ‘ai scientists’ super-charges biomedical research,0,100
+1h8s83b,researchers claim record-breaking 25.7% efficency for perovskite-organic tandem solar cell,0,100
+1h8tarx,"drones with legs can walk, hop, and jump into the air",1,100
+1h98sb7,"the art of failure analysis. searching for defects in their chips, these engineers found something inspiring.",1,100
+1h9jtac,"""world's simplest"" nuclear reactors could be installed underground to provide heat to cities",0,100
+1h9jyfw,temporary scalp e-tattoos that scan brain could replace traditional eegs forever,0,100
+1h9p8h3,"scientists discover new way to make fuel from water and sunlight, but more work is needed",0,100
+1ha8fsu,"brain stimulation helps people ​walk after spinal injury | researchers created a ""brain atlas"" to find the right spot for electrodes",0,100
+1ha9xig,crop parasites can be deterred by “electric fences” a pesticide-free technique holds promise by scrambling protists’ senses,1,100
+1hb24op,sionic energy unveils 100-percent silicon anode battery,0,100
 1hbirv1,ferroelectric devices could make iot data unhackable. fefet array enables homomorphic encryption in battery-powered devices.,0,100
-1hbnqfg,"nvidia, rigetti, quantum machines deliver ai-powered quantum computing",2,100
+1hbnqfg,"nvidia, rigetti, quantum machines deliver ai-powered quantum computing",0,100
 1hbtd03,ai is driving india’s next agricultural revolution,2,100
 1hbuf8o,google gets an error-corrected quantum bit to be stable for an hour,3,100
-1hbug93,transforming fusion from a scientific curiosity into a powerful clean energy source,1,100
-1hcj85x,"fish-inspired sensor ""touches"" using electric fields | a synthetic e-skin uses capacitance to detect nearby objects",2,100
-1hcl9co,graphene interconnects to moore's law's rescue,3,100
-1hclrpw,"scientists have accidentally discovered a particle that has mass when it’s traveling in one direction, but no mass while traveling in a different direction | known as semi-dirac fermions, particles with this bizarre behavior were first predicted 16 years ago.",2,100
+1hbug93,transforming fusion from a scientific curiosity into a powerful clean energy source,2,100
+1hcj85x,"fish-inspired sensor ""touches"" using electric fields | a synthetic e-skin uses capacitance to detect nearby objects",3,100
+1hcl9co,graphene interconnects to moore's law's rescue,1,100
+1hclrpw,"scientists have accidentally discovered a particle that has mass when it’s traveling in one direction, but no mass while traveling in a different direction | known as semi-dirac fermions, particles with this bizarre behavior were first predicted 16 years ago.",4,100
 1hdai04,new tongue-stimulating implant offers hope to millions with sleep apnoea in uk first | nyxoah’s genio device zaps the nerves in the tongue to help sufferers breathe better overnight,0,100
-1hdco1q,award-winning tech uses cyborg mollusks to monitor water pollution,3,100
-1hdnl19,"nvidia, amd, and intel invest in ayar labs to enable futuristic light-based chips",3,100
-1he2dzd,new invention harvests static energy from waste polystyrene to produce electricity,1,100
-1he3w1t,"noninvasive imaging method can penetrate deeper into living tissue. using high-powered lasers, this new method could help biologists study the body’s immune responses and develop new medicines.",1,100
-1he6r00,new retrofit lets micro-turbines burn both hydrogen and natural gas,1,100
+1hdco1q,award-winning tech uses cyborg mollusks to monitor water pollution,0,100
+1hdnl19,"nvidia, amd, and intel invest in ayar labs to enable futuristic light-based chips",1,100
+1he2dzd,new invention harvests static energy from waste polystyrene to produce electricity,0,100
+1he3w1t,"noninvasive imaging method can penetrate deeper into living tissue. using high-powered lasers, this new method could help biologists study the body’s immune responses and develop new medicines.",0,100
+1he6r00,new retrofit lets micro-turbines burn both hydrogen and natural gas,4,100
 1het2r9,"shape-shifting antenna takes cue from ""the expanse"" inspired by the sci-fi show, the device morphs to suit its signals",4,100
-1het4ww,"magnetic ""metasheet"" material moves objects like a conveyor belt",1,100
-1hez16g,researchers have developed a new device which will enable small drones to shoot powerful lasers – something once thought impossible,2,100
-1hfj8vj,optical fibers monitor brain for deadly post-injury complications,0,100
-1hfk2a2,physicists uncover new state of matter called quantum spin liquid | this discovery could open doors for further discoveries in fundamental and quantum physics.,1,100
-1hg83wx,"""crazy li"" arms drones with powerful lasers that can cut through metal",0,100
-1hgancg,nuclear-electric rocket propulsion could cut mars round-trips down to a few months,3,100
+1het4ww,"magnetic ""metasheet"" material moves objects like a conveyor belt",2,100
+1hez16g,researchers have developed a new device which will enable small drones to shoot powerful lasers – something once thought impossible,0,100
+1hfj8vj,optical fibers monitor brain for deadly post-injury complications,2,100
+1hfk2a2,physicists uncover new state of matter called quantum spin liquid | this discovery could open doors for further discoveries in fundamental and quantum physics.,0,100
+1hg83wx,"""crazy li"" arms drones with powerful lasers that can cut through metal",1,100
+1hgancg,nuclear-electric rocket propulsion could cut mars round-trips down to a few months,4,100
 1hh0628,"an innovative fertility technology using stem cells to help an embryo mature outside the body has resulted in the world’s first live human birth | gameto, the company that developed the approach, says it’s faster, safer and more accessible than conventional ivf.",0,100
-1hh1izr,cyborg cockroach armies can now be mass-produced at a rate of one every 68 seconds,4,100
-1hhr8q6,"squid-based biodegradable sponge removes 99.9% of microplastics from water | the new sponge method is promising, but challenges such as properly disposing of absorbed microplastics remain a critical issue.",1,100
-1hhyvda,biologically inspired bioactive hydrogels for scarless corneal repair,2,100
-1hiiaj3,billion times faster chip-based laser neuron can process 34.7 million images per second | the researchers have created chip-based quantum-dot laser-graded neurons.,2,100
-1hiicdb,"miniature vr headset to immerse mice in virtual environments to reveal neural activity | the researchers are looking to further develop the goggles, with a lightweight, mobile version for larger rodents.",4,100
-1hikehr,chiral flat-band optical cavity with atomically thin mirrors,3,100
-1hioquf,"new physics sim trains robots 430,000 times faster than reality | ""genesis"" can compress training times from decades into hours using 3d worlds conjured from text.",1,100
-1hj9sa6,a football field in a teaspoon: new material has insane surface area,1,100
-1hjkbj3,cern's large hadron collider finds the heaviest antimatter particle yet | hyperhelium-4 now has an antimatter counterpart,0,100
+1hh1izr,cyborg cockroach armies can now be mass-produced at a rate of one every 68 seconds,1,100
+1hhr8q6,"squid-based biodegradable sponge removes 99.9% of microplastics from water | the new sponge method is promising, but challenges such as properly disposing of absorbed microplastics remain a critical issue.",3,100
+1hhyvda,biologically inspired bioactive hydrogels for scarless corneal repair,1,100
+1hiiaj3,billion times faster chip-based laser neuron can process 34.7 million images per second | the researchers have created chip-based quantum-dot laser-graded neurons.,3,100
+1hiicdb,"miniature vr headset to immerse mice in virtual environments to reveal neural activity | the researchers are looking to further develop the goggles, with a lightweight, mobile version for larger rodents.",1,100
+1hikehr,chiral flat-band optical cavity with atomically thin mirrors,1,100
+1hioquf,"new physics sim trains robots 430,000 times faster than reality | ""genesis"" can compress training times from decades into hours using 3d worlds conjured from text.",0,100
+1hj9sa6,a football field in a teaspoon: new material has insane surface area,0,100
+1hjkbj3,cern's large hadron collider finds the heaviest antimatter particle yet | hyperhelium-4 now has an antimatter counterpart,1,100
 1hjyjq9,'absolute miracle' breakthrough provides recipe for zero-carbon cement,2,100
-1hjzcjn,green sea turtle gets relief from “bubble butt” syndrome thanks to 3d printing,3,100
-1hk6ua5,tetsuwan scientific is making robotic ai scientists that can run experiments on their own,2,100
-1hkm4wo,"desert ant vision powers sci-fi style super chip to spot cancer, boost security | chinese researchers have developed a miniature, on-chip polarization photodetector.",2,100
+1hjzcjn,green sea turtle gets relief from “bubble butt” syndrome thanks to 3d printing,1,100
+1hk6ua5,tetsuwan scientific is making robotic ai scientists that can run experiments on their own,0,100
+1hkm4wo,"desert ant vision powers sci-fi style super chip to spot cancer, boost security | chinese researchers have developed a miniature, on-chip polarization photodetector.",0,100
 1hkm88w,"scientists develop matchbox-sized laser in a bid to boost quantum research | the affordable, lightweight 780nm laser can perform on par with typical tabletop lasers and can be used both inside and outside the lab, according to the researchers.",4,100
-1hkmh5n,"engineers achieve quantum teleportation over active internet cables | as research advances, we could enter a new era in communication technology, where quantum and traditional networks can coexist to offer unprecedented levels of security and speed.",1,100
+1hkmh5n,"engineers achieve quantum teleportation over active internet cables | as research advances, we could enter a new era in communication technology, where quantum and traditional networks can coexist to offer unprecedented levels of security and speed.",0,100
 1hkn6tk,transparent bamboo: a fireproof and waterproof alternative to glass,1,100
-1hlddah,iron man-inspired exoskeleton helps paraplegics walk again,0,100
-1hldpy7,will even the most advanced subs have nowhere to hide? the scramble to preserve submarine stealth in an age of ai and all-seeing sensors,4,100
+1hlddah,iron man-inspired exoskeleton helps paraplegics walk again,1,100
+1hldpy7,will even the most advanced subs have nowhere to hide? the scramble to preserve submarine stealth in an age of ai and all-seeing sensors,2,100
 1hm0ife,mit's light-activated antiferromagnetic memory could replace today's ferromagnets,3,100
-1hm13re,"a bionic leg controlled by the brain. a new kind of prosthetic limb depends on carbon fibre and computer chips—and the reëngineering of muscles, tendons, and bone.",1,100
+1hm13re,"a bionic leg controlled by the brain. a new kind of prosthetic limb depends on carbon fibre and computer chips—and the reëngineering of muscles, tendons, and bone.",4,100
 1hmd9zy,f1 stalwart is quietly innovating to bring its expertise in cooling to data centers and beyond | castrol is developing dielectric fluids for immersion cooling systems,3,100
-1hmm40v,"the british army is trialing radio waves to zap drones out of the sky – at 13 cents per shot | the system disrupt drones from over a kilometer away, essentially shooting them down",4,100
-1hmnkkb,twisted light: the edison bulb has purpose again,0,100
-1hms3kr,swarms of tiny robots coordinate to achieve ant-like feats of strength,1,100
-1hndqih,"stem cells from mice have been 'instructed' to form specific tissues and organs | researchers can guide and control the development of stem cells into specific tissues and organs, opening the door to developing a means of one day tackling complex diseases like diabetes and parkinson’s disease.",1,100
-1hne7v5,breakthrough treatment flips cancer cells back into normal cells,4,100
-1hod1vv,"mit engineers grow “high-rise” 3d chips. an electronic stacking technique could exponentially increase the number of transistors on chips, enabling more efficient ai hardware.",0,100
-1howzkh,scientists built tiny vr goggles for mice,0,100
-1hozms8,five breakthroughs that make openai’s o3 a turning point for ai — and one big challenge,2,100
-1hplzo7,"mit team decodes quantum geometry in kagome metal for the first time | we know a lot about electrons in terms of their energy, nature, and movement. however, their quantum geometry has remained a puzzle.",1,100
-1hpnbb9,how hallucinatory a.i. helps science dream up big breakthroughs,0,100
-1hpnhv8,"anti-aging treat: dog drug could extend human lifespan, us scientists explore | the us-based company believes their research on canine longevity will also benefit humans.",3,100
-1hpwd6c,"in a first, surgical robots learned tasks by watching videos | robots have been trained to perform surgical tasks with the skill of human doctors, even learning to correct their own mistakes during surgeries.",4,100
-1hqe9k9,remote-controlled gene therapy uses ultrasound to kill cancer,3,100
-1hr385t,manta rays inspire faster swimming robots and better water filters,2,100
-1hrorwc,"a colossal 18,000kg ev is autonomously loading gold at a canadian mine, with a high-performance 540 kw electric drivetrain and a massive battery",1,100
-1hrt4mj,"clever armadillo-inspired ""fabric"" gets stiff or soft as needed",2,100
-1hrtc3n,"system to auto-detect new variants will inform better response to future infectious disease outbreaks | researchers found a new way to identify more infectious variants of viruses or bacteria that start spreading in humans - including the flu, covid, whooping cough and tuberculosis.",4,100
-1hsl46v,"new ultrasound tech could be used to 3d-print implants inside the body | in order to keep surgeries minimally invasive, it would be great if implants could be injected into the body in liquid form, then solidified once in place.",3,100
-1hsobi1,scientists extract gold from e-waste to transform co2 into valuable chemicals | the team’s innovation recovers gold from discarded electronics and uses it as a catalyst to transform co2 into useful organic materials.,1,100
-1ht66c2,"injected hydrogel becomes a bone-healing solid when exposed to light | cells from the adjacent bone tissue gradually migrate into such a material, where they proceed to reproduce as the material harmlessly biodegrades.",4,100
-1hte730,implants made of your blood could repair broken bone,2,100
-1htwmfg,"next-gen ev batteries could last decades, researchers show the potential of single-crystal electrode tech | the battery lifespan could be around 20,000 cycles or 8 million kilometers",2,100
-1hu7mov,liquid crystal glasses filter out epileptic-seizure-triggering light,0,100
-1huh4zy,"robots can now walk through muddy and slippery terrain, thanks to moose-like feet",4,100
+1hmm40v,"the british army is trialing radio waves to zap drones out of the sky – at 13 cents per shot | the system disrupt drones from over a kilometer away, essentially shooting them down",2,100
+1hmnkkb,twisted light: the edison bulb has purpose again,1,100
+1hms3kr,swarms of tiny robots coordinate to achieve ant-like feats of strength,2,100
+1hndqih,"stem cells from mice have been 'instructed' to form specific tissues and organs | researchers can guide and control the development of stem cells into specific tissues and organs, opening the door to developing a means of one day tackling complex diseases like diabetes and parkinson’s disease.",4,100
+1hne7v5,breakthrough treatment flips cancer cells back into normal cells,0,100
+1hod1vv,"mit engineers grow “high-rise” 3d chips. an electronic stacking technique could exponentially increase the number of transistors on chips, enabling more efficient ai hardware.",2,100
+1howzkh,scientists built tiny vr goggles for mice,4,100
+1hozms8,five breakthroughs that make openai’s o3 a turning point for ai — and one big challenge,0,100
+1hplzo7,"mit team decodes quantum geometry in kagome metal for the first time | we know a lot about electrons in terms of their energy, nature, and movement. however, their quantum geometry has remained a puzzle.",0,100
+1hpnbb9,how hallucinatory a.i. helps science dream up big breakthroughs,2,100
+1hpnhv8,"anti-aging treat: dog drug could extend human lifespan, us scientists explore | the us-based company believes their research on canine longevity will also benefit humans.",0,100
+1hpwd6c,"in a first, surgical robots learned tasks by watching videos | robots have been trained to perform surgical tasks with the skill of human doctors, even learning to correct their own mistakes during surgeries.",0,100
+1hqe9k9,remote-controlled gene therapy uses ultrasound to kill cancer,0,100
+1hr385t,manta rays inspire faster swimming robots and better water filters,0,100
+1hrorwc,"a colossal 18,000kg ev is autonomously loading gold at a canadian mine, with a high-performance 540 kw electric drivetrain and a massive battery",3,100
+1hrt4mj,"clever armadillo-inspired ""fabric"" gets stiff or soft as needed",1,100
+1hrtc3n,"system to auto-detect new variants will inform better response to future infectious disease outbreaks | researchers found a new way to identify more infectious variants of viruses or bacteria that start spreading in humans - including the flu, covid, whooping cough and tuberculosis.",0,100
+1hsl46v,"new ultrasound tech could be used to 3d-print implants inside the body | in order to keep surgeries minimally invasive, it would be great if implants could be injected into the body in liquid form, then solidified once in place.",4,100
+1hsobi1,scientists extract gold from e-waste to transform co2 into valuable chemicals | the team’s innovation recovers gold from discarded electronics and uses it as a catalyst to transform co2 into useful organic materials.,2,100
+1ht66c2,"injected hydrogel becomes a bone-healing solid when exposed to light | cells from the adjacent bone tissue gradually migrate into such a material, where they proceed to reproduce as the material harmlessly biodegrades.",2,100
+1hte730,implants made of your blood could repair broken bone,0,100
+1htwmfg,"next-gen ev batteries could last decades, researchers show the potential of single-crystal electrode tech | the battery lifespan could be around 20,000 cycles or 8 million kilometers",0,100
+1hu7mov,liquid crystal glasses filter out epileptic-seizure-triggering light,1,100
+1huh4zy,"robots can now walk through muddy and slippery terrain, thanks to moose-like feet",2,100
 1huyvel,parkinson's disease may one day be treated with a shot of magnetic discs,1,100
-1hvg2gc,"drones with legs can walk, hop, and jump into the air",4,100
-1hvrnth,clever coating for medical devices stops clots by imitating a blood vessel,2,100
-1hwijft,"damaged coral reefs are getting a helping robotic hand | various groups are now growing baby corals for transplantation into the world's disappearing reefs, but they need a hand. a new robotic hand has been created to help, by carefully transferring the li'l corals between tanks as they grow up.",1,100
-1hwik5t,"electrochemical reactor grabs 97.5% of lithium from geothermal sources | lithium-ion batteries power everything from our vape pens to electric cars, but they have one glaring issue: they rely on lots of hard-to-harvest lithium.",1,100
-1hwkkof,a dash of gallium may make for stabler hip and knee implants,1,100
-1hxbyeb,australian scientists engineer ‘toxic male’ mosquitoes to combat deadly diseases | male mosquitoes are being genetically modified to produce spider and sea anemone venom.,4,100
-1hxc1se,scientists develop coldest-ever fridge for quantum computers for icy upgrades | this development increases the probability of a qubit being in its ground state before computation from 99.8-99.92% to 99.97%.,1,100
-1hxdbm7,genetic tweak weaponizes mosquito semen for population control,2,100
-1hy2kav,"prostate cancer is usually treated with surgery and radiation therapy, but these can have drastic side effects | a new clinical trial is exploring the safety and efficacy of killing the cancer cells with a blast of steam.",1,100
+1hvg2gc,"drones with legs can walk, hop, and jump into the air",1,100
+1hvrnth,clever coating for medical devices stops clots by imitating a blood vessel,1,100
+1hwijft,"damaged coral reefs are getting a helping robotic hand | various groups are now growing baby corals for transplantation into the world's disappearing reefs, but they need a hand. a new robotic hand has been created to help, by carefully transferring the li'l corals between tanks as they grow up.",4,100
+1hwik5t,"electrochemical reactor grabs 97.5% of lithium from geothermal sources | lithium-ion batteries power everything from our vape pens to electric cars, but they have one glaring issue: they rely on lots of hard-to-harvest lithium.",3,100
+1hwkkof,a dash of gallium may make for stabler hip and knee implants,3,100
+1hxbyeb,australian scientists engineer ‘toxic male’ mosquitoes to combat deadly diseases | male mosquitoes are being genetically modified to produce spider and sea anemone venom.,1,100
+1hxc1se,scientists develop coldest-ever fridge for quantum computers for icy upgrades | this development increases the probability of a qubit being in its ground state before computation from 99.8-99.92% to 99.97%.,2,100
+1hxdbm7,genetic tweak weaponizes mosquito semen for population control,1,100
+1hy2kav,"prostate cancer is usually treated with surgery and radiation therapy, but these can have drastic side effects | a new clinical trial is exploring the safety and efficacy of killing the cancer cells with a blast of steam.",0,100
 1hy4uyv,'thermochromorph' art changes with the temperature,1,100
-1hyvoqs,"grain-sized soft robot delivers multiple medications, guided by magnetic fields",1,100
-1hzcbqa,"smart stitches generate electricity on movement for faster healing | scientists in china have now turned that weakness into a strength, developing stitches that generate an electric charge when stretched and heal wounds faster.",2,100
-1i0dc54,"""functional cure"" for diabetes restores insulin production with stem cells | a patient with type 1 diabetes has been functionally cured of the disease. the treatment involves growing and transplanting new insulin-producing cells from the patient’s own stem cells.",1,100
-1i0dty2,new filter captures and recycles aluminum from manufacturing waste,1,100
-1i0x6yc,"ai unveils strange chip designs, while discovering new functionalities",2,100
-1i14jv5,under-skin implant dispenses naloxone to prevent opioid overdose deaths | the isos (implantable system for opioid safety) implant is being developed to automatically dispenses naloxone from within the body.,4,100
-1i16708,robotic sea turtle could soon be swimming in an ocean near you,3,100
-1i16cgi,japan debuts first general-purpose quantum computer made of light,4,100
-1i18b5h,donut lab's new motor brings power to the wheel hub | the finland-based company's in-wheel motor serves up 650 kilowatts of power,4,100
-1i19pvc,scientists invent sand-powered seismic device to reduce earthquake damage by 75% | university of sharjah professors patent an earthquake dissipation device that only needs sand to withstand seismic forces.,3,100
-1i1utnt,"we've never been closer to accurately assessing whether an individual is more susceptible to developing major depressive disorder due to their biology, with 293 newly identified gene variants found to play a role in ramping up the risk factor | that's 42% more than was previously known.",4,100
-1i1xkwd,world's first liquid hydrogen powered turbine engine,1,100
-1i2nfov,"mit’s robot bees break pollination records with 1,000-second hover, flips and more | the robot reaches 35 cm/s, performs flips, and traces paths like “m-i-t,” highlighting control and endurance advances.",1,100
-1i2pf46,woven city is a real-world test bed for tomorrow's tech,2,100
-1i2s4zm,device uses wind to create ammonia out of thin air | the process requires no external power to produce the green energy fuel,4,100
-1i3eoao,"brain-controlled bionic hand offers most advanced artificial touch yet | the new brain-computer interface device goes ""beyond anything that has been done before,"" the researchers claim.",0,100
-1i3f8ce,"21st-century chainmail uses molecular instead of metallic links | the ""highest density of mechanical bonds ever achieved,"" researchers created a flexible material that works like chainmail. the breakthrough has already demonstrated its ability to improve body armor.",4,100
-1i3synh,robots the size of rice grains aim to revolutionize brain surgery | far less invasive than traditional tools,4,100
-1i47blt,heart attack damage could be reversed by reactivating dormant gene,3,100
-1i4an2a,"fly-eyed glasses may help the visually impaired see well again | a clever new set of glasses may offer new hope to people with macular degeneration. by copying the structure of a fly's eyes, the specs are claimed to ""fill in"" the missing section of the wearer's view of the world.",4,100
-1i5qd5j,molten salt nuclear reactor in wyoming hits key milestone,2,100
+1hyvoqs,"grain-sized soft robot delivers multiple medications, guided by magnetic fields",4,100
+1hzcbqa,"smart stitches generate electricity on movement for faster healing | scientists in china have now turned that weakness into a strength, developing stitches that generate an electric charge when stretched and heal wounds faster.",0,100
+1i0dc54,"""functional cure"" for diabetes restores insulin production with stem cells | a patient with type 1 diabetes has been functionally cured of the disease. the treatment involves growing and transplanting new insulin-producing cells from the patient’s own stem cells.",3,100
+1i0dty2,new filter captures and recycles aluminum from manufacturing waste,4,100
+1i0x6yc,"ai unveils strange chip designs, while discovering new functionalities",0,100
+1i14jv5,under-skin implant dispenses naloxone to prevent opioid overdose deaths | the isos (implantable system for opioid safety) implant is being developed to automatically dispenses naloxone from within the body.,3,100
+1i16708,robotic sea turtle could soon be swimming in an ocean near you,4,100
+1i16cgi,japan debuts first general-purpose quantum computer made of light,0,100
+1i18b5h,donut lab's new motor brings power to the wheel hub | the finland-based company's in-wheel motor serves up 650 kilowatts of power,0,100
+1i19pvc,scientists invent sand-powered seismic device to reduce earthquake damage by 75% | university of sharjah professors patent an earthquake dissipation device that only needs sand to withstand seismic forces.,2,100
+1i1utnt,"we've never been closer to accurately assessing whether an individual is more susceptible to developing major depressive disorder due to their biology, with 293 newly identified gene variants found to play a role in ramping up the risk factor | that's 42% more than was previously known.",1,100
+1i1xkwd,world's first liquid hydrogen powered turbine engine,0,100
+1i2nfov,"mit’s robot bees break pollination records with 1,000-second hover, flips and more | the robot reaches 35 cm/s, performs flips, and traces paths like “m-i-t,” highlighting control and endurance advances.",2,100
+1i2pf46,woven city is a real-world test bed for tomorrow's tech,4,100
+1i2s4zm,device uses wind to create ammonia out of thin air | the process requires no external power to produce the green energy fuel,0,100
+1i3eoao,"brain-controlled bionic hand offers most advanced artificial touch yet | the new brain-computer interface device goes ""beyond anything that has been done before,"" the researchers claim.",2,100
+1i3f8ce,"21st-century chainmail uses molecular instead of metallic links | the ""highest density of mechanical bonds ever achieved,"" researchers created a flexible material that works like chainmail. the breakthrough has already demonstrated its ability to improve body armor.",0,100
+1i3synh,robots the size of rice grains aim to revolutionize brain surgery | far less invasive than traditional tools,2,100
+1i47blt,heart attack damage could be reversed by reactivating dormant gene,2,100
+1i4an2a,"fly-eyed glasses may help the visually impaired see well again | a clever new set of glasses may offer new hope to people with macular degeneration. by copying the structure of a fly's eyes, the specs are claimed to ""fill in"" the missing section of the wearer's view of the world.",3,100
+1i5qd5j,molten salt nuclear reactor in wyoming hits key milestone,3,100
 1i5z4jg,a solid electrolyte gives lithium-sulfur batteries ludicrous endurance | sulfur can store a lot more lithium but is problematically reactive in batteries.,2,100
-1i6h5lf,"robotic glove helps pianists boost finger speed and skill in just 30 minutes | the exoskeleton allowed each finger to move on its own, helping participants practice fast, complex finger movements they hadn’t tried before.",4,100
+1i6h5lf,"robotic glove helps pianists boost finger speed and skill in just 30 minutes | the exoskeleton allowed each finger to move on its own, helping participants practice fast, complex finger movements they hadn’t tried before.",1,100
 1i6hass,"plant-based breakthrough boosts water-based zinc batteries’ performance in cold | the breakthrough prevents freezing in water-based zinc electrolytes, improving battery efficiency in cold conditions.",0,100
-1i6iffn,new fuel withstands nuclear thermal propulsion reactor conditions,2,100
-1i6kuea,"world’s smallest biomedical robot could pave way for minimally invasive surgeries | at just 0.95 millimeters, it’s 60 percent smaller than any existing model.",2,100
-1i78leq,"researchers have discovered that proteins in the mollusk’s blood not only have bacteria-killing properties, raising the possibility of a new antibiotic, but also increase the effectiveness of some existing antibiotics.",4,100
-1i7agm7,"breakthrough plastic supercapacitor hits 70,000 charge cycles, offers 100x conductivity | “the advance could lead to supercapacitors that can meet some energy storage demands as the world transitions to renewable, sustainable energy production.”",4,100
-1i7bhqs,3d-printed battery made from fungi feeds on sugars,1,100
-1i82s0a,got milk? startup develops milk-based targeted drug-delivery technology,2,100
-1i83i21,"a new method to fabricate soft electronics via particle engulfment printing | the electronics industry is leading to the development of countless devices of different sizes and shapes, which are designed for a variety of applications.",1,100
-1i83twc,"china’s next-gen sexbots powered by ai about to hit the shelves | future models ‘react with both movements and speech, significantly enhancing user experience by focusing on emotional connection’",4,100
-1i86hjf,cern's particle accelerator tech is being reimagined to blast cancer in under a second | when accelerators start accelerating cancer cures,2,100
-1i8u0lp,"sneeze simulator shows spread of invisible bugs | a coughing, sneezing, 3d-printed model of the human nose and upper airway has provided researchers with a better understanding of how airborne infections are transmitted. the knowledge will aid in developing effective ways of reducing that spread.",1,100
-1i8uyax,"new ai picks up 97% of lung diseases, and can tell pneumonia from covid-19",1,100
-1i8vgor,"chinese artificial sun shatters world record with 1,066-second plasma confinement | a crucial milestone in fusion research",0,100
-1i9meu0,mit's zero-energy technique shows how to brew ammonia underground,3,100
+1i6iffn,new fuel withstands nuclear thermal propulsion reactor conditions,0,100
+1i6kuea,"world’s smallest biomedical robot could pave way for minimally invasive surgeries | at just 0.95 millimeters, it’s 60 percent smaller than any existing model.",0,100
+1i78leq,"researchers have discovered that proteins in the mollusk’s blood not only have bacteria-killing properties, raising the possibility of a new antibiotic, but also increase the effectiveness of some existing antibiotics.",2,100
+1i7agm7,"breakthrough plastic supercapacitor hits 70,000 charge cycles, offers 100x conductivity | “the advance could lead to supercapacitors that can meet some energy storage demands as the world transitions to renewable, sustainable energy production.”",3,100
+1i7bhqs,3d-printed battery made from fungi feeds on sugars,0,100
+1i82s0a,got milk? startup develops milk-based targeted drug-delivery technology,4,100
+1i83i21,"a new method to fabricate soft electronics via particle engulfment printing | the electronics industry is leading to the development of countless devices of different sizes and shapes, which are designed for a variety of applications.",3,100
+1i83twc,"china’s next-gen sexbots powered by ai about to hit the shelves | future models ‘react with both movements and speech, significantly enhancing user experience by focusing on emotional connection’",2,100
+1i86hjf,cern's particle accelerator tech is being reimagined to blast cancer in under a second | when accelerators start accelerating cancer cures,4,100
+1i8u0lp,"sneeze simulator shows spread of invisible bugs | a coughing, sneezing, 3d-printed model of the human nose and upper airway has provided researchers with a better understanding of how airborne infections are transmitted. the knowledge will aid in developing effective ways of reducing that spread.",2,100
+1i8uyax,"new ai picks up 97% of lung diseases, and can tell pneumonia from covid-19",4,100
+1i8vgor,"chinese artificial sun shatters world record with 1,066-second plasma confinement | a crucial milestone in fusion research",2,100
+1i9meu0,mit's zero-energy technique shows how to brew ammonia underground,1,100
 1iae9zs,balance-assessing rig is kind of like a mechanical bull for stroke patients,1,100
-1iahcvj,paralyzed man pilots a virtual drone – by thinking of moving his fingers | brain-computer interfaces may allow paralyzed people to perform basic actions such as eating and typing.,1,100
-1ib7brl,"lab-grown sperm, eggs may soon allow parents to customize their future children | hfea held a meeting last week and announced that scientists are close to growing human eggs and sperm in a lab.",1,100
-1ib7yvi,cancer protein discovery reveals new treatment target,3,100
-1ibcm17,"china sets new fusion endurance record of over a thousand seconds | the experimental advanced superconducting tokamak reactor in hefei, anhui province has set a new record with a 1,066-second sustained fusion reaction.",1,100
-1ibz9nq,breast cancer cure rates almost doubled in combo therapy trial | a phase 3 clinical trial has shown that adding a targeted immunotherapy drug to chemotherapy dramatically improved the cure rate for patients with the most common kind of breast cancer.,0,100
-1ic15gr,augmented vision helmet helps deep-sea divers work in the murk,0,100
-1ic7ir8,ai model simulates 500 million years of evolution to generate a new fluorescent protein,1,100
+1iahcvj,paralyzed man pilots a virtual drone – by thinking of moving his fingers | brain-computer interfaces may allow paralyzed people to perform basic actions such as eating and typing.,3,100
+1ib7brl,"lab-grown sperm, eggs may soon allow parents to customize their future children | hfea held a meeting last week and announced that scientists are close to growing human eggs and sperm in a lab.",3,100
+1ib7yvi,cancer protein discovery reveals new treatment target,0,100
+1ibcm17,"china sets new fusion endurance record of over a thousand seconds | the experimental advanced superconducting tokamak reactor in hefei, anhui province has set a new record with a 1,066-second sustained fusion reaction.",0,100
+1ibz9nq,breast cancer cure rates almost doubled in combo therapy trial | a phase 3 clinical trial has shown that adding a targeted immunotherapy drug to chemotherapy dramatically improved the cure rate for patients with the most common kind of breast cancer.,2,100
+1ic15gr,augmented vision helmet helps deep-sea divers work in the murk,1,100
+1ic7ir8,ai model simulates 500 million years of evolution to generate a new fluorescent protein,0,100
 1ichdti,"virus-based therapy shrinks tumors in skin cancer patients | tvec therapy shrinks tumors in basal cell carcinoma, simplifying surgeries and activating immune responses.",2,100
-1icsu6m,biomimetic hubless outboard motor brings smart hybrid power to boating,3,100
+1icsu6m,biomimetic hubless outboard motor brings smart hybrid power to boating,2,100
 1icsxaw,return of supersonic travel moves closer as privately developed aircraft breaks the sound barrier | a world first,4,100
-1icthb9,"urine-based cancer test accurate even without the uncomfortable bit | a new study has revealed that the now-available test remains just as accurate without it, paving the way from an easy in-home testing option.",4,100
-1id87kl,ai creates glowing protein that would've taken nature 500 million years to evolve | fast-forwarding evolution,0,100
-1idlyz3,scientists develop patch that can repair damaged hearts | cells taken from blood and ‘reprogrammed’ into heart muscle cells may help patients with heart failure,1,100
-1idmcce,'robot blood' powers soft-bodied jellyfish and worm robots,2,100
+1icthb9,"urine-based cancer test accurate even without the uncomfortable bit | a new study has revealed that the now-available test remains just as accurate without it, paving the way from an easy in-home testing option.",0,100
+1id87kl,ai creates glowing protein that would've taken nature 500 million years to evolve | fast-forwarding evolution,4,100
+1idlyz3,scientists develop patch that can repair damaged hearts | cells taken from blood and ‘reprogrammed’ into heart muscle cells may help patients with heart failure,0,100
+1idmcce,'robot blood' powers soft-bodied jellyfish and worm robots,0,100
 1ied9ez,"hyperelastic rubber soft robots mimic mantis shrimp-level punch, flea-like leaps | a flexible joint releases stored energy under compression, enabling strong, repetitive motions with a simple tendon-motor setup.",2,100
-1ieddnq,"hiv cure could be hiding in fda-approved drug | a new study, shows that the compound ebc-46 can reactivate dormant virus cells, allowing them to be targeted by immunotherapy. this is called a “kick and kill” strategy which could completely clear the virus from a patient.",1,100
-1iee2sm,‘fatty cartilage’ discovery set to revolutionize regenerative medicine,3,100
-1if5hqa,koenigsegg's new tourbillon trans is unlike anything you've ever seen,3,100
-1ifa48l,microsoft lets you use chatgpt’s priciest ai model for free,2,100
+1ieddnq,"hiv cure could be hiding in fda-approved drug | a new study, shows that the compound ebc-46 can reactivate dormant virus cells, allowing them to be targeted by immunotherapy. this is called a “kick and kill” strategy which could completely clear the virus from a patient.",0,100
+1iee2sm,‘fatty cartilage’ discovery set to revolutionize regenerative medicine,1,100
+1if5hqa,koenigsegg's new tourbillon trans is unlike anything you've ever seen,2,100
+1ifa48l,microsoft lets you use chatgpt’s priciest ai model for free,0,100
 1ifa98g,ai designed computer chips that the human mind can't understand.,0,100
 1ifbavd,"lightsail propulsion could enable interstellar travel at speeds never before imagined | the breakthrough starshot initiative — backed by theoretical physicist stephen hawking and scientist yuri milner — aims to send miniature spacecraft to alpha centauri, our nearest star system.",3,100
 1ifbpqk,"with generative ai, mit chemists quickly calculate 3d genomic structures | a new approach, which takes minutes rather than days, predicts how a specific dna sequence will arrange itself in the cell nucleus.",2,100
-1ifbrs3,"to help ais understand the world, researchers put them in a robot",1,100
-1ifjckb,"artificial gills unlock long-range underwater robots | what's good for fish may be good for robots, too, as researchers from the helmholtz-zentrum hereon have developed an artificial gill that can extract oxygen from seawater to run fuel cells to power robotic sea gliders on long missions.",4,100
-1ifwso4,"""injectable bone"" gel may be a radically better treatment for osteoporosis",0,100
-1ifxpr4,world's only 12 rotor turbo y-config rotary engine could make 5k hp,3,100
-1ig488v,"researchers used ai to build nanomaterials lighter and stronger than titanium | ""this can ultimately help reduce the high carbon footprint of flying""",4,100
-1igomet,sweat sensors track health in real-time with printed nanoparticle ink | caltech just manufactured a wearable sweat sensor that “inkjet prints” biomarkers to better monitor the human body.,4,100
-1igp32i,groovy gecko toes may bring us ice-slip-proof shoes,1,100
-1ihf59h,smart fabric generates heat from sunlight to keep you warm in freezing temperatures | the fabric changes color as it heats up,4,100
-1ihge46,us scientists spot new class of quantum particles in world-first breakthrough | this new class of quantum particles could help improve quantum computers.,1,100
-1ihie3r,how to grow a laser on silicon | imec researchers overcome material mismatches to make lasers directly on silicon wafers,3,100
-1ii7h2v,preventing immune system burnout when fighting chronic illness & cancer | scientists have uncovered a mechanism for reinvigorating the immune system to stop it from flagging when it’s fighting long-term conditions like chronic infections and cancer.,4,100
-1ii8s80,"self-healing asphalt could prevent potholes and save costs on vehicle repairs | by embedding tiny plant spores filled with recycled oils into asphalt, scientists have created a material that can mend its own cracks.",1,100
-1ii9dtf,"us approves ""milestone"" parkinson's treatment for 2025 release | americans will soon have access to an infusion treatment that provides round-the-clock relief of parkinson's symptoms.",3,100
-1iizulb,"robodogs tackle bomb detection, defusing and disposal | the british ministry of defence's answer is using the mechanical mutts to make detecting and defusing bombs safer and more efficient.",1,100
-1iizvqx,scientists devise 'living' electrodes that could vastly improve traditional silicon electronics | electronic signals can be dynamically adjusted by heating and cooling metamaterial,2,100
-1ij0nt1,"for the first time, scientists have been able to produce kangaroo embryos through in-vitro fertilization (ivf) | an important milestone in being able to replicate this across hundreds of species of pouch-toting marsupials under ever-increasing threat of extinction.",4,100
-1ij2wyi,huge strides made in eradicating food poisoning and stomach flu symptoms,1,100
-1ijscwa,'ionic wind' vortex ring launchers extinguish fires cleanly and safely | engineers at ohio state university have now developed handheld tools that cleanly extinguish fires with 'ionic wind’ and vortex rings.,2,100
-1iju19f,water-spraying tower is a mobile forest-fire-fighting sprinkler system,1,100
-1ikmrvp,origami-inspired floor design cuts concrete and steel use by half,1,100
-1ikykil,"wound dressing uses tiny flowers to go big on killing bacteria | scientists create a material that kills multiple types of harmful bacteria, and it does so using tiny flowers.",1,100
-1ilcol0,"bacteria make a meal of toxic pfas 'forever chemicals' | scientists have identified a bacterium that can eat these chemicals, as well as their byproducts.",1,100
-1ilctif,"braille for sports: haptic handheld broadcasts games to your fingertips | catches, kicks, throws, passes, goals, touchdowns and home runs will all be buzzed to the user through different vibration patterns.",4,100
-1ilduf0,gut bacteria may be the key to much more effective vitiligo treatment,4,100
+1ifbrs3,"to help ais understand the world, researchers put them in a robot",0,100
+1ifjckb,"artificial gills unlock long-range underwater robots | what's good for fish may be good for robots, too, as researchers from the helmholtz-zentrum hereon have developed an artificial gill that can extract oxygen from seawater to run fuel cells to power robotic sea gliders on long missions.",0,100
+1ifwso4,"""injectable bone"" gel may be a radically better treatment for osteoporosis",1,100
+1ifxpr4,world's only 12 rotor turbo y-config rotary engine could make 5k hp,0,100
+1ig488v,"researchers used ai to build nanomaterials lighter and stronger than titanium | ""this can ultimately help reduce the high carbon footprint of flying""",0,100
+1igomet,sweat sensors track health in real-time with printed nanoparticle ink | caltech just manufactured a wearable sweat sensor that “inkjet prints” biomarkers to better monitor the human body.,2,100
+1igp32i,groovy gecko toes may bring us ice-slip-proof shoes,3,100
+1ihf59h,smart fabric generates heat from sunlight to keep you warm in freezing temperatures | the fabric changes color as it heats up,2,100
+1ihge46,us scientists spot new class of quantum particles in world-first breakthrough | this new class of quantum particles could help improve quantum computers.,0,100
+1ihie3r,how to grow a laser on silicon | imec researchers overcome material mismatches to make lasers directly on silicon wafers,4,100
+1ii7h2v,preventing immune system burnout when fighting chronic illness & cancer | scientists have uncovered a mechanism for reinvigorating the immune system to stop it from flagging when it’s fighting long-term conditions like chronic infections and cancer.,0,100
+1ii8s80,"self-healing asphalt could prevent potholes and save costs on vehicle repairs | by embedding tiny plant spores filled with recycled oils into asphalt, scientists have created a material that can mend its own cracks.",4,100
+1ii9dtf,"us approves ""milestone"" parkinson's treatment for 2025 release | americans will soon have access to an infusion treatment that provides round-the-clock relief of parkinson's symptoms.",4,100
+1iizulb,"robodogs tackle bomb detection, defusing and disposal | the british ministry of defence's answer is using the mechanical mutts to make detecting and defusing bombs safer and more efficient.",2,100
+1iizvqx,scientists devise 'living' electrodes that could vastly improve traditional silicon electronics | electronic signals can be dynamically adjusted by heating and cooling metamaterial,4,100
+1ij0nt1,"for the first time, scientists have been able to produce kangaroo embryos through in-vitro fertilization (ivf) | an important milestone in being able to replicate this across hundreds of species of pouch-toting marsupials under ever-increasing threat of extinction.",2,100
+1ij2wyi,huge strides made in eradicating food poisoning and stomach flu symptoms,2,100
+1ijscwa,'ionic wind' vortex ring launchers extinguish fires cleanly and safely | engineers at ohio state university have now developed handheld tools that cleanly extinguish fires with 'ionic wind’ and vortex rings.,1,100
+1iju19f,water-spraying tower is a mobile forest-fire-fighting sprinkler system,2,100
+1ikmrvp,origami-inspired floor design cuts concrete and steel use by half,2,100
+1ikykil,"wound dressing uses tiny flowers to go big on killing bacteria | scientists create a material that kills multiple types of harmful bacteria, and it does so using tiny flowers.",0,100
+1ilcol0,"bacteria make a meal of toxic pfas 'forever chemicals' | scientists have identified a bacterium that can eat these chemicals, as well as their byproducts.",2,100
+1ilctif,"braille for sports: haptic handheld broadcasts games to your fingertips | catches, kicks, throws, passes, goals, touchdowns and home runs will all be buzzed to the user through different vibration patterns.",1,100
+1ilduf0,gut bacteria may be the key to much more effective vitiligo treatment,1,100
 1im2n0v,steering electricity through the air with ultrasound pulses | scientists in europe and canada have now managed to guide sparks through thin air and even around obstacles using ultrasound waves.,4,100
-1im4x9i,existing cardiac drug helps keep cancer from spreading | an existing cardiac drug (digoxin) has now been found to reduce the risk of metastasis by dissolving circulating clusters of breast cancer cells in patients.,4,100
-1imgnqu,scientist worked out how to transfer data between two machines using quantum teleportation | breakthrough is a first step in building a quantum network,2,100
-1imx7dw,physicists enable qubits to chat in light at room temperature in a quantum leap | the researchers used an electro-optic transducer to disconnect qubits from electric infrastructure that extensive and expensive to build.,4,100
-1imy4am,gold outperforms ozempic for weight loss – and leaves muscles alone,2,100
-1in1ce5,supersonic passenger jet prototype surpasses mach 1 | the overture could be the first commercial supersonic plane since the concorde,0,100
+1im4x9i,existing cardiac drug helps keep cancer from spreading | an existing cardiac drug (digoxin) has now been found to reduce the risk of metastasis by dissolving circulating clusters of breast cancer cells in patients.,2,100
+1imgnqu,scientist worked out how to transfer data between two machines using quantum teleportation | breakthrough is a first step in building a quantum network,0,100
+1imx7dw,physicists enable qubits to chat in light at room temperature in a quantum leap | the researchers used an electro-optic transducer to disconnect qubits from electric infrastructure that extensive and expensive to build.,2,100
+1imy4am,gold outperforms ozempic for weight loss – and leaves muscles alone,1,100
+1in1ce5,supersonic passenger jet prototype surpasses mach 1 | the overture could be the first commercial supersonic plane since the concorde,4,100
 1in1gr2,meta unveils ai models that convert brain activity into text with unmatched accuracy,2,100
-1inpk6q,"hyrdogel soaks up cosmic rays to protect space travelers | in the future, it might also be used to shield astronauts from the hazard of deadly cosmic radiation on long space voyages.",4,100
-1iohwmv,researchers find cancer's 'off-grid' power supply – and how to cut it | researchers have discovered a particular type of cancer cell that relies on its own biological electric utility. disrupting the utility with the help of a puffer fish – showed a breakthrough way to fight the tumors.,4,100
-1iojx4y,"breakthrough brings fiber optics to quantum computing, improving efficiency and reducing heat generation | it promises much better cooling",4,100
-1ip892a,muscle tissue meets mechanics in biohybrid hand breakthrough | combining lab-grown muscle tissue with a series of flexible mechanical joints has led to the development of an artificial hand that can grip and make gestures.,0,100
-1ipa6h2,modified fish and flies could pull pollution out of the environment,1,100
-1ipz7tn,"alzheimer's biomarkers now visible up to a decade ahead of symptoms | researchers have devised a biomarker test that can spot small amounts of clumping tau protein in the brain and cerebrospinal fluid, which lead to alzheimer's disease.",4,100
-1ipzsq4,"decommissioned wind turbine blades recycled into asphalt for new roads | as much as wind turbines are great for producing clean energy, disposing of them when the time comes can be challenging. researchers in china have hit upon a clever way to use discarded blades to build long-lasting roads.",4,100
-1iq0ypn,polaris hybrid-electric seaplane boasts 85% better fuel efficiency,3,100
-1iqiqr4,how self-healing e-skin is transforming health technology | self-healing electronic skin could potentially transform the landscape of personal health monitoring.,4,100
+1inpk6q,"hyrdogel soaks up cosmic rays to protect space travelers | in the future, it might also be used to shield astronauts from the hazard of deadly cosmic radiation on long space voyages.",1,100
+1iohwmv,researchers find cancer's 'off-grid' power supply – and how to cut it | researchers have discovered a particular type of cancer cell that relies on its own biological electric utility. disrupting the utility with the help of a puffer fish – showed a breakthrough way to fight the tumors.,0,100
+1iojx4y,"breakthrough brings fiber optics to quantum computing, improving efficiency and reducing heat generation | it promises much better cooling",0,100
+1ip892a,muscle tissue meets mechanics in biohybrid hand breakthrough | combining lab-grown muscle tissue with a series of flexible mechanical joints has led to the development of an artificial hand that can grip and make gestures.,3,100
+1ipa6h2,modified fish and flies could pull pollution out of the environment,2,100
+1ipz7tn,"alzheimer's biomarkers now visible up to a decade ahead of symptoms | researchers have devised a biomarker test that can spot small amounts of clumping tau protein in the brain and cerebrospinal fluid, which lead to alzheimer's disease.",2,100
+1ipzsq4,"decommissioned wind turbine blades recycled into asphalt for new roads | as much as wind turbines are great for producing clean energy, disposing of them when the time comes can be challenging. researchers in china have hit upon a clever way to use discarded blades to build long-lasting roads.",0,100
+1iq0ypn,polaris hybrid-electric seaplane boasts 85% better fuel efficiency,2,100
+1iqiqr4,how self-healing e-skin is transforming health technology | self-healing electronic skin could potentially transform the landscape of personal health monitoring.,3,100
+1iqryaj,pivot bio is using microbial nitrogen to make agriculture more sustainable,0,100
+1iqsde2,robots are bringing new life to extinct species. the field of paleo-inspired robotics is opening up a new way to turn back time and studying prehistoric animals.,0,100
+1iqvro0,neurons that tell you to stop eating could unlock obesity treatments | researchers have identified the specific neurons in mice brains that tell them they've eaten enough. this discovery could play a big role in the future of weight loss treatments for humans.,3,100
+1iqzjwu,scientists use crystals to cram terabytes of data into millimeter-sized memory | crystal defects create ultra-dense memory,0,100
+1irlabr,"ai used to design a multi-step enzyme that can digest some plastics. enzyme mechanisms can be complex, and getting them to work is tricky.",4,100
+1irv6f1,"ai reveals hidden interior design rules of the cell -- a new tool predicts where proteins fit, opening new frontiers in drug discovery",0,100
+1isaynp,us navy uses ai to train laser weapons against drones | the us navy is helping to eliminate the need for a human operator to counter drone swarm attacks.,0,100
+1isb15a,swiss scientists unveil ‘gene switch’ patch to start cell therapy for diabetes | the eth zurich team states that this cell therapy has the potential to offer a more precise and personalized treatment for diabetes.,4,100
+1iscrfi,mit engineers develop a fully 3d-printed electrospray engine,1,100
+1iseuy1,mit engineers use mussels secretions and mucus to make infection-preventing glue,0,100
+1isevm3,scientists created the lightest and strongest nanomaterial ever,3,100
+1isrubm,hand-worn sensor helps stop nocturnal scratching – without waking its user,2,100
+1isvndu,"couples exchange bacteria during intercourse, known as the ‘sexome.’ it might help track down sexual assault perpetrators | in a study of 12 heterosexual couples, researchers noted the presence of a partner’s genital bacteria after sex, even when the pair used a condom",2,100
+1itdp6r,"microsoft unveils chip it says could bring quantum computing within years | chip is powered by world’s first topoconductor, which can create new state of matter that is not solid, liquid or gas",0,100
+1iteyw0,france runs fusion reactor for record 22 minutes,3,100
+1itxawp,scientists unlock vital clue to strange quirk of static electricity | formation of a triboelectric series depends on the number of contacts over time between materials.,2,100
+1itzu9x,"robot, take the wheel? here's what you need to know about driverless cars rolling out across the u.s.",2,100
+1iu54bb,ai cracks superbug problem in two days that took scientists years,4,100
+1iu5a3q,biggest-ever ai biology model writes dna on demand | an artificial-intelligence network trained on a vast trove of sequence data is a step towards designing completely new genomes.,2,100
+1iuo774,"infant's genetic muscle disorder improved by treating pregnant mother | case study demonstrates a simple new treatment, with a child showing no signs at all two and a half years after birth.",1,100
+1iuqcf9,floating nuclear power plants to be mass produced for us coastline,0,100
+1iuvyld,microsoft’s new ai agent can control software and robots | magma could enable ai agents to take multistep actions in the real and digital worlds.,0,100
+1iuwaej,figure’s humanoid robot takes voice orders to help around the house,0,100
+1iv7jbv,ai designs an ultralight carbon nanomaterial that's as strong as steel,3,100
+1ivf4s6,"inspired by the humble bee, robotics researchers at mit have designed insect-sized aerial bots with a reimagined wing system that can fly for up to 1,000 seconds | 100 times more than any similar bots we've seen in the past.",4,100
+1ivnur9,"chip-based system for terahertz waves could enable more efficient, sensitive electronics",0,100
+1ivypvb,"robot with 1,000 muscles twitches like human while dangling from ceiling. a new humanoid robot prototype uses fluid-filled muscles to kick its legs while hanging.",0,100
+1ivz1sm,a new microsoft chip could lead to more stable quantum computers,0,100
+1iw8gok,"drilling the deepest hole in history: unlocking geothermal energy | unlocking clean, virtually limitless, supercritical geothermal energy that can re-power fossil-fueled power plants all over the world.",2,100
+1iwac30,pac-mann diagnoses early-stage pancreatic cancer with 85% accuracy,4,100
+1iwzemh,"transplanting insulin-producing cells along with engineered blood-vessel-forming cells has successfully reversed type 1 diabetes, according to a new preclinical study | with further testing, the novel approach could one day cure the as-yet incurable condition.",3,100
+1ix11dl,flatworm-inspired aquatic robot swims by doing the shimmy,2,100
+1ix4n25,"brain stimulation could treat anxiety in people with parkinson’s, scientists say | researchers aim to develop new techniques to relieve symptoms after finding ‘strong’ link to brain wave",0,100
+1ix7pvz,scientists attach insect antennae to drones for smell-based navigation,2,100
+1ixsd8m,bird flu breakthrough is good news for humans  | new findings about the genetic makeup of the virus and one particular immune cell that all of us have. it also paves the way for fast-tracking the first h5n1 vaccine.,0,100
+1ixvdga,tiny glass fertilizer beads could keep nutrients in the soil and out of the water,0,100
+1iy54rx,humanoid robots can swiftly get up after they fall with new learning framework,3,100
+1iy5v4u,robotic acrobatics: chinese start-up impresses with world’s first frontflip by a robot,0,100
+1iymd4k,"paper battery could take over for lithium-ion ... in evs and beyond | using a chemistry of renewables to store over 220 w/kg, capable of replacing lithium for applications like ev power and grid storage.",0,100
+1iymy9m,electric propulsion magnets ready for space tests. new zealand researchers aim to combine plasma thrusters and superconducting magnets.,2,100
+1iymys8,paper battery could take over for lithium-ion ... in evs and beyond,0,100
+1iyo3wg,scientists just created shape-shifting robots that flow like liquid and harden like steel | researchers have designed a robotic material that transforms like a living organism.,0,100
+1iywg1s,apptronik’s humanoid robots take the first steps toward building themselves,0,100
+1izcbte,"mussels and mucus team up for surgical glue that repels infections | scientists have now created a new adhesive that combines the stickiness of mussel’s natural glue with the slimy, germ-repelling nature of mucus.",2,100
+1ize6k9,can electro-agriculture revolutionize the way we grow food? | a new technology is pushing the boundaries of farming by using electricity to grow crops without photosynthesis,0,100
+1izf8ld,self-healing asphalt uses plant spores to keep potholes from forming,4,100
+1j075ak,sky sphere uses portable emissiles to knock out small drones,2,100
+1j0812s,figure's humanoid robots will take on your household chores this year,2,100
+1j09ih4,will neutrons compromise the operation of superconducting magnets in a fusion plant?,1,100
+1j0dbeb,"like babies and dancers, this robot learns from studying itself",3,100
+1j0ddmc,morphing robot turns challenging terrain to its advantage,2,100
+1j0ny9l,type 1 diabetes reversed by new cell transplantation technique,3,100
+1j0q0dz,ingenious device turns your car’s exhaust heat into electricity,0,100
+1j0wl4e,today's discarded clothing could end up in tomorrow's stronger paper,2,100
+1j1e96m,gene therapy surgery restores some vision to legally blind children | all 11 children in the clinical trial saw improvements within weeks of a single surgical treatment.,1,100
+1j1oypz,"better-glass breakthrough achieved using just sound and salt | the brand-new method may lead to glass made without the use of harsh chemicals for self-cleaning windshields, germ-busting surfaces, or maybe even better beer.",0,100
+1j1yiq8,"low-cost method transforms ordinary rocks into carbon dioxide storage | it's not exactly the fastest way to hoover up co2, but the team believes it could be a relatively inexpensive affair, and can easily scale to help sort our emissions problem worldwide.",3,100
+1j2elp8,"world's first ""synthetic biological intelligence"" runs on living human cells | the cl1, offers a whole new kind of computing intelligence",0,100
+1j2ik5n,"tiny chip enables cable-free, fast internet access via beams of light | delivering internet connectivity in remote areas with traffic-light-sized transmitters that communicate over long distances using beams of light. the tech has now been reduced down to a fingernail-sized chip.",4,100
+1j2ndas,"type 2 diabetes: new plant-based pill shows promise in human trials | the researchers found that in addition to reducing liver fat content, htd1801 significantly improved blood glucose control.",3,100
+1j385xq,image of prototype xb-1 caught breaking the sound barrier,1,100
+1j3a63q,scientists develop battery that converts nuclear energy into electricity via light emission,0,100
+1j41cvl,"solar film you can stick anywhere to generate energy is nearly here | since 2012, uk-based power roll is one step closer to manufacturing its lightweight film, with a new design for its perovskite solar cells that should drop production costs.",0,100
+1j41dkk,converting co2 into fuel with the help of battery waste | a nanocatalyst based on spent batteries and aluminium foil residues can turn co2 into valuable methane.,0,100
+1j41j9d,"pigs, rabbits get 3d-printed penis to restore erectile function in a ‘world-first’ | the penile implants enabled the rabbits and pigs to mate and reproduce biologically within weeks after the surgery.",1,100
+1j420ke,"world's first ""synthetic biological intelligence"" runs on living human cells",0,100
+1j4bkw0,"eerily realistic ai voice demo sparks amazement and discomfort online | sesame's new ai voice model features uncanny imperfections, and it's willing to act like an angry boss.",2,100
+1j4tilx,"alzheimer's could be treated by enhancing the brain's own immune cells | researchers leveraging a technique called spatial transcriptomics, the method of examining tissue helped pinpoint the specific spatial location of gene activity inside a sample.",2,100
+1j4tn3b,this mri can run on batteries | axana is a portable mri that could give stroke patients a head start for treatment,4,100
+1j5lqs3,"researchers create gel that can self-heal like human skin | the hydrogel has a unique structure, making it the first to combine strength and flexibility with self-healing capabilities.",0,100
+1j5r7jz,"gene-edited non-browning banana could cut food waste, scientists say | fruit variety developed in norwich remains fresh for up to 12 hours after being peeled",3,100
+1j5rtsg,palantir is delivering ai-laden trucks to the army,1,100
+1j6f4x0,"sea sponges inspire super strong material for more durable buildings | the team studied how the double lattice structure – seen in the skeleton of a sponge demonstrated not only impressive strength, but also auextic behavior – the ability to contract when compressed.",2,100
+1j6f73h,prosthetic hand knows exactly how hard it can safely squeeze stuff | researchers have come up with a better prosthetic hand that uses a hybrid design and a complex sensor system to carefully grip various objects with just the right amount of pressure.,3,100
+1j6hb9n,prosthetic hand knows exactly how hard it can safely squeeze stuff,1,100
