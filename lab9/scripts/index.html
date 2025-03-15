@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chatbot Interface</title>
+</head>
+<body>
+    <h1>PDF Chatbot Interface</h1>
+    
+    <h2>Upload PDFs</h2>
+    <input type="file" id="pdf-upload" multiple accept="application/pdf">
+    <button onclick="uploadPDFs()">Upload</button>
+
+    <h2>Ask a Question</h2>
+    <input type="text" id="user-input" placeholder="Ask a question...">
+    <button onclick="sendMessage()">Send</button>
+
+    <div id="chat-history"></div>
+
+    <script>
+        async function uploadPDFs() {
+            const input = document.getElementById('pdf-upload');
+            const files = input.files;
+            const formData = new FormData();
+            for (const file of files) {
+                formData.append('pdfs', file);
+            }
+
+            const response = await fetch('/upload_pdfs', {
+                method: 'POST',
+                body: formData
+            });
+            const result = await response.json();
+            alert(result.message);
+        }
+
+        async function sendMessage() {
+            const userInput = document.getElementById('user-input').value;
+            const chatHistory = document.getElementById('chat-history');
+
+            const response = await fetch('/chat', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ message: userInput })
+            });
+
+            const data = await response.json();
+            chatHistory.innerHTML += `<p>User: ${userInput}</p>`;
+            chatHistory.innerHTML += `<p>Bot: ${data.reply}</p>`;
+        }
+    </script>
+</body>
+</html>
