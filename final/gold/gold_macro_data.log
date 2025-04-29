@@ -1,0 +1,11 @@
+2025-04-26 14:59:44,265 - GoldMacroDataCollector - INFO - 黄金市场宏观数据收集器已初始化
+2025-04-26 14:59:44,266 - GoldMacroDataCollector - INFO - 开始收集宏观经济数据...
+2025-04-26 14:59:44,342 - GoldMacroDataCollector - INFO - 美元指数数据已保存到 gold_macro_data/dollar_index_2025-04-26_14-59-44.csv
+2025-04-26 14:59:44,750 - GoldMacroDataCollector - INFO - 实际利率数据已保存到 gold_macro_data/real_interest_rate_2025-04-26_14-59-44.csv
+2025-04-26 14:59:44,871 - GoldMacroDataCollector - INFO - CPI数据已保存到 gold_macro_data/cpi_2025-04-26_14-59-44.csv
+2025-04-26 14:59:44,959 - GoldMacroDataCollector - INFO - PCE数据已保存到 gold_macro_data/pce_2025-04-26_14-59-44.csv
+2025-04-26 14:59:45,101 - GoldMacroDataCollector - INFO - 核心PCE数据已保存到 gold_macro_data/core_pce_2025-04-26_14-59-45.csv
+2025-04-26 14:59:45,197 - GoldMacroDataCollector - INFO - 联邦基金利率数据已保存到 gold_macro_data/fed_funds_rate_2025-04-26_14-59-45.csv
+2025-04-26 14:59:45,296 - GoldMacroDataCollector - INFO - 美联储资产负债表数据已保存到 gold_macro_data/fed_assets_2025-04-26_14-59-45.csv
+2025-04-26 14:59:45,320 - GoldMacroDataCollector - INFO - 综合宏观数据已保存到 gold_macro_data/combined_macro_data_2025-04-26_14-59-45.csv
+2025-04-26 14:59:45,320 - GoldMacroDataCollector - INFO - 宏观经济数据收集完成

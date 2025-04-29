@@ -1,0 +1,47 @@
+2025-04-26 14:39:00,927 - GoldDataModule - INFO - History data file not found, will create new file
+2025-04-26 14:39:00,929 - GoldDataModule - INFO - Gold data collector initialized
+2025-04-26 14:39:00,930 - GoldDataModule - INFO - Getting historical data for GC=F from 2024-04-25 to 2025-04-25
+2025-04-26 14:39:01,052 - GoldDataModule - INFO - Historical data saved to gold_futures_daily_1y.csv with 252 records
+2025-04-26 14:39:01,052 - GoldDataModule - INFO - Getting 1y_daily data for GLD
+2025-04-26 14:39:01,052 - GoldDataModule - INFO - Getting historical data for GLD from 2024-04-26 to 2025-04-26
+2025-04-26 14:39:01,178 - GoldDataModule - INFO - Historical data saved to gold_etf_data/gold_GLD_1y_daily.csv with 250 records
+2025-04-26 14:39:01,178 - GoldDataModule - INFO - Getting 5y_weekly data for GLD
+2025-04-26 14:39:01,178 - GoldDataModule - INFO - Getting historical data for GLD from 2020-04-27 to 2025-04-26
+2025-04-26 14:39:01,239 - GoldDataModule - INFO - Historical data saved to gold_etf_data/gold_GLD_5y_weekly.csv with 262 records
+2025-04-26 14:39:01,239 - GoldDataModule - INFO - Getting 10y_monthly data for GLD
+2025-04-26 14:39:01,239 - GoldDataModule - INFO - Getting historical data for GLD from 2015-04-29 to 2025-04-26
+2025-04-26 14:39:01,358 - GoldDataModule - INFO - Historical data saved to gold_etf_data/gold_GLD_10y_monthly.csv with 121 records
+2025-04-26 14:39:01,359 - GoldDataModule - INFO - Getting 1-year daily data for GC=F (Gold Futures)
+2025-04-26 14:39:01,359 - GoldDataModule - INFO - Getting historical data for GC=F from 2024-04-26 to 2025-04-26
+2025-04-26 14:39:01,445 - GoldDataModule - INFO - Historical data saved to gold_market_data/GC=F_daily_1y.csv with 251 records
+2025-04-26 14:39:01,446 - GoldDataModule - INFO - Getting 1-year daily data for GLD (SPDR Gold Trust ETF)
+2025-04-26 14:39:01,446 - GoldDataModule - INFO - Getting historical data for GLD from 2024-04-26 to 2025-04-26
+2025-04-26 14:39:01,746 - GoldDataModule - INFO - Historical data saved to gold_market_data/GLD_daily_1y.csv with 250 records
+2025-04-26 14:39:01,747 - GoldDataModule - INFO - Getting 1-year daily data for IAU (iShares Gold Trust)
+2025-04-26 14:39:01,747 - GoldDataModule - INFO - Getting historical data for IAU from 2024-04-26 to 2025-04-26
+2025-04-26 14:39:01,851 - GoldDataModule - INFO - Historical data saved to gold_market_data/IAU_daily_1y.csv with 250 records
+2025-04-26 14:39:01,852 - GoldDataModule - INFO - Getting 1-year daily data for SGOL (Aberdeen Standard Physical Gold Shares ETF)
+2025-04-26 14:39:01,852 - GoldDataModule - INFO - Getting historical data for SGOL from 2024-04-26 to 2025-04-26
+2025-04-26 14:39:01,979 - GoldDataModule - INFO - Historical data saved to gold_market_data/SGOL_daily_1y.csv with 250 records
+2025-04-26 14:39:01,980 - GoldDataModule - INFO - Getting 1-year daily data for DGP (DB Gold Double Long ETN)
+2025-04-26 14:39:01,980 - GoldDataModule - INFO - Getting historical data for DGP from 2024-04-26 to 2025-04-26
+2025-04-26 14:39:02,595 - GoldDataModule - INFO - Historical data saved to gold_market_data/DGP_daily_1y.csv with 250 records
+2025-04-26 14:39:02,596 - GoldDataModule - INFO - Getting 1-year daily data for GDX (VanEck Gold Miners ETF)
+2025-04-26 14:39:02,596 - GoldDataModule - INFO - Getting historical data for GDX from 2024-04-26 to 2025-04-26
+2025-04-26 14:39:02,673 - GoldDataModule - INFO - Historical data saved to gold_market_data/GDX_daily_1y.csv with 250 records
+2025-04-26 14:39:02,673 - GoldDataModule - INFO - Getting 1-year daily data for GDXJ (VanEck Junior Gold Miners ETF)
+2025-04-26 14:39:02,673 - GoldDataModule - INFO - Getting historical data for GDXJ from 2024-04-26 to 2025-04-26
+2025-04-26 14:39:02,748 - GoldDataModule - INFO - Historical data saved to gold_market_data/GDXJ_daily_1y.csv with 250 records
+2025-04-26 14:39:02,748 - GoldDataModule - INFO - Getting historical data for GC=F
+2025-04-26 14:39:02,748 - GoldDataModule - INFO - Getting historical data for GC=F from 2020-04-25 to 2025-04-25
+2025-04-26 14:39:03,002 - GoldDataModule - INFO - Historical data saved to temp_GC_F.csv with 1258 records
+2025-04-26 14:39:03,002 - GoldDataModule - INFO - Getting historical data for GLD
+2025-04-26 14:39:03,002 - GoldDataModule - INFO - Getting historical data for GLD from 2020-04-25 to 2025-04-25
+2025-04-26 14:39:03,100 - GoldDataModule - INFO - Historical data saved to temp_GLD.csv with 1256 records
+2025-04-26 14:39:03,101 - GoldDataModule - INFO - Getting historical data for DX-Y.NYB
+2025-04-26 14:39:03,101 - GoldDataModule - INFO - Getting historical data for DX-Y.NYB from 2020-04-25 to 2025-04-25
+2025-04-26 14:39:03,303 - GoldDataModule - INFO - Historical data saved to temp_DX_Y_NYB.csv with 1258 records
+2025-04-26 14:39:03,304 - GoldDataModule - INFO - Getting historical data for XAUUSD=X
+2025-04-26 14:39:03,304 - GoldDataModule - INFO - Getting historical data for XAUUSD=X from 2020-04-25 to 2025-04-25
+2025-04-26 14:39:03,377 - GoldDataModule - ERROR - Error getting historical data: {'chart': {'result': None, 'error': {'code': 'Not Found', 'description': 'No data found, symbol may be delisted'}}}
+2025-04-26 14:39:03,422 - GoldDataModule - INFO - Consolidated historical data saved to gold_market_analysis_dataset.csv with 1522 records

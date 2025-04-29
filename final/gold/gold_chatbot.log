@@ -1,0 +1,25 @@
+2025-04-26 16:09:25,975 - GoldChatBot - INFO - Initializing Gold Data Loader with data directory: gold_data_unified
+2025-04-26 16:09:26,119 - GoldChatBot - INFO - GPT-4o Gold Advisor initialized
+2025-04-26 16:09:26,119 - GoldChatBot - INFO - Loading all gold data...
+2025-04-26 16:09:26,200 - GoldChatBot - INFO - Loaded exact file: gold_data_unified/gold_integrated_dataset.csv
+2025-04-26 16:09:26,364 - GoldChatBot - INFO - Loaded exact file: gold_data_unified/GC=F_1d_data.csv
+2025-04-26 16:09:26,696 - GoldChatBot - INFO - Loaded exact file: gold_data_unified/GLD_1d_data.csv
+2025-04-26 16:09:27,109 - GoldChatBot - INFO - Loaded latest file: gold_data_unified/macro_dollar_index_2025-04-26_15-52-35.csv
+2025-04-26 16:09:27,180 - GoldChatBot - INFO - Loaded exact file: gold_data_unified/fear_greed_cumulative.csv
+2025-04-26 16:09:27,290 - GoldChatBot - INFO - Loaded exact file: gold_data_unified/macro_full_dataset.csv
+2025-04-26 16:09:27,290 - GoldChatBot - INFO - All data loaded successfully
+2025-04-26 16:09:27,290 - GoldChatBot - INFO - Gold ChatBot initialized and data loaded
+2025-04-26 16:09:49,621 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-04-26 16:18:09,468 - GoldChatBot - INFO - Initializing Gold Data Loader with data directory: gold_data_unified
+2025-04-26 16:18:09,652 - GoldChatBot - INFO - GPT-4o Gold Advisor initialized
+2025-04-26 16:18:09,652 - GoldChatBot - INFO - Loading all gold data...
+2025-04-26 16:18:09,785 - GoldChatBot - INFO - Loaded exact file: gold_data_unified/gold_integrated_dataset.csv
+2025-04-26 16:18:10,011 - GoldChatBot - INFO - Loaded exact file: gold_data_unified/GC=F_1d_data.csv
+2025-04-26 16:18:10,359 - GoldChatBot - INFO - Loaded exact file: gold_data_unified/GLD_1d_data.csv
+2025-04-26 16:18:10,584 - GoldChatBot - INFO - Loaded latest file: gold_data_unified/macro_dollar_index_2025-04-26_15-52-35.csv
+2025-04-26 16:18:10,605 - GoldChatBot - INFO - Loaded exact file: gold_data_unified/fear_greed_cumulative.csv
+2025-04-26 16:18:10,717 - GoldChatBot - INFO - Loaded exact file: gold_data_unified/macro_full_dataset.csv
+2025-04-26 16:18:10,717 - GoldChatBot - INFO - All data loaded successfully
+2025-04-26 16:18:10,717 - GoldChatBot - INFO - Gold ChatBot initialized and data loaded
+2025-04-26 16:18:31,288 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-04-26 16:23:45,976 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"

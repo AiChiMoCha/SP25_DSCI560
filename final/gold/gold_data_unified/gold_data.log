@@ -1,0 +1,112 @@
+2025-04-26 15:14:18,606 - GoldDataCollector - INFO - 黄金市场宏观数据收集器已初始化
+2025-04-26 15:14:18,607 - GoldDataCollector - INFO - 未找到历史数据文件，将创建新文件
+2025-04-26 15:14:18,607 - GoldDataCollector - INFO - 黄金价格数据收集器已初始化
+2025-04-26 15:14:18,607 - GoldDataCollector - INFO - 开始收集宏观经济数据...
+2025-04-26 15:14:18,607 - GoldDataCollector - INFO - 开始收集宏观经济数据...
+2025-04-26 15:14:18,721 - GoldDataCollector - INFO - 美元指数数据已保存到 gold_data_unified/macro_dollar_index_2025-04-26_15-14-18.csv
+2025-04-26 15:14:19,009 - GoldDataCollector - INFO - 实际利率数据已保存到 gold_data_unified/macro_real_interest_rate_2025-04-26_15-14-18.csv
+2025-04-26 15:14:19,192 - GoldDataCollector - INFO - CPI数据已保存到 gold_data_unified/macro_cpi_2025-04-26_15-14-19.csv
+2025-04-26 15:14:19,341 - GoldDataCollector - INFO - PCE数据已保存到 gold_data_unified/macro_pce_2025-04-26_15-14-19.csv
+2025-04-26 15:14:19,669 - GoldDataCollector - INFO - 核心PCE数据已保存到 gold_data_unified/macro_core_pce_2025-04-26_15-14-19.csv
+2025-04-26 15:14:19,769 - GoldDataCollector - INFO - 联邦基金利率数据已保存到 gold_data_unified/macro_fed_funds_rate_2025-04-26_15-14-19.csv
+2025-04-26 15:14:19,863 - GoldDataCollector - INFO - 美联储资产负债表数据已保存到 gold_data_unified/macro_fed_assets_2025-04-26_15-14-19.csv
+2025-04-26 15:14:19,933 - GoldDataCollector - INFO - 综合宏观数据已保存到 gold_data_unified/macro_combined_data_2025-04-26_15-14-19.csv
+2025-04-26 15:14:19,933 - GoldDataCollector - INFO - 宏观经济数据收集完成
+2025-04-26 15:14:19,933 - GoldDataCollector - INFO - 开始收集黄金价格数据...
+2025-04-26 15:14:19,977 - GoldDataCollector - ERROR - 获取分钟级数据时发生错误: 'timestamp'
+2025-04-26 15:14:19,977 - GoldDataCollector - INFO - 获取GC=F从2024-04-26到2025-04-26的历史数据
+2025-04-26 15:14:20,111 - GoldDataCollector - INFO - 历史数据已保存到 gold_data_unified/price_GC=F_1d_2025-04-26_15-14-20.csv (251 条记录)
+2025-04-26 15:14:20,111 - GoldDataCollector - INFO - 获取GLD从2024-04-26到2025-04-26的历史数据
+2025-04-26 15:14:20,288 - GoldDataCollector - INFO - 历史数据已保存到 gold_data_unified/price_GLD_1d_2025-04-26_15-14-20.csv (250 条记录)
+2025-04-26 15:14:20,290 - GoldDataCollector - INFO - 获取DX-Y.NYB从2024-04-26到2025-04-26的历史数据
+2025-04-26 15:14:20,441 - GoldDataCollector - INFO - 历史数据已保存到 gold_data_unified/price_DX-Y.NYB_1d_2025-04-26_15-14-20.csv (251 条记录)
+2025-04-26 15:14:20,442 - GoldDataCollector - INFO - 创建合并数据集...
+2025-04-26 15:14:20,442 - GoldDataCollector - INFO - 获取GC=F的历史数据
+2025-04-26 15:14:20,442 - GoldDataCollector - INFO - 获取GC=F从2020-04-27到2025-04-26的历史数据
+2025-04-26 15:14:20,531 - GoldDataCollector - INFO - 历史数据已保存到 gold_data_unified/price_GC=F_1d_2025-04-26_15-14-20.csv (1258 条记录)
+2025-04-26 15:14:20,532 - GoldDataCollector - INFO - 获取GLD的历史数据
+2025-04-26 15:14:20,532 - GoldDataCollector - INFO - 获取GLD从2020-04-27到2025-04-26的历史数据
+2025-04-26 15:14:20,664 - GoldDataCollector - INFO - 历史数据已保存到 gold_data_unified/price_GLD_1d_2025-04-26_15-14-20.csv (1257 条记录)
+2025-04-26 15:14:20,665 - GoldDataCollector - INFO - 获取DX-Y.NYB的历史数据
+2025-04-26 15:14:20,665 - GoldDataCollector - INFO - 获取DX-Y.NYB从2020-04-27到2025-04-26的历史数据
+2025-04-26 15:14:20,846 - GoldDataCollector - INFO - 历史数据已保存到 gold_data_unified/price_DX-Y.NYB_1d_2025-04-26_15-14-20.csv (1258 条记录)
+2025-04-26 15:14:20,954 - GoldDataCollector - INFO - 合并的历史数据已保存到 gold_data_unified/price_consolidated_data_2025-04-26_15-14-20.csv (1523 条记录)
+2025-04-26 15:14:20,955 - GoldDataCollector - INFO - 数据收集完成，所有数据已保存到 gold_data_unified 目录
+2025-04-26 15:52:35,244 - GoldDataCollector - INFO - 黄金市场宏观数据收集器已初始化
+2025-04-26 15:52:35,291 - GoldDataCollector - INFO - 未找到历史数据文件，将创建新文件
+2025-04-26 15:52:35,291 - GoldDataCollector - INFO - 黄金价格数据收集器已初始化
+2025-04-26 15:52:35,291 - GoldDataCollector - INFO - CNN恐惧与贪婪指数爬虫已初始化
+2025-04-26 15:52:35,291 - GoldDataCollector - INFO - 开始收集宏观经济数据...
+2025-04-26 15:52:35,291 - GoldDataCollector - INFO - 开始收集宏观经济数据...
+2025-04-26 15:52:35,808 - GoldDataCollector - INFO - 美元指数数据已保存到 gold_data_unified/macro_dollar_index_2025-04-26_15-52-35.csv，包含 502 条记录
+2025-04-26 15:52:35,941 - GoldDataCollector - INFO - 实际利率数据已保存到 gold_data_unified/macro_real_interest_rate_2025-04-26_15-52-35.csv，包含 1304 条记录
+2025-04-26 15:52:36,132 - GoldDataCollector - INFO - CPI数据已保存到 gold_data_unified/macro_cpi_2025-04-26_15-52-36.csv，包含 60 条记录
+2025-04-26 15:52:36,274 - GoldDataCollector - INFO - PCE数据已保存到 gold_data_unified/macro_pce_2025-04-26_15-52-36.csv，包含 59 条记录
+2025-04-26 15:52:36,383 - GoldDataCollector - INFO - 核心PCE数据已保存到 gold_data_unified/macro_core_pce_2025-04-26_15-52-36.csv，包含 59 条记录
+2025-04-26 15:52:36,486 - GoldDataCollector - INFO - 联邦基金利率数据已保存到 gold_data_unified/macro_fed_funds_rate_2025-04-26_15-52-36.csv，包含 60 条记录
+2025-04-26 15:52:36,615 - GoldDataCollector - INFO - 美联储资产负债表数据已保存到 gold_data_unified/macro_fed_assets_2025-04-26_15-52-36.csv，包含 261 条记录
+2025-04-26 15:52:36,702 - GoldDataCollector - INFO - 综合宏观数据已保存到 gold_data_unified/macro_combined_data_2025-04-26_15-52-36.csv，包含 1823 条记录
+2025-04-26 15:52:36,762 - GoldDataCollector - INFO - 完整宏观数据集已保存到 gold_data_unified/macro_full_dataset.csv
+2025-04-26 15:52:36,794 - GoldDataCollector - INFO - 宏观经济数据收集完成
+2025-04-26 15:52:36,794 - GoldDataCollector - INFO - 开始收集黄金价格数据...
+2025-04-26 15:52:36,794 - GoldDataCollector - INFO - 开始收集黄金价格数据...
+2025-04-26 15:52:36,910 - GoldDataCollector - INFO - 获取到黄金现货价格: $3330.2
+2025-04-26 15:52:36,955 - GoldDataCollector - ERROR - 获取分钟级数据时发生错误: 'timestamp'
+2025-04-26 15:52:36,955 - GoldDataCollector - INFO - 获取GC=F从2020-04-27到2025-04-26的历史数据
+2025-04-26 15:52:37,092 - GoldDataCollector - INFO - 历史数据已保存到 gold_data_unified/price_GC=F_1d_2025-04-26_15-52-37.csv (1258 条记录)
+2025-04-26 15:52:37,157 - GoldDataCollector - INFO - 历史数据也保存到固定文件 gold_data_unified/GC=F_1d_data.csv
+2025-04-26 15:52:37,157 - GoldDataCollector - INFO - 获取GLD从2020-04-27到2025-04-26的历史数据
+2025-04-26 15:52:37,446 - GoldDataCollector - INFO - 历史数据已保存到 gold_data_unified/price_GLD_1d_2025-04-26_15-52-37.csv (1257 条记录)
+2025-04-26 15:52:37,516 - GoldDataCollector - INFO - 历史数据也保存到固定文件 gold_data_unified/GLD_1d_data.csv
+2025-04-26 15:52:37,517 - GoldDataCollector - INFO - 获取DX-Y.NYB从2020-04-27到2025-04-26的历史数据
+2025-04-26 15:52:37,638 - GoldDataCollector - INFO - 历史数据已保存到 gold_data_unified/price_DX-Y.NYB_1d_2025-04-26_15-52-37.csv (1258 条记录)
+2025-04-26 15:52:37,672 - GoldDataCollector - INFO - 历史数据也保存到固定文件 gold_data_unified/DX-Y.NYB_1d_data.csv
+2025-04-26 15:52:37,673 - GoldDataCollector - INFO - 获取IAU从2020-04-27到2025-04-26的历史数据
+2025-04-26 15:52:37,933 - GoldDataCollector - INFO - 历史数据已保存到 gold_data_unified/price_IAU_1d_2025-04-26_15-52-37.csv (1257 条记录)
+2025-04-26 15:52:37,969 - GoldDataCollector - INFO - 历史数据也保存到固定文件 gold_data_unified/IAU_1d_data.csv
+2025-04-26 15:52:37,969 - GoldDataCollector - INFO - 获取GC=F的历史数据
+2025-04-26 15:52:37,969 - GoldDataCollector - INFO - 获取GC=F从2020-04-27到2025-04-26的历史数据
+2025-04-26 15:52:38,174 - GoldDataCollector - INFO - 历史数据已保存到 gold_data_unified/price_GC=F_1d_2025-04-26_15-52-38.csv (1258 条记录)
+2025-04-26 15:52:38,199 - GoldDataCollector - INFO - 历史数据也保存到固定文件 gold_data_unified/GC=F_1d_data.csv
+2025-04-26 15:52:38,200 - GoldDataCollector - INFO - 获取GLD的历史数据
+2025-04-26 15:52:38,200 - GoldDataCollector - INFO - 获取GLD从2020-04-27到2025-04-26的历史数据
+2025-04-26 15:52:38,324 - GoldDataCollector - INFO - 历史数据已保存到 gold_data_unified/price_GLD_1d_2025-04-26_15-52-38.csv (1257 条记录)
+2025-04-26 15:52:38,998 - GoldDataCollector - INFO - 历史数据也保存到固定文件 gold_data_unified/GLD_1d_data.csv
+2025-04-26 15:52:38,998 - GoldDataCollector - INFO - 获取DX-Y.NYB的历史数据
+2025-04-26 15:52:38,999 - GoldDataCollector - INFO - 获取DX-Y.NYB从2020-04-27到2025-04-26的历史数据
+2025-04-26 15:52:39,288 - GoldDataCollector - INFO - 历史数据已保存到 gold_data_unified/price_DX-Y.NYB_1d_2025-04-26_15-52-39.csv (1258 条记录)
+2025-04-26 15:52:39,333 - GoldDataCollector - INFO - 历史数据也保存到固定文件 gold_data_unified/DX-Y.NYB_1d_data.csv
+2025-04-26 15:52:39,340 - GoldDataCollector - INFO - 正在检测列 GLD_premium_pct 中的异常值...
+2025-04-26 15:52:39,341 - GoldDataCollector - INFO - 检测到 0 个异常值
+2025-04-26 15:52:39,423 - GoldDataCollector - INFO - 合并的历史数据已保存到 gold_data_unified/price_consolidated_data_2025-04-26_15-52-39.csv (1523 条记录)
+2025-04-26 15:52:39,500 - GoldDataCollector - INFO - 合并的历史数据也保存到固定文件 gold_data_unified/gold_consolidated_data.csv
+2025-04-26 15:52:39,500 - GoldDataCollector - INFO - 分析黄金期货与ETF关系...
+2025-04-26 15:52:39,500 - GoldDataCollector - INFO - 获取GC=F从2020-04-27到2025-04-26的历史数据
+2025-04-26 15:52:39,657 - GoldDataCollector - INFO - 历史数据已保存到 gold_data_unified/price_GC=F_1d_2025-04-26_15-52-39.csv (1258 条记录)
+2025-04-26 15:52:39,682 - GoldDataCollector - INFO - 历史数据也保存到固定文件 gold_data_unified/GC=F_1d_data.csv
+2025-04-26 15:52:39,683 - GoldDataCollector - INFO - 获取GLD从2020-04-27到2025-04-26的历史数据
+2025-04-26 15:52:39,801 - GoldDataCollector - INFO - 历史数据已保存到 gold_data_unified/price_GLD_1d_2025-04-26_15-52-39.csv (1257 条记录)
+2025-04-26 15:52:40,778 - GoldDataCollector - INFO - 历史数据也保存到固定文件 gold_data_unified/GLD_1d_data.csv
+2025-04-26 15:52:40,778 - GoldDataCollector - INFO - 计算黄金ETF溢价率...
+2025-04-26 15:52:40,783 - GoldDataCollector - INFO - 正在检测列 premium_pct 中的异常值...
+2025-04-26 15:52:40,784 - GoldDataCollector - INFO - 检测到 43 个异常值
+2025-04-26 15:52:40,784 - GoldDataCollector - WARNING - 检测到 43 个异常溢价，可能表明市场不稳定或数据问题
+2025-04-26 15:52:40,784 - GoldDataCollector - INFO - ETF平均溢价率: -90.69%, 标准差: 0.10%
+2025-04-26 15:52:40,785 - GoldDataCollector - INFO - ETF溢价率范围: -91.05% to -90.16%
+2025-04-26 15:52:40,844 - GoldDataCollector - INFO - 黄金ETF溢价分析已保存到 gold_data_unified/analysis_gold_etf_premium_2025-04-26_15-52-40.csv
+2025-04-26 15:52:41,078 - GoldDataCollector - INFO - 黄金ETF溢价图表已保存到 gold_data_unified/gold_etf_premium_chart.png
+2025-04-26 15:52:41,097 - GoldDataCollector - INFO - 数据已保存到历史记录，当前有 1 条记录
+2025-04-26 15:52:41,097 - GoldDataCollector - INFO - 黄金价格数据收集完成
+2025-04-26 15:52:41,097 - GoldDataCollector - INFO - 开始收集市场情绪数据...
+2025-04-26 15:52:41,097 - GoldDataCollector - INFO - 开始收集CNN恐惧与贪婪指数数据...
+2025-04-26 15:52:41,120 - GoldDataCollector - INFO - API响应内容: {"fear_and_greed": {"score": 35.3428571428571, "rating": "fear", "timestamp": "2025-04-25T23:59:55+0...
+2025-04-26 15:52:41,123 - GoldDataCollector - INFO - 从API获取到恐惧与贪婪指数: 35.3428571428571 (fear)
+2025-04-26 15:52:41,135 - GoldDataCollector - INFO - 当前恐惧与贪婪指数数据已保存到 gold_data_unified/sentiment_fear_greed_current_2025-04-26_15-52-41.csv
+2025-04-26 15:52:41,175 - GoldDataCollector - INFO - 累积恐惧与贪婪指数数据已更新到 gold_data_unified/fear_greed_cumulative.csv
+2025-04-26 15:52:41,176 - GoldDataCollector - INFO - CNN恐惧与贪婪指数数据收集完成
+2025-04-26 15:52:41,176 - GoldDataCollector - INFO - 创建整合数据集...
+2025-04-26 15:52:41,176 - GoldDataCollector - INFO - 创建整合数据集...
+2025-04-26 15:52:41,199 - GoldDataCollector - INFO - 整合数据集创建完成，包含 1552 条记录
+2025-04-26 15:52:41,279 - GoldDataCollector - INFO - 整合数据集已保存到 gold_data_unified/analysis_integrated_dataset_2025-04-26_15-52-41.csv
+2025-04-26 15:52:41,402 - GoldDataCollector - INFO - 整合数据集已保存到 gold_data_unified/gold_integrated_dataset.csv
+2025-04-26 15:52:41,402 - GoldDataCollector - INFO - 数据收集与分析完成，所有数据已保存到 gold_data_unified 目录
